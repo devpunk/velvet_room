@@ -8,6 +8,7 @@
 
 /* Begin PBXFileReference section */
 		DA27F70D1F5788E300CCDDDB /* velvetRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = velvetRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA8B7DCC1F5789B3004EEE23 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -24,6 +25,7 @@
 		DA27F7041F5788E300CCDDDB = {
 			isa = PBXGroup;
 			children = (
+				DA8B7DCB1F5789B3004EEE23 /* Source */,
 				DA27F70E1F5788E300CCDDDB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -34,6 +36,14 @@
 				DA27F70D1F5788E300CCDDDB /* velvetRoom.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		DA8B7DCB1F5789B3004EEE23 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7DCC1F5789B3004EEE23 /* Info.plist */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -224,7 +234,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = velvetRoom/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -239,7 +249,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = velvetRoom/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
