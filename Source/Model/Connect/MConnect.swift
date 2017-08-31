@@ -1,6 +1,9 @@
 import Foundation
 
-class MConnect:Model
+class MConnect:Model<ArchConnect>
 {
-    
+    func shite()
+    {
+        
+    }
 }

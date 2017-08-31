@@ -1,10 +1,11 @@
 import Foundation
 
-class Model<V:ViewMain>
+class Model<A:Arch> where A.V:ViewMain
 {
-    weak var view:V?
+    weak var view:A.V?
     
     required init()
     {
     }
 }
+

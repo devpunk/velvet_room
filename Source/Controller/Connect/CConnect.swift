@@ -1,6 +1,5 @@
 import Foundation
 
-class CConnect:Controller
+class CConnect:Controller<ArchConnect>
 {
-    
 }
