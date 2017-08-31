@@ -1,16 +1,16 @@
 import UIKit
 
-class VCollection
-    <V, M, C:Controller<V, M>, Cell:UICollectionViewCell>:
-    View<V, M, C>,
+class VCollection<A, Cell:UICollectionViewCell>:
+    View<A>,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
     UICollectionViewDelegateFlowLayout
+    where A.C:Controller<A>
 {
     private(set) weak var collectionView:UICollectionView!
     private let kDeselectTime:TimeInterval = 0.3
     
-    required init(controller:C)
+    required init(controller:A.C)
     {
         super.init(controller:controller)
         
