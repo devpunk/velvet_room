@@ -88,12 +88,6 @@ class VToast:UIView
             margin:kLabelMargin)
     }
     
-    func alertTimeOut(sender timer:Timer?)
-    {
-        timer?.invalidate()
-        animate(open:false)
-    }
-    
     //MARK: selectors
     
     @objc
@@ -101,7 +95,14 @@ class VToast:UIView
     {
         button.isUserInteractionEnabled = false
         timer?.invalidate()
-        alertTimeOut(sender:timer)
+        selectorAlertTimeOut(sender:timer)
+    }
+    
+    @objc
+    private func selectorAlertTimeOut(sender timer:Timer?)
+    {
+        timer?.invalidate()
+        animate(open:false)
     }
     
     //MARK: private
@@ -111,7 +112,7 @@ class VToast:UIView
         self.timer = Timer.scheduledTimer(
             timeInterval:kTimeOut,
             target:self,
-            selector:#selector(alertTimeOut(sender:)),
+            selector:#selector(selectorAlertTimeOut(sender:)),
             userInfo:nil,
             repeats:false)
     }
