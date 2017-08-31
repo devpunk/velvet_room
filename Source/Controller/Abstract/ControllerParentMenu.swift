@@ -26,6 +26,7 @@ extension ControllerParent
     
     func menuSelected(item:MMenuItemProtocol)
     {
+        item.controller().init()
 //        let direction:ControllerParent.Horizontal = factoryDirection(
 //            item:item)
 //        let controller:UIViewController = item.selected()

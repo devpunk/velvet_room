@@ -13,9 +13,9 @@ extension MMenu
     
     //MARK: internal
     
-    class func factoryItems() -> [MMenuItem]
+    class func factoryItems() -> [MMenuItem<Any>]
     {
-        var items:[MMenuItem] = []
+        var items:[MMenuItem<Any>] = []
         /*let map:[MMenu.Order:MMenuItemProtocol.Type] = factoryOrderMap()
         
         for mapItem:(key:MMenu.Order, value:MMenuItemProtocol.Type) in map
