@@ -6,7 +6,7 @@ extension MMenu
     
     private class func factoryOrderMap() -> [MMenu.Order:MMenuItemProtocol.Type]
     {
-        let map:[MMenu.Order:MMenuItemProtocol.Type] = []
+        let map:[MMenu.Order:MMenuItemProtocol.Type] = [:]
         
         return map
     }
