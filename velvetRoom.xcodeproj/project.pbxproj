@@ -41,6 +41,17 @@
 		DA8B7E291F579344004EEE23 /* VMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E201F579344004EEE23 /* VMenu.swift */; };
 		DA8B7E2A1F579344004EEE23 /* VMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E211F579344004EEE23 /* VMenuCell.swift */; };
 		DA8B7E2B1F579344004EEE23 /* VMenuCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E221F579344004EEE23 /* VMenuCollection.swift */; };
+		DA8B7E381F579369004EEE23 /* VAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E2D1F579369004EEE23 /* VAlert.swift */; };
+		DA8B7E391F579369004EEE23 /* VBlur.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E2E1F579369004EEE23 /* VBlur.swift */; };
+		DA8B7E3A1F579369004EEE23 /* VBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E2F1F579369004EEE23 /* VBorder.swift */; };
+		DA8B7E3B1F579369004EEE23 /* VCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E301F579369004EEE23 /* VCollection.swift */; };
+		DA8B7E3C1F579369004EEE23 /* VCollectionFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E311F579369004EEE23 /* VCollectionFlow.swift */; };
+		DA8B7E3D1F579369004EEE23 /* VGradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E321F579369004EEE23 /* VGradient.swift */; };
+		DA8B7E3E1F579369004EEE23 /* VPushBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E331F579369004EEE23 /* VPushBackground.swift */; };
+		DA8B7E3F1F579369004EEE23 /* VSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E341F579369004EEE23 /* VSlider.swift */; };
+		DA8B7E401F579369004EEE23 /* VSliderBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E351F579369004EEE23 /* VSliderBar.swift */; };
+		DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E361F579369004EEE23 /* VSpinner.swift */; };
+		DA8B7E421F579369004EEE23 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E371F579369004EEE23 /* VToast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +93,17 @@
 		DA8B7E201F579344004EEE23 /* VMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMenu.swift; sourceTree = "<group>"; };
 		DA8B7E211F579344004EEE23 /* VMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMenuCell.swift; sourceTree = "<group>"; };
 		DA8B7E221F579344004EEE23 /* VMenuCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMenuCollection.swift; sourceTree = "<group>"; };
+		DA8B7E2D1F579369004EEE23 /* VAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VAlert.swift; sourceTree = "<group>"; };
+		DA8B7E2E1F579369004EEE23 /* VBlur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBlur.swift; sourceTree = "<group>"; };
+		DA8B7E2F1F579369004EEE23 /* VBorder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VBorder.swift; sourceTree = "<group>"; };
+		DA8B7E301F579369004EEE23 /* VCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollection.swift; sourceTree = "<group>"; };
+		DA8B7E311F579369004EEE23 /* VCollectionFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VCollectionFlow.swift; sourceTree = "<group>"; };
+		DA8B7E321F579369004EEE23 /* VGradient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VGradient.swift; sourceTree = "<group>"; };
+		DA8B7E331F579369004EEE23 /* VPushBackground.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VPushBackground.swift; sourceTree = "<group>"; };
+		DA8B7E341F579369004EEE23 /* VSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSlider.swift; sourceTree = "<group>"; };
+		DA8B7E351F579369004EEE23 /* VSliderBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSliderBar.swift; sourceTree = "<group>"; };
+		DA8B7E361F579369004EEE23 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
+		DA8B7E371F579369004EEE23 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -210,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8B7E171F579344004EEE23 /* Abstract */,
+				DA8B7E2C1F579369004EEE23 /* Basic */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -273,6 +296,24 @@
 				DA8B7E221F579344004EEE23 /* VMenuCollection.swift */,
 			);
 			path = Generic;
+			sourceTree = "<group>";
+		};
+		DA8B7E2C1F579369004EEE23 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7E2D1F579369004EEE23 /* VAlert.swift */,
+				DA8B7E2E1F579369004EEE23 /* VBlur.swift */,
+				DA8B7E2F1F579369004EEE23 /* VBorder.swift */,
+				DA8B7E301F579369004EEE23 /* VCollection.swift */,
+				DA8B7E311F579369004EEE23 /* VCollectionFlow.swift */,
+				DA8B7E321F579369004EEE23 /* VGradient.swift */,
+				DA8B7E331F579369004EEE23 /* VPushBackground.swift */,
+				DA8B7E341F579369004EEE23 /* VSlider.swift */,
+				DA8B7E351F579369004EEE23 /* VSliderBar.swift */,
+				DA8B7E361F579369004EEE23 /* VSpinner.swift */,
+				DA8B7E371F579369004EEE23 /* VToast.swift */,
+			);
+			path = Basic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -350,31 +391,42 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */,
+				DA8B7E381F579369004EEE23 /* VAlert.swift in Sources */,
 				DA8B7E0F1F57929C004EEE23 /* Controller.swift in Sources */,
 				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
 				DA8B7E251F579344004EEE23 /* ViewParent.swift in Sources */,
 				DA8B7E281F579344004EEE23 /* ViewProtocol.swift in Sources */,
 				DA8B7DFF1F579037004EEE23 /* ExtensionUIFont.swift in Sources */,
 				DA8B7E2B1F579344004EEE23 /* VMenuCollection.swift in Sources */,
+				DA8B7E3B1F579369004EEE23 /* VCollection.swift in Sources */,
 				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
 				DA8B7E271F579344004EEE23 /* ViewParentTransitions.swift in Sources */,
 				DA8B7E231F579344004EEE23 /* View.swift in Sources */,
+				DA8B7E401F579369004EEE23 /* VSliderBar.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
+				DA8B7E421F579369004EEE23 /* VToast.swift in Sources */,
+				DA8B7E391F579369004EEE23 /* VBlur.swift in Sources */,
+				DA8B7E3F1F579369004EEE23 /* VSlider.swift in Sources */,
 				DA8B7E291F579344004EEE23 /* VMenu.swift in Sources */,
 				DA8B7E001F579037004EEE23 /* ExtensionFileManager.swift in Sources */,
+				DA8B7E3E1F579369004EEE23 /* VPushBackground.swift in Sources */,
 				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
 				DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */,
 				DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */,
 				DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */,
+				DA8B7E3C1F579369004EEE23 /* VCollectionFlow.swift in Sources */,
 				DA8B7E161F579309004EEE23 /* Model.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
 				DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */,
+				DA8B7E3A1F579369004EEE23 /* VBorder.swift in Sources */,
+				DA8B7E3D1F579369004EEE23 /* VGradient.swift in Sources */,
 				DA8B7E2A1F579344004EEE23 /* VMenuCell.swift in Sources */,
 				DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */,
 				DA8B7E101F57929C004EEE23 /* ControllerParent.swift in Sources */,
