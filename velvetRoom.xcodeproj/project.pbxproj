@@ -25,6 +25,12 @@
 		DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF71F579037004EEE23 /* ExtensionNotification.swift */; };
 		DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF81F579037004EEE23 /* ExtensionData.swift */; };
 		DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF91F579037004EEE23 /* ExtensionUIColor.swift */; };
+		DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E081F57929B004EEE23 /* AppDelegate.swift */; };
+		DA8B7E0F1F57929C004EEE23 /* Controller.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E091F57929B004EEE23 /* Controller.swift */; };
+		DA8B7E101F57929C004EEE23 /* ControllerParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0A1F57929B004EEE23 /* ControllerParent.swift */; };
+		DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */; };
+		DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */; };
+		DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +56,12 @@
 		DA8B7DF71F579037004EEE23 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
 		DA8B7DF81F579037004EEE23 /* ExtensionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionData.swift; sourceTree = "<group>"; };
 		DA8B7DF91F579037004EEE23 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
+		DA8B7E081F57929B004EEE23 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DA8B7E091F57929B004EEE23 /* Controller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Controller.swift; sourceTree = "<group>"; };
+		DA8B7E0A1F57929B004EEE23 /* ControllerParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParent.swift; sourceTree = "<group>"; };
+		DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentMenu.swift; sourceTree = "<group>"; };
+		DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentOrientation.swift; sourceTree = "<group>"; };
+		DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentTransitions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +131,7 @@
 		DA8B7DD81F578E7C004EEE23 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B7E071F57929B004EEE23 /* Abstract */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -185,6 +198,19 @@
 				DA8B7DEB1F578F56004EEE23 /* LaunchScreen.storyboard */,
 			);
 			path = Assets;
+			sourceTree = "<group>";
+		};
+		DA8B7E071F57929B004EEE23 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7E081F57929B004EEE23 /* AppDelegate.swift */,
+				DA8B7E091F57929B004EEE23 /* Controller.swift */,
+				DA8B7E0A1F57929B004EEE23 /* ControllerParent.swift */,
+				DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */,
+				DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */,
+				DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */,
+			);
+			path = Abstract;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,10 +287,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */,
+				DA8B7E0F1F57929C004EEE23 /* Controller.swift in Sources */,
 				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
 				DA8B7DFF1F579037004EEE23 /* ExtensionUIFont.swift in Sources */,
+				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
 				DA8B7E001F579037004EEE23 /* ExtensionFileManager.swift in Sources */,
+				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
 				DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
@@ -274,6 +304,8 @@
 				DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
 				DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */,
+				DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */,
+				DA8B7E101F57929C004EEE23 /* ControllerParent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
