@@ -4,7 +4,7 @@ class MMenu
 {
     var selected:MMenu.Order
     let items:[MMenuItemProtocol]
-    private let kInitialSelected:MMenu.Order = MMenu.Order.home
+    private let kInitialSelected:MMenu.Order = MMenu.Order.connect
     
     init()
     {
