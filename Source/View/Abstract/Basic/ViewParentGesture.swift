@@ -4,7 +4,8 @@ extension ViewParent:UIGestureRecognizerDelegate
 {
     //MARK: selectors
     
-    func actionPanRecognized(sender panGesture:UIPanGestureRecognizer)
+    @objc
+    private func selectorPanRecognized(sender panGesture:UIPanGestureRecognizer)
     {
         let location:CGPoint = panGesture.location(in:self)
         let xPos:CGFloat = location.x
@@ -112,7 +113,7 @@ extension ViewParent:UIGestureRecognizerDelegate
     {
         let panRecognizer:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
-            action:#selector(actionPanRecognized(sender:)))
+            action:#selector(selectorPanRecognized(sender:)))
         panRecognizer.delegate = self
         self.panRecognizer = panRecognizer
         
