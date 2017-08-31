@@ -28,8 +28,7 @@ extension ControllerParent
     {
         let direction:ControllerParent.Horizontal = factoryDirection(
             item:item)
-        let controller:UIViewController = item.selected(
-            session:session)
+        let controller:UIViewController = item.selected()
         
         slideTo(
             horizontal:direction,
