@@ -1,7 +1,7 @@
 import UIKit
 
 class VCollection
-    <V:ViewMain, M:Model<V>, C:Controller<V, M>, Cell:UICollectionViewCell>:
+    <V, M, C:Controller<V, M>, Cell:UICollectionViewCell>:
     View<V, M, C>,
     UICollectionViewDelegate,
     UICollectionViewDataSource,
