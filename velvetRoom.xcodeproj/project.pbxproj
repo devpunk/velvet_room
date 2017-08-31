@@ -12,6 +12,19 @@
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
 		DA8B7DEA1F578F1B004EEE23 /* infoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DE81F578F1A004EEE23 /* infoPlist.strings */; };
 		DA8B7DEC1F578F56004EEE23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DEB1F578F56004EEE23 /* LaunchScreen.storyboard */; };
+		DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DED1F579035004EEE23 /* ExtensionNSManagedObject.swift */; };
+		DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DEE1F579036004EEE23 /* ExtensionUICollectionReusableView.swift */; };
+		DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DEF1F579036004EEE23 /* ExtensionURLResponse.swift */; };
+		DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF01F579036004EEE23 /* ExtensionNSLayoutConstraint.swift */; };
+		DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF11F579036004EEE23 /* ExtensionURL.swift */; };
+		DA8B7DFF1F579037004EEE23 /* ExtensionUIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF21F579036004EEE23 /* ExtensionUIFont.swift */; };
+		DA8B7E001F579037004EEE23 /* ExtensionFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF31F579036004EEE23 /* ExtensionFileManager.swift */; };
+		DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF41F579036004EEE23 /* ExtensionString.swift */; };
+		DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF51F579036004EEE23 /* ExtensionCGImage.swift */; };
+		DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF61F579037004EEE23 /* ExtensionDictionary.swift */; };
+		DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF71F579037004EEE23 /* ExtensionNotification.swift */; };
+		DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF81F579037004EEE23 /* ExtensionData.swift */; };
+		DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7DF91F579037004EEE23 /* ExtensionUIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +37,19 @@
 		DA8B7DE11F578E7C004EEE23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		DA8B7DE91F578F1A004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/infoPlist.strings; sourceTree = "<group>"; };
 		DA8B7DEB1F578F56004EEE23 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DA8B7DED1F579035004EEE23 /* ExtensionNSManagedObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSManagedObject.swift; sourceTree = "<group>"; };
+		DA8B7DEE1F579036004EEE23 /* ExtensionUICollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUICollectionReusableView.swift; sourceTree = "<group>"; };
+		DA8B7DEF1F579036004EEE23 /* ExtensionURLResponse.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURLResponse.swift; sourceTree = "<group>"; };
+		DA8B7DF01F579036004EEE23 /* ExtensionNSLayoutConstraint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNSLayoutConstraint.swift; sourceTree = "<group>"; };
+		DA8B7DF11F579036004EEE23 /* ExtensionURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionURL.swift; sourceTree = "<group>"; };
+		DA8B7DF21F579036004EEE23 /* ExtensionUIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIFont.swift; sourceTree = "<group>"; };
+		DA8B7DF31F579036004EEE23 /* ExtensionFileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionFileManager.swift; sourceTree = "<group>"; };
+		DA8B7DF41F579036004EEE23 /* ExtensionString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionString.swift; sourceTree = "<group>"; };
+		DA8B7DF51F579036004EEE23 /* ExtensionCGImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionCGImage.swift; sourceTree = "<group>"; };
+		DA8B7DF61F579037004EEE23 /* ExtensionDictionary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionDictionary.swift; sourceTree = "<group>"; };
+		DA8B7DF71F579037004EEE23 /* ExtensionNotification.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionNotification.swift; sourceTree = "<group>"; };
+		DA8B7DF81F579037004EEE23 /* ExtensionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionData.swift; sourceTree = "<group>"; };
+		DA8B7DF91F579037004EEE23 /* ExtensionUIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtensionUIColor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +148,19 @@
 		DA8B7DDC1F578E7C004EEE23 /* GenericExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B7DF51F579036004EEE23 /* ExtensionCGImage.swift */,
+				DA8B7DF81F579037004EEE23 /* ExtensionData.swift */,
+				DA8B7DF61F579037004EEE23 /* ExtensionDictionary.swift */,
+				DA8B7DF31F579036004EEE23 /* ExtensionFileManager.swift */,
+				DA8B7DF71F579037004EEE23 /* ExtensionNotification.swift */,
+				DA8B7DF01F579036004EEE23 /* ExtensionNSLayoutConstraint.swift */,
+				DA8B7DED1F579035004EEE23 /* ExtensionNSManagedObject.swift */,
+				DA8B7DF41F579036004EEE23 /* ExtensionString.swift */,
+				DA8B7DEE1F579036004EEE23 /* ExtensionUICollectionReusableView.swift */,
+				DA8B7DF91F579037004EEE23 /* ExtensionUIColor.swift */,
+				DA8B7DF21F579036004EEE23 /* ExtensionUIFont.swift */,
+				DA8B7DF11F579036004EEE23 /* ExtensionURL.swift */,
+				DA8B7DEF1F579036004EEE23 /* ExtensionURLResponse.swift */,
 			);
 			path = GenericExtensions;
 			sourceTree = "<group>";
@@ -180,6 +219,7 @@
 				TargetAttributes = {
 					DA27F70C1F5788E300CCDDDB = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -221,6 +261,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
+				DA8B7DFF1F579037004EEE23 /* ExtensionUIFont.swift in Sources */,
+				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
+				DA8B7E001F579037004EEE23 /* ExtensionFileManager.swift in Sources */,
+				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
+				DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */,
+				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
+				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
+				DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */,
+				DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */,
+				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
+				DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -372,12 +425,14 @@
 		DA27F7201F5788E300CCDDDB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -386,6 +441,7 @@
 		DA27F7211F5788E300CCDDDB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
 				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
