@@ -31,6 +31,7 @@
 		DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */; };
 		DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */; };
 		DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */; };
+		DA8B7E161F579309004EEE23 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E151F579308004EEE23 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentMenu.swift; sourceTree = "<group>"; };
 		DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentOrientation.swift; sourceTree = "<group>"; };
 		DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentTransitions.swift; sourceTree = "<group>"; };
+		DA8B7E151F579308004EEE23 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,11 +121,11 @@
 			isa = PBXGroup;
 			children = (
 				DA8B7DD81F578E7C004EEE23 /* Controller */,
+				DA8B7DDD1F578E7C004EEE23 /* Model */,
+				DA8B7DDE1F578E7C004EEE23 /* View */,
 				DA8B7DD91F578E7C004EEE23 /* CoreData */,
 				DA8B7DDA1F578E7C004EEE23 /* Firebase */,
 				DA8B7DDC1F578E7C004EEE23 /* GenericExtensions */,
-				DA8B7DDD1F578E7C004EEE23 /* Model */,
-				DA8B7DDE1F578E7C004EEE23 /* View */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -181,6 +183,7 @@
 		DA8B7DDD1F578E7C004EEE23 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B7E141F579308004EEE23 /* Abstract */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -209,6 +212,14 @@
 				DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */,
 				DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */,
 				DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA8B7E141F579308004EEE23 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7E151F579308004EEE23 /* Model.swift */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -302,6 +313,7 @@
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */,
 				DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */,
+				DA8B7E161F579309004EEE23 /* Model.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
 				DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */,
 				DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */,
