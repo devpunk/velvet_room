@@ -70,7 +70,7 @@ class VAlert:UIView
         button.backgroundColor = UIColor.clear
         button.addTarget(
             self,
-            action:#selector(actionButton(sender:)),
+            action:#selector(selectorActionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(label)
@@ -89,19 +89,21 @@ class VAlert:UIView
             margin:kLabelMargin)
     }
     
-    func alertTimeOut(sender timer:Timer?)
-    {
-        timer?.invalidate()
-        animate(open:false)
-    }
-    
     //MARK: selectors
     
-    func actionButton(sender button:UIButton)
+    @objc
+    private func selectorActionButton(sender button:UIButton)
     {
         button.isUserInteractionEnabled = false
         timer?.invalidate()
-        alertTimeOut(sender:timer)
+        selectorAlertTimeOut(sender:timer)
+    }
+    
+    @objc
+    private func selectorAlertTimeOut(sender timer:Timer?)
+    {
+        timer?.invalidate()
+        animate(open:false)
     }
     
     //MARK: private
@@ -111,7 +113,7 @@ class VAlert:UIView
         self.timer = Timer.scheduledTimer(
             timeInterval:kTimeOut,
             target:self,
-            selector:#selector(alertTimeOut(sender:)),
+            selector:#selector(selectorAlertTimeOut(sender:)),
             userInfo:nil,
             repeats:false)
     }
