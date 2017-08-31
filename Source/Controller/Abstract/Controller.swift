@@ -1,6 +1,6 @@
 import UIKit
 
-class Controller<V:ViewMain, M:Model<V>>:UIViewController
+class Controller<V, M:Model<V>>:UIViewController
 {
     let model:M
     
