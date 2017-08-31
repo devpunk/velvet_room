@@ -32,6 +32,15 @@
 		DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */; };
 		DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */; };
 		DA8B7E161F579309004EEE23 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E151F579308004EEE23 /* Model.swift */; };
+		DA8B7E231F579344004EEE23 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E191F579344004EEE23 /* View.swift */; };
+		DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E1A1F579344004EEE23 /* ViewMain.swift */; };
+		DA8B7E251F579344004EEE23 /* ViewParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E1B1F579344004EEE23 /* ViewParent.swift */; };
+		DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E1C1F579344004EEE23 /* ViewParentGesture.swift */; };
+		DA8B7E271F579344004EEE23 /* ViewParentTransitions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E1D1F579344004EEE23 /* ViewParentTransitions.swift */; };
+		DA8B7E281F579344004EEE23 /* ViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E1E1F579344004EEE23 /* ViewProtocol.swift */; };
+		DA8B7E291F579344004EEE23 /* VMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E201F579344004EEE23 /* VMenu.swift */; };
+		DA8B7E2A1F579344004EEE23 /* VMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E211F579344004EEE23 /* VMenuCell.swift */; };
+		DA8B7E2B1F579344004EEE23 /* VMenuCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E221F579344004EEE23 /* VMenuCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +73,15 @@
 		DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentOrientation.swift; sourceTree = "<group>"; };
 		DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllerParentTransitions.swift; sourceTree = "<group>"; };
 		DA8B7E151F579308004EEE23 /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		DA8B7E191F579344004EEE23 /* View.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DA8B7E1A1F579344004EEE23 /* ViewMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewMain.swift; sourceTree = "<group>"; };
+		DA8B7E1B1F579344004EEE23 /* ViewParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewParent.swift; sourceTree = "<group>"; };
+		DA8B7E1C1F579344004EEE23 /* ViewParentGesture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewParentGesture.swift; sourceTree = "<group>"; };
+		DA8B7E1D1F579344004EEE23 /* ViewParentTransitions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewParentTransitions.swift; sourceTree = "<group>"; };
+		DA8B7E1E1F579344004EEE23 /* ViewProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewProtocol.swift; sourceTree = "<group>"; };
+		DA8B7E201F579344004EEE23 /* VMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMenu.swift; sourceTree = "<group>"; };
+		DA8B7E211F579344004EEE23 /* VMenuCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMenuCell.swift; sourceTree = "<group>"; };
+		DA8B7E221F579344004EEE23 /* VMenuCollection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VMenuCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -191,6 +209,7 @@
 		DA8B7DDE1F578E7C004EEE23 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				DA8B7E171F579344004EEE23 /* Abstract */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -222,6 +241,38 @@
 				DA8B7E151F579308004EEE23 /* Model.swift */,
 			);
 			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA8B7E171F579344004EEE23 /* Abstract */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7E181F579344004EEE23 /* Basic */,
+				DA8B7E1F1F579344004EEE23 /* Generic */,
+			);
+			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA8B7E181F579344004EEE23 /* Basic */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7E191F579344004EEE23 /* View.swift */,
+				DA8B7E1A1F579344004EEE23 /* ViewMain.swift */,
+				DA8B7E1B1F579344004EEE23 /* ViewParent.swift */,
+				DA8B7E1C1F579344004EEE23 /* ViewParentGesture.swift */,
+				DA8B7E1D1F579344004EEE23 /* ViewParentTransitions.swift */,
+				DA8B7E1E1F579344004EEE23 /* ViewProtocol.swift */,
+			);
+			path = Basic;
+			sourceTree = "<group>";
+		};
+		DA8B7E1F1F579344004EEE23 /* Generic */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7E201F579344004EEE23 /* VMenu.swift */,
+				DA8B7E211F579344004EEE23 /* VMenuCell.swift */,
+				DA8B7E221F579344004EEE23 /* VMenuCollection.swift */,
+			);
+			path = Generic;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,9 +352,17 @@
 				DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */,
 				DA8B7E0F1F57929C004EEE23 /* Controller.swift in Sources */,
 				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
+				DA8B7E251F579344004EEE23 /* ViewParent.swift in Sources */,
+				DA8B7E281F579344004EEE23 /* ViewProtocol.swift in Sources */,
 				DA8B7DFF1F579037004EEE23 /* ExtensionUIFont.swift in Sources */,
+				DA8B7E2B1F579344004EEE23 /* VMenuCollection.swift in Sources */,
 				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
+				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
+				DA8B7E271F579344004EEE23 /* ViewParentTransitions.swift in Sources */,
+				DA8B7E231F579344004EEE23 /* View.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
+				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
+				DA8B7E291F579344004EEE23 /* VMenu.swift in Sources */,
 				DA8B7E001F579037004EEE23 /* ExtensionFileManager.swift in Sources */,
 				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
@@ -316,6 +375,7 @@
 				DA8B7E161F579309004EEE23 /* Model.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
 				DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */,
+				DA8B7E2A1F579344004EEE23 /* VMenuCell.swift in Sources */,
 				DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */,
 				DA8B7E101F57929C004EEE23 /* ControllerParent.swift in Sources */,
 			);
