@@ -58,6 +58,7 @@
 		DAEE160F1F5795CA00D9F6DD /* MMenuOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE160B1F5795CA00D9F6DD /* MMenuOrder.swift */; };
 		DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16111F579FB000D9F6DD /* CConnect.swift */; };
 		DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53B1F57A0860078A383 /* MConnect.swift */; };
+		DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53E1F57A0BE0078A383 /* VConnect.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +117,7 @@
 		DAEE160B1F5795CA00D9F6DD /* MMenuOrder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuOrder.swift; sourceTree = "<group>"; };
 		DAEE16111F579FB000D9F6DD /* CConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CConnect.swift; sourceTree = "<group>"; };
 		DAF8A53B1F57A0860078A383 /* MConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect.swift; sourceTree = "<group>"; };
+		DAF8A53E1F57A0BE0078A383 /* VConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnect.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +250,7 @@
 			children = (
 				DA8B7E171F579344004EEE23 /* Abstract */,
 				DA8B7E2C1F579369004EEE23 /* Basic */,
+				DAF8A53D1F57A0AE0078A383 /* Connect */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -358,6 +361,14 @@
 			path = Connect;
 			sourceTree = "<group>";
 		};
+		DAF8A53D1F57A0AE0078A383 /* Connect */ = {
+			isa = PBXGroup;
+			children = (
+				DAF8A53E1F57A0BE0078A383 /* VConnect.swift */,
+			);
+			path = Connect;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -453,6 +464,7 @@
 				DA8B7E401F579369004EEE23 /* VSliderBar.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
+				DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */,
 				DA8B7E421F579369004EEE23 /* VToast.swift in Sources */,
 				DA8B7E391F579369004EEE23 /* VBlur.swift in Sources */,
 				DA8B7E3F1F579369004EEE23 /* VSlider.swift in Sources */,
