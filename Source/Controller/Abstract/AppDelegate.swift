@@ -10,9 +10,6 @@ class AppDelegate:UIResponder, UIApplicationDelegate
         didFinishLaunchingWithOptions launchOptions:
         [UIApplicationLaunchOptionsKey:Any]?) -> Bool
     {
-        FirebaseConfiguration.shared.setLoggerLevel(FirebaseLoggerLevel.min)
-        FirebaseApp.configure()
-        
         let window:UIWindow = UIWindow(frame:UIScreen.main.bounds)
         window.backgroundColor = UIColor.white
         window.makeKeyAndVisible()
