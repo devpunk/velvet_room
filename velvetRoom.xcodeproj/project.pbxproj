@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DA16C7091F5888CF0062D37A /* MMenuItemConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */; };
+		DA16C70B1F5898410062D37A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA16C70A1F5898410062D37A /* generic.xcassets */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -66,6 +67,8 @@
 
 /* Begin PBXFileReference section */
 		DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMenuItemConnect.swift; sourceTree = "<group>"; };
+		DA16C70A1F5898410062D37A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
+		DA16C70C1F5898830062D37A /* velvetRoom.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = velvetRoom.sketch; sourceTree = "<group>"; };
 		DA27F70D1F5788E300CCDDDB /* velvetRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = velvetRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
@@ -173,6 +176,7 @@
 		DA8B7DD61F578E7C004EEE23 /* Design */ = {
 			isa = PBXGroup;
 			children = (
+				DA16C70C1F5898830062D37A /* velvetRoom.sketch */,
 			);
 			path = Design;
 			sourceTree = "<group>";
@@ -266,6 +270,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8B7DEB1F578F56004EEE23 /* LaunchScreen.storyboard */,
+				DA16C70A1F5898410062D37A /* generic.xcassets */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -448,6 +453,7 @@
 				DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */,
 				DA8B7DEA1F578F1B004EEE23 /* infoPlist.strings in Resources */,
 				DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */,
+				DA16C70B1F5898410062D37A /* generic.xcassets in Resources */,
 				DA8B7DEC1F578F56004EEE23 /* LaunchScreen.storyboard in Resources */,
 				DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */,
 			);
