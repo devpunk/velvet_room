@@ -7,5 +7,5 @@ protocol MMenuItemProtocol
     
     init(order:MMenu.Order)
     
-    func selected(session:MSession) -> UIViewController
+    func selected() -> UIViewController
 }
