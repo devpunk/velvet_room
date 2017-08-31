@@ -25,16 +25,39 @@ extension ControllerParent
     
     //MARK: internal
     
+    func selectedController() -> UIViewController?
+    {
+        guard
+            
+            let item:MMenuItemProtocol = menu.selectedItem()
+        
+        else
+        {
+            return nil
+        }
+        
+        let controller:UIViewController = item.controllerType.init()
+        
+        return controller
+    }
+    
     func menuSelected(item:MMenuItemProtocol)
     {
         let direction:ControllerParent.Horizontal = factoryDirection(
             item:item)
-        let controller:UIViewController = item.controllerType.init()
+        menu.selected = item.order
+        
+        guard
+            
+            let controller:UIViewController = selectedController()
+        
+        else
+        {
+            return
+        }
         
         slideTo(
             horizontal:direction,
             controller:controller)
-        
-        menu.selected = item.order
     }
 }

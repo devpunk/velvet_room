@@ -20,6 +20,17 @@ class ControllerParent:UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        
+        guard
+            
+            let controller:UIViewController = selectedController()
+            
+        else
+        {
+            return
+        }
+        
+        mainController(controller:controller)
     }
     
     override func loadView()

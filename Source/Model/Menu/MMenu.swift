@@ -11,4 +11,19 @@ class MMenu
         selected = kInitialSelected
         items = MMenu.factoryItems()
     }
+    
+    //MARK: internal
+    
+    func selectedItem() -> MMenuItemProtocol?
+    {
+        for item:MMenuItemProtocol in items
+        {
+            if item.order == selected
+            {
+                return item
+            }
+        }
+        
+        return nil
+    }
 }
