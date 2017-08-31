@@ -23,6 +23,8 @@ class Controller<V:ViewMain, M:Model<V>>:UIViewController
     
     init()
     {
+        model = M()
+        
         super.init(nibName:nil, bundle:nil)
     }
     
