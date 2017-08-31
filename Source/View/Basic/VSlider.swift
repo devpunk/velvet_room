@@ -61,7 +61,7 @@ class VSlider:UIView, UIGestureRecognizerDelegate
         
         let gesture:UIPanGestureRecognizer = UIPanGestureRecognizer(
             target:self,
-            action:#selector(actionPanning(sender:)))
+            action:#selector(selectorPanning(sender:)))
         gesture.delegate = self
         
         addGestureRecognizer(gesture)
@@ -80,7 +80,8 @@ class VSlider:UIView, UIGestureRecognizerDelegate
     
     //MARK: selectors
     
-    func actionPanning(sender gesture:UIPanGestureRecognizer)
+    @objc
+    private func selectorPanning(sender gesture:UIPanGestureRecognizer)
     {
         switch gesture.state
         {
