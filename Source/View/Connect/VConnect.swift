@@ -9,6 +9,9 @@ class VConnect:ViewMain
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("Connect", for:UIControlState.normal)
+        button.setTitleColor(
+            UIColor.black,
+            for:UIControlState.normal)
         button.addTarget(
             self,
             action:#selector(selectorActionButton(sender:)),
