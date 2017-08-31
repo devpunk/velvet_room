@@ -3,7 +3,7 @@ import Foundation
 class MMenu
 {
     var selected:MMenu.Order
-    let items:[MMenuItem<Any>]
+    let items:[MMenuItemProtocol]
     private let kInitialSelected:MMenu.Order = MMenu.Order.connect
     
     init()

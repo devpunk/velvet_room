@@ -3,34 +3,25 @@ import Foundation
 extension MMenu
 {
     //MARK: private
-    /*
-    private class func factoryOrderMap() -> [MMenu.Order:MMenuItemProtocol.Type]
+    
+    private class func factoryItemsList() -> [MMenuItemProtocol]
     {
-        let map:[MMenu.Order:MMenuItemProtocol.Type] = [:]
+        let map:[MMenuItemProtocol] = []
         
         return map
-    }*/
+    }
     
     //MARK: internal
     
-    class func factoryItems() -> [MMenuItem<Any>]
+    class func factoryItems() -> [MMenuItemProtocol]
     {
-        var items:[MMenuItem<Any>] = []
-        /*let map:[MMenu.Order:MMenuItemProtocol.Type] = factoryOrderMap()
-        
-        for mapItem:(key:MMenu.Order, value:MMenuItemProtocol.Type) in map
-        {
-            let order:MMenu.Order = mapItem.key
-            let itemType:MMenuItemProtocol.Type = mapItem.value
-//            let item:MMenuItemProtocol = itemType.init(order:order)
-//            items.append(item)
-        }
+        var items:[MMenuItemProtocol] = factoryItemsList()
         
         items.sort
         { (itemA:MMenuItemProtocol, itemB:MMenuItemProtocol) -> Bool in
             
             return itemA.order.rawValue < itemB.order.rawValue
-        }*/
+        }
         
         return items
     }
