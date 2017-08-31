@@ -21,10 +21,8 @@ class Controller<V:ViewMain, M:Model<V>>:UIViewController
         }
     }
     
-    init(session:MSession)
+    init()
     {
-        model = M(session:session)
-        
         super.init(nibName:nil, bundle:nil)
     }
     

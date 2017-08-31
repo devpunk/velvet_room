@@ -4,11 +4,9 @@ class ControllerParent:UIViewController
 {
     var orientation:UIInterfaceOrientationMask
     let menu:MMenu
-    let session:MSession
     
     init()
     {
-        session = MSession()
         menu = MMenu()
         orientation = UIInterfaceOrientationMask.portrait
         super.init(nibName:nil, bundle:nil)
@@ -22,9 +20,6 @@ class ControllerParent:UIViewController
     override func viewDidLoad()
     {
         super.viewDidLoad()
-
-        let controller:CHome = CHome(session:session)
-        mainController(controller:controller)
     }
     
     override func loadView()
