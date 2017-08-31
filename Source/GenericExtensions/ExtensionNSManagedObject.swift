@@ -7,7 +7,7 @@ extension NSManagedObject
     {
         get
         {
-            let stringName:String = String(describing:type(of:self))
+            let stringName:String = String(describing:self)
             
             return stringName
         }

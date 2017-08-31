@@ -2,11 +2,11 @@ import UIKit
 
 extension UICollectionReusableView
 {
-    class var reusableIdentifier:String
+    open class var reusableIdentifier:String
     {
         get
         {
-            let stringName:String = String(describing:type(of:self))
+            let stringName:String = String(describing:self)
             
             return stringName
         }
