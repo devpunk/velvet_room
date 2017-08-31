@@ -73,7 +73,7 @@ class VToast:UIView
         button.backgroundColor = UIColor.clear
         button.addTarget(
             self,
-            action:#selector(actionButton(sender:)),
+            action:#selector(selectorActionButton(sender:)),
             for:UIControlEvents.touchUpInside)
         
         addSubview(label)
@@ -96,7 +96,8 @@ class VToast:UIView
     
     //MARK: selectors
     
-    func actionButton(sender button:UIButton)
+    @objc
+    private func selectorActionButton(sender button:UIButton)
     {
         button.isUserInteractionEnabled = false
         timer?.invalidate()
