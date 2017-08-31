@@ -8,4 +8,3 @@ class Model<A:Arch> where A.V:ViewMain
     {
     }
 }
-
