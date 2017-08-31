@@ -6,9 +6,17 @@ protocol MMenuItemProtocol
     
     var icon:UIImage { get }
     var order:MMenu.Order { get }
-    var controller:Controller<A> { get }
+    var controllerType:Controller<A>.Type { get }
+}
+
+class MMenuItem
+{
+    let icon:UIImage
+    let order:MMenu.Order
     
-    init(order:MMenu.Order)
-    
-    func selected() -> UIViewController
+    init<I:MMenuItemProtocol>(item:I)
+    {
+        icon = item.icon
+        order = item.order
+    }
 }
