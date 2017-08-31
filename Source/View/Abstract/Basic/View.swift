@@ -1,6 +1,6 @@
 import UIKit
 
-class View<V:ViewMain, M:Model<V>, C:Controller<V, M>>:UIView
+class View<V, M, C:Controller<V, M>>:UIView
 {
     private(set) weak var controller:C!
     
