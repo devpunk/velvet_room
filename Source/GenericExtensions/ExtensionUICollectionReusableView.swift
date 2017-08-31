@@ -6,8 +6,7 @@ extension UICollectionReusableView
     {
         get
         {
-            let classType:AnyClass = object_getClass(self)
-            let stringName:String = NSStringFromClass(classType)
+            let stringName:String = String(describing:type(of:self))
             
             return stringName
         }
