@@ -6,9 +6,20 @@
 	objectVersion = 48;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
+		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
+		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		DA27F70D1F5788E300CCDDDB /* velvetRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = velvetRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA8B7DCC1F5789B3004EEE23 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
+		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
+		DA8B7DD51F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableView.strings; sourceTree = "<group>"; };
+		DA8B7DE01F578E7C004EEE23 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA8B7DE11F578E7C004EEE23 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,7 +36,13 @@
 		DA27F7041F5788E300CCDDDB = {
 			isa = PBXGroup;
 			children = (
-				DA8B7DCB1F5789B3004EEE23 /* Source */,
+				DA8B7DDF1F578E7C004EEE23 /* Assets */,
+				DA8B7DD61F578E7C004EEE23 /* Design */,
+				DA8B7DCF1F578E7C004EEE23 /* Resources */,
+				DA8B7DD71F578E7C004EEE23 /* Source */,
+				DA8B7DE01F578E7C004EEE23 /* Info.plist */,
+				DA8B7DCE1F578E7C004EEE23 /* LICENSE */,
+				DA8B7DE11F578E7C004EEE23 /* README.md */,
 				DA27F70E1F5788E300CCDDDB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -38,12 +55,91 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		DA8B7DCB1F5789B3004EEE23 /* Source */ = {
+		DA8B7DCF1F578E7C004EEE23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA8B7DCC1F5789B3004EEE23 /* Info.plist */,
+				DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */,
+				DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */,
+				DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DA8B7DD61F578E7C004EEE23 /* Design */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		DA8B7DD71F578E7C004EEE23 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7DD81F578E7C004EEE23 /* Controller */,
+				DA8B7DD91F578E7C004EEE23 /* CoreData */,
+				DA8B7DDA1F578E7C004EEE23 /* Firebase */,
+				DA8B7DDC1F578E7C004EEE23 /* GenericExtensions */,
+				DA8B7DDD1F578E7C004EEE23 /* Model */,
+				DA8B7DDE1F578E7C004EEE23 /* View */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		DA8B7DD81F578E7C004EEE23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DA8B7DD91F578E7C004EEE23 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		DA8B7DDA1F578E7C004EEE23 /* Firebase */ = {
+			isa = PBXGroup;
+			children = (
+				DA8B7DDB1F578E7C004EEE23 /* Database */,
+			);
+			path = Firebase;
+			sourceTree = "<group>";
+		};
+		DA8B7DDB1F578E7C004EEE23 /* Database */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		DA8B7DDC1F578E7C004EEE23 /* GenericExtensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = GenericExtensions;
+			sourceTree = "<group>";
+		};
+		DA8B7DDD1F578E7C004EEE23 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DA8B7DDE1F578E7C004EEE23 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DA8B7DDF1F578E7C004EEE23 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -104,6 +200,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */,
+				DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */,
+				DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,6 +217,33 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA8B7DD11F578E7C004EEE23 /* en */,
+			);
+			name = LocalizableController.strings;
+			sourceTree = "<group>";
+		};
+		DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA8B7DD31F578E7C004EEE23 /* en */,
+			);
+			name = LocalizableModel.strings;
+			sourceTree = "<group>";
+		};
+		DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DA8B7DD51F578E7C004EEE23 /* en */,
+			);
+			name = LocalizableView.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		DA27F71D1F5788E300CCDDDB /* Debug */ = {
@@ -232,7 +358,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -246,7 +372,7 @@
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
-				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
