@@ -157,9 +157,12 @@ open class UDPBroadcastConnection {
         guard let source = responseSource else { return }
         let UDPSocket = Int32(source.handle)
         message.withCString { broadcastMessage in
+            
+            let len = address.sin_len
+            
             let broadcastMessageLength = Int(strlen(broadcastMessage) + 1) // We need to include the 0 byte to terminate the C-String
             let sent = withUnsafePointer(to: &address) {
-                sendto(UDPSocket, broadcastMessage, broadcastMessageLength, 0, UnsafeRawPointer($0).bindMemory(to: sockaddr.self, capacity: 1), socklen_t(address.sin_len))
+                sendto(UDPSocket, broadcastMessage, broadcastMessageLength, 0, UnsafeRawPointer($0).bindMemory(to: sockaddr.self, capacity: 1), socklen_t(len))
             }
             
             guard sent > 0 else {
