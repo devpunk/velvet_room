@@ -29,6 +29,8 @@ open class UDPBroadcastConnection {
     /// A dispatch source for reading data from the UDP socket.
     var responseSource: DispatchSourceRead?
     
+    var otherSource:DispatchSourceSignal?
+    
     
     // MARK: Initializers
     
@@ -49,6 +51,8 @@ open class UDPBroadcastConnection {
         )
         
         self.handler = handler
+        
+        createSocket()
     }
     
     deinit {
@@ -83,8 +87,13 @@ open class UDPBroadcastConnection {
         // Disable global SIGPIPE handler so that the app doesn't crash
         setNoSigPipe(socket: newSocket)
         
+        otherSource = DispatchSource.makeSignalSource(signal:newSocket)
+        otherSource?.setEventHandler(handler: {
+            print("signaled")
+        })
+        
         // Set up a dispatch source
-        let newResponseSource = DispatchSource.makeReadSource(fileDescriptor: newSocket, queue: DispatchQueue.main)
+        let newResponseSource = DispatchSource.makeReadSource(fileDescriptor: newSocket, queue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
         // Set up cancel handler
         newResponseSource.setCancelHandler {
@@ -92,6 +101,9 @@ open class UDPBroadcastConnection {
             let UDPSocket = Int32(newResponseSource.handle)
             shutdown(UDPSocket, SHUT_RDWR)
             close(UDPSocket)
+        }
+        newResponseSource.setRegistrationHandler {
+            print("registration")
         }
         
         // Set up event handler (gets called when data arrives at the UDP socket)
