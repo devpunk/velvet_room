@@ -2,6 +2,9 @@ import UIKit
 
 class MConnect:Model<ArchConnect>
 {
+    var broadcastConnection: UDPBroadcastConnection?
+    let requestPort:UInt16 = 9309
+    
     func startWireless()
     {
         print("start wireless")
@@ -18,6 +21,12 @@ class MConnect:Model<ArchConnect>
         }
         
         print(hostName)
+        
+        broadcastConnection = UDPBroadcastConnection(port:requestPort)
+        { (ipAddress:String, port:Int, response:[UInt8]) in
+         
+            print("Received from \(ipAddress):\(port):\n\n\(response)")
+        }
     }
     
     func getHostName() -> String
@@ -57,5 +66,15 @@ class MConnect:Model<ArchConnect>
         freeifaddrs(ifaddr)
         
         return address
+    }
+}
+
+class connection
+{
+    var response_source:DispatchSource?
+    
+    deinit
+    {
+        response_source?.cancel()
     }
 }
