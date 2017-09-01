@@ -22,6 +22,7 @@ open class UDPBroadcastConnection {
     
     /// The address of the UDP socket.
     var address: sockaddr_in
+    var si_host: sockaddr_in
     
     /// Closure that handles incoming UDP packets.
     var handler: ((_ ipAddress: String, _ port: Int, _ response: [UInt8]) -> Void)?
@@ -52,7 +53,15 @@ open class UDPBroadcastConnection {
         
         self.handler = handler
         
-        createSocket()
+        si_host = sockaddr_in(
+            sin_len:    __uint8_t(MemoryLayout<sockaddr_in>.size),
+            sin_family: sa_family_t(AF_INET),
+            sin_port:   UDPBroadcastConnection.htonsPort(port: port),
+            sin_addr:   INADDR_ANY,
+            sin_zero:   ( 0, 0, 0, 0, 0, 0, 0, 0 )
+        )
+        
+        createSocket2()
     }
     
     deinit {
@@ -152,6 +161,98 @@ open class UDPBroadcastConnection {
         return true
     }
     
+    fileprivate func createSocket2() -> Bool {
+        
+        // Create new socket
+        let newSocket: Int32 = socket(AF_INET, SOCK_STREAM, 0)
+        var c_sock: Int32
+        guard newSocket > 0 else { return false }
+        
+        var socketAddress = sockaddr_in()
+
+        withUnsafePointer(to: &si_host)
+        { sockaddrInPtr in
+            let sockaddrPtr = UnsafeRawPointer(sockaddrInPtr).assumingMemoryBound(to: sockaddr.self)
+            
+            if (bind(newSocket, sockaddrPtr, UInt32(MemoryLayout<sockaddr_in>.size)) < 0)
+            {
+                print("cannot bind server socket\n")
+            }
+            
+            if (listen(newSocket, SOMAXCONN) < 0)
+            {
+                print("cannot listen on server socket\n")
+            }
+            
+            // Set up a dispatch source
+            let newResponseSource = DispatchSource.makeReadSource(fileDescriptor: newSocket, queue: DispatchQueue.main)
+            
+            // Set up cancel handler
+            newResponseSource.setCancelHandler {
+                print("Closing UDP socket")
+                let UDPSocket = Int32(newResponseSource.handle)
+                shutdown(UDPSocket, SHUT_RDWR)
+                close(UDPSocket)
+            }
+            
+            newResponseSource.setRegistrationHandler {
+                print("register shite")
+            }
+            
+            otherSource = DispatchSource.makeSignalSource(signal:newSocket)
+            otherSource?.setEventHandler(handler: {
+                print("signaled")
+            })
+            
+            // Set up event handler (gets called when data arrives at the UDP socket)
+            newResponseSource.setEventHandler { [unowned self] in
+                guard let source = self.responseSource else { return }
+                
+                var socketAddress = sockaddr_storage()
+                var socketAddressLength = socklen_t(MemoryLayout<sockaddr_storage>.size)
+                let response = [UInt8](repeating: 0, count: 4096)
+                let UDPSocket = Int32(source.handle)
+                
+                let bytesRead = withUnsafeMutablePointer(to: &socketAddress) {
+                    recvfrom(UDPSocket, UnsafeMutableRawPointer(mutating: response), response.count, 0, UnsafeMutableRawPointer($0).bindMemory(to: sockaddr.self, capacity: 1), &socketAddressLength)
+                }
+                
+                guard bytesRead >= 0 else {
+                    if let errorString = String(validatingUTF8: strerror(errno)) {
+                        print("recvfrom failed: \(errorString)")
+                    }
+                    self.closeConnection()
+                    return
+                }
+                
+                guard bytesRead > 0 else {
+                    print("recvfrom returned EOF")
+                    self.closeConnection()
+                    return
+                }
+                
+                guard let endpoint = withUnsafePointer(to: &socketAddress, { self.getEndpointFromSocketAddress(socketAddressPointer: UnsafeRawPointer($0).bindMemory(to: sockaddr.self, capacity: 1)) })
+                    else {
+                        print("Failed to get the address and port from the socket address received from recvfrom")
+                        self.closeConnection()
+                        return
+                }
+                
+                print("UDP connection received \(bytesRead) bytes from \(endpoint.host):\(endpoint.port)")
+                
+                // Handle response
+                self.handler?(endpoint.host, endpoint.port, response)
+            }
+            
+            newResponseSource.resume()
+            responseSource = newResponseSource
+        }
+        
+        
+        
+        return true
+    }
+    
     /**
      Send broadcast message.
      
@@ -160,7 +261,7 @@ open class UDPBroadcastConnection {
     open func sendBroadcast(_ message: String) {
         
         if responseSource == nil {
-            guard createSocket() else {
+            guard createSocket2() else {
                 print("UDP ServerConnection initialization failed.")
                 return
             }
@@ -170,10 +271,10 @@ open class UDPBroadcastConnection {
         let UDPSocket = Int32(source.handle)
         message.withCString { broadcastMessage in
             
-            let len = address.sin_len
+            let len = si_host.sin_len
             
             let broadcastMessageLength = Int(strlen(broadcastMessage) + 1) // We need to include the 0 byte to terminate the C-String
-            let sent = withUnsafePointer(to: &address) {
+            let sent = withUnsafePointer(to: &si_host) {
                 sendto(UDPSocket, broadcastMessage, broadcastMessageLength, 0, UnsafeRawPointer($0).bindMemory(to: sockaddr.self, capacity: 1), socklen_t(len))
             }
             
