@@ -1,10 +1,12 @@
-import Foundation
+import UIKit
 
 class MConnect:Model<ArchConnect>
 {
     func startWireless()
     {
         print("start wireless")
+     
+        let hostName:String = getHostName()
         
         guard
         
@@ -15,9 +17,13 @@ class MConnect:Model<ArchConnect>
             return
         }
         
-        
+        print(hostName)
     }
     
+    func getHostName() -> String
+    {
+        return UIDevice.current.name
+    }
     
     func getWiFiAddress() -> String? {
         var address : String?
