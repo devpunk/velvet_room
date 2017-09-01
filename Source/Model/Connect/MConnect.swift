@@ -4,12 +4,19 @@ class MConnect:Model<ArchConnect>
 {
     var broadcastConnection: UDPBroadcastConnection?
     let requestPort:UInt16 = 9309
-    
+
     func startWireless()
     {
-        print("start wireless")
-     
         let hostName:String = getHostName()
+        var reply:String = "HTTP/1.1 200 OK\r\n"
+        reply.append("host-id:123456789012345678901234567890123456\r\n")
+        reply.append("host-type:win\r\n")
+        reply.append("host-name:vaux\r\n")
+        reply.append("host-mtp-protocol-version:01500010\r\n")
+        reply.append("host-request-port:9309\r\n")
+        reply.append("host-wireless-protocol-version:01000000\r\n")
+        reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
+        reply.append("\0")
         
         guard
         
@@ -20,7 +27,18 @@ class MConnect:Model<ArchConnect>
             return
         }
         
+        print(ip)
+        
         print(hostName)
+        
+        if broadcastConnection != nil
+        {
+            print("connection working")
+            
+            broadcastConnection?.sendBroadcast(reply)
+            
+            return
+        }
         
         broadcastConnection = UDPBroadcastConnection(port:requestPort)
         { (ipAddress:String, port:Int, response:[UInt8]) in
