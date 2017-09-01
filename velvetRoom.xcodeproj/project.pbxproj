@@ -70,6 +70,7 @@
 		DA16C70A1F5898410062D37A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA16C70C1F5898830062D37A /* velvetRoom.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = velvetRoom.sketch; sourceTree = "<group>"; };
 		DA27F70D1F5788E300CCDDDB /* velvetRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = velvetRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA4A3C351F59BF3A001E4B9C /* velvetRoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "velvetRoom-Bridging-Header.h"; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -284,6 +285,7 @@
 				DA8B7E0B1F57929B004EEE23 /* ControllerParentMenu.swift */,
 				DA8B7E0C1F57929B004EEE23 /* ControllerParentOrientation.swift */,
 				DA8B7E0D1F57929B004EEE23 /* ControllerParentTransitions.swift */,
+				DA4A3C351F59BF3A001E4B9C /* velvetRoom-Bridging-Header.h */,
 			);
 			path = Abstract;
 			sourceTree = "<group>";
@@ -674,6 +676,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Controller/Abstract/velvetRoom-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -690,6 +693,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.velvetRoom;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Source/Controller/Abstract/velvetRoom-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
