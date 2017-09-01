@@ -34,6 +34,15 @@ class VConnect:ViewMain
     @objc
     private func selectorActionButton(sender button:UIButton)
     {
+        guard
         
+            let controller:CConnect = self.controller as? CConnect
+        
+        else
+        {
+            return
+        }
+        
+        controller.model.startWireless()
     }
 }
