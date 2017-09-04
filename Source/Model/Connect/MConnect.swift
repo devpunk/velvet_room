@@ -94,7 +94,58 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        print("did receive from: \(host) \(port)")
         print(receivingString)
+        
+        if isInitialConnect(message:receivingString)
+        {
+            print("is initial")
+            
+            guard
+                
+                let replyData:Data = reply()
+            
+            else
+            {
+                print("error reply data")
+                return
+            }
+            
+            sock.send(replyData, toAddress:address, withTimeout:100000, tag:999)
+        }
+    }
+    
+    //MARK: -
+    
+    func reply() -> Data?
+    {
+        var reply:String = "HTTP/1.1 200 OK\r\n"
+        reply.append("host-id:123456789012345678901234567890123456\r\n")
+        reply.append("host-type:win\r\n")
+        reply.append("host-name:vaux\r\n")
+        reply.append("host-mtp-protocol-version:01500010\r\n")
+        reply.append("host-request-port:9309\r\n")
+        reply.append("host-wireless-protocol-version:01000000\r\n")
+        reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
+        reply.append("\0")
+        
+        let data:Data? = reply.data(
+        using:String.Encoding.utf8, allowLossyConversion:false)
+        
+        return data
+    }
+    
+    func isInitialConnect(message:String) -> Bool
+    {
+        guard
+        
+            message.starts(with:"SRCH"),
+            message.contains(" * HTTP/1.1\r\n")
+        
+        else
+        {
+            return false
+        }
+        
+        return true
     }
 }
