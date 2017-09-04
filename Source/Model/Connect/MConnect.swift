@@ -22,5 +22,27 @@ class MConnect:Model<ArchConnect>
 
 class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
 {
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
+        print("did not connect")
+    }
     
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didSendDataWithTag tag: Int) {
+        print("send data")
+    }
+    
+    func udpSocketDidClose(_ sock: GCDAsyncUdpSocket, withError error: Error?) {
+        print("close")
+    }
+    
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didConnectToAddress address: Data) {
+        print("did connect")
+    }
+    
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?) {
+        print("did not send data")
+    }
+    
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+        print("did receive")
+    }
 }
