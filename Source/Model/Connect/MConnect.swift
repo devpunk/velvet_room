@@ -24,7 +24,6 @@ class MConnect:Model<ArchConnect>
             delegate:delegate,
             delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
-        socket?.enableReusePort(<#T##flag: Bool##Bool#>)
         
         do
         {
@@ -92,7 +91,10 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
             return
         }
         
-        print("did receive")
+        let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
+        let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
+        
+        print("did receive from: \(host) \(port)")
         print(receivingString)
     }
 }
