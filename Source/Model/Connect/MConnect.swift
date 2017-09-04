@@ -12,18 +12,18 @@ class MConnect:Model<ArchConnect>
         delegate = ConnectDelegate()
 
         Stream.getStreamsToHost(
-            withName:"1.1.1.1",
-            port:8080,
+            withName:"localhost",
+            port:80,
             inputStream: &inputStream,
-            outputStream: nil)
+            outputStream: &outputStream)
         
         outputStream?.delegate = delegate
         inputStream?.delegate = delegate
 
         inputStream?.schedule(in: RunLoop.main, forMode: RunLoopMode.commonModes)
         outputStream?.schedule(in: RunLoop.current, forMode: RunLoopMode.commonModes)
-        inputStream?.open()
         outputStream?.open()
+        inputStream?.open()
     }
 }
 
