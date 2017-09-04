@@ -102,7 +102,7 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
             
             guard
                 
-                let replyData:Data = reply()
+                let replyData:Data = emptyReply()
             
             else
             {
@@ -110,16 +110,28 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
                 return
             }
             
-            sock.send(replyData, toAddress:address, withTimeout:100000, tag:999)
+            sock.send(replyData, toAddress:address, withTimeout:100, tag:99)
         }
     }
     
     //MARK: -
     
+    func emptyReply() -> Data?
+    {
+        var reply:String = "HTTP/1.1 201 OK\r\n"
+        
+        print(reply)
+        
+        let data:Data? = reply.data(
+            using:String.Encoding.utf8, allowLossyConversion:false)
+        
+        return data
+    }
+    
     func reply() -> Data?
     {
         var reply:String = "HTTP/1.1 200 OK\r\n"
-        reply.append("host-id:123456789012345678901234567890123456\r\n")
+        reply.append("host-id:4567890123489\r\n")
         reply.append("host-type:win\r\n")
         reply.append("host-name:vaux\r\n")
         reply.append("host-mtp-protocol-version:01500010\r\n")
@@ -127,6 +139,8 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         reply.append("host-wireless-protocol-version:01000000\r\n")
         reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
         reply.append("\0")
+        
+        print(reply)
         
         let data:Data? = reply.data(
         using:String.Encoding.utf8, allowLossyConversion:false)
