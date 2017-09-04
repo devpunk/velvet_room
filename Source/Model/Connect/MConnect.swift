@@ -24,6 +24,7 @@ class MConnect:Model<ArchConnect>
             delegate:delegate,
             delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+        socket?.enableReusePort(<#T##flag: Bool##Bool#>)
         
         do
         {
@@ -41,6 +42,15 @@ class MConnect:Model<ArchConnect>
         catch let error
         {
             print("problem begin: \(error.localizedDescription)")
+        }
+        
+        do
+        {
+            try socket?.enableReusePort(true)
+        }
+        catch let error
+        {
+            print("problem reusing: \(error.localizedDescription)")
         }
         
         print("ready")
@@ -70,6 +80,19 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+        
+        guard
+            
+            let receivingString:String = String(
+                data:data,
+                encoding:String.Encoding.utf8)
+        
+        else
+        {
+            return
+        }
+        
         print("did receive")
+        print(receivingString)
     }
 }
