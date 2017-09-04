@@ -5,11 +5,12 @@ class MConnect:Model<ArchConnect>
 {
     let requestPort:UInt16 = 9309
     var delegate:MConnectDelegate?
+    var delegateClient:MConnectDelegateClient?
     var socket:GCDAsyncUdpSocket?
 
     func startWireless()
     {
-        
+        startClient()
     }
     
     func startClient()
@@ -20,33 +21,35 @@ class MConnect:Model<ArchConnect>
             
         else
         {
+            delegateClient?.sendInitial(socket:socket)
+            
             return
         }
         
-        delegate = MConnectDelegate()
+        delegateClient = MConnectDelegateClient()
         
         socket = GCDAsyncUdpSocket(
-            delegate:delegate,
+            delegate:delegateClient,
             delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
-        do
-        {
-            try socket?.bind(toPort:requestPort)
-        }
-        catch let error
-        {
-            print("problem binding: \(error.localizedDescription)")
-        }
+//        do
+//        {
+//            try socket?.bind(toPort:requestPort)
+//        }
+//        catch let error
+//        {
+//            print("problem binding: \(error.localizedDescription)")
+//        }
         
-        do
-        {
-            try socket?.beginReceiving()
-        }
-        catch let error
-        {
-            print("problem begin: \(error.localizedDescription)")
-        }
+//        do
+//        {
+//            try socket?.beginReceiving()
+//        }
+//        catch let error
+//        {
+//            print("problem begin: \(error.localizedDescription)")
+//        }
         
         do
         {
@@ -155,7 +158,7 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
             
             guard
                 
-                let replyData:Data = emptyReply()
+                let replyData:Data = reply()
             
             else
             {
@@ -168,18 +171,6 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
     }
     
     //MARK: -
-    
-    func emptyReply() -> Data?
-    {
-        var reply:String = "HTTP/1.1 201 OK\r\n"
-        
-        print(reply)
-        
-        let data:Data? = reply.data(
-            using:String.Encoding.utf8, allowLossyConversion:false)
-        
-        return data
-    }
     
     func reply() -> Data?
     {
@@ -215,13 +206,22 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         
         return true
     }
-    
-    /**
-    CONNECT * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n **/
 }
 
 class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
 {
+    func sendInitial(socket:GCDAsyncUdpSocket?)
+    {
+        let data:Data = reply()!
+        
+        socket?.send(
+            data,
+            toHost:"192.168.0.11",
+            port:9309,
+            withTimeout:100,
+            tag:123)
+    }
+    
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
         print("did not connect")
     }
@@ -259,21 +259,11 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
         print(receivingString)
-        
-        
     }
     
     func reply() -> Data?
     {
-        var reply:String = "HTTP/1.1 200 OK\r\n"
-        reply.append("host-id:4567890123489\r\n")
-        reply.append("host-type:win\r\n")
-        reply.append("host-name:vaux\r\n")
-        reply.append("host-mtp-protocol-version:01500010\r\n")
-        reply.append("host-request-port:9309\r\n")
-        reply.append("host-wireless-protocol-version:01000000\r\n")
-        reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
-        reply.append("\0")
+        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n"
         
         print(reply)
         
