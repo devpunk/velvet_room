@@ -11,7 +11,7 @@ class MConnect:Model<ArchConnect>
 
     func startWireless()
     {
-        startServerClient()
+        startServer()
     }
     
     func startServerClient()
@@ -141,6 +141,8 @@ class MConnect:Model<ArchConnect>
             delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
+        socket?.setIPv6Enabled(false)
+        
         do
         {
             try socket?.bind(toPort:requestPort)
@@ -218,34 +220,24 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         {
             print("is initial \(host) \(port)")
             
-            if !sentInitial
+            let replyData:Data
+            
+            if sentInitial
+            {
+                replyData = replyUnavailable()!
+            }
+            else
             {
 //                sentInitial = true
-                
-                guard
-                    
-                    let replyData:Data = reply()
-                    
-                else
-                {
-                    print("error reply data")
-                    return
-                }
-                
-                sock.send(replyData, toHost:"192.168.0.14", port:port, withTimeout:100, tag:1234)
-//                sock.send(replyData, toAddress:address, withTimeout:100, tag:990)
-//                if !sock.isConnected()
-//                {
-//                    do
-//                    {
-//                        try sock.connect(toAddress:address)
-//                    }
-//                    catch let error
-//                    {
-//                        print("error connecting \(error.localizedDescription)")
-//                    }
-//                }
+                replyData = reply()!
             }
+            
+            sock.send(replyData, toAddress:address, withTimeout:1000, tag:1)
+        }
+        else
+        {
+            print("not initial")
+            fatalError()
         }
     }
     
@@ -266,10 +258,33 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         
 //        reply = "HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919109a\r\nhost-type:mac\r\nhost-name:vaux\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0"
         
-        debugPrint(reply)
+//        debugPrint(reply)
         
         let data:Data? = reply.data(
         using:String.Encoding.utf8, allowLossyConversion:false)
+        
+        return data
+    }
+    
+    func replyUnavailable() -> Data?
+    {
+        var reply:String = "HTTP/1.1 503 NG\r\n"
+        reply.append("host-id:4567890123489\r\n")
+        reply.append("host-type:win\r\n")
+        reply.append("host-name:vaux2\r\n")
+        reply.append("host-mtp-protocol-version:01500010\r\n")
+        reply.append("host-request-port:9309\r\n")
+        reply.append("host-wireless-protocol-version:01000000\r\n")
+        reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
+        reply.append("\0")
+        
+        
+        //        reply = "HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919109a\r\nhost-type:mac\r\nhost-name:vaux\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0"
+        
+        //        debugPrint(reply)
+        
+        let data:Data? = reply.data(
+            using:String.Encoding.utf8, allowLossyConversion:false)
         
         return data
     }
