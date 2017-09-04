@@ -23,6 +23,15 @@ class MConnect:Model<ArchConnect>
         {
             delegateClient?.sendInitial(socket:socket)
             
+            do
+            {
+                try socket?.beginReceiving()
+            }
+            catch let error
+            {
+                print("problem begin: \(error.localizedDescription)")
+            }
+            
             return
         }
         
@@ -42,14 +51,7 @@ class MConnect:Model<ArchConnect>
 //            print("problem binding: \(error.localizedDescription)")
 //        }
         
-//        do
-//        {
-//            try socket?.beginReceiving()
-//        }
-//        catch let error
-//        {
-//            print("problem begin: \(error.localizedDescription)")
-//        }
+        
         
         do
         {
@@ -184,8 +186,6 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
         reply.append("\0")
         
-        print(reply)
-        
         let data:Data? = reply.data(
         using:String.Encoding.utf8, allowLossyConversion:false)
         
@@ -263,9 +263,7 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
     
     func reply() -> Data?
     {
-        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n"
-        
-        debugPrint(reply)
+        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed401010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed4\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
         
         let data:Data? = reply.data(
             using:String.Encoding.utf8, allowLossyConversion:false)
