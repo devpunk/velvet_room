@@ -401,14 +401,11 @@ class MConnectDelegateServerClient:NSObject, GCDAsyncUdpSocketDelegate
         let host:String = GCDAsyncUdpSocket.host(fromAddress:address)!
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        debugPrint(receivingString)
-        
         if isInitialConnect(message:receivingString)
         {
-            print("is initial \(host) \(port)")
-            
             if !sentInitial
             {
+                debugPrint(receivingString)
                 sentInitial = true
 
                 delegate = MConnectDelegateClientClient(host:host, port:port)
@@ -429,6 +426,10 @@ class MConnectDelegateServerClient:NSObject, GCDAsyncUdpSocketDelegate
                 }
                 
                 delegate?.sendInitial(socket:socket)
+            }
+            else
+            {
+                delegate?.actuallySend(socket:socket)
             }
         }
     }
@@ -457,6 +458,7 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
 {
     let host:String
     let port:UInt16
+    var address: Data?
     
     init(host:String, port:UInt16)
     {
@@ -464,16 +466,32 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
         self.port = port
     }
     
-    func sendInitial(socket:GCDAsyncUdpSocket?)
+    func actuallySend(socket:GCDAsyncUdpSocket?)
     {
+        guard
+            
+            let address:Data = self.address
+        
+        else
+        {
+            return
+        }
+        
         let data:Data = reply()!
         
-        socket?.send(
-            data,
-            toHost:host,
-            port:port,
-            withTimeout:100,
-            tag:123)
+        socket?.send(data, toAddress: address, withTimeout:1000, tag: 12)
+    }
+    
+    func sendInitial(socket:GCDAsyncUdpSocket?)
+    {
+        do
+        {
+            try socket?.connect(toHost:host, onPort:port)
+        }
+        catch let error
+        {
+            print("error connect \(error.localizedDescription)")
+        }
         
         do
         {
@@ -483,6 +501,8 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
         {
             print("problem begin: \(error.localizedDescription)")
         }
+        
+        print("begin")
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
@@ -499,6 +519,7 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didConnectToAddress address: Data) {
         print("did connect")
+        self.address = address
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?) {
@@ -521,13 +542,10 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        print("\(host) : \(port) \(filterContext), \(sock.localPort()) : \(sock.connectedPort())")
         debugPrint(receivingString)
         
         if isInitialConnect(message:receivingString)
         {
-            print("is initial \(host) \(port)")
-            
             let data:Data = reply()!
             
             sock.send(
@@ -553,8 +571,6 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
         
         
         //        reply = "HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919109a\r\nhost-type:mac\r\nhost-name:vaux\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0"
-        
-        debugPrint(reply)
         
         let data:Data? = reply.data(
             using:String.Encoding.utf8, allowLossyConversion:false)
