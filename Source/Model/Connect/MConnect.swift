@@ -10,7 +10,7 @@ class MConnect:Model<ArchConnect>
 
     func startWireless()
     {
-        startServer()
+        startClient()
     }
     
     func startClient()
@@ -21,6 +21,15 @@ class MConnect:Model<ArchConnect>
             
         else
         {
+//            do
+//            {
+//                try socket?.connect(toHost: "192.168.0.11", onPort:9309)
+//            }
+//            catch let error
+//            {
+//                print("connect error \(error)")
+//            }
+            
             delegateClient?.sendInitial(socket:socket)
             
             do
@@ -158,11 +167,11 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         
         if isInitialConnect(message:receivingString)
         {
-            print("is initial")
+            print("is initial \(host) \(port)")
             
             if !sentInitial
             {
-                sentInitial = true
+//                sentInitial = true
                 
                 guard
                     
@@ -174,7 +183,19 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
                     return
                 }
                 
-                sock.send(replyData, toAddress:address, withTimeout:100, tag:99)
+                sock.send(replyData, toHost:"192.168.0.14", port:port, withTimeout:100, tag:1234)
+//                sock.send(replyData, toAddress:address, withTimeout:100, tag:990)
+//                if !sock.isConnected()
+//                {
+//                    do
+//                    {
+//                        try sock.connect(toAddress:address)
+//                    }
+//                    catch let error
+//                    {
+//                        print("error connecting \(error.localizedDescription)")
+//                    }
+//                }
             }
         }
     }
@@ -194,7 +215,7 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         reply.append("\0")
         
         
-        reply = "HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919109a\r\nhost-type:mac\r\nhost-name:vaux\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0"
+//        reply = "HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919109a\r\nhost-type:mac\r\nhost-name:vaux\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0"
         
         debugPrint(reply)
         
@@ -270,6 +291,7 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
+        print("\(host) : \(port) \(filterContext), \(sock.localPort()) : \(sock.connectedPort())")
         debugPrint(receivingString)
     }
     
