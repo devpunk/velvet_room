@@ -9,6 +9,15 @@ class MConnect:Model<ArchConnect>
 
     func startWireless()
     {
+        guard
+            
+            socket == nil
+        
+        else
+        {
+            return
+        }
+        
         delegate = MConnectDelegate()
         
         socket = GCDAsyncUdpSocket(
@@ -24,6 +33,17 @@ class MConnect:Model<ArchConnect>
         {
             print("problem binding: \(error.localizedDescription)")
         }
+        
+        do
+        {
+            try socket?.beginReceiving()
+        }
+        catch let error
+        {
+            print("problem begin: \(error.localizedDescription)")
+        }
+        
+        print("ready")
     }
 }
 
