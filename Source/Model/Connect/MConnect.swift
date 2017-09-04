@@ -162,4 +162,7 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         
         return true
     }
+    
+    
+    CONNECT * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n
 }
