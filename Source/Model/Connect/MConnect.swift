@@ -8,10 +8,29 @@ class MConnect:Model<ArchConnect>
     var delegateClient:MConnectDelegateClient?
     var delegateServerClient:MConnectDelegateServerClient?
     var socket:GCDAsyncUdpSocket?
-
+    var tcpSocket:GCDAsyncSocket?
+    var delegateTcp:tcpDelegate?
+    var clientSockets:[GCDAsyncUdpSocket]?
+    
     func startWireless()
     {
-        startServer()
+        startClient()
+    }
+    
+    func startTcp()
+    {
+        delegateTcp = tcpDelegate()
+        tcpSocket = GCDAsyncSocket(
+            delegate:delegateTcp, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+        
+        do
+        {
+            try tcpSocket?.connect(toHost:"192.168.0.11", onPort:9309)
+        }
+        catch let error
+        {
+            print("error con: \(error.localizedDescription)")
+        }
     }
     
     func startServerClient()
@@ -64,63 +83,38 @@ class MConnect:Model<ArchConnect>
     
     func startClient()
     {
-        guard
-            
-            socket == nil
-            
-        else
+        if delegateClient == nil
         {
-//            do
-//            {
-//                try socket?.connect(toHost: "192.168.0.11", onPort:9309)
-//            }
-//            catch let error
-//            {
-//                print("connect error \(error)")
-//            }
-            
-            delegateClient?.sendInitial(socket:socket)
-            
-            do
-            {
-                try socket?.beginReceiving()
-            }
-            catch let error
-            {
-                print("problem begin: \(error.localizedDescription)")
-            }
-            
-            return
+            delegateClient = MConnectDelegateClient()
+            clientSockets = []
         }
         
-        delegateClient = MConnectDelegateClient()
-        
-        socket = GCDAsyncUdpSocket(
+        let socket:GCDAsyncUdpSocket = GCDAsyncUdpSocket(
             delegate:delegateClient,
             delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
-        
-//        do
-//        {
-//            try socket?.bind(toPort:requestPort)
-//        }
-//        catch let error
-//        {
-//            print("problem binding: \(error.localizedDescription)")
-//        }
-        
-        
-        
+
         do
         {
-            try socket?.enableReusePort(true)
+            try socket.enableReusePort(true)
         }
         catch let error
         {
             print("problem reusing: \(error.localizedDescription)")
         }
         
-        print("ready")
+        delegateClient?.sendInitial(socket:socket, tag:clientSockets!.count)
+        
+        do
+        {
+            try socket.beginReceiving()
+        }
+        catch let error
+        {
+            print("problem begin: \(error.localizedDescription)")
+        }
+        
+        clientSockets?.append(socket)
     }
     
     func startServer()
@@ -142,6 +136,7 @@ class MConnect:Model<ArchConnect>
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
         socket?.setIPv6Enabled(false)
+        socket?.setPreferIPv4()
         
         do
         {
@@ -307,7 +302,7 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
 
 class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
 {
-    func sendInitial(socket:GCDAsyncUdpSocket?)
+    func sendInitial(socket:GCDAsyncUdpSocket?, tag:Int)
     {
         let data:Data = reply()!
         
@@ -316,7 +311,7 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
             toHost:"192.168.0.11",
             port:9309,
             withTimeout:100,
-            tag:123)
+            tag:tag)
     }
     
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
@@ -355,7 +350,7 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        print("\(host) : \(port) \(filterContext), \(sock.localPort()) : \(sock.connectedPort())")
+        print("\(host!) : \(port) : \(sock.localPort())")
         debugPrint(receivingString)
     }
     
@@ -606,5 +601,82 @@ class MConnectDelegateClientClient:NSObject, GCDAsyncUdpSocketDelegate
         }
         
         return true
+    }
+}
+
+
+class tcpDelegate:NSObject, GCDAsyncSocketDelegate
+{
+    func reply() -> Data
+    {
+        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
+        let data:Data = reply.data(
+            using:String.Encoding.utf8, allowLossyConversion:false)!
+        
+        return data
+    }
+    
+    func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
+        print("did close")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
+        print("did connet")
+    }
+    
+    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+        print("did disconnect")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
+        print("did write")
+    }
+    
+    func socketDidSecure(_ sock: GCDAsyncSocket) {
+        print("did secure")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+        print("did read")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+        print("did connect")
+        
+        sock.write(reply(), withTimeout:100, tag:12)
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
+        print("did accept")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
+        print("did read")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWritePartialDataOfLength partialLength: UInt, tag: Int) {
+        print("print did write")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didReceive trust: SecTrust, completionHandler: @escaping (Bool) -> Void) {
+        print("did receive")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, shouldTimeoutReadWithTag tag: Int, elapsed: TimeInterval, bytesDone length: UInt) -> TimeInterval {
+        print("should time")
+        
+        return 1
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, shouldTimeoutWriteWithTag tag: Int, elapsed: TimeInterval, bytesDone length: UInt) -> TimeInterval {
+        print("should")
+        
+        return 1
+    }
+    
+    func newSocketQueueForConnection(fromAddress address: Data, on sock: GCDAsyncSocket) -> DispatchQueue? {
+        print("new queue")
+        
+        return nil
     }
 }
