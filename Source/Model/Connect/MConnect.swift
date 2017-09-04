@@ -150,7 +150,7 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        print(receivingString)
+        debugPrint(receivingString)
         
         if isInitialConnect(message:receivingString)
         {
@@ -258,14 +258,14 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        print(receivingString)
+        debugPrint(receivingString)
     }
     
     func reply() -> Data?
     {
         let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n"
         
-        print(reply)
+        debugPrint(reply)
         
         let data:Data? = reply.data(
             using:String.Encoding.utf8, allowLossyConversion:false)
