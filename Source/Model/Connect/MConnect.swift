@@ -116,6 +116,8 @@ class MConnect:Model<ArchConnect>
 
 class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
 {
+    var sentInitial:Bool = false
+    
     func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
         print("did not connect")
     }
@@ -158,17 +160,22 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         {
             print("is initial")
             
-            guard
-                
-                let replyData:Data = reply()
-            
-            else
+            if !sentInitial
             {
-                print("error reply data")
-                return
+                sentInitial = true
+                
+                guard
+                    
+                    let replyData:Data = reply()
+                    
+                else
+                {
+                    print("error reply data")
+                    return
+                }
+                
+                sock.send(replyData, toAddress:address, withTimeout:100, tag:99)
             }
-            
-            sock.send(replyData, toAddress:address, withTimeout:100, tag:99)
         }
     }
     
@@ -188,6 +195,8 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         
         
         reply = "HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919109a\r\nhost-type:mac\r\nhost-name:vaux\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0"
+        
+        debugPrint(reply)
         
         let data:Data? = reply.data(
         using:String.Encoding.utf8, allowLossyConversion:false)
