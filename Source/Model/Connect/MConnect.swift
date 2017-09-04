@@ -9,10 +9,63 @@ class MConnect:Model<ArchConnect>
 
     func startWireless()
     {
+        
+    }
+    
+    func startClient()
+    {
         guard
             
             socket == nil
+            
+        else
+        {
+            return
+        }
         
+        delegate = MConnectDelegate()
+        
+        socket = GCDAsyncUdpSocket(
+            delegate:delegate,
+            delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
+            socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+        
+        do
+        {
+            try socket?.bind(toPort:requestPort)
+        }
+        catch let error
+        {
+            print("problem binding: \(error.localizedDescription)")
+        }
+        
+        do
+        {
+            try socket?.beginReceiving()
+        }
+        catch let error
+        {
+            print("problem begin: \(error.localizedDescription)")
+        }
+        
+        do
+        {
+            try socket?.enableReusePort(true)
+        }
+        catch let error
+        {
+            print("problem reusing: \(error.localizedDescription)")
+        }
+        
+        print("ready")
+    }
+    
+    func startServer()
+    {
+        guard
+            
+            socket == nil
+            
         else
         {
             return
@@ -163,6 +216,70 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         return true
     }
     
+    /**
+    CONNECT * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n **/
+}
+
+class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
+{
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didNotConnect error: Error?) {
+        print("did not connect")
+    }
     
-    CONNECT * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didSendDataWithTag tag: Int) {
+        print("send data")
+    }
+    
+    func udpSocketDidClose(_ sock: GCDAsyncUdpSocket, withError error: Error?) {
+        print("close")
+    }
+    
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didConnectToAddress address: Data) {
+        print("did connect")
+    }
+    
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didNotSendDataWithTag tag: Int, dueToError error: Error?) {
+        print("did not send data")
+    }
+    
+    func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
+        
+        guard
+            
+            let receivingString:String = String(
+                data:data,
+                encoding:String.Encoding.utf8)
+            
+        else
+        {
+            return
+        }
+        
+        let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
+        let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
+        
+        print(receivingString)
+        
+        
+    }
+    
+    func reply() -> Data?
+    {
+        var reply:String = "HTTP/1.1 200 OK\r\n"
+        reply.append("host-id:4567890123489\r\n")
+        reply.append("host-type:win\r\n")
+        reply.append("host-name:vaux\r\n")
+        reply.append("host-mtp-protocol-version:01500010\r\n")
+        reply.append("host-request-port:9309\r\n")
+        reply.append("host-wireless-protocol-version:01000000\r\n")
+        reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
+        reply.append("\0")
+        
+        print(reply)
+        
+        let data:Data? = reply.data(
+            using:String.Encoding.utf8, allowLossyConversion:false)
+        
+        return data
+    }
 }
