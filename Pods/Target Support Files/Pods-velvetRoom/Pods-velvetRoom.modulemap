@@ -1,0 +1,6 @@
+framework module Pods_velvetRoom {
+  umbrella header "Pods-velvetRoom-umbrella.h"
+
+  export *
+  module * { export * }
+}
