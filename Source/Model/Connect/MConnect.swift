@@ -186,6 +186,9 @@ class MConnectDelegate:NSObject, GCDAsyncUdpSocketDelegate
         reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
         reply.append("\0")
         
+        /**
+        HTTP/1.1 200 OK\r\nhost-id:bdca08f8-607e-4816-8448-d4f58919107a\r\nhost-type:mac\r\nhost-name:zerobook\r\nhost-mtp-protocol-version:01900010\r\nhost-request-port:9309\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0 **/
+        
         let data:Data? = reply.data(
         using:String.Encoding.utf8, allowLossyConversion:false)
         
@@ -263,7 +266,7 @@ class MConnectDelegateClient:NSObject, GCDAsyncUdpSocketDelegate
     
     func reply() -> Data?
     {
-        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed401010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed4\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
+        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
         
         let data:Data? = reply.data(
             using:String.Encoding.utf8, allowLossyConversion:false)
