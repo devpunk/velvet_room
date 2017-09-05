@@ -78,12 +78,10 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
         let host:String? = GCDAsyncUdpSocket.host(fromAddress:address)
         let port:UInt16 = GCDAsyncUdpSocket.port(fromAddress:address)
         
-        debugPrint(receivingString)
+//        debugPrint(receivingString)
         
         if isInitialConnect(message:receivingString)
         {
-            print("is initial \(host) \(port)")
-            
             let replyData:Data = reply()
             
             sock.send(replyData, toAddress:address, withTimeout:100, tag:1)
@@ -167,11 +165,12 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("did connect")
         
-        sock.write(reply(), withTimeout:100, tag:12)
+        print("did connect")
     }
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
         print("did accept")
+        newSocket.readData(withTimeout:100, tag:1)
     }
     
     func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {

@@ -11,10 +11,20 @@ class MConnect:Model<ArchConnect>
     var tcpSocket:GCDAsyncSocket?
     var delegateTcp:tcpDelegate?
     var clientSockets:[GCDAsyncUdpSocket]?
+    var connect2:MConnect2?
     
     func startWireless()
     {
-        startClient()
+        guard
+        
+            connect2 == nil
+        
+        else
+        {
+            return
+        }
+        
+        connect2 = MConnect2()
     }
     
     func startTcp()
