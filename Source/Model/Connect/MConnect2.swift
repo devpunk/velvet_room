@@ -130,6 +130,7 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
 class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
 {
     var acceptedSocket:GCDAsyncSocket?
+    var pin:String?
     
     func reply() -> Data
     {
@@ -180,6 +181,10 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         
         if method == "SHOWPIN"
         {
+            pin = generatePin()
+            
+            print("pin \(pin)")
+            
             let ok:String = "HTTP/1.1 200 OK\r\n"
             
             guard
@@ -190,14 +195,19 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
             {
                 return
             }
-            
+            // lenght must be exactly 8
             sock.write(data, withTimeout:100, tag:1957)
+            sock.readData(withTimeout:10000, tag:12)
+        }
+        else if method == "REGISTER"
+        {
+            /* REGISTER * HTTP/1.1\r\ndevice-id:681401e7aed401010101010101010101\r\ndevice-type:PS Vita\r\ndevice-mac-address:681401e7aed4\r\ndevice-name:vauxhal\r\npin-code:55852585\r\n\r\n */
+            
+            
         }
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
-        print("did connect")
-        
         print("did connect")
     }
     
@@ -244,5 +254,18 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         let compo2 = first.components(separatedBy:" * HTTP/1.1")
         
         return compo2[0]
+    }
+    
+    func generatePin() -> String
+    {
+        let numberFormatter:NumberFormatter = NumberFormatter()
+        numberFormatter.maximumIntegerDigits = 8
+        numberFormatter.minimumIntegerDigits = 8
+        
+        let random:UInt32 = arc4random_uniform(99999999)
+        let number:NSNumber = random as NSNumber
+        let string:String = numberFormatter.string(from:number)!
+        
+        return string
     }
 }
