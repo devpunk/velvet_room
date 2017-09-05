@@ -200,6 +200,18 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
                 sendToSocket(socket:sock, string:"HTTP/1.1 610 NG\r\n")
             }
         }
+        else if method == "REGISTERRESULT" || method == "REGISTERCANCEL"
+        {
+            // do nothing
+        }
+        else if method == "CONNECT"
+        {
+            // validate device-id and parse device-port
+            
+            // if not valid return "HTTP/1.1 605 NG\r\n"
+            
+            sendToSocket(socket:sock, string:"HTTP/1.1 210 OK\r\n")
+        }
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
@@ -254,10 +266,18 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
     func parsePin(string:String) -> String?
     {
         let compo1 = string.components(separatedBy:"\r\n")
-        let last = compo1.last
-        let compo2 = last.components(separatedBy:"pin-code:")
         
-        return compo2[1]
+        for com in compo1
+        {
+            if com.contains("pin-code")
+            {
+                let compo2 = com.components(separatedBy:"pin-code:")
+                
+                return compo2[1]
+            }
+        }
+        
+        return nil
     }
     
     func generatePin() -> String
