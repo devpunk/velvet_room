@@ -185,25 +185,20 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
             
             print("pin \(pin)")
             
-            let ok:String = "HTTP/1.1 200 OK\r\n"
-            
-            guard
-                
-                let data:Data = ok.data(using:String.Encoding.utf8, allowLossyConversion:false)
-            
-            else
-            {
-                return
-            }
-            // lenght must be exactly 8
-            sock.write(data, withTimeout:100, tag:1957)
-            sock.readData(withTimeout:10000, tag:12)
+            sendToSocket(socket:sock, string:"HTTP/1.1 200 OK\r\n")
         }
         else if method == "REGISTER"
         {
-            /* REGISTER * HTTP/1.1\r\ndevice-id:681401e7aed401010101010101010101\r\ndevice-type:PS Vita\r\ndevice-mac-address:681401e7aed4\r\ndevice-name:vauxhal\r\npin-code:55852585\r\n\r\n */
+            let receivedPin:String? = parsePin(string:receivingString)
             
-            
+            if receivedPin == pin
+            {
+                sendToSocket(socket:sock, string:"HTTP/1.1 200 OK\r\n")
+            }
+            else
+            {
+                sendToSocket(socket:sock, string:"HTTP/1.1 610 NG\r\n")
+            }
         }
     }
     
@@ -256,8 +251,18 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         return compo2[0]
     }
     
+    func parsePin(string:String) -> String?
+    {
+        let compo1 = string.components(separatedBy:"\r\n")
+        let last = compo1.last
+        let compo2 = last.components(separatedBy:"pin-code:")
+        
+        return compo2[1]
+    }
+    
     func generatePin() -> String
     {
+        // length must be exactly 8
         let numberFormatter:NumberFormatter = NumberFormatter()
         numberFormatter.maximumIntegerDigits = 8
         numberFormatter.minimumIntegerDigits = 8
@@ -267,5 +272,20 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         let string:String = numberFormatter.string(from:number)!
         
         return string
+    }
+    
+    func sendToSocket(socket:GCDAsyncSocket, string:String)
+    {
+        guard
+            
+            let data:Data = string.data(using:String.Encoding.utf8, allowLossyConversion:false)
+            
+        else
+        {
+            return
+        }
+        
+        socket.write(data, withTimeout:100, tag:1957)
+        socket.readData(withTimeout:10000, tag:12)
     }
 }
