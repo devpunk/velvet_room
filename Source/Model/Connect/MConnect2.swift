@@ -162,6 +162,37 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("did read")
+        
+        guard
+            
+            let receivingString:String = String(
+                data:data,
+                encoding:String.Encoding.utf8)
+            
+        else
+        {
+            return
+        }
+        
+        debugPrint(receivingString)
+        
+        let method:String? = methodFrom(string:receivingString)
+        
+        if method == "SHOWPIN"
+        {
+            let ok:String = "HTTP/1.1 200 OK\r\n"
+            
+            guard
+                
+                let data:Data = ok.data(using:String.Encoding.utf8, allowLossyConversion:false)
+            
+            else
+            {
+                return
+            }
+            
+            sock.write(data, withTimeout:100, tag:1957)
+        }
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
@@ -177,7 +208,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
     }
     
     func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
-        print("did read")
+        print("did read partial")
     }
     
     func socket(_ sock: GCDAsyncSocket, didWritePartialDataOfLength partialLength: UInt, tag: Int) {
@@ -204,5 +235,14 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         print("new queue")
         
         return nil
+    }
+    
+    func methodFrom(string:String) -> String?
+    {
+        let compo1 = string.components(separatedBy:"\r\n")
+        let first = compo1[0]
+        let compo2 = first.components(separatedBy:" * HTTP/1.1")
+        
+        return compo2[0]
     }
 }
