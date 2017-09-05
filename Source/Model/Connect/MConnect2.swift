@@ -5,16 +5,22 @@ class MConnect2
 {
     let udpDelegate:MConnect2UDPDelegate
     let udpSocket:GCDAsyncUdpSocket
+    let tcpDelegate:MConnect2TCPDelegate
+    let tcpSocket:GCDAsyncSocket
     let requestPort:UInt16 = 9309
     
     init()
     {
         udpDelegate = MConnect2UDPDelegate()
+        tcpDelegate = MConnect2TCPDelegate()
         
         udpSocket = GCDAsyncUdpSocket(
             delegate:udpDelegate,
             delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background),
             socketQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+        
+        tcpSocket = GCDAsyncSocket(
+            delegate:tcpDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
         udpSocket.setIPv6Enabled(false)
         udpSocket.setPreferIPv4()
@@ -41,6 +47,15 @@ class MConnect2
         }
         catch
         {
+        }
+        
+        do
+        {
+            try tcpSocket.accept(onPort:requestPort)
+        }
+        catch let error
+        {
+            print("error accept on port: \(error.localizedDescription)")
         }
     }
 }
@@ -111,5 +126,81 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
         }
         
         return true
+    }
+}
+
+class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
+{
+    func reply() -> Data
+    {
+        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
+        let data:Data = reply.data(
+            using:String.Encoding.utf8, allowLossyConversion:false)!
+        
+        return data
+    }
+    
+    func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
+        print("did close")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
+        print("did connet")
+    }
+    
+    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+        print("did disconnect")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
+        print("did write")
+    }
+    
+    func socketDidSecure(_ sock: GCDAsyncSocket) {
+        print("did secure")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
+        print("did read")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
+        print("did connect")
+        
+        sock.write(reply(), withTimeout:100, tag:12)
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
+        print("did accept")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didReadPartialDataOfLength partialLength: UInt, tag: Int) {
+        print("did read")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didWritePartialDataOfLength partialLength: UInt, tag: Int) {
+        print("print did write")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, didReceive trust: SecTrust, completionHandler: @escaping (Bool) -> Void) {
+        print("did receive")
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, shouldTimeoutReadWithTag tag: Int, elapsed: TimeInterval, bytesDone length: UInt) -> TimeInterval {
+        print("should time")
+        
+        return 1
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, shouldTimeoutWriteWithTag tag: Int, elapsed: TimeInterval, bytesDone length: UInt) -> TimeInterval {
+        print("should")
+        
+        return 1
+    }
+    
+    func newSocketQueueForConnection(fromAddress address: Data, on sock: GCDAsyncSocket) -> DispatchQueue? {
+        print("new queue")
+        
+        return nil
     }
 }
