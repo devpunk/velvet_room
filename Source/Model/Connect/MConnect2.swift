@@ -212,6 +212,10 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
             
             sendToSocket(socket:sock, string:"HTTP/1.1 210 OK\r\n")
         }
+        else if method == "STANDBY"
+        {
+            
+        }
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
