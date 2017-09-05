@@ -129,6 +129,8 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
 
 class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
 {
+    var acceptedSocket:GCDAsyncSocket?
+    
     func reply() -> Data
     {
         let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
@@ -143,7 +145,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectTo url: URL) {
-        print("did connet")
+        print("did connect")
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
@@ -170,6 +172,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
         print("did accept")
+        acceptedSocket = newSocket
         newSocket.readData(withTimeout:100, tag:1)
     }
     
