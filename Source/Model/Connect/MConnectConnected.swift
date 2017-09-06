@@ -60,6 +60,7 @@ class MConnectConnected
         }
         
         commandRequest()
+        commandAck()
     }
     
     func commandRequest()
@@ -74,6 +75,11 @@ class MConnectConnected
         let data:Data = Data(bytes:request)
         
         socketCommand?.write(data, withTimeout:100, tag:0)
+    }
+    
+    func commandAck()
+    {
+        
     }
 }
 
