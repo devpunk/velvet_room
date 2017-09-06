@@ -152,6 +152,9 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
         let arr2 = data.withUnsafeBytes {
             Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
         }
+        
+        // 0: length, 1: ack (should be 2), 2: eventpipeid
+        
         print(arr2)
     }
     
