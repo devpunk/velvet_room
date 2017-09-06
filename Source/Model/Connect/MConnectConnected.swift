@@ -144,10 +144,15 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("command did read")
         
-        let num:UInt8 = data.withUnsafeBytes { (pointer:UnsafePointer<UInt8>) -> UInt8 in
-            return pointer.pointee
+        if data.count != 12
+        {
+            print("error reading header, must be 12 bytes")
         }
-        print(num)
+        
+        let arr2 = data.withUnsafeBytes {
+            Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
+        }
+        print(arr2)
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
