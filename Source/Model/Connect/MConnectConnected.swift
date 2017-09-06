@@ -79,7 +79,7 @@ class MConnectConnected
     
     func commandAck()
     {
-        
+        socketCommand?.readData(withTimeout:1000, tag:0)
     }
 }
 
