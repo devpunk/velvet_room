@@ -372,8 +372,6 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
             return nil
         }
         
-        print("host: \(foundIp)")
-        
         let deviceInfo:DeviceInfo = DeviceInfo(
             deviceId:foundId,
             deviceIp:foundIp,

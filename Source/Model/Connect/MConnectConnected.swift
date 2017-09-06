@@ -49,17 +49,19 @@ class MConnectConnected
         }
         catch let error
         {
-            print("error accept on port: \(error.localizedDescription)")
+            print("error connect command: \(error.localizedDescription)")
         }
         
-//        do
-//        {
-//            try socketEvent?.accept(onPort:port)
-//        }
-//        catch let error
-//        {
-//            print("error accept on port: \(error.localizedDescription)")
-//        }
+        do
+        {
+            try socketEvent?.connect(
+                toHost:deviceInfo.deviceIp,
+                onPort:port)
+        }
+        catch let error
+        {
+            print("error connect event: \(error.localizedDescription)")
+        }
         
         commandRequest()
         commandAck()
@@ -82,6 +84,8 @@ class MConnectConnected
     func commandAck()
     {
         socketCommand?.readData(withTimeout:1000, tag:0)
+        
+        // "\u{0C}\0\0\0\u{02}\0\0\0\0\0\0\0"
     }
 }
 
@@ -112,18 +116,9 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("command did read")
         
-        guard
-            
-            let receivingString:String = String(
-                data:data,
-                encoding:String.Encoding.utf8)
-            
-        else
-        {
-            return
-        }
+        let string = data.map { String(format: "%02hhx", $0) }.joined()
         
-        debugPrint(receivingString)
+        debugPrint(string)
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
