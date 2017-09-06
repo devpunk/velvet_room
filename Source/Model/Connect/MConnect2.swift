@@ -69,7 +69,7 @@ class MConnect2
         
         connected = MConnectConnected(deviceInfo:deviceInfo, connect:self)
         
-        DispatchQueue.main.async
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).asyncAfter(deadline: DispatchTime.now() + 1)
         {
             self.connected?.startConnection()
         }

@@ -34,7 +34,7 @@ class MConnectConnected
     func startConnection()
     {
         socketCommand = GCDAsyncSocket(
-            delegate:commandDelegate, delegateQueue:DispatchQueue.main, socketQueue: DispatchQueue.main)
+            delegate:commandDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
         connectCommand()
     }
@@ -68,7 +68,7 @@ class MConnectConnected
     func commandConnected()
     {
         socketEvent = GCDAsyncSocket(
-            delegate:eventDelegate, delegateQueue:DispatchQueue.main, socketQueue: DispatchQueue.main)
+            delegate:eventDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
         let port:UInt16 = UInt16(deviceInfo.dataPort)!
         
