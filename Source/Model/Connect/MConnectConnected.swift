@@ -10,6 +10,16 @@ class MConnectConnected
     var socketCommand:GCDAsyncSocket?
     var socketEvent:GCDAsyncSocket?
     
+    let ptpLength:Int = 24
+    let ptpip_type:Int = 4
+    let ptpip_len:Int = 0
+    let ptpip_initcmd_guid:Int = 8
+    let ptpip_initcmd_name:CUnsignedChar = 24
+    let PTPIP_INIT_COMMAND_REQUEST:CUnsignedChar =   1
+    let PTPIP_INIT_COMMAND_ACK     =   2
+    let PTPIP_INIT_EVENT_REQUEST   = 3
+    let PTPIP_INIT_EVENT_ACK       = 4
+    
     init(deviceInfo:DeviceInfo, connect:MConnect2)
     {
         self.deviceInfo = deviceInfo
@@ -29,9 +39,11 @@ class MConnectConnected
         socketEvent = GCDAsyncSocket(
             delegate:eventDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
+        let port:UInt16 = UInt16(deviceInfo.dataPort)!
+        
         do
         {
-            try socketCommand?.accept(onPort:UInt16(deviceInfo.dataPort)!)
+            try socketCommand?.accept(onPort:port)
         }
         catch let error
         {
@@ -40,12 +52,28 @@ class MConnectConnected
         
         do
         {
-            try socketEvent?.accept(onPort:UInt16(deviceInfo.dataPort)!)
+            try socketEvent?.accept(onPort:port)
         }
         catch let error
         {
             print("error accept on port: \(error.localizedDescription)")
         }
+        
+        commandRequest()
+    }
+    
+    func commandRequest()
+    {
+        var request:[CUnsignedChar] = [CUnsignedChar](repeating:0, count:ptpLength)
+        let guid:[CUnsignedChar] = [CUnsignedChar](repeatElement(0, count:16))
+
+        request[ptpip_type] = PTPIP_INIT_COMMAND_REQUEST
+        request[ptpip_len] = ptpip_initcmd_name
+        request[ptpip_initcmd_guid] = 1
+        
+        let data:Data = Data(bytes:request)
+        
+        socketCommand?.write(data, withTimeout:100, tag:0)
     }
 }
 
