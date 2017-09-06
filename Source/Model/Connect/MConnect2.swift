@@ -8,6 +8,7 @@ class MConnect2
     let tcpDelegate:MConnect2TCPDelegate
     let tcpSocket:GCDAsyncSocket
     let requestPort:UInt16 = 9309
+    var connected:MConnectConnected?
     
     init()
     {
@@ -66,7 +67,8 @@ class MConnect2
         tcpSocket.delegate = nil
         tcpSocket.disconnect()
         
-        
+        connected = MConnectConnected(deviceInfo:deviceInfo, connect:self)
+        connected?.startConnection()
     }
 }
 
