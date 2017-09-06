@@ -43,7 +43,9 @@ class MConnectConnected
         
         do
         {
-            try socketCommand?.accept(onPort:port)
+            try socketCommand?.connect(
+                toHost:deviceInfo.deviceIp,
+                onPort:port)
         }
         catch let error
         {
