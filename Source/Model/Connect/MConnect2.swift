@@ -22,6 +22,8 @@ class MConnect2
         tcpSocket = GCDAsyncSocket(
             delegate:tcpDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
+        tcpDelegate.connect = self
+        
         udpSocket.setIPv6Enabled(false)
         udpSocket.setPreferIPv4()
         
@@ -57,6 +59,14 @@ class MConnect2
         {
             print("error accept on port: \(error.localizedDescription)")
         }
+    }
+    
+    func registred(deviceInfo:DeviceInfo)
+    {
+        tcpSocket.delegate = nil
+        tcpSocket.disconnect()
+        
+        
     }
 }
 
@@ -129,18 +139,11 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
 
 class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
 {
+    weak var connect:MConnect2?
     var acceptedSocket:GCDAsyncSocket?
     var pin:String?
-    
-    func reply() -> Data
-    {
-        let reply:String = "SRCH3 * HTTP/1.1\r\ndevice-id:681401e7aed501010101010101010101\r\ndevice-type:PS Vita\r\ndevice-class:0\r\ndevice-mac-address:681401e7aed5\r\ndevice-wireless-protocol-version:01000000\r\n\r\n"
-        let data:Data = reply.data(
-            using:String.Encoding.utf8, allowLossyConversion:false)!
-        
-        return data
-    }
-    
+    var deviceInfo:DeviceInfo?
+
     func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
         print("did close")
     }
@@ -206,7 +209,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else if method == "CONNECT"
         {
-            // validate device-id and parse device-port
+            deviceInfo = parseDeviceInfo(string:receivingString)
             
             // if not valid return "HTTP/1.1 605 NG\r\n"
             
@@ -214,7 +217,21 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else if method == "STANDBY"
         {
+            guard
             
+                let deviceInfo:DeviceInfo = self.deviceInfo
+            
+            else
+            {
+                print("error device info")
+                
+                return
+            }
+            
+            acceptedSocket?.delegate = nil
+            acceptedSocket?.disconnect()
+            
+            connect?.registred(deviceInfo:deviceInfo)
         }
     }
     
