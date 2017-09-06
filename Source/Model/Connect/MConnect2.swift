@@ -312,4 +312,54 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         socket.write(data, withTimeout:100, tag:1957)
         socket.readData(withTimeout:10000, tag:12)
     }
+    
+    func parseDeviceInfo(string:String) -> DeviceInfo?
+    {
+        let components:[String] = string.components(separatedBy: "\r\n")
+        
+        var deviceId:String?
+        var devicePort:String?
+        
+        for component:String in components
+        {
+            if component.contains("device-id")
+            {
+                let components2:[String] = component.components(separatedBy: "device-id")
+                
+                if components2.count > 1
+                {
+                    deviceId = components2[1]
+                }
+            }
+            else if component.contains("device-port")
+            {
+                let components2:[String] = component.components(separatedBy: "device-port")
+                
+                if components2.count > 1
+                {
+                    devicePort = components2[1]
+                }
+            }
+        }
+        
+        guard
+        
+            let foundId:String = deviceId,
+            let foundPort:String = devicePort
+        
+        else
+        {
+            return nil
+        }
+        
+        let deviceInfo:DeviceInfo = DeviceInfo(deviceId:foundId, dataPort:foundPort)
+        
+        return deviceInfo
+    }
+}
+
+struct DeviceInfo
+{
+    let deviceId:String
+    let dataPort:String
 }
