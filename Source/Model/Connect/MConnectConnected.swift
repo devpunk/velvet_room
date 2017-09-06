@@ -34,11 +34,21 @@ class MConnectConnected
     func startConnection()
     {
         socketCommand = GCDAsyncSocket(
-            delegate:commandDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+            delegate:commandDelegate, delegateQueue:DispatchQueue.main, socketQueue: DispatchQueue.main)
         
-        socketEvent = GCDAsyncSocket(
-            delegate:eventDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
-        
+        connectCommand()
+    }
+    
+    func commandDisconnected()
+    {
+        if socketEvent == nil
+        {
+            connectCommand()
+        }
+    }
+    
+    func connectCommand()
+    {
         let port:UInt16 = UInt16(deviceInfo.dataPort)!
         
         do
@@ -52,6 +62,16 @@ class MConnectConnected
             print("error connect command: \(error.localizedDescription)")
         }
         
+        print("command connect")
+    }
+    
+    func commandConnected()
+    {
+        socketEvent = GCDAsyncSocket(
+            delegate:eventDelegate, delegateQueue:DispatchQueue.main, socketQueue: DispatchQueue.main)
+        
+        let port:UInt16 = UInt16(deviceInfo.dataPort)!
+        
         do
         {
             try socketEvent?.connect(
@@ -63,6 +83,11 @@ class MConnectConnected
             print("error connect event: \(error.localizedDescription)")
         }
         
+        print("event connect")
+    }
+    
+    func eventConnected()
+    {
         commandRequest()
         commandAck()
     }
@@ -74,7 +99,7 @@ class MConnectConnected
 
         request[ptpip_type] = PTPIP_INIT_COMMAND_REQUEST
         request[ptpip_len] = ptpip_initcmd_name
-        request[ptpip_initcmd_guid] = 1
+        request[ptpip_initcmd_guid] = 0
         
         let data:Data = Data(bytes:request)
         
@@ -102,7 +127,10 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        print("command did disconnect")
+        print(connected?.deviceInfo)
+        print("command did disconnect error \(err?.localizedDescription)")
+        
+        connected?.commandDisconnected()
     }
     
     func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
@@ -116,13 +144,16 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("command did read")
         
-        let string = data.map { String(format: "%02hhx", $0) }.joined()
-        
-        debugPrint(string)
+        let num:UInt8 = data.withUnsafeBytes { (pointer:UnsafePointer<UInt8>) -> UInt8 in
+            return pointer.pointee
+        }
+        print(num)
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("command did connect")
+        
+        connected?.commandConnected()
     }
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {
@@ -203,6 +234,8 @@ class SocketEventDelegate:NSObject, GCDAsyncSocketDelegate
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
         print("event did connect")
+        
+        connected?.eventConnected()
     }
     
     func socket(_ sock: GCDAsyncSocket, didAcceptNewSocket newSocket: GCDAsyncSocket) {

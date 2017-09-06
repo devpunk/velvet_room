@@ -68,7 +68,11 @@ class MConnect2
         tcpSocket.disconnect()
         
         connected = MConnectConnected(deviceInfo:deviceInfo, connect:self)
-        connected?.startConnection()
+        
+        DispatchQueue.main.async
+        {
+            self.connected?.startConnection()
+        }
     }
 }
 
