@@ -7,6 +7,8 @@ class MConnectConnected
     let deviceInfo:DeviceInfo
     let commandDelegate:SocketCommandDelegate
     let eventDelegate:SocketEventDelegate
+    var socketCommand:GCDAsyncSocket?
+    var socketEvent:GCDAsyncSocket?
     
     init(deviceInfo:DeviceInfo, connect:MConnect2)
     {
@@ -21,7 +23,29 @@ class MConnectConnected
     
     func startConnection()
     {
+        socketCommand = GCDAsyncSocket(
+            delegate:commandDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
         
+        socketEvent = GCDAsyncSocket(
+            delegate:eventDelegate, delegateQueue:DispatchQueue.global(qos:DispatchQoS.QoSClass.background), socketQueue: DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+        
+        do
+        {
+            try socketCommand?.accept(onPort:UInt16(deviceInfo.dataPort)!)
+        }
+        catch let error
+        {
+            print("error accept on port: \(error.localizedDescription)")
+        }
+        
+        do
+        {
+            try socketEvent?.accept(onPort:UInt16(deviceInfo.dataPort)!)
+        }
+        catch let error
+        {
+            print("error accept on port: \(error.localizedDescription)")
+        }
     }
 }
 
