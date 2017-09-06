@@ -343,7 +343,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         {
             if component.contains("device-id")
             {
-                let components2:[String] = component.components(separatedBy: "device-id")
+                let components2:[String] = component.components(separatedBy: "device-id:")
                 
                 if components2.count > 1
                 {
@@ -352,7 +352,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
             }
             else if component.contains("device-port")
             {
-                let components2:[String] = component.components(separatedBy: "device-port")
+                let components2:[String] = component.components(separatedBy: "device-port:")
                 
                 if components2.count > 1
                 {
