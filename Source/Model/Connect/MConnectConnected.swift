@@ -50,14 +50,14 @@ class MConnectConnected
             print("error accept on port: \(error.localizedDescription)")
         }
         
-        do
-        {
-            try socketEvent?.accept(onPort:port)
-        }
-        catch let error
-        {
-            print("error accept on port: \(error.localizedDescription)")
-        }
+//        do
+//        {
+//            try socketEvent?.accept(onPort:port)
+//        }
+//        catch let error
+//        {
+//            print("error accept on port: \(error.localizedDescription)")
+//        }
         
         commandRequest()
         commandAck()

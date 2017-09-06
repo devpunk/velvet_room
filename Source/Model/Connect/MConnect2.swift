@@ -211,7 +211,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else if method == "CONNECT"
         {
-            deviceInfo = parseDeviceInfo(string:receivingString)
+            deviceInfo = parseDeviceInfo(string:receivingString, host:sock.connectedHost)
             
             // if not valid return "HTTP/1.1 605 NG\r\n"
             
@@ -332,7 +332,7 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         socket.readData(withTimeout:10000, tag:12)
     }
     
-    func parseDeviceInfo(string:String) -> DeviceInfo?
+    func parseDeviceInfo(string:String, host:String?) -> DeviceInfo?
     {
         let components:[String] = string.components(separatedBy: "\r\n")
         
@@ -364,14 +364,20 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
         guard
         
             let foundId:String = deviceId,
-            let foundPort:String = devicePort
+            let foundPort:String = devicePort,
+            let foundIp:String = host
         
         else
         {
             return nil
         }
         
-        let deviceInfo:DeviceInfo = DeviceInfo(deviceId:foundId, dataPort:foundPort)
+        print("host: \(foundIp)")
+        
+        let deviceInfo:DeviceInfo = DeviceInfo(
+            deviceId:foundId,
+            deviceIp:foundIp,
+            dataPort:foundPort)
         
         return deviceInfo
     }
@@ -380,5 +386,6 @@ class MConnect2TCPDelegate:NSObject, GCDAsyncSocketDelegate
 struct DeviceInfo
 {
     let deviceId:String
+    let deviceIp:String
     let dataPort:String
 }
