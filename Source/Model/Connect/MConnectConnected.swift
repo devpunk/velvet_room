@@ -309,3 +309,19 @@ class SocketEventDelegate:NSObject, GCDAsyncSocketDelegate
         return nil
     }
 }
+
+
+struct PTPContainer {
+    var Code:UInt16 = 0
+    var SessionID:UInt32 = 0
+    var Transaction_ID:UInt32 = 0
+    /* params  may be of any type of size less or equal to uint32_t */
+    var Param1:UInt32 = 0
+    var Param2:UInt32 = 0
+    var Param3:UInt32 = 0
+    /* events can only have three parameters */
+    var Param4:UInt32 = 0
+    var Param5:UInt32 = 0
+    /* the number of meaningfull parameters */
+    var Nparam:UInt8 = 0
+};
