@@ -98,8 +98,8 @@ class MConnectConnected
         let guid:[CUnsignedChar] = [CUnsignedChar](repeatElement(0, count:16))
 
         request[ptpip_type] = PTPIP_INIT_COMMAND_REQUEST
-        request[ptpip_len] = ptpip_initcmd_name
-        request[ptpip_initcmd_guid] = 0
+//        request[ptpip_len] = ptpip_initcmd_name
+//        request[ptpip_initcmd_guid] = 0
         
         let data:Data = Data(bytes:request)
         
