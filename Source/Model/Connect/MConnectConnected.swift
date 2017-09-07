@@ -156,8 +156,11 @@ class MConnectConnected
         
         socketCommand?.write(data, withTimeout:100, tag:0)
         socketCommand?.readData(withTimeout:1000, tag:0)
+    }
+    
+    func eventReadDataConnection()
+    {
         connect?.stopBroadcast()
-        
     }
 }
 
@@ -237,6 +240,8 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             // par 1 == tranid
             print("header:\(header)")
             print("code: \(arrCode) par:\(arrParameter)")
+            
+            connected?.eventReadDataConnection()
         }
     }
     
