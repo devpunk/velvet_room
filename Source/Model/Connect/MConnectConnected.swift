@@ -101,7 +101,7 @@ class MConnectConnected
 //        request[ptpip_len] = 8
 //        request.append(contentsOf:guid)
         
-        var request:[UInt32] = [8,1]
+        var request:[UInt32] = [16,1,0,0,0,0]
         
         let data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
         
@@ -113,6 +113,17 @@ class MConnectConnected
         socketCommand?.readData(withTimeout:1000, tag:0)
         
         // "\u{0C}\0\0\0\u{02}\0\0\0\0\0\0\0"
+    }
+    
+    func commandAckRead()
+    {
+        let eventRequest:UInt32 = 3
+        let pipeId:UInt32 = 0
+        var request:[UInt32] = [12,eventRequest,pipeId]
+        
+        let data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        
+        socketEvent?.write(data, withTimeout:100, tag:0)
     }
 }
 
@@ -158,6 +169,8 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
         // 0: length, 1: ack (should be 2), 2: eventpipeid
         
         print(arr2)
+        
+        connected?.commandAckRead()
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
