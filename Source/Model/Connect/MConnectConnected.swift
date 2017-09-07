@@ -125,6 +125,16 @@ class MConnectConnected
         
         socketEvent?.write(data, withTimeout:100, tag:0)
     }
+    
+    func eventRead()
+    {
+        socketEvent?.readData(withTimeout:1000, tag:0)
+    }
+    
+    func eventReady()
+    {
+        
+    }
 }
 
 class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
@@ -232,6 +242,8 @@ class SocketEventDelegate:NSObject, GCDAsyncSocketDelegate
     
     func socket(_ sock: GCDAsyncSocket, didWriteDataWithTag tag: Int) {
         print("event did write")
+        
+        connected?.eventRead()
     }
     
     func socketDidSecure(_ sock: GCDAsyncSocket) {
@@ -241,18 +253,20 @@ class SocketEventDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("event did read")
         
-        guard
-            
-            let receivingString:String = String(
-                data:data,
-                encoding:String.Encoding.utf8)
-            
-            else
+        if data.count != 8
         {
-            return
+            print("error reading header, must be 12 bytes")
         }
         
-        debugPrint(receivingString)
+        let arr2 = data.withUnsafeBytes {
+            Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
+        }
+        
+        // 0: length, 1: ack (should be 4)
+        
+        print(arr2)
+        
+        connected?.eventReady()
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
