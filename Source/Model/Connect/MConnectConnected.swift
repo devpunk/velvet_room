@@ -94,14 +94,16 @@ class MConnectConnected
     
     func commandRequest()
     {
-        var request:[CUnsignedChar] = [CUnsignedChar](repeating:0, count:ptpLength)
-        let guid:[CUnsignedChar] = [CUnsignedChar](repeatElement(0, count:16))
-
-        request[ptpip_type] = PTPIP_INIT_COMMAND_REQUEST
-//        request[ptpip_len] = ptpip_initcmd_name
-//        request[ptpip_initcmd_guid] = 0
+//        var request:[CUnsignedChar] = [CUnsignedChar](repeating:0, count:8)
+//        let guid:[CUnsignedChar] = [CUnsignedChar](repeatElement(0, count:16))
+//
+//        request[ptpip_type] = PTPIP_INIT_COMMAND_REQUEST
+//        request[ptpip_len] = 8
+//        request.append(contentsOf:guid)
         
-        let data:Data = Data(bytes:request)
+        var request:[UInt32] = [8,1]
+        
+        let data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
         
         socketCommand?.write(data, withTimeout:100, tag:0)
     }
