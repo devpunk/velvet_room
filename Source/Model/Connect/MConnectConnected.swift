@@ -155,11 +155,13 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &transSession, count: transSession.count))
         
         socketCommand?.write(data, withTimeout:100, tag:0)
+        socketCommand?.readData(withTimeout:100, tag:0)
     }
 }
 
 class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
 {
+    var first:Bool = true
     weak var connected:MConnectConnected?
     
     func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
@@ -188,20 +190,33 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("command did read")
         
-        if data.count != 12
+        if first
         {
-            print("error reading header, must be 12 bytes")
+            first = false
+            
+            if data.count != 12
+            {
+                print("error reading header, must be 12 bytes")
+            }
+            
+            let arr2 = data.withUnsafeBytes {
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
+            }
+            
+            // 0: length, 1: ack (should be 2), 2: eventpipeid
+            
+            print(arr2)
+            
+            connected?.commandAckRead()
         }
-        
-        let arr2 = data.withUnsafeBytes {
-            Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
+        else
+        {
+            let arr2 = data.withUnsafeBytes {
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
+            }
+            
+            print(arr2)
         }
-        
-        // 0: length, 1: ack (should be 2), 2: eventpipeid
-        
-        print(arr2)
-        
-        connected?.commandAckRead()
     }
     
     func socket(_ sock: GCDAsyncSocket, didConnectToHost host: String, port: UInt16) {
