@@ -161,12 +161,29 @@ class MConnectConnected
     func eventReadDataConnection()
     {
         connect?.stopBroadcast()
+        
+        
+        var code:UInt16 = 38161 //PTP_OC_VITA_GetVitaInfo
+        let type:UInt32 = 6 // PTPIP_CMD_REQUEST
+        let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
+        let tranId:UInt32 = 2//ptpip_cmd_transid
+        
+        var request:[UInt32] = [22,type,dataPhase]
+        var trans:[UInt32] = [tranId]
+        
+        var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        
+        data.append(UnsafeBufferPointer(start:&code, count:1))
+        data.append(UnsafeBufferPointer(start: &trans, count: trans.count))
+        
+        socketCommand?.write(data, withTimeout:100, tag:0)
+        socketCommand?.readData(withTimeout:1000, tag:0)
     }
 }
 
 class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
 {
-    var first:Bool = true
+    var step:Int = 0
     weak var connected:MConnectConnected?
     
     func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
@@ -195,9 +212,9 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("command did read")
         
-        if first
+        if step == 0
         {
-            first = false
+            step = 1
             
             if data.count != 12
             {
@@ -214,8 +231,9 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             
             connected?.commandAckRead()
         }
-        else
+        else if step == 1
         {
+            step = 2
             let header = data.withUnsafeBytes {
                 
                 Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
@@ -242,6 +260,19 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             print("code: \(arrCode) par:\(arrParameter)")
             
             connected?.eventReadDataConnection()
+        }
+        else if step == 2
+        {
+            step = 3
+            
+            let header = data.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 4))
+            }
+            
+            //[size:14, response:9 // PTPIP_START_DATA_PACKET, transactionId:2, payload]
+            
+            print("header:\(header)")
         }
     }
     
@@ -387,3 +418,4 @@ struct PTPContainer {
     /* the number of meaningfull parameters */
     var Nparam:UInt8 = 0
 };
+
