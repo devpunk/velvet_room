@@ -270,9 +270,24 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
                 Array(UnsafeBufferPointer<UInt32>(start: $0, count: 4))
             }
             
-            //[size:14, response:9 // PTPIP_START_DATA_PACKET, transactionId:2, payload]
+            //[size:16, response:9 // PTPIP_START_DATA_PACKET, transactionId:2, payload]
             
-            print("header:\(header)")
+            print("header and payload:\(header)")
+            
+            sock.readData(withTimeout:1000, tag:0)
+        }
+        else if step == 3
+        {
+            step = 4
+            
+            let header = data.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
+            }
+            
+            //[size, response:10 or 12, PTPIP_DATA_PACKET]
+            
+            print("data:\(header)")
         }
     }
     
