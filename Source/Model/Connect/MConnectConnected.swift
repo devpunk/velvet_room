@@ -133,7 +133,28 @@ class MConnectConnected
     
     func eventReady()
     {
+//        let openSession:UInt16 = 4098
+//        var container:PTPContainer = PTPContainer()
+//        container.Code = openSession
+//        container.Param1 = 1 // session id =1
+//        container.Nparam = 1
         
+        
+        var code:UInt16 = 4098 //ptpip_cmd_code
+        let type:UInt32 = 6 // PTPIP_CMD_REQUEST
+        let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
+        let tranId:UInt32 = 0//ptpip_cmd_transid
+        let par1:UInt32 = 1//ptpip_cmd_param1, session id
+        
+        var request:[UInt32] = [24,type,dataPhase]
+        var transSession:[UInt32] = [tranId, par1]
+        
+        var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        
+        data.append(UnsafeBufferPointer(start:&code, count:1))
+        data.append(UnsafeBufferPointer(start: &transSession, count: transSession.count))
+        
+        socketCommand?.write(data, withTimeout:100, tag:0)
     }
 }
 
