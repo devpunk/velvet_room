@@ -143,10 +143,10 @@ class MConnectConnected
         var code:UInt16 = 4098 //ptpip_cmd_code
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
-        let tranId:UInt32 = 0//ptpip_cmd_transid
-        let par1:UInt32 = 1//ptpip_cmd_param1, session id
+        let tranId:UInt32 = 1//ptpip_cmd_transid
+        let par1:UInt32 = 0//ptpip_cmd_param1, session id, 0 to connect
         
-        var request:[UInt32] = [24,type,dataPhase]
+        var request:[UInt32] = [22,type,dataPhase]
         var transSession:[UInt32] = [tranId, par1]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
@@ -155,7 +155,7 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &transSession, count: transSession.count))
         
         socketCommand?.write(data, withTimeout:100, tag:0)
-        socketCommand?.readData(withTimeout:100, tag:0)
+        socketCommand?.readData(withTimeout:1000, tag:0)
     }
 }
 
@@ -211,11 +211,30 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else
         {
-            let arr2 = data.withUnsafeBytes {
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: data.count/MemoryLayout<UInt32>.size))
+            let header = data.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
             }
             
-            print(arr2)
+            let sub:Data = data.subdata(in: 8..<10)
+            
+            let arrCode = sub.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = data.subdata(in: 10..<14)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            //[size:14, response:7, code: 8193 (ok), transactionId:1]
+            
+            // par 1 == tranid
+            print("header:\(header)")
+            print("code: \(arrCode) par:\(arrParameter)")
         }
     }
     
