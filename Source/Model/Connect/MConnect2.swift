@@ -74,6 +74,12 @@ class MConnect2
             self.connected?.startConnection()
         }
     }
+    
+    func stopBroadcast()
+    {
+        udpSocket.setDelegate(nil)
+        udpSocket.close()
+    }
 }
 
 class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate

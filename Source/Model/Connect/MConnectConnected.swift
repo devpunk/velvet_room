@@ -156,6 +156,8 @@ class MConnectConnected
         
         socketCommand?.write(data, withTimeout:100, tag:0)
         socketCommand?.readData(withTimeout:1000, tag:0)
+        connect?.stopBroadcast()
+        
     }
 }
 
