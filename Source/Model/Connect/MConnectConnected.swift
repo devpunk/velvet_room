@@ -126,7 +126,9 @@ class MConnectConnected
     
     func eventRead()
     {
-        socketEvent?.readData(withTimeout:1000, tag:0)
+        let end:String = "\0"
+        let data = end.data(using:String.Encoding.utf8)!
+        socketEvent?.readData(to:data, withTimeout:10000, tag:0)
     }
     
     func eventReady()
