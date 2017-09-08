@@ -143,7 +143,7 @@ class MConnectConnected
         var code:UInt16 = 4098 //ptpip_cmd_code
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
-        let tranId:UInt32 = 1//ptpip_cmd_transid
+        let tranId:UInt32 = 0//ptpip_cmd_transid
         let par1:UInt32 = 0//ptpip_cmd_param1, session id, 0 to connect
         
         var request:[UInt32] = [22,type,dataPhase]
@@ -166,7 +166,7 @@ class MConnectConnected
         var code:UInt16 = 38161 //PTP_OC_VITA_GetVitaInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 2//ptpip_cmd_dataphase
-        var tranId:UInt32 = 2//ptpip_cmd_transid
+        var tranId:UInt32 = 1//ptpip_cmd_transid
         
         var request:[UInt32] = [18,type,dataPhase]
         
