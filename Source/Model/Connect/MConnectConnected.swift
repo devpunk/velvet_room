@@ -449,7 +449,7 @@ class SocketEventDelegate:NSObject, GCDAsyncSocketDelegate
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
         print("event did read")
         
-        if data.count != 8
+        if data.count != 12
         {
             print("error reading header, must be 12 bytes")
         }
