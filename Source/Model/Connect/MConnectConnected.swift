@@ -144,7 +144,7 @@ class MConnectConnected
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
         let tranId:UInt32 = 0//ptpip_cmd_transid
-        let par1:UInt32 = 0//ptpip_cmd_param1, session id, 0 to connect
+        let par1:UInt32 = 1//ptpip_cmd_param1, session id, 1 to connect
         
         var request:[UInt32] = [22,type,dataPhase]
         var transSession:[UInt32] = [tranId, par1]
@@ -174,8 +174,8 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start:&code, count:1))
         data.append(UnsafeBufferPointer(start: &tranId, count: 1))
         
-        socketCommand?.write(data, withTimeout:100, tag:0)
-        socketCommand?.readData(withTimeout:1000, tag:0)
+        self.socketCommand?.write(data, withTimeout:100, tag:0)
+        self.socketCommand?.readData(withTimeout:1000, tag:0)
     }
 }
 
