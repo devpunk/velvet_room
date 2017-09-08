@@ -110,9 +110,7 @@ class MConnectConnected
     
     func commandAck()
     {
-        socketCommand?.readData(withTimeout:1000, tag:0)
-        
-        // "\u{0C}\0\0\0\u{02}\0\0\0\0\0\0\0"
+        readCommand()
     }
     
     func commandAckRead()
@@ -155,12 +153,12 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &transSession, count: transSession.count))
         
         socketCommand?.write(data, withTimeout:100, tag:0)
-        socketCommand?.readData(withTimeout:1000, tag:0)
+        readCommand()
     }
     
     func eventReadDataConnection()
     {
-        connect?.setUnavailable()
+        connect?.stopBroadcast()
         
         
         var code:UInt16 = 38161 //PTP_OC_VITA_GetVitaInfo
@@ -175,13 +173,19 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &tranId, count: 1))
         
         self.socketCommand?.write(data, withTimeout:100, tag:0)
-        self.socketCommand?.readData(withTimeout:1000, tag:0)
+        readCommand()
+    }
+    
+    func readCommand()
+    {
+        self.socketCommand?.readData(withTimeout:10, tag:0)
     }
 }
 
 class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
 {
     var step:Int = 0
+    var data:Data?
     weak var connected:MConnectConnected?
     
     func socketDidCloseReadStream(_ sock: GCDAsyncSocket) {
@@ -208,7 +212,7 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
     }
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        print("command did read")
+        print("command did read size \(data.count)")
         
         if step == 0
         {
@@ -279,39 +283,64 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             
             print("header and payload:\(header)")
             
-            sock.readData(withTimeout:1000, tag:0)
+            let subData:Data = data.subdata(in: 16..<data.count)
+            let remainHeader = subData.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            print("remain header \(remainHeader)")
+            
+            self.data = Data()
+            connected?.readCommand()
         }
         else if step == 3
         {
-            step = 4
-            
             let header = data.withUnsafeBytes {
                 
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 3))
             }
-            
-            //[size, response:10 or 12, PTPIP_DATA_PACKET]
-            
             print("data:\(header)")
             
-            // size should be equal to payload if not read again if true read to next step
+            let subData:Data = data.subdata(in: 12..<data.count)
+            self.data?.append(subData)
             
-            guard
+            //[size, response:10 or 12]
+            //10:PTPIP_DATA_PACKET
+            //12:PTPIP_END_DATA_PACKET
+            
+            
+            let type:UInt32 = header[1]
+            
+            if type == 12
+            {
+                step = 4
                 
-                let receivingString:String = String(
+                if let receivingString:String = String(
                     data:data,
                     encoding:String.Encoding.utf8)
-                
+                {
+                    print("data in xml:")
+                    print(receivingString)
+                }
                 else
-            {
-                print("can't create string")
-                return
+                {
+                    print("can't create string")
+                }
+                
             }
+            else if type == 10
+            {
+                print("------- read again")
+            }
+            else
+            {
+                print("error")
+            }
+        
+            self.connected?.readCommand()
             
-            print("data in xml:")
-            print(receivingString)
-            
-            sock.readData(withTimeout:1000, tag:0)
+            // size should be equal to payload if not read again if true read to next step
         }
         else if step == 4
         {
