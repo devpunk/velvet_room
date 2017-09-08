@@ -25,6 +25,7 @@ class MConnect:Model<ArchConnect>
         }
         
         connect2 = MConnect2()
+        print("start")
     }
     
     func startTcp()

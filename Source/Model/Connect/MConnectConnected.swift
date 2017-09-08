@@ -167,14 +167,14 @@ class MConnectConnected
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
         let tranId:UInt32 = 2//ptpip_cmd_transid
+        let par1:UInt32 = 1
         
-        var request:[UInt32] = [18,type,dataPhase]
-        var trans:[UInt32] = [tranId]
+        var request:[UInt32] = [22,type,dataPhase]
+        var transSession:[UInt32] = [tranId, par1]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
-        
         data.append(UnsafeBufferPointer(start:&code, count:1))
-        data.append(UnsafeBufferPointer(start: &trans, count: trans.count))
+        data.append(UnsafeBufferPointer(start: &transSession, count: transSession.count))
         
         socketCommand?.write(data, withTimeout:100, tag:0)
         socketCommand?.readData(withTimeout:1000, tag:0)
@@ -267,10 +267,14 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             
             let header = data.withUnsafeBytes {
                 
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 4))
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 5))
             }
             
             //[size:16, response:9 // PTPIP_START_DATA_PACKET, transactionId:2, payload]
+            
+            //header and payload:[14, 7, 139267, 0]
+            //header and payload:[14, 7, 204803, 0, 0]
+            //header and payload:[14, 7, 139267, 0, 1879633920]
             
             print("header and payload:\(header)")
             
