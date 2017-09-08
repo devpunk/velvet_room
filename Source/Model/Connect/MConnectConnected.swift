@@ -267,7 +267,7 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             
             let header = data.withUnsafeBytes {
                 
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 5))
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 4))
             }
             
             //[size:16, response:9 // PTPIP_START_DATA_PACKET, transactionId:2, payload]
@@ -275,16 +275,9 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             //header and payload:[14, 7, 139267, 0]
             //header and payload:[14, 7, 204803, 0, 0]
             //header and payload:[14, 7, 139267, 0, 1879633920]
-            
-            let sub:Data = data.subdata(in: 8..<10)
-            
-            let arrCode = sub.withUnsafeBytes {
-                
-                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
-            }
+            //header and payload:[20, 9, 1, 407, 0]
             
             print("header and payload:\(header)")
-            print("code : \(arrCode)")
             
             sock.readData(withTimeout:1000, tag:0)
         }
@@ -303,8 +296,6 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             
             // size should be equal to payload if not read again if true read to next step
             
-            sock.readData(withTimeout:1000, tag:0)
-            
             guard
                 
                 let receivingString:String = String(
@@ -313,11 +304,14 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
                 
                 else
             {
+                print("can't create string")
                 return
             }
             
             print("data in xml:")
             print(receivingString)
+            
+            sock.readData(withTimeout:1000, tag:0)
         }
         else if step == 4
         {
