@@ -75,6 +75,11 @@ class MConnect2
         }
     }
     
+    func setUnavailable()
+    {
+        udpDelegate.available = false
+    }
+    
     func stopBroadcast()
     {
         udpSocket.setDelegate(nil)
@@ -84,6 +89,8 @@ class MConnect2
 
 class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
 {
+    var available:Bool = true
+    
     func udpSocket(_ sock: GCDAsyncUdpSocket, didReceive data: Data, fromAddress address: Data, withFilterContext filterContext: Any?) {
         
         guard
@@ -104,7 +111,16 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
         
         if isInitialConnect(message:receivingString)
         {
-            let replyData:Data = reply()
+            let replyData:Data
+            
+            if available
+            {
+                replyData = reply()
+            }
+            else
+            {
+                replyData = replyNotAvailable()
+            }
             
             sock.send(replyData, toAddress:address, withTimeout:100, tag:1)
         }
@@ -118,6 +134,24 @@ class MConnect2UDPDelegate:NSObject, GCDAsyncUdpSocketDelegate
     func reply() -> Data!
     {
         var reply:String = "HTTP/1.1 200 OK\r\n"
+        reply.append("host-id:4567890123489\r\n")
+        reply.append("host-type:win\r\n")
+        reply.append("host-name:vaux\r\n")
+        reply.append("host-mtp-protocol-version:01500010\r\n")
+        reply.append("host-request-port:9309\r\n")
+        reply.append("host-wireless-protocol-version:01000000\r\n")
+        reply.append("host-supported-device:PS Vita, PS Vita TV\r\n")
+        reply.append("\0")
+        
+        let data:Data = reply.data(
+            using:String.Encoding.utf8, allowLossyConversion:false)!
+        
+        return data
+    }
+    
+    func replyNotAvailable() -> Data!
+    {
+        var reply:String = "HTTP/1.1 503 NG\r\n"
         reply.append("host-id:4567890123489\r\n")
         reply.append("host-type:win\r\n")
         reply.append("host-name:vaux\r\n")

@@ -142,7 +142,7 @@ class MConnectConnected
         
         var code:UInt16 = 4098 //ptpip_cmd_code
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
-        let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
+        let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
         let tranId:UInt32 = 1//ptpip_cmd_transid
         let par1:UInt32 = 0//ptpip_cmd_param1, session id, 0 to connect
         
@@ -160,12 +160,12 @@ class MConnectConnected
     
     func eventReadDataConnection()
     {
-        connect?.stopBroadcast()
+        connect?.setUnavailable()
         
         
         var code:UInt16 = 38161 //PTP_OC_VITA_GetVitaInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
-        let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
+        let dataPhase:UInt32 = 2//ptpip_cmd_dataphase
         var tranId:UInt32 = 2//ptpip_cmd_transid
         
         var request:[UInt32] = [18,type,dataPhase]
@@ -232,6 +232,8 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
         else if step == 1
         {
             step = 2
+            // open session
+            
             let header = data.withUnsafeBytes {
                 
                 Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
@@ -274,7 +276,15 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             //header and payload:[14, 7, 204803, 0, 0]
             //header and payload:[14, 7, 139267, 0, 1879633920]
             
+            let sub:Data = data.subdata(in: 8..<10)
+            
+            let arrCode = sub.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
             print("header and payload:\(header)")
+            print("code : \(arrCode)")
             
             sock.readData(withTimeout:1000, tag:0)
         }
