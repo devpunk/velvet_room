@@ -288,6 +288,40 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             //[size, response:10 or 12, PTPIP_DATA_PACKET]
             
             print("data:\(header)")
+            
+            // size should be equal to payload if not read again if true read to next step
+            
+            sock.readData(withTimeout:1000, tag:0)
+        }
+        else if step == 4
+        {
+            step = 5
+            
+            step = 2
+            let header = data.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
+            }
+            
+            let sub:Data = data.subdata(in: 8..<10)
+            
+            let arrCode = sub.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = data.subdata(in: 10..<14)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            //[size:14, response:7, code: 8193 (ok), transactionId:1]
+            
+            // par 1 == tranid
+            print("finish data header:\(header)")
+            print("code: \(arrCode) par:\(arrParameter)")
         }
     }
     
