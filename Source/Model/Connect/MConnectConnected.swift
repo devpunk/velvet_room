@@ -292,6 +292,20 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             // size should be equal to payload if not read again if true read to next step
             
             sock.readData(withTimeout:1000, tag:0)
+            
+            guard
+                
+                let receivingString:String = String(
+                    data:data,
+                    encoding:String.Encoding.utf8)
+                
+                else
+            {
+                return
+            }
+            
+            print("data in xml:")
+            print(receivingString)
         }
         else if step == 4
         {
@@ -322,6 +336,9 @@ class SocketCommandDelegate:NSObject, GCDAsyncSocketDelegate
             // par 1 == tranid
             print("finish data header:\(header)")
             print("code: \(arrCode) par:\(arrParameter)")
+            
+            // response should be xml
+            
         }
     }
     
