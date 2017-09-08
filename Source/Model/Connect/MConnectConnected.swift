@@ -168,7 +168,7 @@ class MConnectConnected
         let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
         let tranId:UInt32 = 2//ptpip_cmd_transid
         
-        var request:[UInt32] = [22,type,dataPhase]
+        var request:[UInt32] = [18,type,dataPhase]
         var trans:[UInt32] = [tranId]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
