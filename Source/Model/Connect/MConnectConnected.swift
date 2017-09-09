@@ -184,6 +184,21 @@ class MConnectConnected
         
         let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
         let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
+        
+        
+        var code:UInt16 = 38172 //PTP_OC_VITA_SendInitiatorInfo
+        let type:UInt32 = 6 // PTPIP_CMD_REQUEST
+        let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
+        var tranId:UInt32 = 2//ptpip_cmd_transid
+        
+        var request:[UInt32] = [18,type,dataPhase]
+        
+        var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        data.append(UnsafeBufferPointer(start:&code, count:1))
+        data.append(UnsafeBufferPointer(start: &tranId, count: 1))
+        
+        self.socketCommand?.write(data, withTimeout:100, tag:0)
+        
     }
     
     func dataPlusHeader(original:Data) -> Data
