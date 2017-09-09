@@ -3,6 +3,7 @@ import CocoaAsyncSocket
 
 class MConnectConnected
 {
+    let maxBlockSize:Int 32756
     weak var connect:MConnect2?
     let deviceInfo:DeviceInfo
     let commandDelegate:PTPDelegate
