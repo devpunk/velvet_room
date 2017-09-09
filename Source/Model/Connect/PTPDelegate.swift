@@ -160,7 +160,9 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         {
             print("header:\(header.size):\(header.type)")
             
-            self.dataReceived?.append(dataUnheader)
+            let dataMinusTransaction:Data = dataUnheader.subdata(in:4..<dataUnheader.count)
+            
+            self.dataReceived?.append(dataMinusTransaction)
             
             //[size, response:10 or 12]
             //10:PTPIP_DATA_PACKET
