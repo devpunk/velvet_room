@@ -237,7 +237,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             print("code: \(arrCode) par:\(arrParameter)")
             
             // response should be xml
-            // next VitaMTP_SendInitiatorInfo
+            connected?.sendCapabilities()
         }
     }
     

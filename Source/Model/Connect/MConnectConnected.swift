@@ -178,6 +178,12 @@ class MConnectConnected
         readCommand()
     }
     
+    func sendCapabilities()
+    {
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
+        "<initiatorInfo platformType=\"%s\" platformSubtype=\"%s\" osVersion=\"%s\" version=\"%s\" protocolVersion=\"%08d\" name=\"%s\" applicationType=\"%d\" />\n"
+    }
+    
     func readCommand()
     {
         self.socketCommand?.readData(withTimeout:10, tag:0)
