@@ -70,7 +70,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             }
         }
         
-        let dataUnheader:Data = mergedData.subdata(in:8 ..< mergedData.count)
+        let dataUnheader:Data = mergedData.subdata(in:8 ..< Int(header.size))
         
         if step == 0
         {
@@ -170,6 +170,9 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             {
                 step = 4
                 let datareceived:Data = self.dataReceived!
+                
+                print("total data: \(datareceived.count)")
+                
                 self.dataReceived = nil
                 if let receivingString:String = String(
                     data:datareceived,
