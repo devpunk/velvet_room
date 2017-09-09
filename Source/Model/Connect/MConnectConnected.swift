@@ -188,7 +188,7 @@ class MConnectConnected
     
     func dataPlusHeader(original:Data) -> Data
     {
-        var size:UInt32 = UInt32(original.count)
+        var size:UInt32 = UInt32(original.count + 1) // plus one for null terminator
         var newData:Data = Data()
         newData.append(UnsafeBufferPointer(start:&size, count:1))
         newData.append(original)
