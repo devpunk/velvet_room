@@ -180,8 +180,20 @@ class MConnectConnected
     
     func sendCapabilities()
     {
-        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-        "<initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"1\" protocolVersion=\"01800010\" name=\"vaux\" applicationType=\"5\" />\n"
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"1\" protocolVersion=\"01800010\" name=\"vaux\" applicationType=\"5\" />\n"
+        
+        let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
+        let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
+    }
+    
+    func dataPlusHeader(original:Data) -> Data
+    {
+        var size:UInt32 = UInt32(original.count)
+        var newData:Data = Data()
+        newData.append(UnsafeBufferPointer(start:&size, count:1))
+        newData.append(original)
+        
+        return newData
     }
     
     func readCommand()
