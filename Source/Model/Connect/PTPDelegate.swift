@@ -376,7 +376,27 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
                 
                 Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
             }
-            print("sent capabilities:\(header.size):\(header.type)")
+            print("sent other capabilities:\(header.size):\(header.type)")
+            print("code: \(arrCode) par:\(arrParameter)")
+            
+            connected?.vitaReceivedOtherOk()
+        }
+        else if step == 10
+        {
+            step = 11
+            
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            print("sent status:\(header.size):\(header.type)")
             print("code: \(arrCode) par:\(arrParameter)")
             
             connected?.vitaReceivedOtherOk()

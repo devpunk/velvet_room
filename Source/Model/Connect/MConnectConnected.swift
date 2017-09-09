@@ -265,9 +265,35 @@ class MConnectConnected
         readCommand()
     }
     
+    /**
+ 
+     #define VITA_HOST_STATUS_Connected 0x0
+     #define VITA_HOST_STATUS_Unknown1 0x1
+     #define VITA_HOST_STATUS_Deactivate 0x2
+     #define VITA_HOST_STATUS_EndConnection 0x3
+     #define VITA_HOST_STATUS_StartConnection 0x4
+     #define VITA_HOST_STATUS_Unknown2 0x5
+ **/
+    
     func vitaReceivedOtherOk()
     {
+        sendStatus(status:0, tranId:5)
+    }
+    
+    func sendStatus(status:UInt32, tranId:UInt32)
+    {
+        var code:UInt16 = 38186 //PTP_OC_VITA_SendHostStatus
+        let type:UInt32 = 6 // PTPIP_CMD_REQUEST
+        let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
         
+        var request:[UInt32] = [22,type,dataPhase]
+        var transStatus:[UInt32] = [tranId, status]
+        
+        var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        
+        data.append(UnsafeBufferPointer(start:&code, count:1))
+        data.append(UnsafeBufferPointer(start: &transStatus, count: transStatus.count))
+        socketCommand?.write(data, withTimeout:100, tag:0)
     }
     
     func dataPlusHeader(original:Data) -> Data
