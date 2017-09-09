@@ -256,6 +256,112 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             }
             print("sent capabilities:\(header.size):\(header.type)")
             print("code: \(arrCode) par:\(arrParameter)")
+            
+            connected?.vitaReceivedInfoOk()
+        }
+        else if step == 6
+        {
+            step = 7
+            
+            let info = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 3))
+            }
+            
+            //[size:16, response:9 // PTPIP_START_DATA_PACKET, transactionId:2, payload]
+            
+            //header and payload:[14, 7, 139267, 0]
+            //header and payload:[14, 7, 204803, 0, 0]
+            //header and payload:[14, 7, 139267, 0, 1879633920]
+            //header and payload:[20, 9, 1, 407, 0]
+            
+            print("header and payload:\(header.size):\(header.type) \(info)")
+            
+            self.dataReceived = Data()
+            
+            defer
+            {
+                if readAgain
+                {
+                    connected?.readCommand()
+                }
+            }
+        }
+        else if step == 7
+        {
+            print("vita capabilities header:\(header.size):\(header.type)")
+            
+            let dataMinusTransaction:Data = dataUnheader.subdata(in:4..<dataUnheader.count)
+            
+            self.dataReceived?.append(dataMinusTransaction)
+            
+            if header.type == 12
+            {
+                step = 8
+                let datareceived:Data = self.dataReceived!
+                
+                print("total data: \(datareceived.count)")
+                
+                if let receivingString:String = String(
+                    data:datareceived,
+                    encoding:String.Encoding.ascii)
+                {
+                    print("data in xml:")
+                    print(receivingString)
+                    
+                    /**
+                     
+                     
+                     ***/
+                }
+                else
+                {
+                    print("can't create string")
+                }
+                
+                self.dataReceived = nil
+            }
+            else if header.type == 10
+            {
+                print("------- read again")
+            }
+            else
+            {
+                print("error header type: \(header.type)")
+            }
+            
+            defer
+            {
+                if readAgain
+                {
+                    self.connected?.readCommand()
+                }
+            }
+        }
+        else if step == 8
+        {
+            step = 9
+            
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            print("vita cap finish data header:\(header.size):\(header.type)")
+            print("code: \(arrCode) par:\(arrParameter)")
+            
+            connected?.receivedInfoFromVita()
+        }
+        else if step == 9
+        {
+            
         }
     }
     
