@@ -5,7 +5,7 @@ class MConnectConnected
 {
     weak var connect:MConnect2?
     let deviceInfo:DeviceInfo
-    let commandDelegate:SocketCommandDelegate
+    let commandDelegate:PTPDelegate
     let eventDelegate:SocketEventDelegate
     var socketCommand:GCDAsyncSocket?
     var socketEvent:GCDAsyncSocket?
@@ -24,7 +24,7 @@ class MConnectConnected
     {
         self.deviceInfo = deviceInfo
         self.connect = connect
-        commandDelegate = SocketCommandDelegate()
+        commandDelegate = PTPDelegate()
         eventDelegate = SocketEventDelegate()
         
         commandDelegate.connected = self
