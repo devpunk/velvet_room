@@ -35,6 +35,8 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
     
     func dataRead(data:Data, sock: GCDAsyncSocket)
     {
+        var readAgain:Bool = true
+        print("received:\(data.count)")
         let mergedData:Data = mergeData(data:data)
         
         guard
@@ -52,10 +54,12 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         
         if header.size < mergedData.count
         {
+            readAgain = false
+            
             defer
             {
                 let sub:Data = data.subdata(in:Int(header.size) ..< mergedData.count)
-                
+                print("subdata: \(sub.count)")
                 dataRead(data:sub, sock:sock)
             }
         }
@@ -81,7 +85,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             
             defer
             {
-                connected?.commandAckRead()
+                if readAgain
+                {
+                    connected?.commandAckRead()
+                }
             }
         }
         else if step == 1
@@ -109,7 +116,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             
             defer
             {
-                connected?.eventReadDataConnection()
+                if readAgain
+                {
+                    connected?.eventReadDataConnection()
+                }
             }
         }
         else if step == 2
@@ -134,7 +144,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         
             defer
             {
-                connected?.readCommand()
+                if readAgain
+                {
+                    connected?.readCommand()
+                }
             }
         }
         else if step == 3
@@ -150,9 +163,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             if header.type == 12
             {
                 step = 4
-                
+                let datareceived:Data = self.dataReceived!
+                self.dataReceived = nil
                 if let receivingString:String = String(
-                    data:dataUnheader,
+                    data:datareceived,
                     encoding:String.Encoding.utf8)
                 {
                     print("data in xml:")
@@ -170,12 +184,15 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             }
             else
             {
-                print("error")
+                print("error header type: \(header.type)")
             }
             
             defer
             {
-                self.connected?.readCommand()
+                if readAgain
+                {
+                    self.connected?.readCommand()
+                }
             }
             
             // size should be equal to payload if not read again if true read to next step
@@ -215,8 +232,6 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
     }
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        print("command did read size \(data.count)")
-        
         dataRead(data:data, sock:sock)
     }
     
