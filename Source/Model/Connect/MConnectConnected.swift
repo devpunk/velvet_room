@@ -181,7 +181,7 @@ class MConnectConnected
     func sendCapabilities()
     {
         let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
-        "<initiatorInfo platformType=\"%s\" platformSubtype=\"%s\" osVersion=\"%s\" version=\"%s\" protocolVersion=\"%08d\" name=\"%s\" applicationType=\"%d\" />\n"
+        "<initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"1\" protocolVersion=\"01800010\" name=\"vaux\" applicationType=\"5\" />\n"
     }
     
     func readCommand()
