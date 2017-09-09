@@ -6,7 +6,6 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
     var step:Int = 0
     var dataReceived:Data?
     var carriedData:Data?
-    var carriedHeader:PTPHeader?
     weak var connected:MConnectConnected?
     
     func carryData(data:Data)
@@ -41,7 +40,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         guard
             
             let header:PTPHeader = PTPHeader(data:mergedData),
-            header.size > mergedData.count
+            header.size <= mergedData.count
             
         else
         {
@@ -78,7 +77,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             
             // 0: length, 1: ack (should be 2), 2: eventpipeid
             
-            print("header:\(header) pipeid:\(arr2)")
+            print("header:\(header.size):\(header.type) pipeid:\(arr2)")
             
             defer
             {
@@ -105,7 +104,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             //[size:14, response:7, code: 8193 (ok), transactionId:1]
             
             // par 1 == tranid
-            print("header:\(header)")
+            print("header:\(header.size):\(header.type)")
             print("code: \(arrCode) par:\(arrParameter)")
             
             defer
@@ -129,7 +128,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             //header and payload:[14, 7, 139267, 0, 1879633920]
             //header and payload:[20, 9, 1, 407, 0]
             
-            print("header and payload:\(header) \(info)")
+            print("header and payload:\(header.size):\(header.type) \(info)")
             
             self.dataReceived = Data()
         
@@ -140,7 +139,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else if step == 3
         {
-            print("header:\(header)")
+            print("header:\(header.size):\(header.type)")
             
             self.dataReceived?.append(dataUnheader)
             
@@ -153,7 +152,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
                 step = 4
                 
                 if let receivingString:String = String(
-                    data:data,
+                    data:dataUnheader,
                     encoding:String.Encoding.utf8)
                 {
                     print("data in xml:")
@@ -185,20 +184,12 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         {
             step = 5
             
-            step = 2
-            let header = data.withUnsafeBytes {
-                
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 2))
-            }
-            
-            let sub:Data = data.subdata(in: 8..<10)
-            
-            let arrCode = sub.withUnsafeBytes {
+            let arrCode = dataUnheader.withUnsafeBytes {
                 
                 Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
             }
             
-            let sub2:Data = data.subdata(in: 10..<14)
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
             
             let arrParameter = sub2.withUnsafeBytes {
                 
@@ -208,7 +199,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             //[size:14, response:7, code: 8193 (ok), transactionId:1]
             
             // par 1 == tranid
-            print("finish data header:\(header)")
+            print("finish data header:\(header.size):\(header.type)")
             print("code: \(arrCode) par:\(arrParameter)")
             
             // response should be xml
