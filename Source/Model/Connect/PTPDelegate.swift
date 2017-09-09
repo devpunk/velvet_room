@@ -58,7 +58,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             
             defer
             {
-                let sub:Data = data.subdata(in:Int(header.size) ..< mergedData.count)
+                let sub:Data = mergedData.subdata(in:Int(header.size) ..< mergedData.count)
                 print("subdata: \(sub.count)")
                 dataRead(data:sub, sock:sock)
             }
