@@ -184,7 +184,7 @@ class MConnectConnected
     
     func sendCapabilities()
     {
-        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"1\" protocolVersion=\"01800010\" name=\"vaux\" applicationType=\"5\" />\n\0"
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"10\" protocolVersion=\"01800010\" name=\"vaux\" applicationType=\"5\" />\n\0"
         
         let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
         let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
@@ -234,7 +234,7 @@ class MConnectConnected
     
     func receivedInfoFromVita()
     {
-        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><capabilityInfo version=\"1.0\"></capabilityInfo>\0"
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>capabilityInfo version=\"1.0\"><function type=\"photo\"><format contentType=\"image/jpeg\" /><format contentType=\"image/png\" /><format contentType=\"image/tiff\" /><format contentType=\"image/bmp\" /><format contentType=\"image/gif\" /><format contentType=\"image/x-mpo\" /><format contentType=\"video/x-photocam-movie\" /><option name=\"physicalView\" /><option name=\"playlist\" /><option name=\"viewRefresh\" /></function><function type=\"music\"><format contentType=\"audio/mp3\" /><format contentType=\"audio/mp4\" codec=\"AAC\" /><format contentType=\"audio/wav\" codec=\"LPCM\" /><option name=\"playlist\" /><option name=\"viewRefresh\" /><option name=\"contentsSearch\" /></function><function type=\"video\"><format contentType=\"video/mp4\" videoCodec=\"MPEG4\" audioCodec=\"AAC\" /><format contentType=\"video/mp4\" videoCodec=\"AVC\" audioCodec=\"AAC\" /><format contentType=\"video/x-marlin-est\" /><format contentType=\"video/x-marlin-vod\" /><option name=\"physicalView\" /><option name=\"viewRefresh\" /><option name=\"contentsSearch\" /></function><function type=\"game\"><format contentType=\"vitaApp\" /><format contentType=\"PSPGame\" /><format contentType=\"PSPSaveData\" /><format contentType=\"PSGame\" /><format contentType=\"PSMApp\" /></function><function type=\"backup\"><format type=\"systemBackup\" /></function><function type=\"accountLink\" interface=\"1\" /><function type=\"systemUpdate\" interface=\"1\" /><function type=\"networkRpc\" /><function type=\"connectionHandover\" interface=\"2\" /></capabilityInfo>\n\0"
         
         let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
         let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
@@ -294,6 +294,7 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start:&code, count:1))
         data.append(UnsafeBufferPointer(start: &transStatus, count: transStatus.count))
         socketCommand?.write(data, withTimeout:100, tag:0)
+        readCommand()
     }
     
     func dataPlusHeader(original:Data) -> Data
