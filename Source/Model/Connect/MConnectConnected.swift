@@ -3,10 +3,11 @@ import CocoaAsyncSocket
 
 class MConnectConnected
 {
-    let maxBlockSize:Int 32756
+    let maxBlockSize:Int = 32756
     weak var connect:MConnect2?
     let deviceInfo:DeviceInfo
     let commandDelegate:PTPDelegate
+    let writeDelegate:PTPDelegateWrite
     let eventDelegate:SocketEventDelegate
     var socketCommand:GCDAsyncSocket?
     var socketEvent:GCDAsyncSocket?
@@ -26,6 +27,7 @@ class MConnectConnected
         self.deviceInfo = deviceInfo
         self.connect = connect
         commandDelegate = PTPDelegate()
+        writeDelegate = PTPDelegateWrite()
         eventDelegate = SocketEventDelegate()
         
         commandDelegate.connected = self
@@ -198,8 +200,9 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start:&code, count:1))
         data.append(UnsafeBufferPointer(start: &tranId, count: 1))
         
+        writeDelegate.dataToWrite = xmlDataHeader
+        socketCommand?.delegate = writeDelegate
         self.socketCommand?.write(data, withTimeout:100, tag:0)
-        
     }
     
     func dataPlusHeader(original:Data) -> Data
