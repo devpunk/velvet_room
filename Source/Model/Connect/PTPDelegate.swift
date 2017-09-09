@@ -46,8 +46,11 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             
         else
         {
-            carryData(data:mergedData)
-            connected?.readCommand()
+            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            {
+                self.carryData(data:mergedData)
+                    self.connected?.readCommand()
+            }
             
             return
         }
@@ -58,9 +61,12 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             
             defer
             {
-                let sub:Data = mergedData.subdata(in:Int(header.size) ..< mergedData.count)
-                print("subdata: \(sub.count)")
-                dataRead(data:sub, sock:sock)
+                DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                    {
+                        let sub:Data = mergedData.subdata(in:Int(header.size) ..< mergedData.count)
+                        print("subdata: \(sub.count)")
+                        self.dataRead(data:sub, sock:sock)
+                }
             }
         }
         
