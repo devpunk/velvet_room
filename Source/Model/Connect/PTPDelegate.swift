@@ -312,6 +312,8 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
                     /**
                      
                      
+                     <?xml version="1.0" encoding="UTF-8"?><capabilityInfo version="1.0"><function type="photo"><format contentType="image/jpeg" /><format contentType="image/png" /><format contentType="image/tiff" /><format contentType="image/bmp" /><format contentType="image/gif" /><format contentType="image/x-mpo" /><format contentType="video/x-photocam-movie" /><option name="physicalView" /><option name="playlist" /><option name="viewRefresh" /></function><function type="music"><format contentType="audio/mp3" /><format contentType="audio/mp4" codec="AAC" /><format contentType="audio/wav" codec="LPCM" /><option name="playlist" /><option name="viewRefresh" /><option name="contentsSearch" /></function><function type="video"><format contentType="video/mp4" videoCodec="MPEG4" audioCodec="AAC" /><format contentType="video/mp4" videoCodec="AVC" audioCodec="AAC" /><format contentType="video/x-marlin-est" /><format contentType="video/x-marlin-vod" /><option name="physicalView" /><option name="viewRefresh" /><option name="contentsSearch" /></function><function type="game"><format contentType="vitaApp" /><format contentType="PSPGame" /><format contentType="PSPSaveData" /><format contentType="PSGame" /><format contentType="PSMApp" /></function><function type="backup"><format type="systemBackup" /></function><function type="accountLink" interface="1" /><function type="systemUpdate" interface="1" /><function type="networkRpc" /><function type="connectionHandover" interface="2" /></capabilityInfo>
+                     
                      ***/
                 }
                 else
@@ -361,7 +363,23 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else if step == 9
         {
+            step = 10
             
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            print("sent capabilities:\(header.size):\(header.type)")
+            print("code: \(arrCode) par:\(arrParameter)")
+            
+            connected?.vitaReceivedOtherOk()
         }
     }
     

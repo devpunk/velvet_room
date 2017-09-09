@@ -234,6 +234,39 @@ class MConnectConnected
     
     func receivedInfoFromVita()
     {
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><capabilityInfo version=\"1.0\"></capabilityInfo>\0"
+        
+        let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
+        let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
+        
+        print("host cap xml data header: \(xmlDataHeader.count)")
+        
+        var code:UInt16 = 38204 //PTP_OC_VITA_SendPCCapabilityInfo
+        let type:UInt32 = 6 // PTPIP_CMD_REQUEST
+        let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
+        var tranId:UInt32 = 4//ptpip_cmd_transid
+        
+        var request:[UInt32] = [18,type,dataPhase]
+        
+        var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        data.append(UnsafeBufferPointer(start:&code, count:1))
+        data.append(UnsafeBufferPointer(start: &tranId, count: 1))
+        
+        writeDelegate.dataToWrite = xmlDataHeader
+        writeDelegate.transactionId = tranId
+        socketCommand?.delegate = writeDelegate
+        self.socketCommand?.write(data, withTimeout:100, tag:0)
+    }
+    
+    func otherCapsSent()
+    {
+        print("ready other capabilities")
+        socketCommand?.delegate = commandDelegate
+        readCommand()
+    }
+    
+    func vitaReceivedOtherOk()
+    {
         
     }
     

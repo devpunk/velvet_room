@@ -65,7 +65,64 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
         }
         else if step == 2
         {
+            step = 3
             connected?.capabilitiesSent()
+        }
+        else if step == 3
+        {
+            step = 4
+            
+            sendStart(sock:sock)
+        }
+        else if step == 4
+        {
+            guard
+                
+                let dataToWrite:Data = self.dataToWrite
+                
+                else
+            {
+                return
+            }
+            
+            let size:Int = dataToWrite.count
+            let remain:Int = size - totalWritten
+            let type:UInt32
+            let toWrite:Int
+            
+            print("remain: \(remain)")
+            
+            if remain > maxBlockSize
+            {
+                print("send data")
+                type = 10 //PTPIP_DATA_PACKET
+                toWrite = maxBlockSize
+            }
+            else
+            {
+                print("end data")
+                type = 12 //PTPIP_END_DATA_PACKET
+                toWrite = remain
+                step = 5
+            }
+            
+            let endIndex:Int = toWrite + totalWritten
+            let writingData:Data = dataToWrite.subdata(in:totalWritten..<endIndex)
+            let length:UInt32 = UInt32(toWrite + 12)
+            var pars:[UInt32] = [length, type, transactionId]
+            
+            var data:Data = Data()
+            data.append(UnsafeBufferPointer(start:&pars, count:pars.count))
+            data.append(writingData)
+            
+            totalWritten += toWrite
+            
+            sock.write(data, withTimeout:100, tag:0)
+        }
+        else if step == 5
+        {
+            step = 6
+            connected?.otherCapsSent()
         }
     }
     
