@@ -34,6 +34,8 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
             let type:UInt32
             let toWrite:Int
             
+            print("remain: \(remain)")
+            
             if remain > maxBlockSize
             {
                 print("send data")
@@ -56,6 +58,9 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
             var data:Data = Data()
             data.append(UnsafeBufferPointer(start:&pars, count:pars.count))
             data.append(writingData)
+            
+            totalWritten += toWrite
+            
             sock.write(data, withTimeout:100, tag:0)
         }
         else if step == 2

@@ -189,6 +189,7 @@ class MConnectConnected
         let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
         let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
         
+        print("xml data header: \(xmlDataHeader.count)")
         
         var code:UInt16 = 38172 //PTP_OC_VITA_SendInitiatorInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
