@@ -239,6 +239,24 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             // response should be xml
             connected?.sendCapabilities()
         }
+        else if step == 5
+        {
+            step = 6
+            
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            print("sent capabilities:\(header.size):\(header.type)")
+            print("code: \(arrCode) par:\(arrParameter)")
+        }
     }
     
     func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {

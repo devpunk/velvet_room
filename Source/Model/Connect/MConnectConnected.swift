@@ -32,6 +32,7 @@ class MConnectConnected
         
         commandDelegate.connected = self
         eventDelegate.connected = self
+        writeDelegate.connected = self
     }
     
     func startConnection()
@@ -201,8 +202,15 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &tranId, count: 1))
         
         writeDelegate.dataToWrite = xmlDataHeader
+        writeDelegate.transactionId = tranId
         socketCommand?.delegate = writeDelegate
         self.socketCommand?.write(data, withTimeout:100, tag:0)
+    }
+    
+    func capabilitiesSent()
+    {
+        socketCommand?.delegate = commandDelegate
+        readCommand()
     }
     
     func dataPlusHeader(original:Data) -> Data
