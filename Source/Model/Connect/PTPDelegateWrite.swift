@@ -84,7 +84,7 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
         let length:UInt32 = 20
         let sendType:UInt32 = 9 //PTPIP_START_DATA_PACKET
         let transId:UInt32 = 2
-        let dataSize:UInt32 = UInt32(dataToWrite.count + 1) // plus one for null ending
+        let dataSize:UInt32 = UInt32(dataToWrite.count) // plus one for null ending
         let start:UInt32 = 0
         var pars:[UInt32] = [length, sendType, transId, dataSize, start]
         
