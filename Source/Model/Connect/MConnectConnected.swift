@@ -9,6 +9,7 @@ class MConnectConnected
     let commandDelegate:PTPDelegate
     let writeDelegate:PTPDelegateWrite
     let eventDelegate:SocketEventDelegate
+    let ptpEventDelegate:PTPEventDelegate
     var socketCommand:GCDAsyncSocket?
     var socketEvent:GCDAsyncSocket?
     
@@ -29,10 +30,12 @@ class MConnectConnected
         commandDelegate = PTPDelegate()
         writeDelegate = PTPDelegateWrite()
         eventDelegate = SocketEventDelegate()
+        ptpEventDelegate = PTPEventDelegate()
         
         commandDelegate.connected = self
         eventDelegate.connected = self
         writeDelegate.connected = self
+        ptpEventDelegate.connected = self
     }
     
     func startConnection()
@@ -278,6 +281,11 @@ class MConnectConnected
     func vitaReceivedOtherOk()
     {
         sendStatus(status:0, tranId:5)
+    }
+    
+    func startEvent()
+    {
+        socketEvent?.delegate = ptpEventDelegate
     }
     
     func sendStatus(status:UInt32, tranId:UInt32)

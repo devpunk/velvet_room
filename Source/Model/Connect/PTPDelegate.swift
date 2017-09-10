@@ -383,6 +383,7 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
         }
         else if step == 10
         {
+            step = 11
             let arrCode = dataUnheader.withUnsafeBytes {
                 
                 Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
@@ -397,6 +398,8 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             print("sent status:\(header.size):\(header.type)")
             print("code: \(arrCode) par:\(arrParameter)")
             
+            
+            connected?.startEvent()
         }
     }
     
