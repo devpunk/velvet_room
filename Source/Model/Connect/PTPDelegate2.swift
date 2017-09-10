@@ -140,7 +140,10 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
             {
                 if readAgain
                 {
-                    self.connected?.readCommand()
+                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                        {
+                            self.connected?.readCommand()
+                    }
                 }
             }
         }
@@ -183,6 +186,8 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
             }
             
             print("reported result code: \(arrCode) par:\(arrParameter)")
+            
+            connected?.eventRead()
         }
     }
     
@@ -193,7 +198,8 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
     func getInfo(eventId:UInt32)
     {
         step = 0
-        
+        dataReceived = nil
+        carriedData = nil
         self.eventId = eventId
         connected!.transactionId += 1
         var code:UInt16 = 38180 // PTP_OC_VITA_GetSettingInfo

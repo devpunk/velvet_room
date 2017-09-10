@@ -208,7 +208,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             {
                 if readAgain
                 {
-                    self.connected?.readCommand()
+                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                        {
+                            self.connected?.readCommand()
+                    }
                 }
             }
             
@@ -283,7 +286,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             {
                 if readAgain
                 {
-                    connected?.readCommand()
+                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                        {
+                            self.connected?.readCommand()
+                    }
                 }
             }
         }
@@ -336,7 +342,10 @@ class PTPDelegate:NSObject, GCDAsyncSocketDelegate
             {
                 if readAgain
                 {
-                    self.connected?.readCommand()
+                    DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                        {
+                            self.connected?.readCommand()
+                    }
                 }
             }
         }

@@ -72,13 +72,13 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         
         guard
             
-            let header:PTPHeader = PTPHeader(data:mergedData)
+            let header:PTPHeader = PTPHeader(data:mergedData),
+            header.type == 8 //PTPIP_EVENT
             
         else
         {
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
-                self.carriedData = nil
                 self.connected?.readEvent()
             }
             
@@ -91,7 +91,7 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         
         else
         {
-            print("carry data")
+            print("carry data \(header.size)")
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
                 self.carryData(data:mergedData)
@@ -120,43 +120,60 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
       
         print("event header \(header.size) \(header.type)")
         
-        if header.type == 8 //PTPIP_EVENT
-        {
-            let arrCode = dataUnheader.withUnsafeBytes {
-                
-                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
-            }
+        let arrCode = dataUnheader.withUnsafeBytes {
             
-            let subData1:Data = dataUnheader.subdata(in:2..<dataUnheader.count)
-            
-            let arrTrans = subData1.withUnsafeBytes {
-                
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
-            }
-            
-            let subData2:Data = dataUnheader.subdata(in:6..<dataUnheader.count)
-            
-            let arrParameters = subData2.withUnsafeBytes {
-                
-                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
-            }
-            
-            print("------- event \(arrCode[0]) trans \(arrTrans[0]) eventId:\(arrParameters[0])")
-            
-            if arrCode[0] == 49426
-            {
-                getSettingInfo(eventId:arrParameters[0])
-            }
+            Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
         }
-        else
+        
+        let subData1:Data = dataUnheader.subdata(in:2..<dataUnheader.count)
+        
+        let arrTrans = subData1.withUnsafeBytes {
+            
+            Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+        }
+        
+        let subData2:Data = dataUnheader.subdata(in:6..<dataUnheader.count)
+        let count:Int = subData2.count / 4
+        
+        let arrParameters = subData2.withUnsafeBytes {
+            
+            Array(UnsafeBufferPointer<UInt32>(start: $0, count:count))
+        }
+        
+        print("------- event \(arrCode[0]) trans \(arrTrans[0]) pars:\(arrParameters)")
+        
+        if arrCode[0] == 49426
         {
-            connected?.eventRead()
+            carriedData = nil
+            dataReceived = nil
+            getSettingInfo(eventId:arrParameters[0])
         }
     }
     
     func getSettingInfo(eventId:UInt32)
     {
         connected?.ptpDelegate2.getInfo(eventId:eventId)
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            {
+                self.connected?.readEvent()
+        }
+    }
+    
+    func socket(_ sock: GCDAsyncSocket, shouldTimeoutReadWithTag tag: Int, elapsed: TimeInterval, bytesDone length: UInt) -> TimeInterval {
+        print("timeo out")
+        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+            {
+                self.connected?.readEvent()
+        }
+        
+        return -1
+        
+    }
+    
+    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
+        print("disconnect error:\(err)")
     }
 }
 

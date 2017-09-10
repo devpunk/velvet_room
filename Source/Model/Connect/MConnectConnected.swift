@@ -332,7 +332,7 @@ class MConnectConnected
     
     func readEvent()
     {
-        self.socketEvent?.readData(withTimeout:10, tag:0)
+        self.socketEvent?.readData(withTimeout:10000, tag:0)
     }
 }
 
