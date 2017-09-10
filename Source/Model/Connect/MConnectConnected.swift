@@ -13,6 +13,7 @@ class MConnectConnected
     let ptpDelegate2:PTPDelegate2
     var socketCommand:GCDAsyncSocket?
     var socketEvent:GCDAsyncSocket?
+    var transactionId:UInt32 = 0
     
     let ptpLength:Int = 24
     let ptpip_type:Int = 4
@@ -153,11 +154,10 @@ class MConnectConnected
         var code:UInt16 = 4098 //ptpip_cmd_code
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
-        let tranId:UInt32 = 0//ptpip_cmd_transid
         let par1:UInt32 = 1//ptpip_cmd_param1, session id, 1 to connect
         
         var request:[UInt32] = [22,type,dataPhase]
-        var transSession:[UInt32] = [tranId, par1]
+        var transSession:[UInt32] = [transactionId, par1]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
         
@@ -176,7 +176,8 @@ class MConnectConnected
         var code:UInt16 = 38161 //PTP_OC_VITA_GetVitaInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 2//ptpip_cmd_dataphase
-        var tranId:UInt32 = 1//ptpip_cmd_transid
+        transactionId += 1
+        var tranId:UInt32 = transactionId//ptpip_cmd_transid
         
         var request:[UInt32] = [18,type,dataPhase]
         
@@ -200,7 +201,8 @@ class MConnectConnected
         var code:UInt16 = 38172 //PTP_OC_VITA_SendInitiatorInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
-        var tranId:UInt32 = 2//ptpip_cmd_transid
+        transactionId += 1
+        var tranId:UInt32 = transactionId//ptpip_cmd_transid
         
         var request:[UInt32] = [18,type,dataPhase]
         
@@ -209,7 +211,6 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &tranId, count: 1))
         
         writeDelegate.dataToWrite = xmlDataHeader
-        writeDelegate.transactionId = tranId
         socketCommand?.delegate = writeDelegate
         self.socketCommand?.write(data, withTimeout:100, tag:0)
     }
@@ -226,7 +227,8 @@ class MConnectConnected
         var code:UInt16 = 38203 //PTP_OC_VITA_GetVitaCapabilityInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 2//ptpip_cmd_dataphase
-        var tranId:UInt32 = 3//ptpip_cmd_transid
+        transactionId += 1
+        var tranId:UInt32 = transactionId//ptpip_cmd_transid
         
         var request:[UInt32] = [18,type,dataPhase]
         
@@ -250,7 +252,8 @@ class MConnectConnected
         var code:UInt16 = 38204 //PTP_OC_VITA_SendPCCapabilityInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 1//ptpip_cmd_dataphase
-        var tranId:UInt32 = 4//ptpip_cmd_transid
+        transactionId += 1
+        var tranId:UInt32 = transactionId//ptpip_cmd_transid
         
         var request:[UInt32] = [18,type,dataPhase]
         
@@ -259,7 +262,6 @@ class MConnectConnected
         data.append(UnsafeBufferPointer(start: &tranId, count: 1))
         
         writeDelegate.dataToWrite = xmlDataHeader
-        writeDelegate.transactionId = tranId
         socketCommand?.delegate = writeDelegate
         self.socketCommand?.write(data, withTimeout:100, tag:0)
     }
@@ -283,7 +285,8 @@ class MConnectConnected
     
     func vitaReceivedOtherOk()
     {
-        sendStatus(status:0, tranId:5)
+        transactionId += 1
+        sendStatus(status:0)
     }
     
     func startEvent()
@@ -293,14 +296,14 @@ class MConnectConnected
         ptpEventDelegate.start()
     }
     
-    func sendStatus(status:UInt32, tranId:UInt32)
+    func sendStatus(status:UInt32)
     {
         var code:UInt16 = 38186 //PTP_OC_VITA_SendHostStatus
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
         
         var request:[UInt32] = [22,type,dataPhase]
-        var transStatus:[UInt32] = [tranId, status]
+        var transStatus:[UInt32] = [transactionId, status]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
         

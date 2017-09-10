@@ -3,7 +3,6 @@ import CocoaAsyncSocket
 
 class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
 {
-    var transactionId:UInt32 = 0
     var step:Int = 0
     var dataToWrite:Data?
     var totalWritten:Int = 0
@@ -53,7 +52,7 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
             let endIndex:Int = toWrite + totalWritten
             let writingData:Data = dataToWrite.subdata(in:totalWritten..<endIndex)
             let length:UInt32 = UInt32(toWrite + 12)
-            var pars:[UInt32] = [length, type, transactionId]
+            var pars:[UInt32] = [length, type, connected!.transactionId]
             
             var data:Data = Data()
             data.append(UnsafeBufferPointer(start:&pars, count:pars.count))
@@ -109,7 +108,7 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
             let endIndex:Int = toWrite + totalWritten
             let writingData:Data = dataToWrite.subdata(in:totalWritten..<endIndex)
             let length:UInt32 = UInt32(toWrite + 12)
-            var pars:[UInt32] = [length, type, transactionId]
+            var pars:[UInt32] = [length, type, connected!.transactionId]
             
             var data:Data = Data()
             data.append(UnsafeBufferPointer(start:&pars, count:pars.count))
@@ -140,10 +139,9 @@ class PTPDelegateWrite:NSObject, GCDAsyncSocketDelegate
         totalWritten = 0
         let length:UInt32 = 20
         let sendType:UInt32 = 9 //PTPIP_START_DATA_PACKET
-        let transId:UInt32 = 2
         let dataSize:UInt32 = UInt32(dataToWrite.count) // plus one for null ending
         let start:UInt32 = 0
-        var pars:[UInt32] = [length, sendType, transId, dataSize, start]
+        var pars:[UInt32] = [length, sendType, connected!.transactionId, dataSize, start]
         
         var data = Data()
         data.append(UnsafeBufferPointer(start:&pars, count:pars.count))

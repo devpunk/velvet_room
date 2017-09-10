@@ -145,7 +145,7 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
             
             if arrCode[0] == 49426
             {
-                getSettingInfo()
+                getSettingInfo(eventId:arrParameters[0])
             }
         }
         else
@@ -154,9 +154,9 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         }
     }
     
-    func getSettingInfo()
+    func getSettingInfo(eventId:UInt32)
     {
-        
+        connected?.ptpDelegate2.getInfo(eventId:eventId)
     }
 }
 
