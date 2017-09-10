@@ -122,8 +122,6 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         
         if header.type == 8 //PTPIP_EVENT
         {
-            print("------- event")
-            
             let arrCode = dataUnheader.withUnsafeBytes {
                 
                 Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
@@ -143,13 +141,22 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
                 Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
             }
             
+            print("------- event \(arrCode[0]) trans \(arrTrans[0])")
             
-            
+            if event == 49426
+            {
+                getSettingInfo()
+            }
         }
         else
         {
             connected?.eventRead()
         }
+    }
+    
+    func getSettingInfo()
+    {
+        
     }
 }
 
