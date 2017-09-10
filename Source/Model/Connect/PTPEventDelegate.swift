@@ -141,7 +141,7 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
                 Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
             }
             
-            print("------- event \(arrCode[0]) trans \(arrTrans[0])")
+            print("------- event \(arrCode[0]) trans \(arrTrans[0]) eventId:\(arrParameters[0])")
             
             if arrCode[0] == 49426
             {

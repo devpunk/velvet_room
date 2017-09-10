@@ -6,6 +6,7 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
     var step:Int = 0
     var dataReceived:Data?
     var carriedData:Data?
+    var eventId:UInt32 = 0
     weak var connected:MConnectConnected?
     
     func carryData(data:Data)
@@ -161,6 +162,27 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
             
             print("finish code: \(arrCode) par:\(arrParameter)")
             
+            let resultOk:UInt32 = 8193 //PTP_RC_OK
+            reportResult(result:resultOk)
+            
+        }
+        else if step == 3
+        {
+            step = 4
+            
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            print("reported result code: \(arrCode) par:\(arrParameter)")
         }
     }
     
@@ -172,12 +194,33 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
     {
         step = 0
         
+        self.eventId = eventId
+        connected!.transactionId += 1
         var code:UInt16 = 38180 // PTP_OC_VITA_GetSettingInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 2//ptpip_cmd_dataphase
         
         var request:[UInt32] = [22,type,dataPhase]
         var transSession:[UInt32] = [connected!.transactionId, eventId]
+        
+        var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
+        
+        data.append(UnsafeBufferPointer(start:&code, count:1))
+        data.append(UnsafeBufferPointer(start: &transSession, count: transSession.count))
+        
+        connected?.socketCommand?.write(data, withTimeout:100, tag:0)
+        connected?.readCommand()
+    }
+    
+    func reportResult(result:UInt32)
+    {
+        connected!.transactionId += 1
+        var code:UInt16 = 38168 // PTP_OC_VITA_ReportResult
+        let type:UInt32 = 6 // PTPIP_CMD_REQUEST
+        let dataPhase:UInt32 = 0//ptpip_cmd_dataphase
+        
+        var request:[UInt32] = [26,type,dataPhase]
+        var transSession:[UInt32] = [connected!.transactionId, eventId, result]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
         
