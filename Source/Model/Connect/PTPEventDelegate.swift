@@ -123,6 +123,28 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         if header.type == 8 //PTPIP_EVENT
         {
             print("------- event")
+            
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let subData1:Data = dataUnheader.subdata(in:2..<dataUnheader.count)
+            
+            let arrTrans = subData1.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            let subData2:Data = dataUnheader.subdata(in:6..<dataUnheader.count)
+            
+            let arrParameters = subData2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            
+            
         }
         else
         {
@@ -130,3 +152,29 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         }
     }
 }
+
+/*
+ 
+ #define PTP_EC_VITA_RequestSendNumOfObject 0xC104 = 49412
+ #define PTP_EC_VITA_RequestSendObjectMetadata 0xC105 = 49413
+ #define PTP_EC_VITA_RequestSendObject 0xC107 = 49415
+ #define PTP_EC_VITA_RequestCancelTask 0xC108 = 49416
+ #define PTP_EC_VITA_RequestSendHttpObjectFromURL 0xC10B = 49416
+ #define PTP_EC_VITA_Unknown1 0xC10D = 49421
+ #define PTP_EC_VITA_RequestSendObjectStatus 0xC10F = 49423
+ #define PTP_EC_VITA_RequestSendObjectThumb 0xC110 = 49424
+ #define PTP_EC_VITA_RequestDeleteObject 0xC111 = 49425
+ #define PTP_EC_VITA_RequestGetSettingInfo 0xC112 = 49426
+ #define PTP_EC_VITA_RequestSendHttpObjectPropFromURL 0xC113 = 49427
+ #define PTP_EC_VITA_RequestSendPartOfObject 0xC115 = 49429
+ #define PTP_EC_VITA_RequestOperateObject 0xC117 = 49431
+ #define PTP_EC_VITA_RequestGetPartOfObject 0xC118 = 49432
+ #define PTP_EC_VITA_RequestSendStorageSize 0xC119 = 49433
+ #define PTP_EC_VITA_RequestCheckExistance 0xC120 = 49440
+ #define PTP_EC_VITA_RequestGetTreatObject 0xC122 = 49442
+ #define PTP_EC_VITA_RequestSendCopyConfirmationInfo 0xC123 = 49443
+ #define PTP_EC_VITA_RequestSendObjectMetadataItems 0xC124 = 49444
+ #define PTP_EC_VITA_RequestSendNPAccountInfo 0xC125 = 49445
+ #define PTP_EC_VITA_RequestTerminate 0xC126 = 49446
+ 
+ */
