@@ -286,6 +286,7 @@ class MConnectConnected
     func startEvent()
     {
         socketEvent?.delegate = ptpEventDelegate
+        ptpEventDelegate.start()
     }
     
     func sendStatus(status:UInt32, tranId:UInt32)
@@ -320,6 +321,11 @@ class MConnectConnected
     func readCommand()
     {
         self.socketCommand?.readData(withTimeout:10, tag:0)
+    }
+    
+    func readEvent()
+    {
+        self.socketEvent?.readData(withTimeout:10, tag:0)
     }
 }
 
