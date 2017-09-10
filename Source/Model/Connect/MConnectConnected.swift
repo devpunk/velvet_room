@@ -184,7 +184,7 @@ class MConnectConnected
     
     func sendCapabilities()
     {
-        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"10.0\" version=\"3.55.764345\" protocolVersion=\"01800010\" name=\"Content Manager Assistant\" applicationType=\"5\" />\0"
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"3.55.764345\" protocolVersion=\"01900010\" name=\"Content Manager Assistant\" applicationType=\"5\" />\0"
         
         let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
         let xmlDataHeader:Data = dataPlusHeader(original:xmlData)
