@@ -143,7 +143,7 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
             
             print("------- event \(arrCode[0]) trans \(arrTrans[0])")
             
-            if event == 49426
+            if arrCode[0] == 49426
             {
                 getSettingInfo()
             }

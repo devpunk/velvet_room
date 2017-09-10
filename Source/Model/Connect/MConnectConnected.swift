@@ -10,6 +10,7 @@ class MConnectConnected
     let writeDelegate:PTPDelegateWrite
     let eventDelegate:SocketEventDelegate
     let ptpEventDelegate:PTPEventDelegate
+    let ptpDelegate2:PTPDelegate2
     var socketCommand:GCDAsyncSocket?
     var socketEvent:GCDAsyncSocket?
     
@@ -31,11 +32,13 @@ class MConnectConnected
         writeDelegate = PTPDelegateWrite()
         eventDelegate = SocketEventDelegate()
         ptpEventDelegate = PTPEventDelegate()
+        ptpDelegate2 = PTPDelegate2()
         
         commandDelegate.connected = self
         eventDelegate.connected = self
         writeDelegate.connected = self
         ptpEventDelegate.connected = self
+        ptpDelegate2.connected = self
     }
     
     func startConnection()
@@ -285,6 +288,7 @@ class MConnectConnected
     
     func startEvent()
     {
+        socketCommand?.delegate = ptpDelegate2
         socketEvent?.delegate = ptpEventDelegate
         ptpEventDelegate.start()
     }
