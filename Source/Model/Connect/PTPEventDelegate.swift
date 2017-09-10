@@ -127,7 +127,7 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         }
         
         print("------- event \(arrCode[0]) trans \(arrTrans[0]) pars:\(arrParameters)")
-        
+        // opencma.c
         if arrCode[0] == 49426
         {
             carriedData = nil
