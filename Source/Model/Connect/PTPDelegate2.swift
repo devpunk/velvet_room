@@ -72,9 +72,95 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
         
         let dataUnheader:Data = mergedData.subdata(in:8 ..< Int(header.size))
         
+        print("ptp2 header:\(header.size):\(header.type)")
+        
         if step == 0
         {
             step = 1
+            
+            let info = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 3))
+            }
+
+            print("payload: \(info)")
+            
+            self.dataReceived = Data()
+            
+            defer
+            {
+                if readAgain
+                {
+                    connected?.readCommand()
+                }
+            }
+        }
+        else if step == 1
+        {
+            let dataMinusTransaction:Data = dataUnheader.subdata(in:4..<dataUnheader.count)
+            self.dataReceived?.append(dataMinusTransaction)
+            
+            if header.type == 12
+            {
+                step = 2
+                let datareceived:Data = self.dataReceived!
+                
+                print("total data: \(datareceived.count)")
+                
+                if let receivingString:String = String(
+                    data:datareceived,
+                    encoding:String.Encoding.ascii)
+                {
+                    print("data in xml:")
+                    print(receivingString)
+                    
+                    /**
+                     
+                     
+                     ***/
+                }
+                else
+                {
+                    print("can't create string")
+                }
+                
+                self.dataReceived = nil
+            }
+            else if header.type == 10
+            {
+                print("------- read again")
+            }
+            else
+            {
+                print("error header type: \(header.type)")
+            }
+            
+            defer
+            {
+                if readAgain
+                {
+                    self.connected?.readCommand()
+                }
+            }
+        }
+        else if step == 2
+        {
+            step = 3
+            
+            let arrCode = dataUnheader.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt16>(start: $0, count: 1))
+            }
+            
+            let sub2:Data = dataUnheader.subdata(in: 2..<6)
+            
+            let arrParameter = sub2.withUnsafeBytes {
+                
+                Array(UnsafeBufferPointer<UInt32>(start: $0, count: 1))
+            }
+            
+            print("finish code: \(arrCode) par:\(arrParameter)")
+            
         }
     }
     
@@ -89,10 +175,9 @@ class PTPDelegate2:NSObject, GCDAsyncSocketDelegate
         var code:UInt16 = 38180 // PTP_OC_VITA_GetSettingInfo
         let type:UInt32 = 6 // PTPIP_CMD_REQUEST
         let dataPhase:UInt32 = 2//ptpip_cmd_dataphase
-        let tranId:UInt32 = 0//ptpip_cmd_transid
         
         var request:[UInt32] = [22,type,dataPhase]
-        var transSession:[UInt32] = [tranId, eventId]
+        var transSession:[UInt32] = [connected!.transactionId, eventId]
         
         var data = Data(buffer: UnsafeBufferPointer(start: &request, count: request.count))
         
