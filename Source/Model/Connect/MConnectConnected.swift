@@ -137,9 +137,7 @@ class MConnectConnected
     
     func eventRead()
     {
-        let end:String = "\0"
-        let data = end.data(using:String.Encoding.utf8)!
-        socketEvent?.readData(to:data, withTimeout:10000, tag:0)
+        socketEvent?.readData(withTimeout:100, tag:0)
     }
     
     func eventReady()
@@ -599,7 +597,7 @@ class SocketEventDelegate:NSObject, GCDAsyncSocketDelegate
     }
     
     func socket(_ sock: GCDAsyncSocket, didRead data: Data, withTag tag: Int) {
-        print("event did read")
+        print("event did read and discard \(data.count)")
         
         if data.count != 12
         {
