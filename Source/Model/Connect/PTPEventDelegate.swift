@@ -73,25 +73,11 @@ class PTPEventDelegate:NSObject, GCDAsyncSocketDelegate
         guard
             
             let header:PTPHeader = PTPHeader(data:mergedData),
-            header.type == 8 //PTPIP_EVENT
-            
-        else
-        {
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            {
-                self.connected?.readEvent()
-            }
-            
-            return
-        }
-        
-        guard
-            
+            header.type == 8, //PTPIP_EVENT,
             header.size <= mergedData.count
-        
+            
         else
         {
-            print("carry data \(header.size)")
             DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
             {
                 self.carryData(data:mergedData)
