@@ -24,6 +24,7 @@
 		DA1A1BD51F67388F00E8B084 /* MConnectWalkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BD41F67388F00E8B084 /* MConnectWalkProtocol.swift */; };
 		DA1A1BD71F6738CC00E8B084 /* MConnectWalkCover.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BD61F6738CC00E8B084 /* MConnectWalkCover.swift */; };
 		DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BD81F6738F600E8B084 /* MConnectFactory.swift */; };
+		DA1A1BDB1F673C5E00E8B084 /* VConnectStandbyWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BDA1F673C5E00E8B084 /* VConnectStandbyWalk.swift */; };
 		DA57E3371F635F2F00B3EA73 /* PTPDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E3361F635F2F00B3EA73 /* PTPDelegate.swift */; };
 		DA57E3391F649BC100B3EA73 /* PTPDelegateWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E3381F649BC100B3EA73 /* PTPDelegateWrite.swift */; };
 		DA5D1A2A1F5FB4C600FAF140 /* MConnectConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */; };
@@ -103,6 +104,7 @@
 		DA1A1BD41F67388F00E8B084 /* MConnectWalkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectWalkProtocol.swift; sourceTree = "<group>"; };
 		DA1A1BD61F6738CC00E8B084 /* MConnectWalkCover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectWalkCover.swift; sourceTree = "<group>"; };
 		DA1A1BD81F6738F600E8B084 /* MConnectFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectFactory.swift; sourceTree = "<group>"; };
+		DA1A1BDA1F673C5E00E8B084 /* VConnectStandbyWalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectStandbyWalk.swift; sourceTree = "<group>"; };
 		DA27D0EA1F5ABC000037AD7B /* velvetRoom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = velvetRoom.entitlements; sourceTree = "<group>"; };
 		DA27F70D1F5788E300CCDDDB /* velvetRoom.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = velvetRoom.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4A3C351F59BF3A001E4B9C /* velvetRoom-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "velvetRoom-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -469,6 +471,7 @@
 				DAF8A53E1F57A0BE0078A383 /* VConnect.swift */,
 				DA1A1BC81F6708B400E8B084 /* VConnectStandby.swift */,
 				DA1A1BCE1F672A8100E8B084 /* VConnectStandbyFactory.swift */,
+				DA1A1BDA1F673C5E00E8B084 /* VConnectStandbyWalk.swift */,
 				DA1A1BD01F672B2100E8B084 /* VConnectStandbyStart.swift */,
 				DA1A1BCA1F67099E00E8B084 /* VConnectConnected.swift */,
 			);
@@ -620,6 +623,7 @@
 				DA8B7E0F1F57929C004EEE23 /* Controller.swift in Sources */,
 				DA5D1A2A1F5FB4C600FAF140 /* MConnectConnected.swift in Sources */,
 				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
+				DA1A1BDB1F673C5E00E8B084 /* VConnectStandbyWalk.swift in Sources */,
 				DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */,
 				DA8B7E251F579344004EEE23 /* ViewParent.swift in Sources */,
 				DA8B7E281F579344004EEE23 /* ViewProtocol.swift in Sources */,
