@@ -3,6 +3,7 @@ import UIKit
 class VConnectStandby:View<ArchConnect>
 {
     let kStartHeight:CGFloat = 64
+    let kStartBottom:CGFloat = 20
     
     required init(controller:CConnect)
     {
