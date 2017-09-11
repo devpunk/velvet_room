@@ -1,6 +1,6 @@
 import UIKit
 
-class MConnect:Model<ArchConnect>
+final class MConnect:Model<ArchConnect>
 {
     private(set) var status:MConnectStatusProtocol?
 

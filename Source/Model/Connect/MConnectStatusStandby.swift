@@ -1,6 +1,6 @@
 import Foundation
 
-class MConnectStatusStandby:MConnectStatusProtocol
+final class MConnectStatusStandby:MConnectStatusProtocol
 {
     let viewType:View<ArchConnect>.Type = VConnectStandby.self
     private weak var model:MConnect!
