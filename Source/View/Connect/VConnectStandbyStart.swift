@@ -27,7 +27,7 @@ class VConnectStandbyStart:View<ArchConnect>
         button.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        button.titleLabel!.font = UIFont.medium(size:15)
+        button.titleLabel!.font = UIFont.medium(size:16)
         button.addTarget(
             self,
             action:#selector(selectorButton(sender:)),
