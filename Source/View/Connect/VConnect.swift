@@ -43,6 +43,6 @@ class VConnect:ViewMain
             return
         }
         
-        controller.model.startWireless()
+//        controller.model.startWireless()
     }
 }
