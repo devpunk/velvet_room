@@ -6,10 +6,18 @@ extension VConnectStandby
     
     func factoryViews()
     {
+        let viewWalk:VConnectStandbyWalk = VConnectStandbyWalk(
+            controller:controller)
+        
         let viewStart:VConnectStandbyStart = VConnectStandbyStart(
             controller:controller)
         
+        addSubview(viewWalk)
         addSubview(viewStart)
+        
+        NSLayoutConstraint.equals(
+            view:viewWalk,
+            toView:self)
         
         NSLayoutConstraint.height(
             view:viewStart,
