@@ -9,6 +9,13 @@ class VConnectStandbyStart:View<ArchConnect>
     {
         super.init(controller:controller)
         
+        let background:UIImageView = UIImageView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.isUserInteractionEnabled = false
+        background.clipsToBounds = true
+        background.contentMode = UIViewContentMode.center
+        background.image = #imageLiteral(resourceName: "assetGenericButton")
+        
         let button:UIButton = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle(
@@ -26,7 +33,12 @@ class VConnectStandbyStart:View<ArchConnect>
             action:#selector(selectorButton(sender:)),
             for:UIControlEvents.touchUpInside)
         
+        addSubview(background)
         addSubview(button)
+        
+        NSLayoutConstraint.equals(
+            view:background,
+            toView:self)
         
         NSLayoutConstraint.equalsVertical(
             view:button,
