@@ -5,23 +5,7 @@ class VConnect:ViewMain
     required init(controller:UIViewController)
     {
         super.init(controller:controller)
-        
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Connect", for:UIControlState.normal)
-        button.setTitleColor(
-            UIColor.black,
-            for:UIControlState.normal)
-        button.addTarget(
-            self,
-            action:#selector(selectorActionButton(sender:)),
-            for:UIControlEvents.touchUpInside)
-        
-        addSubview(button)
-        
-        NSLayoutConstraint.equals(
-            view:button,
-            toView:self)
+        update()
     }
     
     required init?(coder:NSCoder)
@@ -29,20 +13,26 @@ class VConnect:ViewMain
         return nil
     }
     
-    //MARK: selectors
+    //MARK: internal
     
-    @objc
-    private func selectorActionButton(sender button:UIButton)
+    func update()
     {
         guard
-        
-            let controller:CConnect = self.controller as? CConnect
-        
+            
+            let controller:CConnect = self.controller as? CConnect,
+            let viewType:View<ArchConnect>.Type = controller.model.status?.viewType
+            
         else
         {
             return
         }
         
-//        controller.model.startWireless()
+        let view:View<ArchConnect> = viewType.init(controller:controller)
+        
+        addSubview(view)
+        
+        NSLayoutConstraint.equals(
+            view:view,
+            toView:self)
     }
 }
