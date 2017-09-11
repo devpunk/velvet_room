@@ -808,6 +808,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E74F9EC63AF89F55551AC9BB /* Pods-velvetRoom.debug.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
@@ -826,6 +827,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = F83CD0193CB37551566B8FD1 /* Pods-velvetRoom.release.xcconfig */;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 7AMWG3RLHN;
