@@ -48,6 +48,15 @@ class VConnectStandbyWalk:VCollection<
     
     override func collectionView(
         _ collectionView:UICollectionView,
+        cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let cell:VConnectStandbyWalkCell = cellAtIndex(indexPath:indexPath)
+        
+        return cell
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
         shouldSelectItemAt indexPath:IndexPath) -> Bool
     {
         return false
