@@ -45,4 +45,18 @@ class VConnectStandbyWalk:VCollection<
         
         return cellSize
     }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
 }
