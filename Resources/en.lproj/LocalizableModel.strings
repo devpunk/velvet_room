@@ -2,3 +2,5 @@
 "MConnectWalkCover_descr"="Transfer data to and from\nyour PS Vita";
 "MConnectWalkWifi_title"="Same network";
 "MConnectWalkWifi_descr"="This device and your PS Vita\nshould be on the same Wifi";
+"MConnectWalkCma_title"="Content Manager Assistant";
+"MConnectWalkCma_descr"="Open the app in your PS Vita\nand select the option Copy Content";
