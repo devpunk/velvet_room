@@ -10,6 +10,7 @@ final class VConnectStandbyWalk:VCollection<
     {
         super.init(controller:controller)
         collectionView.isPagingEnabled = true
+        collectionView.alwaysBounceHorizontal = true
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {

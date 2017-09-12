@@ -5,8 +5,8 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
     private weak var labelSubtitle:UILabel!
-    private let kIconTop:CGFloat = 20
-    private let kIconHeight:CGFloat = 200
+    private let kIconTop:CGFloat = 100
+    private let kIconHeight:CGFloat = 120
     
     override init(frame:CGRect)
     {
