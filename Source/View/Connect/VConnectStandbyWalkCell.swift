@@ -4,9 +4,13 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
-    private weak var labelSubtitle:UILabel!
-    private let kIconTop:CGFloat = 150
+    private weak var labelDescr:UILabel!
+    private let kIconTop:CGFloat = 120
     private let kIconHeight:CGFloat = 140
+    private let kDescrBottom:CGFloat = -230
+    private let kDescrHeight:CGFloat = 70
+    private let kTitleHeight:CGFloat = 24
+    private let kLabelMarginHorizontal:CGFloat = 20
     
     override init(frame:CGRect)
     {
@@ -22,7 +26,28 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
         imageView.clipsToBounds = true
         self.imageView = imageView
         
+        let labelTitle:UILabel = UILabel()
+        labelTitle.translatesAutoresizingMaskIntoConstraints = false
+        labelTitle.isUserInteractionEnabled = false
+        labelTitle.font = UIFont.medium(size:17)
+        labelTitle.textColor = UIColor.colourBackgroundDark
+        labelTitle.backgroundColor = UIColor.clear
+        labelTitle.textAlignment = NSTextAlignment.center
+        self.labelTitle = labelTitle
+        
+        let labelDescr:UILabel = UILabel()
+        labelDescr.translatesAutoresizingMaskIntoConstraints = false
+        labelDescr.isUserInteractionEnabled = false
+        labelDescr.font = UIFont.regular(size:14)
+        labelDescr.textColor = UIColor.colourBackgroundDark.withAlphaComponent(0.4)
+        labelDescr.backgroundColor = UIColor.clear
+        labelDescr.textAlignment = NSTextAlignment.center
+        labelDescr.numberOfLines = 0
+        self.labelDescr = labelDescr
+        
         addSubview(imageView)
+        addSubview(labelTitle)
+        addSubview(labelDescr)
         
         NSLayoutConstraint.topToTop(
             view:imageView,
@@ -34,6 +59,29 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
         NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:labelDescr,
+            toView:self,
+            constant:kDescrBottom)
+        NSLayoutConstraint.height(
+            view:labelDescr,
+            constant:kDescrHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelDescr,
+            toView:self,
+            margin:kLabelMarginHorizontal)
+        
+        NSLayoutConstraint.bottomToTop(
+            view:labelTitle,
+            toView:labelDescr)
+        NSLayoutConstraint.height(
+            view:labelTitle,
+            constant:kTitleHeight)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelTitle,
+            toView:self,
+            margin:kLabelMarginHorizontal)
     }
     
     required init?(coder:NSCoder)
@@ -46,5 +94,7 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
     func config(model:MConnectWalkProtocol)
     {
         imageView.image = model.icon
+        labelTitle.text = model.title
+        labelDescr.text = model.descr
     }
 }
