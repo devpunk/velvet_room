@@ -1,6 +1,6 @@
 struct ArchConnecting:Arch
 {
-    typealias V = VConnect
-    typealias M = MConnect
-    typealias C = CConnect
+    typealias V = VConnecting
+    typealias M = MConnecting
+    typealias C = CConnecting
 }
