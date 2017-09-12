@@ -20,6 +20,11 @@ final class MConnect:Model<ArchConnect>
         status = MConnectStatusStandby(model:self)
     }
     
+    func statusLoading()
+    {
+        status = MConnectStatusLoading(model:self)
+    }
+    
     func statusConnected()
     {
         status = MConnectStatusConnected(model:self)
