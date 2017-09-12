@@ -4,10 +4,10 @@ final class VConnectLoading:View<ArchConnect>
 {
     private weak var spinner:VSpinner!
     private weak var layoutCancelLeft:NSLayoutConstraint!
-    private let kCancelBottom:CGFloat = -200
-    private let kCancelHeight:CGFloat = 60
+    private let kCancelBottom:CGFloat = -110
+    private let kCancelHeight:CGFloat = 50
     private let kCancelWidth:CGFloat = 140
-    private let kTitleHeight:CGFloat = 50
+    private let kTitleHeight:CGFloat = 25
     
     required init(controller:CConnect)
     {
@@ -29,12 +29,12 @@ final class VConnectLoading:View<ArchConnect>
         let buttonCancel:UIButton = UIButton()
         buttonCancel.translatesAutoresizingMaskIntoConstraints = false
         buttonCancel.setTitleColor(
-            UIColor.colourBackgroundDark.withAlphaComponent(0.5),
+            UIColor.colourBackgroundDark.withAlphaComponent(0.4),
             for:UIControlState.normal)
         buttonCancel.setTitleColor(
             UIColor.colourBackgroundGray,
             for:UIControlState.highlighted)
-        buttonCancel.titleLabel!.font = UIFont.regular(size:15)
+        buttonCancel.titleLabel!.font = UIFont.regular(size:17)
         buttonCancel.setTitle(
             String.localizedView(key:"VConnectLoading_buttonCancel"),
             for:UIControlState.normal)
