@@ -104,6 +104,17 @@ class VCollection<A, Cell:UICollectionViewCell>:
     {
     }
     
+    func scrollViewDidEndDecelerating(
+        _ scrollView:UIScrollView)
+    {
+    }
+    
+    func scrollViewDidEndDragging(
+        _ scrollView:UIScrollView,
+        willDecelerate decelerate:Bool)
+    {
+    }
+    
     func scrollViewDidEndScrollingAnimation(_ scrollView:UIScrollView)
     {
     }
