@@ -5,8 +5,7 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var labelTitle:UILabel!
     private weak var labelDescr:UILabel!
-    private let kIconTop:CGFloat = 120
-    private let kIconHeight:CGFloat = 140
+    private let kIconHeightRatio:CGFloat = 0.7
     private let kDescrBottom:CGFloat = -210
     private let kDescrHeight:CGFloat = 70
     private let kTitleHeight:CGFloat = 24
@@ -51,11 +50,11 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
         
         NSLayoutConstraint.topToTop(
             view:imageView,
-            toView:self,
-            constant:kIconTop)
+            toView:self)
         NSLayoutConstraint.height(
             view:imageView,
-            constant:kIconHeight)
+            toView:self,
+            multiplier:kIconHeightRatio)
         NSLayoutConstraint.equalsHorizontal(
             view:imageView,
             toView:self)
