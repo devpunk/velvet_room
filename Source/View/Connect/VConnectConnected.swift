@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnectConnected:View<ArchConnect>
+final class VConnectConnected:View<ArchConnect>
 {
     
 }

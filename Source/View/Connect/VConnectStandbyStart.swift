@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnectStandbyStart:View<ArchConnect>
+final class VConnectStandbyStart:View<ArchConnect>
 {
     private weak var layoutButtonLeft:NSLayoutConstraint!
     private let kButtonWidth:CGFloat = 200

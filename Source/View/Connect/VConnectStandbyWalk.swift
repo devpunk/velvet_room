@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnectStandbyWalk:VCollection<
+final class VConnectStandbyWalk:VCollection<
     ArchConnect,
     VConnectStandbyWalkCell>
 {

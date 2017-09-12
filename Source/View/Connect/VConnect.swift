@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnect:ViewMain
+final class VConnect:ViewMain
 {
     required init(controller:UIViewController)
     {

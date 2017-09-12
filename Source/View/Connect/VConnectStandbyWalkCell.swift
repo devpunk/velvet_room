@@ -1,6 +1,8 @@
 import UIKit
 
-class VConnectStandbyWalkCell:UICollectionViewCell
+final class VConnectStandbyWalkCell:UICollectionViewCell
 {
+    //MARK: internal
     
+    func config
 }
