@@ -2,6 +2,8 @@ import UIKit
 
 final class VConnect:ViewMain
 {
+    private weak var viewMain:View<ArchConnect>?
+    
     required init(controller:UIViewController)
     {
         super.init(controller:controller)
@@ -17,6 +19,8 @@ final class VConnect:ViewMain
     
     func update()
     {
+        self.viewMain?.removeFromSuperview()
+        
         guard
             
             let controller:CConnect = self.controller as? CConnect,
@@ -27,12 +31,13 @@ final class VConnect:ViewMain
             return
         }
         
-        let view:View<ArchConnect> = viewType.init(controller:controller)
+        let viewMain:View<ArchConnect> = viewType.init(controller:controller)
+        self.viewMain = viewMain
         
-        addSubview(view)
+        addSubview(viewMain)
         
         NSLayoutConstraint.equals(
-            view:view,
+            view:viewMain,
             toView:self)
     }
 }
