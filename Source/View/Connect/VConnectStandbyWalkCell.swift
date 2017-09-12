@@ -4,5 +4,8 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
 {
     //MARK: internal
     
-    func config
+    func config(model:MConnectWalkProtocol)
+    {
+        
+    }
 }

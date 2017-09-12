@@ -50,7 +50,11 @@ final class VConnectStandbyWalk:VCollection<
         _ collectionView:UICollectionView,
         cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let cell:VConnectStandbyWalkCell = cellAtIndex(indexPath:indexPath)
+        let item:MConnectWalkProtocol = modelAtIndex(
+            index:indexPath)
+        let cell:VConnectStandbyWalkCell = cellAtIndex(
+            indexPath:indexPath)
+        cell.config(model:item)
         
         return cell
     }
@@ -67,5 +71,15 @@ final class VConnectStandbyWalk:VCollection<
         shouldHighlightItemAt indexPath:IndexPath) -> Bool
     {
         return false
+    }
+    
+    //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MConnectWalkProtocol
+    {
+        let item:MConnectWalkProtocol = controller.model.itemsWalk[
+            index.item]
+        
+        return item
     }
 }
