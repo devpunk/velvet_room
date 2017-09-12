@@ -54,6 +54,12 @@ final class VConnectStandbyWalk:VCollection<
         return nil
     }
     
+    override func scrollViewDidEndDecelerating(
+        _ scrollView:UIScrollView)
+    {
+        updatePage()
+    }
+    
     override func collectionView(
         _ collectionView:UICollectionView,
         layout collectionViewLayout:UICollectionViewLayout,
@@ -128,5 +134,27 @@ final class VConnectStandbyWalk:VCollection<
             index.item]
         
         return item
+    }
+    
+    private func updatePage()
+    {
+        let offset:CGFloat = collectionView.contentOffset.x
+        let width_2:CGFloat = bounds.midX
+        let height_2:CGFloat = bounds.midY
+        let midPoint:CGPoint = CGPoint(
+            x:width_2 + offset,
+            y:height_2)
+        
+        guard
+        
+            let index:IndexPath = collectionView.indexPathForItem(
+                at:midPoint)
+        
+        else
+        {
+            return
+        }
+        
+        viewPage.currentPage = index.item
     }
 }
