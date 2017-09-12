@@ -7,9 +7,11 @@ extension MConnect
     class func factoryWalk() -> [MConnectWalkProtocol]
     {
         let itemCover:MConnectWalkCover = MConnectWalkCover()
+        let itemWifi:MConnectWalkWifi = MConnectWalkWifi()
         
         let items:[MConnectWalkProtocol] = [
-            itemCover]
+            itemCover,
+            itemWifi]
         
         return items
     }
