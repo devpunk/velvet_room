@@ -13,5 +13,27 @@ final class MConnect:Model<ArchConnect>
         statusStandby()
     }
     
+    //MARK: private
     
+    private func connect()
+    {
+        
+    }
+    
+    //MARK: internal
+    
+    func startConnection()
+    {
+        guard
+        
+            let status:MConnectStatusProtocol = self.status,
+            status.shouldStart
+        
+        else
+        {
+            return
+        }
+        
+        
+    }
 }
