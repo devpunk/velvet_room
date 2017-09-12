@@ -78,6 +78,7 @@
 		DA8B7E421F579369004EEE23 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E371F579369004EEE23 /* VToast.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
+		DABF34AB1F689827001CF436 /* VConnectLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34AA1F689827001CF436 /* VConnectLoading.swift */; };
 		DAD799261F57C04E001D6A4C /* Arch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799251F57C04E001D6A4C /* Arch.swift */; };
 		DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799271F57C085001D6A4C /* ArchConnect.swift */; };
 		DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16081F5795CA00D9F6DD /* MMenu.swift */; };
@@ -169,6 +170,7 @@
 		DA8B7E371F579369004EEE23 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
+		DABF34AA1F689827001CF436 /* VConnectLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectLoading.swift; sourceTree = "<group>"; };
 		DAD799251F57C04E001D6A4C /* Arch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arch.swift; sourceTree = "<group>"; };
 		DAD799271F57C085001D6A4C /* ArchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnect.swift; sourceTree = "<group>"; };
 		DAEE16081F5795CA00D9F6DD /* MMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenu.swift; sourceTree = "<group>"; };
@@ -486,6 +488,7 @@
 				DA1A1BDC1F673CB200E8B084 /* VConnectStandbyWalkCell.swift */,
 				DA1A1BD01F672B2100E8B084 /* VConnectStandbyStart.swift */,
 				DA1A1BCA1F67099E00E8B084 /* VConnectConnected.swift */,
+				DABF34AA1F689827001CF436 /* VConnectLoading.swift */,
 			);
 			path = Connect;
 			sourceTree = "<group>";
@@ -668,6 +671,7 @@
 				DA16C7091F5888CF0062D37A /* MMenuItemConnect.swift in Sources */,
 				DA8B7E421F579369004EEE23 /* VToast.swift in Sources */,
 				DA8B7E391F579369004EEE23 /* VBlur.swift in Sources */,
+				DABF34AB1F689827001CF436 /* VConnectLoading.swift in Sources */,
 				DA1A1BCB1F67099E00E8B084 /* VConnectConnected.swift in Sources */,
 				DA04ABB81F65EA3D0077CA06 /* PTPDelegate2.swift in Sources */,
 				DA8B7E3F1F579369004EEE23 /* VSlider.swift in Sources */,
