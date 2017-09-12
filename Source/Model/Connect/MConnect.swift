@@ -3,7 +3,7 @@ import UIKit
 final class MConnect:Model<ArchConnect>
 {
     let itemsWalk:[MConnectWalkProtocol]
-    private(set) var status:MConnectStatusProtocol?
+    var status:MConnectStatusProtocol?
 
     required init()
     {
@@ -13,20 +13,5 @@ final class MConnect:Model<ArchConnect>
         statusStandby()
     }
     
-    //MARK: internal
     
-    func statusStandby()
-    {
-        status = MConnectStatusStandby()
-    }
-    
-    func statusLoading()
-    {
-        status = MConnectStatusLoading()
-    }
-    
-    func statusConnected()
-    {
-        status = MConnectStatusConnected()
-    }
 }
