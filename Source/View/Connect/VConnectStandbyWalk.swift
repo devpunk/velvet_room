@@ -4,7 +4,9 @@ final class VConnectStandbyWalk:VCollection<
     ArchConnect,
     VConnectStandbyWalkCell>
 {
+    private weak var viewPage:UIPageControl!
     private var cellSize:CGSize?
+    private let kPageBottom:CGFloat = -170
     
     required init(controller:CConnect)
     {
@@ -16,6 +18,35 @@ final class VConnectStandbyWalk:VCollection<
         {
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
         }
+        
+        let pages:Int = controller.model.itemsWalk.count
+        
+        let viewPage:UIPageControl = UIPageControl()
+        viewPage.isUserInteractionEnabled = false
+        viewPage.translatesAutoresizingMaskIntoConstraints = false
+        viewPage.numberOfPages = pages
+        viewPage.currentPageIndicatorTintColor = UIColor(
+            red:1,
+            green:0.23529411764705888,
+            blue:0.3686274509803924,
+            alpha:1)
+        viewPage.pageIndicatorTintColor = UIColor.colourBackgroundGray
+        self.viewPage = viewPage
+        
+        if pages > 0
+        {
+            viewPage.currentPage = 0
+        }
+        
+        addSubview(viewPage)
+        
+        NSLayoutConstraint.bottomToBottom(
+            view:viewPage,
+            toView:self,
+            constant:kPageBottom)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewPage,
+            toView:self)
     }
     
     required init?(coder:NSCoder)

@@ -7,7 +7,7 @@ final class VConnectStandbyWalkCell:UICollectionViewCell
     private weak var labelDescr:UILabel!
     private let kIconTop:CGFloat = 120
     private let kIconHeight:CGFloat = 140
-    private let kDescrBottom:CGFloat = -230
+    private let kDescrBottom:CGFloat = -210
     private let kDescrHeight:CGFloat = 70
     private let kTitleHeight:CGFloat = 24
     private let kLabelMarginHorizontal:CGFloat = 20
