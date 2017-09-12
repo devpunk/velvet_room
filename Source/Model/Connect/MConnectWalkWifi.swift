@@ -8,4 +8,3 @@ struct MConnectWalkWifi:MConnectWalkProtocol
     let descr:String = String.localizedModel(
         key:"MConnectWalkWifi_descr")
 }
-
