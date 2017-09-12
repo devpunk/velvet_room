@@ -71,6 +71,6 @@ final class VConnectStandbyStart:View<ArchConnect>
     @objc
     private func selectorButton(sender button:UIButton)
     {
-        
+        controller.model.startConnection()
     }
 }
