@@ -8,10 +8,12 @@ extension MConnect
     {
         let itemCover:MConnectWalkCover = MConnectWalkCover()
         let itemWifi:MConnectWalkWifi = MConnectWalkWifi()
+        let itemCma:MConnectWalkCma = MConnectWalkCma()
         
         let items:[MConnectWalkProtocol] = [
             itemCover,
-            itemWifi]
+            itemWifi,
+            itemCma]
         
         return items
     }
