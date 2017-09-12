@@ -84,6 +84,7 @@
 		DABF34B11F68A006001CF436 /* MConnectConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B01F68A006001CF436 /* MConnectConnection.swift */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
 		DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B51F68A8C5001CF436 /* CConnecting.swift */; };
+		DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B81F68A901001CF436 /* MConnecting.swift */; };
 		DAD799261F57C04E001D6A4C /* Arch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799251F57C04E001D6A4C /* Arch.swift */; };
 		DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799271F57C085001D6A4C /* ArchConnect.swift */; };
 		DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16081F5795CA00D9F6DD /* MMenu.swift */; };
@@ -181,6 +182,7 @@
 		DABF34B01F68A006001CF436 /* MConnectConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectConnection.swift; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
 		DABF34B51F68A8C5001CF436 /* CConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CConnecting.swift; sourceTree = "<group>"; };
+		DABF34B81F68A901001CF436 /* MConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnecting.swift; sourceTree = "<group>"; };
 		DAD799251F57C04E001D6A4C /* Arch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arch.swift; sourceTree = "<group>"; };
 		DAD799271F57C085001D6A4C /* ArchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnect.swift; sourceTree = "<group>"; };
 		DAEE16081F5795CA00D9F6DD /* MMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenu.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				DA8B7E141F579308004EEE23 /* Abstract */,
 				DAEE16071F5795CA00D9F6DD /* Menu */,
 				DAF8A53A1F57A0770078A383 /* Connect */,
+				DABF34B71F68A8F0001CF436 /* Connecting */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -442,6 +445,14 @@
 			isa = PBXGroup;
 			children = (
 				DABF34B51F68A8C5001CF436 /* CConnecting.swift */,
+			);
+			path = Connecting;
+			sourceTree = "<group>";
+		};
+		DABF34B71F68A8F0001CF436 /* Connecting */ = {
+			isa = PBXGroup;
+			children = (
+				DABF34B81F68A901001CF436 /* MConnecting.swift */,
 			);
 			path = Connecting;
 			sourceTree = "<group>";
@@ -677,6 +688,7 @@
 				DABF34AF1F689ACD001CF436 /* MConnectStatus.swift in Sources */,
 				DA8B7E3B1F579369004EEE23 /* VCollection.swift in Sources */,
 				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
+				DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */,
 				DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
 				DA1A1BCF1F672A8100E8B084 /* VConnectStandbyFactory.swift in Sources */,
