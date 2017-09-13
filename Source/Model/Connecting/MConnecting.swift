@@ -2,8 +2,8 @@ import Foundation
 
 final class MConnecting:Model<ArchConnecting>
 {
+    var status:MConnectingStatusProtocol?
     private(set) var modelPin:MConnectingPin?
-    private(set) var status:MConnectingStatusProtocol?
     
     required init()
     {
@@ -12,14 +12,4 @@ final class MConnecting:Model<ArchConnecting>
     }
     
     //MARK: internal
-    
-    func statusLoading()
-    {
-        status = MConnectingStatusLoading()
-    }
-    
-    func statusPin()
-    {
-        status = MConnectingStatusPin()
-    }
 }
