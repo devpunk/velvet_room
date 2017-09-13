@@ -4,3 +4,6 @@
 "MConnectWalkWifi_descr"="This device and your PS Vita\nshould be on the same Wifi";
 "MConnectWalkCma_title"="Content Manager Assistant";
 "MConnectWalkCma_descr"="Open the app in your PS Vita\nand select the option Copy Content";
+"MConnectingStatusLoading_buttonTitle"="Cancel";
+"MConnectingStatusPin_buttonTitle"="Cancel";
+"MConnectingStatusTimeout_buttonTitle"="Close";
