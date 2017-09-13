@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnecting:ViewMain
+final class VConnecting:ViewMain
 {
     private weak var layoutCancelLeft:NSLayoutConstraint!
     private let kCancelBottom:CGFloat = -80

@@ -1,6 +1,6 @@
 import UIKit
 
-class CConnecting:Controller<ArchConnecting>
+final class CConnecting:Controller<ArchConnecting>
 {
     override var preferredStatusBarStyle:UIStatusBarStyle
     {

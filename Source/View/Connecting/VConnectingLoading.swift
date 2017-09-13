@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnectingLoading:View<ArchConnecting>
+final class VConnectingLoading:View<ArchConnecting>
 {
     private weak var spinner:VSpinner!
     private let kTitleBottom:CGFloat = -135
