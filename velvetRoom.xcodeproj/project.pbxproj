@@ -68,6 +68,7 @@
 		DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E361F579369004EEE23 /* VSpinner.swift */; };
 		DA8B7E421F579369004EEE23 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E371F579369004EEE23 /* VToast.swift */; };
 		DA97512B1F69730700DBC757 /* VConnectingTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */; };
+		DA97512D1F6973A000DBC757 /* MConnectingStatusTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97512C1F6973A000DBC757 /* MConnectingStatusTimeout.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -169,6 +170,7 @@
 		DA8B7E361F579369004EEE23 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA8B7E371F579369004EEE23 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingTimeout.swift; sourceTree = "<group>"; };
+		DA97512C1F6973A000DBC757 /* MConnectingStatusTimeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingStatusTimeout.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 				DAFFC4BB1F68BC3500F27ADD /* MConnectingStatusProtocol.swift */,
 				DAFFC4BD1F68BC6500F27ADD /* MConnectingStatusLoading.swift */,
 				DAFFC4C11F68C78600F27ADD /* MConnectingStatusPin.swift */,
+				DA97512C1F6973A000DBC757 /* MConnectingStatusTimeout.swift */,
 				DAFD69891F69269A00D3B07B /* MConnectingPin.swift */,
 				DAFD698B1F69273500D3B07B /* MConnectingPinFactory.swift */,
 			);
@@ -746,6 +749,7 @@
 				DA1A1BD51F67388F00E8B084 /* MConnectWalkProtocol.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
+				DA97512D1F6973A000DBC757 /* MConnectingStatusTimeout.swift in Sources */,
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */,
 				DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */,
