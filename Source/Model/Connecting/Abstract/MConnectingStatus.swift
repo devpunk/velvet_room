@@ -18,4 +18,10 @@ extension MConnecting
     {
         status = MConnectingStatusTimeout()
     }
+    
+    func statusError(errorMessage:String)
+    {
+        status = MConnectingStatusError(
+            errorMessage:errorMessage)
+    }
 }

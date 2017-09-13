@@ -2,7 +2,8 @@ import Foundation
 
 struct MConnectingStatusError:MConnectingStatusProtocol
 {
-    let viewType:View<ArchConnecting>.Type = VConnectingTimeout.self
+    let errorMessage:String
+    let viewType:View<ArchConnecting>.Type = VConnectingError.self
     let buttonTitle:String = String.localizedModel(
         key:"MConnectingStatusTimeout_buttonTitle")
 }
