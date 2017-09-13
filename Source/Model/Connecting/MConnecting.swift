@@ -2,19 +2,21 @@ import Foundation
 
 final class MConnecting:Model<ArchConnecting>
 {
-    weak var timer:Timer?
     var status:MConnectingStatusProtocol?
     private(set) var modelPin:MConnectingPin?
+    private(set) var modelTimer:MConnectingTimer?
     
     required init()
     {
         super.init()
         statusLoading()
+        
+        modelTimer = MConnectingTimer(model:self)
     }
     
     deinit
     {
-        timer?.invalidate()
+        modelTimer?.timer?.invalidate()
     }
     
     //MARK: internal
@@ -23,6 +25,12 @@ final class MConnecting:Model<ArchConnecting>
     {
         modelPin = MConnectingPin()
         statusPin()
+        view?.updateStatus()
+    }
+    
+    func stopConnection()
+    {
+        statusTimeout()
         view?.updateStatus()
     }
 }
