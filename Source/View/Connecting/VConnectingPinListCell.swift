@@ -22,6 +22,7 @@ class VConnectingPinListCell:UICollectionViewCell
         labelNumber.backgroundColor = UIColor.clear
         labelNumber.font = UIFont.bold(size:25)
         labelNumber.textColor = UIColor.black
+        labelNumber.textAlignment = NSTextAlignment.center
         self.labelNumber = labelNumber
         
         addSubview(background)
@@ -39,5 +40,12 @@ class VConnectingPinListCell:UICollectionViewCell
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    //MARK: internal
+    
+    func config(number:String)
+    {
+        labelNumber.text = number
     }
 }
