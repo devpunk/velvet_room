@@ -9,4 +9,11 @@ class CConnecting:Controller<ArchConnecting>
             return UIStatusBarStyle.lightContent
         }
     }
+    
+    //MARK: internal
+    
+    func cancelConnection()
+    {
+        parentController?.pop(vertical:ControllerParent.Vertical.bottom)
+    }
 }

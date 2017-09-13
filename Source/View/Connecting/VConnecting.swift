@@ -45,6 +45,23 @@ class VConnecting:ViewMain
         super.layoutSubviews()
     }
     
+    //MARK: selectors
+    
+    @objc
+    private func selectorCancel(sender button:UIButton)
+    {
+        guard
+        
+            let controller:CConnecting = self.controller as? CConnecting
+        
+        else
+        {
+            return
+        }
+        
+        controller.cancelConnection()
+    }
+    
     //MARK: private
     
     private func factoryViews(controller:CConnecting)
@@ -78,6 +95,10 @@ class VConnecting:ViewMain
         buttonCancel.setTitle(
             String.localizedView(key:"VConnecting_buttonCancel"),
             for:UIControlState.normal)
+        buttonCancel.addTarget(
+            self,
+            action:#selector(selectorCancel(sender:)),
+            for:UIControlEvents.touchUpInside)
         
         addSubview(viewGradient)
         addSubview(spinner)
