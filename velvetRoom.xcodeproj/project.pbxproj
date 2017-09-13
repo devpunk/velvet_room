@@ -78,6 +78,7 @@
 		DA9751481F69938A00DBC757 /* MConnectingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513E1F69938A00DBC757 /* MConnectingPin.swift */; };
 		DA9751491F69938A00DBC757 /* MConnectingPinFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513F1F69938A00DBC757 /* MConnectingPinFactory.swift */; };
 		DA97514A1F69938A00DBC757 /* MConnectingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751401F69938A00DBC757 /* MConnectingTimer.swift */; };
+		DA97514C1F6993BA00DBC757 /* MConnectingSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -182,6 +183,7 @@
 		DA97513E1F69938A00DBC757 /* MConnectingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPin.swift; sourceTree = "<group>"; };
 		DA97513F1F69938A00DBC757 /* MConnectingPinFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPinFactory.swift; sourceTree = "<group>"; };
 		DA9751401F69938A00DBC757 /* MConnectingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingTimer.swift; sourceTree = "<group>"; };
+		DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocket.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 		DA9751341F69938A00DBC757 /* Socket */ = {
 			isa = PBXGroup;
 			children = (
+				DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -725,6 +728,7 @@
 				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
 				DA9751461F69938A00DBC757 /* MConnecting.swift in Sources */,
 				DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */,
+				DA97514C1F6993BA00DBC757 /* MConnectingSocket.swift in Sources */,
 				DA8B7E251F579344004EEE23 /* ViewParent.swift in Sources */,
 				DA8B7E281F579344004EEE23 /* ViewProtocol.swift in Sources */,
 				DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */,
