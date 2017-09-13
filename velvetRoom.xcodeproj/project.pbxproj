@@ -68,17 +68,16 @@
 		DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E361F579369004EEE23 /* VSpinner.swift */; };
 		DA8B7E421F579369004EEE23 /* VToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8B7E371F579369004EEE23 /* VToast.swift */; };
 		DA97512B1F69730700DBC757 /* VConnectingTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */; };
-		DA9751411F69938A00DBC757 /* MConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751361F69938A00DBC757 /* MConnectingStatus.swift */; };
 		DA9751421F69938A00DBC757 /* MConnectingStatusLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751371F69938A00DBC757 /* MConnectingStatusLoading.swift */; };
 		DA9751431F69938A00DBC757 /* MConnectingStatusPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751381F69938A00DBC757 /* MConnectingStatusPin.swift */; };
 		DA9751441F69938A00DBC757 /* MConnectingStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751391F69938A00DBC757 /* MConnectingStatusProtocol.swift */; };
 		DA9751451F69938A00DBC757 /* MConnectingStatusTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513A1F69938A00DBC757 /* MConnectingStatusTimeout.swift */; };
 		DA9751461F69938A00DBC757 /* MConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513C1F69938A00DBC757 /* MConnecting.swift */; };
 		DA9751471F69938A00DBC757 /* MConnectingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513D1F69938A00DBC757 /* MConnectingActions.swift */; };
-		DA9751481F69938A00DBC757 /* MConnectingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513E1F69938A00DBC757 /* MConnectingPin.swift */; };
 		DA9751491F69938A00DBC757 /* MConnectingPinFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97513F1F69938A00DBC757 /* MConnectingPinFactory.swift */; };
-		DA97514A1F69938A00DBC757 /* MConnectingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751401F69938A00DBC757 /* MConnectingTimer.swift */; };
 		DA97514C1F6993BA00DBC757 /* MConnectingSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */; };
+		DA9751501F69940C00DBC757 /* MConnectingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514E1F69940C00DBC757 /* MConnectingPin.swift */; };
+		DA9751511F69940C00DBC757 /* MConnectingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -173,17 +172,16 @@
 		DA8B7E361F579369004EEE23 /* VSpinner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VSpinner.swift; sourceTree = "<group>"; };
 		DA8B7E371F579369004EEE23 /* VToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VToast.swift; sourceTree = "<group>"; };
 		DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingTimeout.swift; sourceTree = "<group>"; };
-		DA9751361F69938A00DBC757 /* MConnectingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatus.swift; sourceTree = "<group>"; };
 		DA9751371F69938A00DBC757 /* MConnectingStatusLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatusLoading.swift; sourceTree = "<group>"; };
 		DA9751381F69938A00DBC757 /* MConnectingStatusPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatusPin.swift; sourceTree = "<group>"; };
 		DA9751391F69938A00DBC757 /* MConnectingStatusProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatusProtocol.swift; sourceTree = "<group>"; };
 		DA97513A1F69938A00DBC757 /* MConnectingStatusTimeout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatusTimeout.swift; sourceTree = "<group>"; };
 		DA97513C1F69938A00DBC757 /* MConnecting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnecting.swift; sourceTree = "<group>"; };
 		DA97513D1F69938A00DBC757 /* MConnectingActions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingActions.swift; sourceTree = "<group>"; };
-		DA97513E1F69938A00DBC757 /* MConnectingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPin.swift; sourceTree = "<group>"; };
 		DA97513F1F69938A00DBC757 /* MConnectingPinFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPinFactory.swift; sourceTree = "<group>"; };
-		DA9751401F69938A00DBC757 /* MConnectingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingTimer.swift; sourceTree = "<group>"; };
 		DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocket.swift; sourceTree = "<group>"; };
+		DA97514E1F69940C00DBC757 /* MConnectingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPin.swift; sourceTree = "<group>"; };
+		DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingTimer.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -467,7 +465,6 @@
 		DA9751351F69938A00DBC757 /* Status */ = {
 			isa = PBXGroup;
 			children = (
-				DA9751361F69938A00DBC757 /* MConnectingStatus.swift */,
 				DA9751371F69938A00DBC757 /* MConnectingStatusLoading.swift */,
 				DA9751381F69938A00DBC757 /* MConnectingStatusPin.swift */,
 				DA9751391F69938A00DBC757 /* MConnectingStatusProtocol.swift */,
@@ -481,11 +478,18 @@
 			children = (
 				DA97513C1F69938A00DBC757 /* MConnecting.swift */,
 				DA97513D1F69938A00DBC757 /* MConnectingActions.swift */,
-				DA97513E1F69938A00DBC757 /* MConnectingPin.swift */,
 				DA97513F1F69938A00DBC757 /* MConnectingPinFactory.swift */,
-				DA9751401F69938A00DBC757 /* MConnectingTimer.swift */,
 			);
 			path = Abstract;
+			sourceTree = "<group>";
+		};
+		DA97514D1F69940C00DBC757 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				DA97514E1F69940C00DBC757 /* MConnectingPin.swift */,
+				DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DABF34B41F68A8B3001CF436 /* Connecting */ = {
@@ -500,6 +504,7 @@
 			isa = PBXGroup;
 			children = (
 				DA97513B1F69938A00DBC757 /* Abstract */,
+				DA97514D1F69940C00DBC757 /* Models */,
 				DA9751341F69938A00DBC757 /* Socket */,
 				DA9751351F69938A00DBC757 /* Status */,
 			);
@@ -759,15 +764,15 @@
 				DAD799261F57C04E001D6A4C /* Arch.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
 				DAFFC4C41F68CBE700F27ADD /* VConnectingPinList.swift in Sources */,
+				DA9751501F69940C00DBC757 /* MConnectingPin.swift in Sources */,
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
 				DAFFC4BA1F68B74300F27ADD /* VConnectingLoading.swift in Sources */,
 				DA57E3371F635F2F00B3EA73 /* PTPDelegate.swift in Sources */,
-				DA9751411F69938A00DBC757 /* MConnectingStatus.swift in Sources */,
 				DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */,
 				DA9751451F69938A00DBC757 /* MConnectingStatusTimeout.swift in Sources */,
 				DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */,
+				DA9751511F69940C00DBC757 /* MConnectingTimer.swift in Sources */,
 				DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */,
-				DA97514A1F69938A00DBC757 /* MConnectingTimer.swift in Sources */,
 				DA16C7091F5888CF0062D37A /* MMenuItemConnect.swift in Sources */,
 				DA8B7E421F579369004EEE23 /* VToast.swift in Sources */,
 				DA8B7E391F579369004EEE23 /* VBlur.swift in Sources */,
@@ -778,7 +783,6 @@
 				DA57E3391F649BC100B3EA73 /* PTPDelegateWrite.swift in Sources */,
 				DA9751421F69938A00DBC757 /* MConnectingStatusLoading.swift in Sources */,
 				DA8B7E3E1F579369004EEE23 /* VPushBackground.swift in Sources */,
-				DA9751481F69938A00DBC757 /* MConnectingPin.swift in Sources */,
 				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
 				DA9751471F69938A00DBC757 /* MConnectingActions.swift in Sources */,
