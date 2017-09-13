@@ -12,6 +12,11 @@ final class MConnecting:Model<ArchConnecting>
         statusLoading()
     }
     
+    deinit
+    {
+        timer?.invalidate()
+    }
+    
     //MARK: internal
     
     func createPin()
