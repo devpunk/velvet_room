@@ -33,4 +33,10 @@ final class MConnecting:Model<ArchConnecting>
         statusTimeout()
         view?.updateStatus()
     }
+    
+    func cancelTimer()
+    {
+        modelTimer?.timer?.invalidate()
+        modelTimer = nil
+    }
 }
