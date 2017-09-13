@@ -80,6 +80,7 @@
 		DA9751511F69940C00DBC757 /* MConnectingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */; };
 		DA9751531F69944700DBC757 /* MConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751521F69944700DBC757 /* MConnectingStatus.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
+		DAB0E8591F69A5A800E2BADF /* vitaConnection.plist in Resources */ = {isa = PBXBuildFile; fileRef = DAB0E8581F69A5A800E2BADF /* vitaConnection.plist */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
 		DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B51F68A8C5001CF436 /* CConnecting.swift */; };
@@ -189,6 +190,7 @@
 		DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingTimer.swift; sourceTree = "<group>"; };
 		DA9751521F69944700DBC757 /* MConnectingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatus.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
+		DAB0E8581F69A5A800E2BADF /* vitaConnection.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = vitaConnection.plist; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
 		DABF34B51F68A8C5001CF436 /* CConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CConnecting.swift; sourceTree = "<group>"; };
@@ -280,6 +282,7 @@
 				DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */,
 				DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */,
 				DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */,
+				DAB0E8581F69A5A800E2BADF /* vitaConnection.plist */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -675,6 +678,7 @@
 				DA16C70B1F5898410062D37A /* generic.xcassets in Resources */,
 				DA8B7DEC1F578F56004EEE23 /* LaunchScreen.storyboard in Resources */,
 				DA1A1BD31F67379900E8B084 /* connect.xcassets in Resources */,
+				DAB0E8591F69A5A800E2BADF /* vitaConnection.plist in Resources */,
 				DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
