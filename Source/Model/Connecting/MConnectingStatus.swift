@@ -13,4 +13,9 @@ extension MConnecting
     {
         status = MConnectingStatusPin()
     }
+    
+    func statusTimeout()
+    {
+        status = MConnectingStatusTimeout()
+    }
 }
