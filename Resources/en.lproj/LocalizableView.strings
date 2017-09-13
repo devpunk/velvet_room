@@ -1,3 +1,4 @@
 "VConnectStart_button"="Start";
 "VConnecting_buttonCancel"="Cancel";
 "VConnectingLoading_labelTitle"="Connecting to PS Vita";
+"VConnectingPin_labelTitle"="Enter this Pin number\non the PS Vita";
