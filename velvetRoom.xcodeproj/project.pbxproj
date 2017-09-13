@@ -94,6 +94,7 @@
 		DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53B1F57A0860078A383 /* MConnect.swift */; };
 		DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53E1F57A0BE0078A383 /* VConnect.swift */; };
 		DAFD69901F692FD100D3B07B /* VConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD698F1F692FD100D3B07B /* VConnectingStatus.swift */; };
+		DAFDA3C51F6996EA005AC320 /* MConnectingSocketFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDA3C41F6996EA005AC320 /* MConnectingSocketFactory.swift */; };
 		DAFFC4B41F68B3ED00F27ADD /* VConnectWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B31F68B3ED00F27ADD /* VConnectWalk.swift */; };
 		DAFFC4B61F68B3F700F27ADD /* VConnectWalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B51F68B3F700F27ADD /* VConnectWalkCell.swift */; };
 		DAFFC4B81F68B40400F27ADD /* VConnectStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B71F68B40400F27ADD /* VConnectStart.swift */; };
@@ -199,6 +200,7 @@
 		DAF8A53B1F57A0860078A383 /* MConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect.swift; sourceTree = "<group>"; };
 		DAF8A53E1F57A0BE0078A383 /* VConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnect.swift; sourceTree = "<group>"; };
 		DAFD698F1F692FD100D3B07B /* VConnectingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingStatus.swift; sourceTree = "<group>"; };
+		DAFDA3C41F6996EA005AC320 /* MConnectingSocketFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketFactory.swift; sourceTree = "<group>"; };
 		DAFFC4B31F68B3ED00F27ADD /* VConnectWalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectWalk.swift; sourceTree = "<group>"; };
 		DAFFC4B51F68B3F700F27ADD /* VConnectWalkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectWalkCell.swift; sourceTree = "<group>"; };
 		DAFFC4B71F68B40400F27ADD /* VConnectStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectStart.swift; sourceTree = "<group>"; };
@@ -460,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */,
+				DAFDA3C41F6996EA005AC320 /* MConnectingSocketFactory.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -758,6 +761,7 @@
 				DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
 				DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */,
+				DAFDA3C51F6996EA005AC320 /* MConnectingSocketFactory.swift in Sources */,
 				DAEE160F1F5795CA00D9F6DD /* MMenuOrder.swift in Sources */,
 				DA9751441F69938A00DBC757 /* MConnectingStatusProtocol.swift in Sources */,
 				DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */,
