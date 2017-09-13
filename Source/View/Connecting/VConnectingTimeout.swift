@@ -17,7 +17,7 @@ final class VConnectingTimeout:View<ArchConnecting>
             string:stringSubtitle,
             attributes:[
                 NSAttributedStringKey.font:UIFont.regular(size:15),
-                NSAttributedStringKey.foregroundColor:UIColor.white])
+                NSAttributedStringKey.foregroundColor:UIColor(white:1, alpha:0.7)])
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         mutableString.append(attributedTitle)
