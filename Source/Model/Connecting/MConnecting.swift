@@ -12,4 +12,11 @@ final class MConnecting:Model<ArchConnecting>
     }
     
     //MARK: internal
+    
+    func createPin()
+    {
+        modelPin = MConnectingPin()
+        statusPin()
+        view?.updateStatus()
+    }
 }
