@@ -1,6 +1,6 @@
 import UIKit
 
-class VConnectingPin:View<ArchConnecting>
+final class VConnectingPin:View<ArchConnecting>
 {
     private let kTitleBottom:CGFloat = -150
     private let kTitleHeight:CGFloat = 60
