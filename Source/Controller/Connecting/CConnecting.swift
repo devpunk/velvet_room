@@ -10,6 +10,12 @@ final class CConnecting:Controller<ArchConnecting>
         }
     }
     
+    override func viewDidLoad()
+    {
+        super.viewDidLoad()
+        model.socket.start()
+    }
+    
     //MARK: internal
     
     func cancelConnection()
