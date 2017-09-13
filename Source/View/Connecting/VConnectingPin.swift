@@ -21,10 +21,6 @@ final class VConnectingPin:View<ArchConnecting>
         
         addSubview(labelTitle)
         
-        NSLayoutConstraint.equals(
-            view:spinner,
-            toView:self)
-        
         NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
             toView:self,

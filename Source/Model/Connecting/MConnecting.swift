@@ -16,4 +16,9 @@ final class MConnecting:Model<ArchConnecting>
     {
         status = MConnectingStatusLoading()
     }
+    
+    func statusPin()
+    {
+        status = MConnectingStatusPin()
+    }
 }
