@@ -91,6 +91,7 @@
 		DAFFC4C01F68C4AF00F27ADD /* VConnectingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4BF1F68C4AF00F27ADD /* VConnectingPin.swift */; };
 		DAFFC4C21F68C78600F27ADD /* MConnectingStatusPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4C11F68C78600F27ADD /* MConnectingStatusPin.swift */; };
 		DAFFC4C41F68CBE700F27ADD /* VConnectingPinList.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4C31F68CBE700F27ADD /* VConnectingPinList.swift */; };
+		DAFFC4C61F68CC5100F27ADD /* VConnectingPinListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4C51F68CC5100F27ADD /* VConnectingPinListCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -186,6 +187,7 @@
 		DAFFC4BF1F68C4AF00F27ADD /* VConnectingPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingPin.swift; sourceTree = "<group>"; };
 		DAFFC4C11F68C78600F27ADD /* MConnectingStatusPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingStatusPin.swift; sourceTree = "<group>"; };
 		DAFFC4C31F68CBE700F27ADD /* VConnectingPinList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingPinList.swift; sourceTree = "<group>"; };
+		DAFFC4C51F68CC5100F27ADD /* VConnectingPinListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingPinListCell.swift; sourceTree = "<group>"; };
 		E74F9EC63AF89F55551AC9BB /* Pods-velvetRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-velvetRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-velvetRoom/Pods-velvetRoom.debug.xcconfig"; sourceTree = "<group>"; };
 		F83CD0193CB37551566B8FD1 /* Pods-velvetRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-velvetRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-velvetRoom/Pods-velvetRoom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -462,6 +464,7 @@
 				DAFFC4B91F68B74300F27ADD /* VConnectingLoading.swift */,
 				DAFFC4BF1F68C4AF00F27ADD /* VConnectingPin.swift */,
 				DAFFC4C31F68CBE700F27ADD /* VConnectingPinList.swift */,
+				DAFFC4C51F68CC5100F27ADD /* VConnectingPinListCell.swift */,
 			);
 			path = Connecting;
 			sourceTree = "<group>";
@@ -686,6 +689,7 @@
 				DA8B7E3B1F579369004EEE23 /* VCollection.swift in Sources */,
 				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
 				DAFFC4B81F68B40400F27ADD /* VConnectStart.swift in Sources */,
+				DAFFC4C61F68CC5100F27ADD /* VConnectingPinListCell.swift in Sources */,
 				DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */,
 				DABF34BC1F68A932001CF436 /* VConnecting.swift in Sources */,
 				DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */,
