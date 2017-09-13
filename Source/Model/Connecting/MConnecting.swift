@@ -3,40 +3,20 @@ import Foundation
 final class MConnecting:Model<ArchConnecting>
 {
     var status:MConnectingStatusProtocol?
-    private(set) var modelPin:MConnectingPin?
-    private(set) var modelTimer:MConnectingTimer?
+    var modelPin:MConnectingPin?
+    private(set) var modelTimer:MConnectingTimer
     
     required init()
     {
+        modelTimer = MConnectingTimer()
         super.init()
-        statusLoading()
         
-        modelTimer = MConnectingTimer(model:self)
+        statusLoading()
+        modelTimer.model = self
     }
     
     deinit
     {
-        modelTimer?.timer?.invalidate()
-    }
-    
-    //MARK: internal
-    
-    func createPin()
-    {
-        modelPin = MConnectingPin()
-        statusPin()
-        view?.updateStatus()
-    }
-    
-    func stopConnection()
-    {
-        statusTimeout()
-        view?.updateStatus()
-    }
-    
-    func cancelTimer()
-    {
-        modelTimer?.timer?.invalidate()
-        modelTimer = nil
+        modelTimer.timer?.invalidate()
     }
 }

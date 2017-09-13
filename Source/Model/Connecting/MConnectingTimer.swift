@@ -3,12 +3,11 @@ import Foundation
 final class MConnectingTimer
 {
     weak var timer:Timer?
-    private weak var model:MConnecting?
+    weak var model:MConnecting?
     private let kTimeout:TimeInterval = 31
     
-    init(model:MConnecting)
+    init()
     {
-        self.model = model
         timer = Timer.scheduledTimer(
             timeInterval:kTimeout,
             target:self,

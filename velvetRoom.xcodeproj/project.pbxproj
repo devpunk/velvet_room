@@ -70,6 +70,7 @@
 		DA97512B1F69730700DBC757 /* VConnectingTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */; };
 		DA97512D1F6973A000DBC757 /* MConnectingStatusTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97512C1F6973A000DBC757 /* MConnectingStatusTimeout.swift */; };
 		DA9751311F6986E900DBC757 /* MConnectingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751301F6986E900DBC757 /* MConnectingTimer.swift */; };
+		DA9751331F69923000DBC757 /* MConnectingActions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751321F69923000DBC757 /* MConnectingActions.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -173,6 +174,7 @@
 		DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingTimeout.swift; sourceTree = "<group>"; };
 		DA97512C1F6973A000DBC757 /* MConnectingStatusTimeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingStatusTimeout.swift; sourceTree = "<group>"; };
 		DA9751301F6986E900DBC757 /* MConnectingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingTimer.swift; sourceTree = "<group>"; };
+		DA9751321F69923000DBC757 /* MConnectingActions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingActions.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -464,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				DABF34B81F68A901001CF436 /* MConnecting.swift */,
+				DA9751321F69923000DBC757 /* MConnectingActions.swift */,
 				DA9751301F6986E900DBC757 /* MConnectingTimer.swift */,
 				DAFD698D1F692F1500D3B07B /* MConnectingStatus.swift */,
 				DAFFC4BB1F68BC3500F27ADD /* MConnectingStatusProtocol.swift */,
@@ -712,6 +715,7 @@
 				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
 				DAFD698E1F692F1500D3B07B /* MConnectingStatus.swift in Sources */,
 				DAFFC4B81F68B40400F27ADD /* VConnectStart.swift in Sources */,
+				DA9751331F69923000DBC757 /* MConnectingActions.swift in Sources */,
 				DAFFC4C61F68CC5100F27ADD /* VConnectingPinListCell.swift in Sources */,
 				DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */,
 				DABF34BC1F68A932001CF436 /* VConnecting.swift in Sources */,
