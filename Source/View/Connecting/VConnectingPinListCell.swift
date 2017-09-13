@@ -3,7 +3,7 @@ import UIKit
 class VConnectingPinListCell:UICollectionViewCell
 {
     private weak var labelNumber:UILabel!
-    private let kCornerRadius:CGFloat = 6
+    private let kCornerRadius:CGFloat = 4
     
     override init(frame:CGRect)
     {
@@ -20,7 +20,7 @@ class VConnectingPinListCell:UICollectionViewCell
         labelNumber.isUserInteractionEnabled = false
         labelNumber.translatesAutoresizingMaskIntoConstraints = false
         labelNumber.backgroundColor = UIColor.clear
-        labelNumber.font = UIFont.bold(size:25)
+        labelNumber.font = UIFont.regular(size:30)
         labelNumber.textColor = UIColor.black
         labelNumber.textAlignment = NSTextAlignment.center
         self.labelNumber = labelNumber

@@ -2,10 +2,9 @@ import UIKit
 
 final class VConnectingPin:View<ArchConnecting>
 {
-    private let kTitleBottom:CGFloat = -150
-    private let kTitleHeight:CGFloat = 60
-    private let kListHeight:CGFloat = 70
-    private let kListTop:CGFloat = 200
+    private let kTitleHeight:CGFloat = 90
+    private let kListHeight:CGFloat = 50
+    private let kListTop:CGFloat = 250
     
     required init(controller:CConnecting)
     {
@@ -19,8 +18,9 @@ final class VConnectingPin:View<ArchConnecting>
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
         labelTitle.backgroundColor = UIColor.clear
-        labelTitle.font = UIFont.medium(size:15)
+        labelTitle.font = UIFont.medium(size:16)
         labelTitle.textColor = UIColor.white
+        labelTitle.numberOfLines = 0
         labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.text = String.localizedView(
             key:"VConnectingPin_labelTitle")
@@ -30,7 +30,8 @@ final class VConnectingPin:View<ArchConnecting>
         
         NSLayoutConstraint.topToTop(
             view:viewList,
-            toView:self)
+            toView:self,
+            constant:kListTop)
         NSLayoutConstraint.height(
             view:viewList,
             constant:kListHeight)
@@ -38,10 +39,9 @@ final class VConnectingPin:View<ArchConnecting>
             view:viewList,
             toView:self)
         
-        NSLayoutConstraint.bottomToBottom(
+        NSLayoutConstraint.topToBottom(
             view:labelTitle,
-            toView:self,
-            constant:kTitleBottom)
+            toView:viewList)
         NSLayoutConstraint.height(
             view:labelTitle,
             constant:kTitleHeight)

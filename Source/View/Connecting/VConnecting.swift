@@ -55,8 +55,7 @@ final class VConnecting:ViewMain
             return
         }
         
-//        controller.cancelConnection()
-        controller.model.createPin()
+        controller.cancelConnection()
     }
     
     //MARK: private

@@ -5,7 +5,7 @@ final class VConnectingPinList:VCollection<
     VConnectingPinListCell>
 {
     private var cellSize:CGSize?
-    private let kInterItem:CGFloat = 5
+    private let kInterItem:CGFloat = 4
     private let kCellWidth:CGFloat = 30
     
     required init(controller:CConnecting)
