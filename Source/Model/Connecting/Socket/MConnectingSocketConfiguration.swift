@@ -1,6 +1,6 @@
 import Foundation
 
-class MConnectingSocketConfiguration
+final class MConnectingSocketConfiguration
 {
     
 }
