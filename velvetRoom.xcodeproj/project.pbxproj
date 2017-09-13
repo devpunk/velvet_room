@@ -95,6 +95,7 @@
 		DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16111F579FB000D9F6DD /* CConnect.swift */; };
 		DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53B1F57A0860078A383 /* MConnect.swift */; };
 		DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53E1F57A0BE0078A383 /* VConnect.swift */; };
+		DAFFC4B21F68B16800F27ADD /* VConnectingFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B11F68B16800F27ADD /* VConnectingFactory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,6 +195,7 @@
 		DAEE16111F579FB000D9F6DD /* CConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CConnect.swift; sourceTree = "<group>"; };
 		DAF8A53B1F57A0860078A383 /* MConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect.swift; sourceTree = "<group>"; };
 		DAF8A53E1F57A0BE0078A383 /* VConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnect.swift; sourceTree = "<group>"; };
+		DAFFC4B11F68B16800F27ADD /* VConnectingFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingFactory.swift; sourceTree = "<group>"; };
 		E74F9EC63AF89F55551AC9BB /* Pods-velvetRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-velvetRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-velvetRoom/Pods-velvetRoom.debug.xcconfig"; sourceTree = "<group>"; };
 		F83CD0193CB37551566B8FD1 /* Pods-velvetRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-velvetRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-velvetRoom/Pods-velvetRoom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -464,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				DABF34BB1F68A932001CF436 /* VConnecting.swift */,
+				DAFFC4B11F68B16800F27ADD /* VConnectingFactory.swift */,
 			);
 			path = Connecting;
 			sourceTree = "<group>";
@@ -702,6 +705,7 @@
 				DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */,
 				DABF34BC1F68A932001CF436 /* VConnecting.swift in Sources */,
 				DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */,
+				DAFFC4B21F68B16800F27ADD /* VConnectingFactory.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
 				DA1A1BCF1F672A8100E8B084 /* VConnectStandbyFactory.swift in Sources */,
 				DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */,
