@@ -78,6 +78,7 @@
 		DA97514C1F6993BA00DBC757 /* MConnectingSocket.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */; };
 		DA9751501F69940C00DBC757 /* MConnectingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514E1F69940C00DBC757 /* MConnectingPin.swift */; };
 		DA9751511F69940C00DBC757 /* MConnectingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */; };
+		DA9751531F69944700DBC757 /* MConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751521F69944700DBC757 /* MConnectingStatus.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -182,6 +183,7 @@
 		DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocket.swift; sourceTree = "<group>"; };
 		DA97514E1F69940C00DBC757 /* MConnectingPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPin.swift; sourceTree = "<group>"; };
 		DA97514F1F69940C00DBC757 /* MConnectingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingTimer.swift; sourceTree = "<group>"; };
+		DA9751521F69944700DBC757 /* MConnectingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatus.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -477,6 +479,7 @@
 			isa = PBXGroup;
 			children = (
 				DA97513C1F69938A00DBC757 /* MConnecting.swift */,
+				DA9751521F69944700DBC757 /* MConnectingStatus.swift */,
 				DA97513D1F69938A00DBC757 /* MConnectingActions.swift */,
 				DA97513F1F69938A00DBC757 /* MConnectingPinFactory.swift */,
 			);
@@ -768,6 +771,7 @@
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
 				DAFFC4BA1F68B74300F27ADD /* VConnectingLoading.swift in Sources */,
 				DA57E3371F635F2F00B3EA73 /* PTPDelegate.swift in Sources */,
+				DA9751531F69944700DBC757 /* MConnectingStatus.swift in Sources */,
 				DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */,
 				DA9751451F69938A00DBC757 /* MConnectingStatusTimeout.swift in Sources */,
 				DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */,
