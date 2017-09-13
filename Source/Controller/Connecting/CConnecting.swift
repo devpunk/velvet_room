@@ -14,7 +14,7 @@ final class CConnecting:Controller<ArchConnecting>
     
     func cancelConnection()
     {
-        model.modelTimer.timer?.invalidate()
+        model.cancelAndClean()
         parentController?.pop(vertical:ControllerParent.Vertical.bottom)
     }
 }

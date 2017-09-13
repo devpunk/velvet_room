@@ -13,12 +13,14 @@ extension MConnecting
     
     func stopConnection()
     {
+        socket.cancel()
         statusTimeout()
         view?.updateStatus()
     }
     
-    func cancelTimer()
+    func cancelAndClean()
     {
-        modelTimer.timer?.invalidate()
+        modelTimer.cancel()
+        socket.cancel()
     }
 }

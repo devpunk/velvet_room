@@ -19,6 +19,6 @@ final class MConnecting:Model<ArchConnecting>
     
     deinit
     {
-        modelTimer.timer?.invalidate()
+        cancelAndClean()
     }
 }

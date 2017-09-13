@@ -2,8 +2,8 @@ import Foundation
 
 final class MConnectingTimer
 {
-    weak var timer:Timer?
     weak var model:MConnecting?
+    private weak var timer:Timer?
     private let kTimeout:TimeInterval = 31
     
     init()
@@ -35,5 +35,12 @@ final class MConnectingTimer
     {
         timer?.invalidate()
         model?.stopConnection()
+    }
+    
+    //MARK: internal
+    
+    func cancel()
+    {
+        timer?.invalidate()
     }
 }
