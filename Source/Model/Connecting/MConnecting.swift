@@ -2,6 +2,7 @@ import Foundation
 
 final class MConnecting:Model<ArchConnecting>
 {
+    weak var timer:Timer?
     var status:MConnectingStatusProtocol?
     private(set) var modelPin:MConnectingPin?
     
