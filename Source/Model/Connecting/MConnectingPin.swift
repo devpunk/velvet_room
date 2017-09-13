@@ -1,6 +1,6 @@
 import Foundation
 
-class MConnectingPin
+final class MConnectingPin
 {
     private var pinString:String
     private(set) var length:Int
