@@ -2,6 +2,8 @@ import UIKit
 
 final class VConnecting:ViewMain
 {
+    private weak var viewStatus:View<ArchConnecting>?
+    private weak var buttonCancel:UIButton!
     private weak var layoutCancelLeft:NSLayoutConstraint!
     private let kCancelBottom:CGFloat = -80
     private let kCancelHeight:CGFloat = 45
@@ -21,6 +23,7 @@ final class VConnecting:ViewMain
         }
         
         factoryViews(controller:controller)
+        updateStatus()
     }
     
     required init?(coder:NSCoder)
@@ -79,6 +82,7 @@ final class VConnecting:ViewMain
             self,
             action:#selector(selectorCancel(sender:)),
             for:UIControlEvents.touchUpInside)
+        self.buttonCancel = buttonCancel
         
         addSubview(viewGradient)
         addSubview(buttonCancel)
@@ -99,6 +103,34 @@ final class VConnecting:ViewMain
             constant:kCancelWidth)
         layoutCancelLeft = NSLayoutConstraint.leftToLeft(
             view:buttonCancel,
+            toView:self)
+    }
+    
+    //MARK: public
+    
+    func updateStatus()
+    {
+        self.viewStatus?.removeFromSuperview()
+        
+        guard
+        
+            let controller:CConnecting = self.controller as? CConnecting,
+            let status:MConnectingStatusProtocol = controller.model.status
+        
+        else
+        {
+            return
+        }
+        
+        let viewType:View<ArchConnecting>.Type = status.viewType
+        let viewStatus:View<ArchConnecting> = viewType.init(
+            controller:controller)
+        self.viewStatus = viewStatus
+        
+        insertSubview(viewStatus, belowSubview:buttonCancel)
+        
+        NSLayoutConstraint.equals(
+            view:viewStatus,
             toView:self)
     }
 }

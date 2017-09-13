@@ -11,6 +11,9 @@ final class VConnectingLoading:View<ArchConnecting>
         super.init(controller:controller)
         isUserInteractionEnabled = false
         
+        let spinner:VSpinner = VSpinner()
+        self.spinner = spinner
+        
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
