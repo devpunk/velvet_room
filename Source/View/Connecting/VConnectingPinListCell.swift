@@ -2,6 +2,7 @@ import UIKit
 
 class VConnectingPinListCell:UICollectionViewCell
 {
+    private weak var labelNumber:UILabel!
     private let kCornerRadius:CGFloat = 6
     
     override init(frame:CGRect)
@@ -11,14 +12,27 @@ class VConnectingPinListCell:UICollectionViewCell
         
         let background:UIView = UIView()
         background.isUserInteractionEnabled = false
-        background.backgroundColor = UIColor(white:1, alpha:0.6)
+        background.backgroundColor = UIColor(white:1, alpha:0.8)
         background.translatesAutoresizingMaskIntoConstraints = false
         background.layer.cornerRadius = kCornerRadius
         
+        let labelNumber:UILabel = UILabel()
+        labelNumber.isUserInteractionEnabled = false
+        labelNumber.translatesAutoresizingMaskIntoConstraints = false
+        labelNumber.backgroundColor = UIColor.clear
+        labelNumber.font = UIFont.bold(size:25)
+        labelNumber.textColor = UIColor.black
+        self.labelNumber = labelNumber
+        
         addSubview(background)
+        addSubview(labelNumber)
         
         NSLayoutConstraint.equals(
             view:background,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:labelNumber,
             toView:self)
     }
     
