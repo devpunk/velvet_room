@@ -3,4 +3,4 @@
 "VConnectingPin_labelTitle"="Enter this Pin\non the PS Vita";
 "VConnectingTimeout_labelTitle"="Couldn't find PS Vita";
 "VConnectingTimeout_labelSubtitle"="\nCheck your PS Vita is\non the same wifi network,\nopen Content Manager Assistant\nand try again";
-"VConnectingError_labelTitle"="An error ocurred";
+"VConnectingError_labelTitle"="Error\n";

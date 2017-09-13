@@ -2,26 +2,34 @@ import UIKit
 
 final class VConnectingError:View<ArchConnecting>
 {
+    private let kMarginHorizontal:CGFloat = 45
+    
     required init(controller:CConnecting)
     {
         let stringTitle:String = String.localizedView(
             key:"VConnectingError_labelTitle")
-        let stringSubtitle:String = String.localizedView(
-            key:"VConnectingTimeout_labelSubtitle")
         let attributedTitle:NSAttributedString = NSAttributedString(
             string:stringTitle,
             attributes:[
-                NSAttributedStringKey.font:UIFont.medium(size:18),
+                NSAttributedStringKey.font:UIFont.medium(size:22),
                 NSAttributedStringKey.foregroundColor:UIColor.white])
-        let attributedSubtitle:NSAttributedString = NSAttributedString(
-            string:stringSubtitle,
-            attributes:[
-                NSAttributedStringKey.font:UIFont.regular(size:15),
-                NSAttributedStringKey.foregroundColor:UIColor(white:1, alpha:0.7)])
         
         let mutableString:NSMutableAttributedString = NSMutableAttributedString()
         mutableString.append(attributedTitle)
-        mutableString.append(attributedSubtitle)
+        
+        if let status:MConnectingStatusError = controller.model.status as? MConnectingStatusError
+        {
+            let stringSubtitle:String = String.localizedView(
+                key:status.errorMessage)
+            
+            let attributedSubtitle:NSAttributedString = NSAttributedString(
+                string:stringSubtitle,
+                attributes:[
+                    NSAttributedStringKey.font:UIFont.regular(size:15),
+                    NSAttributedStringKey.foregroundColor:UIColor(white:1, alpha:0.9)])
+            
+            mutableString.append(attributedSubtitle)
+        }
         
         super.init(controller:controller)
         isUserInteractionEnabled = false
@@ -36,9 +44,13 @@ final class VConnectingError:View<ArchConnecting>
         
         addSubview(labelTitle)
         
-        NSLayoutConstraint.equals(
+        NSLayoutConstraint.equalsVertical(
             view:labelTitle,
             toView:self)
+        NSLayoutConstraint.equalsHorizontal(
+            view:labelTitle,
+            toView:self,
+            margin:kMarginHorizontal)
     }
     
     required init?(coder:NSCoder)

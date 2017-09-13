@@ -34,7 +34,7 @@ final class MConnectingTimer
     private func timedOut()
     {
         timer?.invalidate()
-        model?.stopConnection()
+        model?.connectionTimedout()
     }
     
     //MARK: internal

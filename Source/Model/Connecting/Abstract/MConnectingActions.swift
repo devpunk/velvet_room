@@ -11,7 +11,7 @@ extension MConnecting
         view?.updateStatus()
     }
     
-    func stopConnection()
+    func connectionTimedout()
     {
         socket.cancel()
         statusTimeout()
@@ -22,5 +22,12 @@ extension MConnecting
     {
         modelTimer.cancel()
         socket.cancel()
+    }
+    
+    func foundError(errorMessage:String)
+    {
+        cancelAndClean()
+        statusError(errorMessage:errorMessage)
+        view?.updateStatus()
     }
 }
