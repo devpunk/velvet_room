@@ -3,7 +3,7 @@ import UIKit
 final class VConnecting:ViewMain
 {
     weak var viewStatus:View<ArchConnecting>?
-    private(set) weak var buttonCancel:UIButton!
+    private(set) weak var button:UIButton!
     private weak var layoutCancelLeft:NSLayoutConstraint!
     private let kCancelBottom:CGFloat = -80
     private let kCancelHeight:CGFloat = 45
@@ -66,43 +66,40 @@ final class VConnecting:ViewMain
             colourTop:UIColor.colourGradientLight,
             colourBottom:UIColor.colourGradientDark)
         
-        let buttonCancel:UIButton = UIButton()
-        buttonCancel.translatesAutoresizingMaskIntoConstraints = false
-        buttonCancel.setTitleColor(
+        let button:UIButton = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.setTitleColor(
             UIColor(white:1, alpha:0.6),
             for:UIControlState.normal)
-        buttonCancel.setTitleColor(
+        button.setTitleColor(
             UIColor(white:1, alpha:0.2),
             for:UIControlState.highlighted)
-        buttonCancel.titleLabel!.font = UIFont.regular(size:17)
-        buttonCancel.setTitle(
-            String.localizedView(key:"VConnecting_buttonCancel"),
-            for:UIControlState.normal)
-        buttonCancel.addTarget(
+        button.titleLabel!.font = UIFont.regular(size:17)
+        button.addTarget(
             self,
             action:#selector(selectorCancel(sender:)),
             for:UIControlEvents.touchUpInside)
-        self.buttonCancel = buttonCancel
+        self.button = button
         
         addSubview(viewGradient)
-        addSubview(buttonCancel)
+        addSubview(button)
         
         NSLayoutConstraint.equals(
             view:viewGradient,
             toView:self)
         
         NSLayoutConstraint.bottomToBottom(
-            view:buttonCancel,
+            view:button,
             toView:self,
             constant:kCancelBottom)
         NSLayoutConstraint.height(
-            view:buttonCancel,
+            view:button,
             constant:kCancelHeight)
         NSLayoutConstraint.width(
-            view:buttonCancel,
+            view:button,
             constant:kCancelWidth)
         layoutCancelLeft = NSLayoutConstraint.leftToLeft(
-            view:buttonCancel,
+            view:button,
             toView:self)
     }
 }

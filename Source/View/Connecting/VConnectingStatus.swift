@@ -18,12 +18,16 @@ extension VConnecting
             return
         }
         
+        button.setTitle(
+            status.buttonTitle,
+            for:UIControlState.normal)
+        
         let viewType:View<ArchConnecting>.Type = status.viewType
         let viewStatus:View<ArchConnecting> = viewType.init(
             controller:controller)
         self.viewStatus = viewStatus
         
-        insertSubview(viewStatus, belowSubview:buttonCancel)
+        insertSubview(viewStatus, belowSubview:button)
         
         NSLayoutConstraint.equals(
             view:viewStatus,
