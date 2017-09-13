@@ -30,10 +30,10 @@ final class VConnect:ViewMain
     
     func factoryViews(controller:CConnect)
     {
-        let viewWalk:VConnectStandbyWalk = VConnectStandbyWalk(
+        let viewWalk:VConnectWalk = VConnectWalk(
             controller:controller)
         
-        let viewStart:VConnectStandbyStart = VConnectStandbyStart(
+        let viewStart:VConnectStart = VConnectStart(
             controller:controller)
         
         addSubview(viewWalk)
