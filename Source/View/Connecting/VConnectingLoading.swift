@@ -9,6 +9,7 @@ class VConnectingLoading:View<ArchConnecting>
     required init(controller:CConnecting)
     {
         super.init(controller:controller)
+        isUserInteractionEnabled = false
         
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
