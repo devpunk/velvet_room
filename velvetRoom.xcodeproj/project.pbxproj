@@ -86,6 +86,7 @@
 		DAFFC4B61F68B3F700F27ADD /* VConnectWalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B51F68B3F700F27ADD /* VConnectWalkCell.swift */; };
 		DAFFC4B81F68B40400F27ADD /* VConnectStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B71F68B40400F27ADD /* VConnectStart.swift */; };
 		DAFFC4BA1F68B74300F27ADD /* VConnectingLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B91F68B74300F27ADD /* VConnectingLoading.swift */; };
+		DAFFC4BC1F68BC3500F27ADD /* MConnectingStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4BB1F68BC3500F27ADD /* MConnectingStatusProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -176,6 +177,7 @@
 		DAFFC4B51F68B3F700F27ADD /* VConnectWalkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectWalkCell.swift; sourceTree = "<group>"; };
 		DAFFC4B71F68B40400F27ADD /* VConnectStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectStart.swift; sourceTree = "<group>"; };
 		DAFFC4B91F68B74300F27ADD /* VConnectingLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingLoading.swift; sourceTree = "<group>"; };
+		DAFFC4BB1F68BC3500F27ADD /* MConnectingStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingStatusProtocol.swift; sourceTree = "<group>"; };
 		E74F9EC63AF89F55551AC9BB /* Pods-velvetRoom.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-velvetRoom.debug.xcconfig"; path = "Pods/Target Support Files/Pods-velvetRoom/Pods-velvetRoom.debug.xcconfig"; sourceTree = "<group>"; };
 		F83CD0193CB37551566B8FD1 /* Pods-velvetRoom.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-velvetRoom.release.xcconfig"; path = "Pods/Target Support Files/Pods-velvetRoom/Pods-velvetRoom.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -438,6 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				DABF34B81F68A901001CF436 /* MConnecting.swift */,
+				DAFFC4BB1F68BC3500F27ADD /* MConnectingStatusProtocol.swift */,
 			);
 			path = Connecting;
 			sourceTree = "<group>";
@@ -700,6 +703,7 @@
 				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
 				DA1A77621F683A1900947FD0 /* MConnectWalkWifi.swift in Sources */,
+				DAFFC4BC1F68BC3500F27ADD /* MConnectingStatusProtocol.swift in Sources */,
 				DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */,
 				DA1A1BD51F67388F00E8B084 /* MConnectWalkProtocol.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
