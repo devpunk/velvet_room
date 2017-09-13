@@ -83,6 +83,7 @@
 		DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53B1F57A0860078A383 /* MConnect.swift */; };
 		DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53E1F57A0BE0078A383 /* VConnect.swift */; };
 		DAFD698A1F69269A00D3B07B /* MConnectingPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD69891F69269A00D3B07B /* MConnectingPin.swift */; };
+		DAFD698C1F69273500D3B07B /* MConnectingPinFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD698B1F69273500D3B07B /* MConnectingPinFactory.swift */; };
 		DAFFC4B41F68B3ED00F27ADD /* VConnectWalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B31F68B3ED00F27ADD /* VConnectWalk.swift */; };
 		DAFFC4B61F68B3F700F27ADD /* VConnectWalkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B51F68B3F700F27ADD /* VConnectWalkCell.swift */; };
 		DAFFC4B81F68B40400F27ADD /* VConnectStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFC4B71F68B40400F27ADD /* VConnectStart.swift */; };
@@ -180,6 +181,7 @@
 		DAF8A53B1F57A0860078A383 /* MConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect.swift; sourceTree = "<group>"; };
 		DAF8A53E1F57A0BE0078A383 /* VConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnect.swift; sourceTree = "<group>"; };
 		DAFD69891F69269A00D3B07B /* MConnectingPin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingPin.swift; sourceTree = "<group>"; };
+		DAFD698B1F69273500D3B07B /* MConnectingPinFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingPinFactory.swift; sourceTree = "<group>"; };
 		DAFFC4B31F68B3ED00F27ADD /* VConnectWalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectWalk.swift; sourceTree = "<group>"; };
 		DAFFC4B51F68B3F700F27ADD /* VConnectWalkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectWalkCell.swift; sourceTree = "<group>"; };
 		DAFFC4B71F68B40400F27ADD /* VConnectStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectStart.swift; sourceTree = "<group>"; };
@@ -456,6 +458,7 @@
 				DAFFC4BD1F68BC6500F27ADD /* MConnectingStatusLoading.swift */,
 				DAFFC4C11F68C78600F27ADD /* MConnectingStatusPin.swift */,
 				DAFD69891F69269A00D3B07B /* MConnectingPin.swift */,
+				DAFD698B1F69273500D3B07B /* MConnectingPinFactory.swift */,
 			);
 			path = Connecting;
 			sourceTree = "<group>";
@@ -701,6 +704,7 @@
 				DAEE160F1F5795CA00D9F6DD /* MMenuOrder.swift in Sources */,
 				DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */,
 				DA8B7E271F579344004EEE23 /* ViewParentTransitions.swift in Sources */,
+				DAFD698C1F69273500D3B07B /* MConnectingPinFactory.swift in Sources */,
 				DA8B7E231F579344004EEE23 /* View.swift in Sources */,
 				DA8B7E401F579369004EEE23 /* VSliderBar.swift in Sources */,
 				DAD799261F57C04E001D6A4C /* Arch.swift in Sources */,

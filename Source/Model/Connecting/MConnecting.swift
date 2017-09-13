@@ -2,6 +2,7 @@ import Foundation
 
 final class MConnecting:Model<ArchConnecting>
 {
+    private(set) var modelPin:MConnectingPin?
     private(set) var status:MConnectingStatusProtocol?
     
     required init()
