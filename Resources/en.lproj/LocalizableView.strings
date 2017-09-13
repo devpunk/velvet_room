@@ -1,3 +1,5 @@
 "VConnectStart_button"="Start";
 "VConnectingLoading_labelTitle"="Connecting to PS Vita";
 "VConnectingPin_labelTitle"="Enter this Pin\non the PS Vita";
+"VConnectingTimeout_labelTitle"="Couldn't find PS Vita";
+"VConnectingTimeout_labelSubtitle"="\nCheck PS Vita in on the same network\nand Content Manager Assistant is open";
