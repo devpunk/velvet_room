@@ -12,9 +12,6 @@
 		DA04ABB81F65EA3D0077CA06 /* PTPDelegate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA04ABB71F65EA3D0077CA06 /* PTPDelegate2.swift */; };
 		DA16C7091F5888CF0062D37A /* MMenuItemConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */; };
 		DA16C70B1F5898410062D37A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA16C70A1F5898410062D37A /* generic.xcassets */; };
-		DA1A1BC31F66F7FF00E8B084 /* MConnectStatusProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BC21F66F7FF00E8B084 /* MConnectStatusProtocol.swift */; };
-		DA1A1BC51F66F91500E8B084 /* MConnectStatusStandby.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BC41F66F91500E8B084 /* MConnectStatusStandby.swift */; };
-		DA1A1BC71F67051300E8B084 /* MConnectStatusConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BC61F67051300E8B084 /* MConnectStatusConnected.swift */; };
 		DA1A1BC91F6708B400E8B084 /* VConnectStandby.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BC81F6708B400E8B084 /* VConnectStandby.swift */; };
 		DA1A1BCB1F67099E00E8B084 /* VConnectConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BCA1F67099E00E8B084 /* VConnectConnected.swift */; };
 		DA1A1BCD1F67255A00E8B084 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1A1BCC1F67255A00E8B084 /* brand.xcassets */; };
@@ -79,9 +76,6 @@
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34AB1F689827001CF436 /* VConnectLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34AA1F689827001CF436 /* VConnectLoading.swift */; };
-		DABF34AD1F6898BC001CF436 /* MConnectStatusLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34AC1F6898BC001CF436 /* MConnectStatusLoading.swift */; };
-		DABF34AF1F689ACD001CF436 /* MConnectStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34AE1F689ACD001CF436 /* MConnectStatus.swift */; };
-		DABF34B11F68A006001CF436 /* MConnectConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B01F68A006001CF436 /* MConnectConnection.swift */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
 		DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B51F68A8C5001CF436 /* CConnecting.swift */; };
 		DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B81F68A901001CF436 /* MConnecting.swift */; };
@@ -104,9 +98,6 @@
 		DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMenuItemConnect.swift; sourceTree = "<group>"; };
 		DA16C70A1F5898410062D37A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA16C70C1F5898830062D37A /* velvetRoom.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = velvetRoom.sketch; sourceTree = "<group>"; };
-		DA1A1BC21F66F7FF00E8B084 /* MConnectStatusProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectStatusProtocol.swift; sourceTree = "<group>"; };
-		DA1A1BC41F66F91500E8B084 /* MConnectStatusStandby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectStatusStandby.swift; sourceTree = "<group>"; };
-		DA1A1BC61F67051300E8B084 /* MConnectStatusConnected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectStatusConnected.swift; sourceTree = "<group>"; };
 		DA1A1BC81F6708B400E8B084 /* VConnectStandby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectStandby.swift; sourceTree = "<group>"; };
 		DA1A1BCA1F67099E00E8B084 /* VConnectConnected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectConnected.swift; sourceTree = "<group>"; };
 		DA1A1BCC1F67255A00E8B084 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
@@ -178,9 +169,6 @@
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34AA1F689827001CF436 /* VConnectLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectLoading.swift; sourceTree = "<group>"; };
-		DABF34AC1F6898BC001CF436 /* MConnectStatusLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectStatusLoading.swift; sourceTree = "<group>"; };
-		DABF34AE1F689ACD001CF436 /* MConnectStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectStatus.swift; sourceTree = "<group>"; };
-		DABF34B01F68A006001CF436 /* MConnectConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectConnection.swift; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
 		DABF34B51F68A8C5001CF436 /* CConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CConnecting.swift; sourceTree = "<group>"; };
 		DABF34B81F68A901001CF436 /* MConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnecting.swift; sourceTree = "<group>"; };
@@ -502,13 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				DAF8A53B1F57A0860078A383 /* MConnect.swift */,
-				DABF34AE1F689ACD001CF436 /* MConnectStatus.swift */,
 				DA1A1BD81F6738F600E8B084 /* MConnectFactory.swift */,
-				DABF34B01F68A006001CF436 /* MConnectConnection.swift */,
-				DA1A1BC21F66F7FF00E8B084 /* MConnectStatusProtocol.swift */,
-				DA1A1BC41F66F91500E8B084 /* MConnectStatusStandby.swift */,
-				DA1A1BC61F67051300E8B084 /* MConnectStatusConnected.swift */,
-				DABF34AC1F6898BC001CF436 /* MConnectStatusLoading.swift */,
 				DA1A1BD41F67388F00E8B084 /* MConnectWalkProtocol.swift */,
 				DA1A1BD61F6738CC00E8B084 /* MConnectWalkCover.swift */,
 				DA1A77611F683A1900947FD0 /* MConnectWalkWifi.swift */,
@@ -696,7 +678,6 @@
 				DA8B7E2B1F579344004EEE23 /* VMenuCollection.swift in Sources */,
 				DA1A1BD11F672B2100E8B084 /* VConnectStandbyStart.swift in Sources */,
 				DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */,
-				DABF34AF1F689ACD001CF436 /* MConnectStatus.swift in Sources */,
 				DA8B7E3B1F579369004EEE23 /* VCollection.swift in Sources */,
 				DA8B7E111F57929C004EEE23 /* ControllerParentMenu.swift in Sources */,
 				DABF34B91F68A901001CF436 /* MConnecting.swift in Sources */,
@@ -713,7 +694,6 @@
 				DA8B7E401F579369004EEE23 /* VSliderBar.swift in Sources */,
 				DAD799261F57C04E001D6A4C /* Arch.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
-				DABF34AD1F6898BC001CF436 /* MConnectStatusLoading.swift in Sources */,
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
 				DA57E3371F635F2F00B3EA73 /* PTPDelegate.swift in Sources */,
 				DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */,
@@ -732,14 +712,10 @@
 				DA8B7E3E1F579369004EEE23 /* VPushBackground.swift in Sources */,
 				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
-				DA1A1BC31F66F7FF00E8B084 /* MConnectStatusProtocol.swift in Sources */,
 				DA1A77621F683A1900947FD0 /* MConnectWalkWifi.swift in Sources */,
 				DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */,
-				DA1A1BC51F66F91500E8B084 /* MConnectStatusStandby.swift in Sources */,
 				DA1A1BD51F67388F00E8B084 /* MConnectWalkProtocol.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
-				DABF34B11F68A006001CF436 /* MConnectConnection.swift in Sources */,
-				DA1A1BC71F67051300E8B084 /* MConnectStatusConnected.swift in Sources */,
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */,
