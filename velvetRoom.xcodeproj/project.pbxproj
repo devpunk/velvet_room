@@ -92,6 +92,7 @@
 		DAD857871F6B42EE00728361 /* MConnectingSocketUdp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */; };
 		DAD857891F6B443000728361 /* MConnectingSocketTcp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */; };
 		DAD8578B1F6B4A7400728361 /* MConnectingSocketStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8578A1F6B4A7400728361 /* MConnectingSocketStart.swift */; };
+		DAD8578D1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD8578C1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift */; };
 		DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16081F5795CA00D9F6DD /* MMenu.swift */; };
 		DAEE160D1F5795CA00D9F6DD /* MMenuFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */; };
 		DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */; };
@@ -206,6 +207,7 @@
 		DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketUdp.swift; sourceTree = "<group>"; };
 		DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcp.swift; sourceTree = "<group>"; };
 		DAD8578A1F6B4A7400728361 /* MConnectingSocketStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketStart.swift; sourceTree = "<group>"; };
+		DAD8578C1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketUdpDelegate.swift; sourceTree = "<group>"; };
 		DAEE16081F5795CA00D9F6DD /* MMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenu.swift; sourceTree = "<group>"; };
 		DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuFactory.swift; sourceTree = "<group>"; };
 		DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuItemProtocol.swift; sourceTree = "<group>"; };
@@ -492,6 +494,7 @@
 				DAD8578A1F6B4A7400728361 /* MConnectingSocketStart.swift */,
 				DAFDA3C41F6996EA005AC320 /* MConnectingSocketFactory.swift */,
 				DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */,
+				DAD8578C1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift */,
 				DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */,
 			);
 			path = Socket;
@@ -855,6 +858,7 @@
 				DA8B7E2A1F579344004EEE23 /* VMenuCell.swift in Sources */,
 				DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */,
 				DA04ABB61F65D6AE0077CA06 /* PTPEventDelegate.swift in Sources */,
+				DAD8578D1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift in Sources */,
 				DA8B7E101F57929C004EEE23 /* ControllerParent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
