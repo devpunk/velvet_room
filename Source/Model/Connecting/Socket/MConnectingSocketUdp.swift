@@ -1,7 +1,7 @@
 import Foundation
 import CocoaAsyncSocket
 
-class MConnectingSocketUdp:
+final class MConnectingSocketUdp:
     NSObject,
     GCDAsyncUdpSocketDelegate
 {
