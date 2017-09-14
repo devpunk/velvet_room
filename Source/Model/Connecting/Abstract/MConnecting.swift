@@ -15,6 +15,7 @@ final class MConnecting:Model<ArchConnecting>
         
         statusLoading()
         modelTimer.model = self
+        socket.model = self
     }
     
     deinit

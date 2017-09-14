@@ -7,3 +7,4 @@
 "MConnectingStatusLoading_buttonTitle"="Cancel";
 "MConnectingStatusPin_buttonTitle"="Cancel";
 "MConnectingStatusTimeout_buttonTitle"="Close";
+"MConnectingSocket_failedConfiguration"="Failed loading configuration files,\ntry again.";

@@ -2,13 +2,31 @@ import Foundation
 
 final class MConnectingSocket
 {
-    private var configuration:MConnectingSocketConfiguration?
+    weak var model:MConnecting?
+    private var configuration:MVitaConfiguration?
     
     //MARK: private
     
     private func asyncStart()
     {
+        guard
         
+            let configuration:MVitaConfiguration = MVitaConfiguration.factoryConfiguration()
+        
+        else
+        {
+            failedConfiguration()
+            return
+        }
+        
+        self.configuration = configuration
+    }
+    
+    private func failedConfiguration()
+    {
+        let message:String = String.localizedModel(
+            key:"MConnectingSocket_failedConfiguration")
+        model?.foundError(errorMessage:message)
     }
     
     //MARK: internal
