@@ -7,4 +7,3 @@ final class MConnectingSocketUdpDelegate:
 {
     weak var model:MConnectingSocketUdp?
 }
-
