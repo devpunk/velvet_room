@@ -31,4 +31,71 @@ extension MConnectingSocket
         
         return queue
     }
+    
+    private class func factoryUdpSocket(
+        configuration:MVitaConfiguration,
+        queue:DispatchQueue) -> GCDAsyncUdpSocket?
+    {
+        let socket:GCDAsyncUdpSocket = GCDAsyncUdpSocket(
+            socketQueue:queue)
+        
+        socket.setPreferIPv4()
+        socket.setIPv6Enabled(false)
+        
+        do
+        {
+            try socket.bind(
+                toPort:configuration.port)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        do
+        {
+            try socket.enableReusePort(true)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        do
+        {
+            try socket.beginReceiving()
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return socket
+    }
+    
+    //MARK: internal
+    
+    class func factoryUdp(
+        configuration:MVitaConfiguration) -> MConnectingSocketUdp?
+    {
+        let queue:DispatchQueue = factoryUdpQueue()
+        
+        guard
+        
+            let socket:GCDAsyncUdpSocket = factoryUdpSocket(
+                configuration:configuration,
+                queue:queue)
+        
+        else
+        {
+            return nil
+        }
+        
+        let modelUdp:MConnectingSocketUdp = MConnectingSocketUdp(
+            socket:socket,
+            queue:queue,
+            configuration:configuration)
+        
+        return modelUdp
+    }
 }
