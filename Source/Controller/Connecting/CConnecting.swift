@@ -13,7 +13,7 @@ final class CConnecting:Controller<ArchConnecting>
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        model.socket.start()
+        model.socket?.start()
     }
     
     //MARK: internal
