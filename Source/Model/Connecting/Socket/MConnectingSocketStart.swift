@@ -13,16 +13,36 @@ extension MConnectingSocket
         else
         {
             failedConfiguration()
+            
             return
         }
         
-        self.configuration = configuration
+        guard
+        
+            let modelUdp:MConnectingSocketUdp = MConnectingSocket.factoryUdp(
+                configuration:configuration)
+        
+        else
+        {
+            failedUdpSocket()
+            
+            return
+        }
+        
+        self.modelUdp = modelUdp
     }
     
     private func failedConfiguration()
     {
         let message:String = String.localizedModel(
             key:"MConnectingSocket_failedConfiguration")
+        model?.foundError(errorMessage:message)
+    }
+    
+    private func failedUdpSocket()
+    {
+        let message:String = String.localizedModel(
+            key:"MConnectingSocket_failedUdpSocket")
         model?.foundError(errorMessage:message)
     }
     
