@@ -33,10 +33,13 @@ extension MConnectingSocket
     }
     
     private class func factoryUdpSocket(
-        configuration:MVitaConfiguration,
-        queue:DispatchQueue) -> GCDAsyncUdpSocket?
+        delegate:MConnectingSocketUdpDelegate,
+        queue:DispatchQueue,
+        configuration:MVitaConfiguration) -> GCDAsyncUdpSocket?
     {
         let socket:GCDAsyncUdpSocket = GCDAsyncUdpSocket(
+            delegate:delegate,
+            delegateQueue:queue,
             socketQueue:queue)
         
         socket.setPreferIPv4()
@@ -78,13 +81,15 @@ extension MConnectingSocket
     class func factoryUdp(
         configuration:MVitaConfiguration) -> MConnectingSocketUdp?
     {
+        let delegate:MConnectingSocketUdpDelegate = MConnectingSocketUdpDelegate()
         let queue:DispatchQueue = factoryUdpQueue()
         
         guard
         
             let socket:GCDAsyncUdpSocket = factoryUdpSocket(
-                configuration:configuration,
-                queue:queue)
+                delegate:delegate,
+                queue:queue,
+                configuration:configuration)
         
         else
         {
@@ -93,8 +98,10 @@ extension MConnectingSocket
         
         let modelUdp:MConnectingSocketUdp = MConnectingSocketUdp(
             socket:socket,
+            delegate:delegate,
             queue:queue,
             configuration:configuration)
+        delegate.model = modelUdp
         
         return modelUdp
     }
