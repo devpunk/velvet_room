@@ -90,6 +90,7 @@
 		DAD799261F57C04E001D6A4C /* Arch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799251F57C04E001D6A4C /* Arch.swift */; };
 		DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799271F57C085001D6A4C /* ArchConnect.swift */; };
 		DAD857871F6B42EE00728361 /* MConnectingSocketUdp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */; };
+		DAD857891F6B443000728361 /* MConnectingSocketTcp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */; };
 		DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16081F5795CA00D9F6DD /* MMenu.swift */; };
 		DAEE160D1F5795CA00D9F6DD /* MMenuFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */; };
 		DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */; };
@@ -202,6 +203,7 @@
 		DAD799251F57C04E001D6A4C /* Arch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arch.swift; sourceTree = "<group>"; };
 		DAD799271F57C085001D6A4C /* ArchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnect.swift; sourceTree = "<group>"; };
 		DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketUdp.swift; sourceTree = "<group>"; };
+		DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcp.swift; sourceTree = "<group>"; };
 		DAEE16081F5795CA00D9F6DD /* MMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenu.swift; sourceTree = "<group>"; };
 		DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuFactory.swift; sourceTree = "<group>"; };
 		DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuItemProtocol.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 				DA97514B1F6993BA00DBC757 /* MConnectingSocket.swift */,
 				DAFDA3C41F6996EA005AC320 /* MConnectingSocketFactory.swift */,
 				DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */,
+				DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
 				DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */,
+				DAD857891F6B443000728361 /* MConnectingSocketTcp.swift in Sources */,
 				DAFDA3C51F6996EA005AC320 /* MConnectingSocketFactory.swift in Sources */,
 				DAEE160F1F5795CA00D9F6DD /* MMenuOrder.swift in Sources */,
 				DA9751441F69938A00DBC757 /* MConnectingStatusProtocol.swift in Sources */,
