@@ -3,7 +3,7 @@ import Foundation
 final class MConnectingSocket
 {
     weak var model:MConnecting?
-    private var configuration:MVitaConfiguration?
+    var configuration:MVitaConfiguration?
     
     init(model:MConnecting)
     {
