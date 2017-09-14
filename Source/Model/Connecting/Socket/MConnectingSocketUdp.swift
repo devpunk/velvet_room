@@ -19,4 +19,12 @@ final class MConnectingSocketUdp
         self.queue = queue
         self.configuration = configuration
     }
+    
+    //MARK: internal
+    
+    func cancel()
+    {
+        socket.setDelegate(nil)
+        socket.close()
+    }
 }
