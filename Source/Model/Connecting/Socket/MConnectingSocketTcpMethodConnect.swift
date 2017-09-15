@@ -1,6 +1,6 @@
 import Foundation
 
-struct MConnectingSocketTcpMethodConnect:MConnectingSocketTcpMethodProtocol
+final class MConnectingSocketTcpMethodConnect:MConnectingSocketTcpMethodProtocol
 {
     
 }

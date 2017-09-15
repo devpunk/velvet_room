@@ -1,6 +1,6 @@
 import Foundation
 
-struct MConnectingSocketTcpMethodStandby:MConnectingSocketTcpMethodProtocol
+final class MConnectingSocketTcpMethodStandby:MConnectingSocketTcpMethodProtocol
 {
     
 }
