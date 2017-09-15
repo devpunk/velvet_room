@@ -29,6 +29,7 @@
 		DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622721F6BF2500049195B /* DatabaseFactory.swift */; };
 		DA7ABF6A1F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF681F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld */; };
 		DA7ABF6C1F6BFC140092B797 /* DAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF6B1F6BFC140092B797 /* DAccount.swift */; };
+		DA7ABF6F1F6C01370092B797 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF6E1F6C01370092B797 /* VHome.swift */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -147,6 +148,7 @@
 		DA7622721F6BF2500049195B /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
 		DA7ABF691F6BFB3C0092B797 /* DVelvetRoom.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DVelvetRoom.xcdatamodel; sourceTree = "<group>"; };
 		DA7ABF6B1F6BFC140092B797 /* DAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAccount.swift; sourceTree = "<group>"; };
+		DA7ABF6E1F6C01370092B797 /* VHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -332,6 +334,14 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		DA7ABF6D1F6C01250092B797 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA7ABF6E1F6C01370092B797 /* VHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		DA8B7DCF1F578E7C004EEE23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -438,6 +448,7 @@
 			children = (
 				DA8B7E171F579344004EEE23 /* Abstract */,
 				DA8B7E2C1F579369004EEE23 /* Basic */,
+				DA7ABF6D1F6C01250092B797 /* Home */,
 				DAF8A53D1F57A0AE0078A383 /* Connect */,
 				DABF34BA1F68A922001CF436 /* Connecting */,
 			);
@@ -810,6 +821,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */,
+				DA7ABF6F1F6C01370092B797 /* VHome.swift in Sources */,
 				DAEE160D1F5795CA00D9F6DD /* MMenuFactory.swift in Sources */,
 				DA8B7E381F579369004EEE23 /* VAlert.swift in Sources */,
 				DA8B7E0F1F57929C004EEE23 /* Controller.swift in Sources */,
