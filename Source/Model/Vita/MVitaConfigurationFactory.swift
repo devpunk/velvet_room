@@ -7,6 +7,7 @@ extension MVitaConfiguration
     private static let kKeyBroadcast:String = "broadcast"
     private static let kKeyBroadcastSearchCommand:String = "searchCommand"
     private static let kKeyBroadcastSearchProtocol:String = "searchProtocol"
+    private static let kKeyLineSeparator:String = "lineSeparator"
     private static let kKeyPort:String = "port"
     
     //MARK: private
@@ -61,6 +62,7 @@ extension MVitaConfiguration
         
             let broadcast:MVitaConfigurationBroadcast = factoryConfigurationBroadcast(
                 map:map),
+            let lineSeparator:String = map[kKeyLineSeparator] as? String,
             let port:UInt16 = map[kKeyPort] as? UInt16
         
         else
@@ -70,6 +72,7 @@ extension MVitaConfiguration
         
         let configuration:MVitaConfiguration = MVitaConfiguration(
             broadcast:broadcast,
+            lineSeparator:lineSeparator,
             port:port)
         
         return configuration
