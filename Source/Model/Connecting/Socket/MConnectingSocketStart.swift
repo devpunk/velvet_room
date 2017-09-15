@@ -19,6 +19,20 @@ extension MConnectingSocket
         
         guard
         
+            let modelTcp:MConnectingSocketTcp = MConnectingSocket.factoryTcp(
+                configuration:configuration)
+        
+        else
+        {
+            failedTcpSocket()
+            
+            return
+        }
+        
+        self.modelTcp = modelTcp
+        
+        guard
+        
             let modelUdp:MConnectingSocketUdp = MConnectingSocket.factoryUdp(
                 configuration:configuration)
         
@@ -36,6 +50,13 @@ extension MConnectingSocket
     {
         let message:String = String.localizedModel(
             key:"MConnectingSocket_failedConfiguration")
+        model?.foundError(errorMessage:message)
+    }
+    
+    private func failedTcpSocket()
+    {
+        let message:String = String.localizedModel(
+            key:"MConnectingSocket_failedTcpSocket")
         model?.foundError(errorMessage:message)
     }
     
