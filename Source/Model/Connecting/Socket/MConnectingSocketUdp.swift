@@ -54,17 +54,26 @@ final class MConnectingSocketUdp
         socket.close()
     }
     
-    func receivedString(string:String)
+    func receivedString(string:String, address:Data)
     {
         guard
         
-            searchBroadcast(string:string)
+            searchBroadcast(string:string),
+            let replyAvailable:Data = self.replyAvaiable
         
         else
         {
             return
         }
         
-        
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.socket.send(
+                replyAvailable,
+                toAddress:address,
+                withTimeout:0,
+                tag:0)
+        }
     }
 }

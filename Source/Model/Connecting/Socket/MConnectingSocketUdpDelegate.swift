@@ -29,7 +29,9 @@ final class MConnectingSocketUdpDelegate:
         DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.model?.receivedString(string:string)
+            self?.model?.receivedString(
+                string:string,
+                address:address)
         }
     }
 }
