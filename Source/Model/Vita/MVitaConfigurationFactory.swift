@@ -7,6 +7,7 @@ extension MVitaConfiguration
     private static let kKeyBroadcast:String = "broadcast"
     private static let kKeyBroadcastSearchCommand:String = "searchCommand"
     private static let kKeyBroadcastSearchProtocol:String = "searchProtocol"
+    private static let kKeyBroadcastReplyAvailable:String = "replyAvailable"
     private static let kKeyLineSeparator:String = "lineSeparator"
     private static let kKeyPort:String = "port"
     
@@ -74,7 +75,9 @@ extension MVitaConfiguration
             let searchCommand:String = mapBroadcast[
                 kKeyBroadcastSearchCommand] as? String,
             let searchProtocol:String = mapBroadcast[
-                kKeyBroadcastSearchProtocol] as? String
+                kKeyBroadcastSearchProtocol] as? String,
+            let replyAvailable:String = mapBroadcast[
+                kKeyBroadcastReplyAvailable] as? String
         
         else
         {
@@ -83,7 +86,8 @@ extension MVitaConfiguration
         
         let broadcast:MVitaConfigurationBroadcast = MVitaConfigurationBroadcast(
             searchCommand:searchCommand,
-            searchProtocol:searchProtocol)
+            searchProtocol:searchProtocol,
+            replyAvailable:replyAvailable)
         
         return broadcast
     }
