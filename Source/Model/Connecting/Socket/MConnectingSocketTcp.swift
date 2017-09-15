@@ -19,4 +19,12 @@ final class MConnectingSocketTcp
         self.queue = queue
         self.configuration = configuration
     }
+    
+    //MARK: internal
+    
+    func cancel()
+    {
+        socket.delegate = nil
+        socket.disconnect()
+    }
 }

@@ -29,8 +29,6 @@ extension MConnectingSocket
             return
         }
         
-        self.modelTcp = modelTcp
-        
         guard
         
             let modelUdp:MConnectingSocketUdp = MConnectingSocket.factoryUdp(
@@ -43,6 +41,7 @@ extension MConnectingSocket
             return
         }
         
+        self.modelTcp = modelTcp
         self.modelUdp = modelUdp
     }
     
