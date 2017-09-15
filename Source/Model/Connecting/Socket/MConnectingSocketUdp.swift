@@ -20,6 +20,29 @@ final class MConnectingSocketUdp
         self.configuration = configuration
     }
     
+    //MARK: private
+    
+    private func searchBroadcast(string:String) -> Bool
+    {
+        let stringSeparated:[String] = string.components(
+            separatedBy:configuration.lineSeparator)
+        
+        guard
+        
+            let firstComponent:String = stringSeparated.first,
+            firstComponent.starts(
+                with:configuration.broadcast.searchCommand),
+            firstComponent.contains(
+                configuration.broadcast.searchProtocol)
+        
+        else
+        {
+            return false
+        }
+        
+        return true
+    }
+    
     //MARK: internal
     
     func cancel()
@@ -30,6 +53,15 @@ final class MConnectingSocketUdp
     
     func receivedString(string:String)
     {
+        guard
+        
+            searchBroadcast(string:string)
+        
+        else
+        {
+            return
+        }
+        
         
     }
 }
