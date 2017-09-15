@@ -12,6 +12,8 @@
 		<string>SRCH</string>
 		<key>searchProtocol</key>
 		<string>HTTP/1.1</string>
+        <key>replyAvailable</key>
+        <string>HTTP/1.1 200 OK\r\nhost-id:%@\r\nhost-type:win\r\nhost-name:%@\r\nhost-mtp-protocol-version:01800010\r\nhost-request-port:%@\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0</string>
 	</dict>
 </dict>
 </plist>
