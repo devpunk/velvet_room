@@ -117,7 +117,7 @@ extension MVitaConfiguration
     {
         guard
         
-            let map:PropertyListSerialization = factoryProperties(),
+            let map:[String:Any] = factoryMap(),
             let configuration:MVitaConfiguration = factoryConfiguration(
                 map:map)
         
