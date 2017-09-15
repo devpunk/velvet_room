@@ -36,6 +36,7 @@ extension MConnectingSocket
         
         else
         {
+            modelTcp.cancel()
             failedUdpSocket()
             
             return
