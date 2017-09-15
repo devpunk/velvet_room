@@ -3,6 +3,7 @@ import CocoaAsyncSocket
 
 final class MConnectingSocketUdp
 {
+    private var replyData:Data?
     private let socket:GCDAsyncUdpSocket
     private let delegate:MConnectingSocketUdpDelegate
     private let queue:DispatchQueue

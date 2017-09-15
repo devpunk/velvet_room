@@ -98,6 +98,7 @@
 		DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B51F68A8C5001CF436 /* CConnecting.swift */; };
 		DABF34BC1F68A932001CF436 /* VConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34BB1F68A932001CF436 /* VConnecting.swift */; };
 		DAD5897B1F6C16C40048D830 /* MHomeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5897A1F6C16C40048D830 /* MHomeSession.swift */; };
+		DAD5897D1F6C27050048D830 /* MConnectingSocketUdpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5897C1F6C27050048D830 /* MConnectingSocketUdpFactory.swift */; };
 		DAD799261F57C04E001D6A4C /* Arch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799251F57C04E001D6A4C /* Arch.swift */; };
 		DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799271F57C085001D6A4C /* ArchConnect.swift */; };
 		DAD857871F6B42EE00728361 /* MConnectingSocketUdp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */; };
@@ -225,6 +226,7 @@
 		DABF34B51F68A8C5001CF436 /* CConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CConnecting.swift; sourceTree = "<group>"; };
 		DABF34BB1F68A932001CF436 /* VConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnecting.swift; sourceTree = "<group>"; };
 		DAD5897A1F6C16C40048D830 /* MHomeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeSession.swift; sourceTree = "<group>"; };
+		DAD5897C1F6C27050048D830 /* MConnectingSocketUdpFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketUdpFactory.swift; sourceTree = "<group>"; };
 		DAD799251F57C04E001D6A4C /* Arch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arch.swift; sourceTree = "<group>"; };
 		DAD799271F57C085001D6A4C /* ArchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnect.swift; sourceTree = "<group>"; };
 		DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketUdp.swift; sourceTree = "<group>"; };
@@ -575,6 +577,7 @@
 				DAD8578A1F6B4A7400728361 /* MConnectingSocketStart.swift */,
 				DAFDA3C41F6996EA005AC320 /* MConnectingSocketFactory.swift */,
 				DAD857861F6B42EE00728361 /* MConnectingSocketUdp.swift */,
+				DAD5897C1F6C27050048D830 /* MConnectingSocketUdpFactory.swift */,
 				DAD8578C1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift */,
 				DAD857881F6B443000728361 /* MConnectingSocketTcp.swift */,
 				DAD8578E1F6B4E7900728361 /* MConnectingSocketTcpDelegate.swift */,
@@ -934,6 +937,7 @@
 				DA97512B1F69730700DBC757 /* VConnectingTimeout.swift in Sources */,
 				DA8B7E031F579037004EEE23 /* ExtensionDictionary.swift in Sources */,
 				DA1A1BD51F67388F00E8B084 /* MConnectWalkProtocol.swift in Sources */,
+				DAD5897D1F6C27050048D830 /* MConnectingSocketUdpFactory.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
