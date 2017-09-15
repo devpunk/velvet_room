@@ -541,8 +541,8 @@
 			isa = PBXGroup;
 			children = (
 				DA8B7E201F579344004EEE23 /* VMenu.swift */,
-				DA8B7E211F579344004EEE23 /* VMenuCell.swift */,
 				DA8B7E221F579344004EEE23 /* VMenuCollection.swift */,
+				DA8B7E211F579344004EEE23 /* VMenuCell.swift */,
 			);
 			path = Generic;
 			sourceTree = "<group>";

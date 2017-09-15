@@ -138,21 +138,6 @@ extension VMenu:
     
     func collectionView(
         _ collectionView:UICollectionView,
-        shouldHighlightItemAt indexPath:IndexPath) -> Bool
-    {
-        let item:MMenuItemProtocol = modelAtIndex(index:indexPath)
-        let order:MMenu.Order = item.order
-        
-        if order == controller.menu.selected
-        {
-            return false
-        }
-        
-        return true
-    }
-    
-    func collectionView(
-        _ collectionView:UICollectionView,
         didSelectItemAt indexPath:IndexPath)
     {
         collectionView.isUserInteractionEnabled = false
