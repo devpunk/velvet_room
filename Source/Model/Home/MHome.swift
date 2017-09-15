@@ -1,6 +1,6 @@
 import Foundation
 
-class MHome:Model
+final class MHome:Model<ArchHome>
 {
     
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-class CHome:Controller
+final class CHome:Controller<ArchHome>
 {
     
 }
