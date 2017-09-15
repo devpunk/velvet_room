@@ -28,6 +28,7 @@
 		DA7622751F6BF2500049195B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622711F6BF2500049195B /* Database.swift */; };
 		DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622721F6BF2500049195B /* DatabaseFactory.swift */; };
 		DA7ABF6A1F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF681F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld */; };
+		DA7ABF6C1F6BFC140092B797 /* DAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF6B1F6BFC140092B797 /* DAccount.swift */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -145,6 +146,7 @@
 		DA7622711F6BF2500049195B /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DA7622721F6BF2500049195B /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
 		DA7ABF691F6BFB3C0092B797 /* DVelvetRoom.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DVelvetRoom.xcdatamodel; sourceTree = "<group>"; };
+		DA7ABF6B1F6BFC140092B797 /* DAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAccount.swift; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -317,6 +319,7 @@
 		DA7622731F6BF2500049195B /* Object */ = {
 			isa = PBXGroup;
 			children = (
+				DA7ABF6B1F6BFC140092B797 /* DAccount.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -849,6 +852,7 @@
 				DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */,
 				DA8B7E271F579344004EEE23 /* ViewParentTransitions.swift in Sources */,
 				DA8B7E231F579344004EEE23 /* View.swift in Sources */,
+				DA7ABF6C1F6BFC140092B797 /* DAccount.swift in Sources */,
 				DA8B7E401F579369004EEE23 /* VSliderBar.swift in Sources */,
 				DAD799261F57C04E001D6A4C /* Arch.swift in Sources */,
 				DA8B7DFA1F579037004EEE23 /* ExtensionNSManagedObject.swift in Sources */,
