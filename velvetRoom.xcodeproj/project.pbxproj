@@ -31,6 +31,7 @@
 		DA7ABF6C1F6BFC140092B797 /* DAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF6B1F6BFC140092B797 /* DAccount.swift */; };
 		DA7ABF6F1F6C01370092B797 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF6E1F6C01370092B797 /* VHome.swift */; };
 		DA7ABF721F6C01670092B797 /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF711F6C01670092B797 /* MHome.swift */; };
+		DA7ABF751F6C018B0092B797 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF741F6C018B0092B797 /* CHome.swift */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -151,6 +152,7 @@
 		DA7ABF6B1F6BFC140092B797 /* DAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DAccount.swift; sourceTree = "<group>"; };
 		DA7ABF6E1F6C01370092B797 /* VHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA7ABF711F6C01670092B797 /* MHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
+		DA7ABF741F6C018B0092B797 /* CHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -352,6 +354,14 @@
 			path = Home;
 			sourceTree = "<group>";
 		};
+		DA7ABF731F6C01810092B797 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DA7ABF741F6C018B0092B797 /* CHome.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
 		DA8B7DCF1F578E7C004EEE23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +400,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8B7E071F57929B004EEE23 /* Abstract */,
+				DA7ABF731F6C01810092B797 /* Home */,
 				DAEE16101F579F3B00D9F6DD /* Connect */,
 				DABF34B41F68A8B3001CF436 /* Connecting */,
 			);
@@ -915,6 +926,7 @@
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */,
+				DA7ABF751F6C018B0092B797 /* CHome.swift in Sources */,
 				DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */,
 				DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */,
 				DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */,
