@@ -6,9 +6,11 @@ extension MMenu
     
     private class func factoryItemsList() -> [MMenuItemProtocol]
     {
+        let itemHome:MMenuItemHome = MMenuItemHome()
         let itemConnect:MMenuItemConnect = MMenuItemConnect()
         
         let map:[MMenuItemProtocol] = [
+            itemHome,
             itemConnect]
         
         return map

@@ -661,8 +661,8 @@
 			children = (
 				DAEE16081F5795CA00D9F6DD /* MMenu.swift */,
 				DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */,
-				DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */,
 				DAEE160B1F5795CA00D9F6DD /* MMenuOrder.swift */,
+				DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */,
 				DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */,
 				DA7ABF781F6C02170092B797 /* MMenuItemHome.swift */,
 			);
