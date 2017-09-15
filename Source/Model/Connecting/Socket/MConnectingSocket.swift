@@ -15,6 +15,7 @@ final class MConnectingSocket
     
     func cancel()
     {
-        
+        modelTcp?.cancel()
+        modelUdp?.cancel()
     }
 }
