@@ -4,17 +4,22 @@ extension MConnectingSocketTcp
 {
     //MARK: internal
     
-    func strategyAnswerOk()
+    func strategyReplyOk()
     {
         
     }
     
-    func strategyAnswerConnected()
+    func strategyReplyPinError()
     {
         
     }
     
-    func strategyAnswerPinError()
+    func strategyReplyConnected()
+    {
+        
+    }
+    
+    func strategyReplyConnectingError()
     {
         
     }
