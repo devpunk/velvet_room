@@ -6,5 +6,12 @@
 	<integer>9309</integer>
 	<key>lineSparator</key>
 	<string>\r\n</string>
+	<key>broadcast</key>
+	<dict>
+		<key>searchCommand</key>
+		<string>SRCH</string>
+		<key>searchProtocol</key>
+		<string>HTTP/1.1</string>
+	</dict>
 </dict>
 </plist>
