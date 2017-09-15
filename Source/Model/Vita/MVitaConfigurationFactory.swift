@@ -18,10 +18,43 @@ extension MVitaConfiguration
         
             let resourceUrl:URL = Bundle.main.url(
                 forResource:kResourceName,
-                withExtension:kResourceExtension),
-            let dictionary:NSDictionary = NSDictionary(
-                contentsOf:resourceUrl),
-            let map:[String:Any] = dictionary as? [String:Any]
+                withExtension:kResourceExtension)
+        
+        else
+        {
+            return nil
+        }
+        
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:resourceUrl,
+                options:Data.ReadingOptions.mappedIfSafe)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        let propertyList:Any
+        
+        do
+        {
+            try propertyList = PropertyListSerialization.propertyList(
+                from:data,
+                options:PropertyListSerialization.ReadOptions(),
+                format:nil)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        guard
+        
+            let map:[String:Any] = propertyList as? [String:Any]
         
         else
         {
@@ -84,7 +117,7 @@ extension MVitaConfiguration
     {
         guard
         
-            let map:[String:Any] = factoryMap(),
+            let map:PropertyListSerialization = factoryProperties(),
             let configuration:MVitaConfiguration = factoryConfiguration(
                 map:map)
         
