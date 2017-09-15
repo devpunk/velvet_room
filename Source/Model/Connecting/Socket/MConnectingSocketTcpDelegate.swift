@@ -14,6 +14,17 @@ final class MConnectingSocketTcpDelegate:
         didRead data:Data,
         withTag tag:Int)
     {
+        guard
+            
+            let string:String = String(
+                data:data,
+                encoding:String.Encoding.utf8)
+            
+        else
+        {
+            return
+        }
         
+        model?.receivedString(string:string)
     }
 }

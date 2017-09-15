@@ -27,4 +27,9 @@ final class MConnectingSocketTcp
         socket.delegate = nil
         socket.disconnect()
     }
+    
+    func receivedString(string:String)
+    {
+        
+    }
 }
