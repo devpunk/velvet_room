@@ -10,3 +10,4 @@
 "MConnectingSocket_failedConfiguration"="Failed loading Configuration Files,\ntry again.";
 "MConnectingSocket_failedTcpSocket"="Failed starting TCP Socket,\ntry again";
 "MConnectingSocket_failedUdpSocket"="Failed starting UDP Socket,\ntry again";
+"MConnectingSocketUdp_hostName"="Velvet Room";

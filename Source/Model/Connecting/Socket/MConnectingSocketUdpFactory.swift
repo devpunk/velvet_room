@@ -33,12 +33,17 @@ extension MConnectingSocketUdp
     }
     
     private func responseString(deviceId:String) -> String
-    {/*
+    {
+        let hostName:String = String.localizedModel(
+            key:"MConnectingSocketUdp_hostName")
+        let port:String = "\(configuration.port)"
         let string:String = String(
             format:configuration.broadcast.replyAvailable,
-            deviceId)*/
+            deviceId,
+            hostName,
+            port)
         
-        return configuration.broadcast.replyAvailable
+        return string
     }
     
     //MARK: internal
@@ -51,14 +56,17 @@ extension MConnectingSocketUdp
             guard
             
                 let string:String = self?.responseString(
-                    deviceId:deviceId)
+                    deviceId:deviceId),
+                let data:Data = string.data(
+                    using:String.Encoding.utf8,
+                    allowLossyConversion:false)
             
             else
             {
                 return
             }
             
-            debugPrint(string)
+            self?.replyAvaiable = data
         }
     }
 }
