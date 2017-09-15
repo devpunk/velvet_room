@@ -114,6 +114,7 @@
 		DAF0A4CB1F6C851700E596E7 /* MConnectingSocketTcpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0A4CA1F6C851700E596E7 /* MConnectingSocketTcpFactory.swift */; };
 		DAF0A4CD1F6C895C00E596E7 /* MConnectingSocketTcpMethodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0A4CC1F6C895C00E596E7 /* MConnectingSocketTcpMethodType.swift */; };
 		DAF0A4D11F6C8C3B00E596E7 /* MConnectingSocketTcpMethodTypeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0A4D01F6C8C3B00E596E7 /* MConnectingSocketTcpMethodTypeFactory.swift */; };
+		DAF0A4D31F6C8DBF00E596E7 /* MConnectingSocketTcpMethodProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF0A4D21F6C8DBF00E596E7 /* MConnectingSocketTcpMethodProtocol.swift */; };
 		DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53B1F57A0860078A383 /* MConnect.swift */; };
 		DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53E1F57A0BE0078A383 /* VConnect.swift */; };
 		DAFD69901F692FD100D3B07B /* VConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD698F1F692FD100D3B07B /* VConnectingStatus.swift */; };
@@ -245,6 +246,7 @@
 		DAF0A4CA1F6C851700E596E7 /* MConnectingSocketTcpFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcpFactory.swift; sourceTree = "<group>"; };
 		DAF0A4CC1F6C895C00E596E7 /* MConnectingSocketTcpMethodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcpMethodType.swift; sourceTree = "<group>"; };
 		DAF0A4D01F6C8C3B00E596E7 /* MConnectingSocketTcpMethodTypeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcpMethodTypeFactory.swift; sourceTree = "<group>"; };
+		DAF0A4D21F6C8DBF00E596E7 /* MConnectingSocketTcpMethodProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcpMethodProtocol.swift; sourceTree = "<group>"; };
 		DAF8A53B1F57A0860078A383 /* MConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect.swift; sourceTree = "<group>"; };
 		DAF8A53E1F57A0BE0078A383 /* VConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnect.swift; sourceTree = "<group>"; };
 		DAFD698F1F692FD100D3B07B /* VConnectingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingStatus.swift; sourceTree = "<group>"; };
@@ -590,6 +592,7 @@
 				DAF0A4CC1F6C895C00E596E7 /* MConnectingSocketTcpMethodType.swift */,
 				DAF0A4D01F6C8C3B00E596E7 /* MConnectingSocketTcpMethodTypeFactory.swift */,
 				DAD8578E1F6B4E7900728361 /* MConnectingSocketTcpDelegate.swift */,
+				DAF0A4D21F6C8DBF00E596E7 /* MConnectingSocketTcpMethodProtocol.swift */,
 			);
 			path = Socket;
 			sourceTree = "<group>";
@@ -890,6 +893,7 @@
 				DA8B7E2B1F579344004EEE23 /* VMenuCollection.swift in Sources */,
 				DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */,
 				DA9751431F69938A00DBC757 /* MConnectingStatusPin.swift in Sources */,
+				DAF0A4D31F6C8DBF00E596E7 /* MConnectingSocketTcpMethodProtocol.swift in Sources */,
 				DA76226F1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift in Sources */,
 				DAFFC4B41F68B3ED00F27ADD /* VConnectWalk.swift in Sources */,
 				DA8B7E3B1F579369004EEE23 /* VCollection.swift in Sources */,
