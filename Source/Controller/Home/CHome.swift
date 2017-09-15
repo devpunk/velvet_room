@@ -7,6 +7,7 @@ final class CHome:Controller<ArchHome>
         super.viewDidLoad()
         
         parentController?.view.isUserInteractionEnabled = false
+        model.loadSession()
     }
     
     //MARK: internal
