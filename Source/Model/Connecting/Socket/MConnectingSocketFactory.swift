@@ -76,6 +76,29 @@ extension MConnectingSocket
         return socket
     }
     
+    private class func factoryTcpSocket(
+        delegate:MConnectingSocketTcpDelegate,
+        queue:DispatchQueue,
+        configuration:MVitaConfiguration) -> GCDAsyncSocket?
+    {
+        let socket:GCDAsyncSocket = GCDAsyncSocket(
+            delegate:delegate,
+            delegateQueue:queue,
+            socketQueue:queue)
+        
+        do
+        {
+            try socket.accept(
+                onPort:configuration.port)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return socket
+    }
+    
     //MARK: internal
     
     class func factoryUdp(
