@@ -49,7 +49,8 @@ extension MConnectingSocketTcpMethodType
         
         let methodType:MConnectingSocketTcpMethodProtocol.Type = factoryMethod(
             type:type)
-        let method:MConnectingSocketTcpMethodProtocol = methodType.init()
+        let method:MConnectingSocketTcpMethodProtocol = methodType.init(
+            received:string)
         
         return method
     }

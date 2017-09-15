@@ -30,6 +30,16 @@ final class MConnectingSocketTcp
     
     func receivedString(string:String)
     {
+        guard
         
+            let method:MConnectingSocketTcpMethodProtocol = MConnectingSocketTcpMethodType.factoryMethod(
+                string:string)
+        
+        else
+        {
+            return
+        }
+        
+        method.strategy(model:self)
     }
 }

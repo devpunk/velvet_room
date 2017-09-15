@@ -2,5 +2,6 @@ import Foundation
 
 protocol MConnectingSocketTcpMethodProtocol
 {
-    init()
+    init(received:String)
+    func strategy(model:MConnectingSocketTcp)
 }
