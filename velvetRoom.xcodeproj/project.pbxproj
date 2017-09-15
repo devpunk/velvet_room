@@ -27,6 +27,7 @@
 		DA76226F1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */; };
 		DA7622751F6BF2500049195B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622711F6BF2500049195B /* Database.swift */; };
 		DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622721F6BF2500049195B /* DatabaseFactory.swift */; };
+		DA7ABF6A1F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF681F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -143,6 +144,7 @@
 		DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationBroadcast.swift; sourceTree = "<group>"; };
 		DA7622711F6BF2500049195B /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DA7622721F6BF2500049195B /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
+		DA7ABF691F6BFB3C0092B797 /* DVelvetRoom.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DVelvetRoom.xcdatamodel; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -322,6 +324,7 @@
 		DA7622741F6BF2500049195B /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				DA7ABF681F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -896,6 +899,7 @@
 				DA8B7E3A1F579369004EEE23 /* VBorder.swift in Sources */,
 				DA8B7E3D1F579369004EEE23 /* VGradient.swift in Sources */,
 				DA8B7E2A1F579344004EEE23 /* VMenuCell.swift in Sources */,
+				DA7ABF6A1F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld in Sources */,
 				DA8B7E121F57929C004EEE23 /* ControllerParentOrientation.swift in Sources */,
 				DA04ABB61F65D6AE0077CA06 /* PTPEventDelegate.swift in Sources */,
 				DAD8578D1F6B4CFC00728361 /* MConnectingSocketUdpDelegate.swift in Sources */,
@@ -1107,6 +1111,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		DA7ABF681F6BFB3C0092B797 /* DVelvetRoom.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				DA7ABF691F6BFB3C0092B797 /* DVelvetRoom.xcdatamodel */,
+			);
+			currentVersion = DA7ABF691F6BFB3C0092B797 /* DVelvetRoom.xcdatamodel */;
+			path = DVelvetRoom.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = DA27F7051F5788E300CCDDDB /* Project object */;
 }
