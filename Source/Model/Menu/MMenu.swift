@@ -1,6 +1,6 @@
 import Foundation
 
-class MMenu
+final class MMenu
 {
     var selected:MMenu.Order
     let items:[MMenuItemProtocol]

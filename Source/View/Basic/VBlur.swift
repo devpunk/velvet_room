@@ -1,6 +1,6 @@
 import UIKit
 
-class VBlur:UIVisualEffectView
+final class VBlur:UIVisualEffectView
 {
     class func light() -> VBlur
     {

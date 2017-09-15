@@ -1,6 +1,6 @@
 import Foundation
 
-class CConnect:Controller<ArchConnect>
+final class CConnect:Controller<ArchConnect>
 {
     //MARK: internal
     

@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 
-class Database
+final class Database
 {
     let managedObjectContext:NSManagedObjectContext
     

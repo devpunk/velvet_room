@@ -1,6 +1,6 @@
 import UIKit
 
-class VGradient:UIView
+final class VGradient:UIView
 {
     private static let kLocationStart:NSNumber = 0
     private static let kLocationEnd:NSNumber = 1

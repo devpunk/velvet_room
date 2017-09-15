@@ -1,6 +1,6 @@
 import UIKit
 
-class VAlert:UIView
+final class VAlert:UIView
 {
     private static let kHeight:CGFloat = 80
     private weak var layoutTop:NSLayoutConstraint!

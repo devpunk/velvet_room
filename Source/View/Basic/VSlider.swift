@@ -1,6 +1,6 @@
 import UIKit
 
-class VSlider:UIView, UIGestureRecognizerDelegate
+final class VSlider:UIView, UIGestureRecognizerDelegate
 {
     private weak var viewBase:UIView!
     private weak var viewBar:VSliderBar!

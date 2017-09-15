@@ -1,6 +1,6 @@
 import UIKit
 
-class VSliderBar:UIView
+final class VSliderBar:UIView
 {
     private let kBorderWidth:CGFloat = 1
     
