@@ -32,10 +32,23 @@ extension MConnectingSocketUdp
         }
     }
     
+    private func responseString(deviceId:String) -> String
+    {
+        let string:String = String(
+            format:configuration.broadcast.replyAvailable,
+            deviceId)
+        
+        return string
+    }
+    
     //MARK: internal
     
-    func factoryReplyData() -> Data?
+    func factoryReplyAvailable()
     {
-        return nil
+        fetchDeviceId
+        { [weak self] (deviceId:String) in
+            
+            print(self?.responseString(deviceId:deviceId))
+        }
     }
 }

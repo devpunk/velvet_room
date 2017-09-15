@@ -3,11 +3,11 @@ import CocoaAsyncSocket
 
 final class MConnectingSocketUdp
 {
-    private var replyData:Data?
+    var replyAvaiable:Data?
+    let configuration:MVitaConfiguration
     private let socket:GCDAsyncUdpSocket
     private let delegate:MConnectingSocketUdpDelegate
     private let queue:DispatchQueue
-    private let configuration:MVitaConfiguration
     
     init(
         socket:GCDAsyncUdpSocket,
@@ -19,6 +19,8 @@ final class MConnectingSocketUdp
         self.delegate = delegate
         self.queue = queue
         self.configuration = configuration
+        
+        factoryReplyAvailable()
     }
     
     //MARK: private
