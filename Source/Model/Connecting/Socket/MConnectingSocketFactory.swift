@@ -128,4 +128,32 @@ extension MConnectingSocket
         
         return modelUdp
     }
+    
+    class func factoryTcp(
+        configuration:MVitaConfiguration) -> MConnectingSocketTcp?
+    {
+        let delegate:MConnectingSocketTcpDelegate = MConnectingSocketTcpDelegate()
+        let queue:DispatchQueue = factoryTcpQueue()
+        
+        guard
+        
+            let socket:GCDAsyncSocket = factoryTcpSocket(
+                delegate:delegate,
+                queue:queue,
+                configuration:configuration)
+        
+        else
+        {
+            return nil
+        }
+        
+        let modelTcp:MConnectingSocketTcp = MConnectingSocketTcp(
+            socket:socket,
+            delegate:delegate,
+            queue:queue,
+            configuration:configuration)
+        delegate.model = modelTcp
+        
+        return modelTcp
+    }
 }
