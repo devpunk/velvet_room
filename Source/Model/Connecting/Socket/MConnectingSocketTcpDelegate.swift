@@ -25,6 +25,10 @@ final class MConnectingSocketTcpDelegate:
             return
         }
         
-        model?.receivedString(string:string)
+        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model?.receivedString(string:string)
+        }
     }
 }
