@@ -32,6 +32,7 @@
 		DA7ABF6F1F6C01370092B797 /* VHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF6E1F6C01370092B797 /* VHome.swift */; };
 		DA7ABF721F6C01670092B797 /* MHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF711F6C01670092B797 /* MHome.swift */; };
 		DA7ABF751F6C018B0092B797 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF741F6C018B0092B797 /* CHome.swift */; };
+		DA7ABF771F6C01AB0092B797 /* ArchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF761F6C01AB0092B797 /* ArchHome.swift */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -153,6 +154,7 @@
 		DA7ABF6E1F6C01370092B797 /* VHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VHome.swift; sourceTree = "<group>"; };
 		DA7ABF711F6C01670092B797 /* MHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHome.swift; sourceTree = "<group>"; };
 		DA7ABF741F6C018B0092B797 /* CHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
+		DA7ABF761F6C01AB0092B797 /* ArchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchHome.swift; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -647,6 +649,7 @@
 				DAD799251F57C04E001D6A4C /* Arch.swift */,
 				DAD799271F57C085001D6A4C /* ArchConnect.swift */,
 				DABF34B21F68A896001CF436 /* ArchConnecting.swift */,
+				DA7ABF761F6C01AB0092B797 /* ArchHome.swift */,
 			);
 			path = Architecture;
 			sourceTree = "<group>";
@@ -843,6 +846,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA8B7E131F57929C004EEE23 /* ControllerParentTransitions.swift in Sources */,
+				DA7ABF771F6C01AB0092B797 /* ArchHome.swift in Sources */,
 				DA7ABF6F1F6C01370092B797 /* VHome.swift in Sources */,
 				DAEE160D1F5795CA00D9F6DD /* MMenuFactory.swift in Sources */,
 				DA8B7E381F579369004EEE23 /* VAlert.swift in Sources */,
