@@ -27,4 +27,9 @@ final class MConnectingSocketUdp
         socket.setDelegate(nil)
         socket.close()
     }
+    
+    func receivedString(string:String)
+    {
+        
+    }
 }
