@@ -14,6 +14,14 @@
 		<string>HTTP/1.1</string>
 		<key>replyAvailable</key>
 		<string>HTTP/1.1 200 OK\r\nhost-id:%@\r\nhost-type:win\r\nhost-name:%@\r\nhost-mtp-protocol-version:01800010\r\nhost-request-port:%@\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0</string>
+		<key>replyOk</key>
+		<string>HTTP/1.1 200 OK\r\n</string>
+		<key>replyPinError</key>
+		<string>HTTP/1.1 610 NG\r\n</string>
+		<key>replyConnected</key>
+		<string>HTTP/1.1 210 OK\r\n</string>
+		<key>replyConnectingError</key>
+		<string>HTTP/1.1 605 NG\r\n</string>
 	</dict>
 </dict>
 </plist>
