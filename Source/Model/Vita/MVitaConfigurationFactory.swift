@@ -4,6 +4,9 @@ extension MVitaConfiguration
 {
     private static let kResourceName:String = "vitaConnection"
     private static let kResourceExtension:String = "plist"
+    private static let kKeyBroadcast:String = "broadcast"
+    private static let kKeyBroadcastSearchCommand:String = "searchCommand"
+    private static let kKeyBroadcastSearchProtocol:String = "searchProtocol"
     private static let kKeyPort:String = "port"
     
     //MARK: private
@@ -27,11 +30,37 @@ extension MVitaConfiguration
         return map
     }
     
+    private static func factoryConfigurationBroadcast(
+        map:[String:Any]) -> MVitaConfigurationBroadcast?
+    {
+        guard
+            
+            let mapBroadcast:[String:Any] = map[
+                kKeyBroadcast] as? [String:Any],
+            let searchCommand:String = mapBroadcast[
+                kKeyBroadcastSearchCommand] as? String,
+            let searchProtocol:String = mapBroadcast[
+                kKeyBroadcastSearchProtocol] as? String
+        
+        else
+        {
+            return nil
+        }
+        
+        let broadcast:MVitaConfigurationBroadcast = MVitaConfigurationBroadcast(
+            searchCommand:searchCommand,
+            searchProtocol:searchProtocol)
+        
+        return broadcast
+    }
+    
     private static func factoryConfiguration(
         map:[String:Any]) -> MVitaConfiguration?
     {
         guard
         
+            let broadcast:MVitaConfigurationBroadcast = factoryConfigurationBroadcast(
+                map:map),
             let port:UInt16 = map[kKeyPort] as? UInt16
         
         else
@@ -40,6 +69,7 @@ extension MVitaConfiguration
         }
         
         let configuration:MVitaConfiguration = MVitaConfiguration(
+            broadcast:broadcast,
             port:port)
         
         return configuration
