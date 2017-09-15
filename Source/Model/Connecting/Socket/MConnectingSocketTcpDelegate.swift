@@ -6,4 +6,14 @@ final class MConnectingSocketTcpDelegate:
     GCDAsyncSocketDelegate
 {
     weak var model:MConnectingSocketTcp?
+    
+    //MARK: delegate
+    
+    func socket(
+        _ sock:GCDAsyncSocket,
+        didRead data:Data,
+        withTag tag:Int)
+    {
+        
+    }
 }
