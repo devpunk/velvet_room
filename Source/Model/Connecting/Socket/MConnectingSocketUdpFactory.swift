@@ -33,12 +33,12 @@ extension MConnectingSocketUdp
     }
     
     private func responseString(deviceId:String) -> String
-    {
+    {/*
         let string:String = String(
             format:configuration.broadcast.replyAvailable,
-            deviceId)
+            deviceId)*/
         
-        return string
+        return configuration.broadcast.replyAvailable
     }
     
     //MARK: internal
@@ -48,7 +48,17 @@ extension MConnectingSocketUdp
         fetchDeviceId
         { [weak self] (deviceId:String) in
             
-            print(self?.responseString(deviceId:deviceId))
+            guard
+            
+                let string:String = self?.responseString(
+                    deviceId:deviceId)
+            
+            else
+            {
+                return
+            }
+            
+            debugPrint(string)
         }
     }
 }

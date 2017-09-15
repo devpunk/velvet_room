@@ -84,10 +84,13 @@ extension MVitaConfiguration
             return nil
         }
         
+        let cleanedReplyAvailable:String = removeDoubleScaping(
+            string:replyAvailable)
+        
         let broadcast:MVitaConfigurationBroadcast = MVitaConfigurationBroadcast(
             searchCommand:searchCommand,
             searchProtocol:searchProtocol,
-            replyAvailable:replyAvailable)
+            replyAvailable:cleanedReplyAvailable)
         
         return broadcast
     }
@@ -107,12 +110,30 @@ extension MVitaConfiguration
             return nil
         }
         
+        let cleanedLineSeparator:String = removeDoubleScaping(
+            string:lineSeparator)
+        
         let configuration:MVitaConfiguration = MVitaConfiguration(
             broadcast:broadcast,
-            lineSeparator:lineSeparator,
+            lineSeparator:cleanedLineSeparator,
             port:port)
         
         return configuration
+    }
+    
+    private static func removeDoubleScaping(string:String) -> String
+    {
+        let cleanedNewLine:String = string.replacingOccurrences(
+            of:"\\n",
+            with:"\n")
+        let cleanedReturn:String = cleanedNewLine.replacingOccurrences(
+            of:"\\r",
+            with:"\r")
+        let cleanedEnd:String = cleanedReturn.replacingOccurrences(
+            of:"\\0",
+            with:"\0")
+        
+        return cleanedEnd
     }
     
     //MARK: internal
