@@ -11,6 +11,8 @@ extension MVitaConfiguration
         
             let broadcast:MVitaConfigurationBroadcast = factoryConfigurationBroadcast(
                 map:map),
+            let device:MVitaConfigurationDevice = factoryConfigurationDevice(
+                map:map),
             let lineSeparator:String = map[kKeyLineSeparator] as? String,
             let port:UInt16 = map[kKeyPort] as? UInt16
         
@@ -24,6 +26,7 @@ extension MVitaConfiguration
         
         let configuration:MVitaConfiguration = MVitaConfiguration(
             broadcast:broadcast,
+            device:device,
             lineSeparator:cleanedLineSeparator,
             port:port)
         
