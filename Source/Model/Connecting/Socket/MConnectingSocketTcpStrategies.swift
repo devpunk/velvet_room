@@ -10,6 +10,12 @@ extension MConnectingSocketTcp
         strategyReplyOk()
     }
     
+    func strategyConnect(device:MVitaDevice)
+    {
+        self.device = device
+        strategyReplyOk()
+    }
+    
     func strategyReplyOk()
     {
         

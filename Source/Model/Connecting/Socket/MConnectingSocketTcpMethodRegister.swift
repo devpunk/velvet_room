@@ -52,6 +52,7 @@ final class MConnectingSocketTcpMethodRegister:MConnectingSocketTcpMethodProtoco
                 socket:socket),
             let modelPin:MConnectingPin = model.model?.model?.modelPin,
             modelPin.validatePin(pinString:receivedPin)
+            
         else
         {
             model.strategyReplyPinError()

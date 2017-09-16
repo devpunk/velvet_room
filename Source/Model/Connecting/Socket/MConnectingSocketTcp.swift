@@ -3,6 +3,7 @@ import CocoaAsyncSocket
 
 final class MConnectingSocketTcp
 {
+    var device:MVitaDevice?
     let socket:GCDAsyncSocket
     private(set) weak var model:MConnectingSocket?
     private let delegate:MConnectingSocketTcpDelegate
