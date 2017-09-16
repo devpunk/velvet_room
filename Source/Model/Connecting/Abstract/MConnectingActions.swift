@@ -19,6 +19,11 @@ extension MConnecting
         socket.start()
     }
     
+    func registered()
+    {
+        cancelAndClean()
+    }
+    
     func createPin()
     {
         modelPin = MConnectingPin()

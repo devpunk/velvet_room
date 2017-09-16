@@ -12,5 +12,6 @@ final class MConnectingSocketTcpMethodStandby:MConnectingSocketTcpMethodProtocol
     
     func strategy(model:MConnectingSocketTcp)
     {
+        model.model?.model?.registered()
     }
 }
