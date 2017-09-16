@@ -10,7 +10,7 @@ extension MVitaConfiguration
         guard
             
             let mapDevice:[String:Any] = map[
-                kKeyBroadcast] as? [String:Any],
+                kKeyDevice] as? [String:Any],
             let deviceIdTitle:String = mapDevice[
                 kKeyDeviceDeviceIdTitle] as? String,
             let devicePortTitle:String = mapDevice[
