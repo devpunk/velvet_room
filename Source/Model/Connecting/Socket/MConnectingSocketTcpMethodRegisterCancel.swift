@@ -12,5 +12,8 @@ final class MConnectingSocketTcpMethodRegisterCancel:MConnectingSocketTcpMethodP
     
     func strategy(model:MConnectingSocketTcp)
     {
+        let message:String = String.localizedModel(
+            key:"MConnectingSocketTcpMethodRegisterCancel_message")
+        model.model?.model?.foundError(errorMessage:message)
     }
 }
