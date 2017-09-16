@@ -17,10 +17,11 @@ extension MConnectingSocket
             return
         }
         
+        self.configuration = configuration
+        
         guard
         
-            let modelTcp:MConnectingSocketTcp = MConnectingSocket.factoryTcp(
-                configuration:configuration)
+            let modelTcp:MConnectingSocketTcp = factoryTcp()
         
         else
         {
@@ -31,8 +32,7 @@ extension MConnectingSocket
         
         guard
         
-            let modelUdp:MConnectingSocketUdp = MConnectingSocket.factoryUdp(
-                configuration:configuration)
+            let modelUdp:MConnectingSocketUdp = factoryUdp()
         
         else
         {

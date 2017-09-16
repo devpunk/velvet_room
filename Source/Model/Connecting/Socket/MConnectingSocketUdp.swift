@@ -4,21 +4,21 @@ import CocoaAsyncSocket
 final class MConnectingSocketUdp
 {
     var replyAvaiable:Data?
-    let configuration:MVitaConfiguration
+    private(set) weak var model:MConnectingSocket?
     private let socket:GCDAsyncUdpSocket
     private let delegate:MConnectingSocketUdpDelegate
     private let queue:DispatchQueue
     
     init(
+        model:MConnectingSocket,
         socket:GCDAsyncUdpSocket,
         delegate:MConnectingSocketUdpDelegate,
-        queue:DispatchQueue,
-        configuration:MVitaConfiguration)
+        queue:DispatchQueue)
     {
+        self.model = model
         self.socket = socket
         self.delegate = delegate
         self.queue = queue
-        self.configuration = configuration
         
         factoryReplyAvailable()
     }

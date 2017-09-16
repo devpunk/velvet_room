@@ -101,15 +101,15 @@ extension MConnectingSocket
     
     //MARK: internal
     
-    class func factoryUdp(
-        configuration:MVitaConfiguration) -> MConnectingSocketUdp?
+    func factoryUdp() -> MConnectingSocketUdp?
     {
         let delegate:MConnectingSocketUdpDelegate = MConnectingSocketUdpDelegate()
-        let queue:DispatchQueue = factoryUdpQueue()
+        let queue:DispatchQueue = MConnectingSocket.factoryUdpQueue()
         
         guard
         
-            let socket:GCDAsyncUdpSocket = factoryUdpSocket(
+            let configuration:MVitaConfiguration = self.configuration,
+            let socket:GCDAsyncUdpSocket = MConnectingSocket.factoryUdpSocket(
                 delegate:delegate,
                 queue:queue,
                 configuration:configuration)
@@ -120,24 +120,24 @@ extension MConnectingSocket
         }
         
         let modelUdp:MConnectingSocketUdp = MConnectingSocketUdp(
+            model:self,
             socket:socket,
             delegate:delegate,
-            queue:queue,
-            configuration:configuration)
+            queue:queue)
         delegate.model = modelUdp
         
         return modelUdp
     }
     
-    class func factoryTcp(
-        configuration:MVitaConfiguration) -> MConnectingSocketTcp?
+    func factoryTcp() -> MConnectingSocketTcp?
     {
         let delegate:MConnectingSocketTcpDelegate = MConnectingSocketTcpDelegate()
-        let queue:DispatchQueue = factoryTcpQueue()
+        let queue:DispatchQueue = MConnectingSocket.factoryTcpQueue()
         
         guard
         
-            let socket:GCDAsyncSocket = factoryTcpSocket(
+            let configuration:MVitaConfiguration = self.configuration,
+            let socket:GCDAsyncSocket = MConnectingSocket.factoryTcpSocket(
                 delegate:delegate,
                 queue:queue,
                 configuration:configuration)
@@ -148,10 +148,10 @@ extension MConnectingSocket
         }
         
         let modelTcp:MConnectingSocketTcp = MConnectingSocketTcp(
+            model:self,
             socket:socket,
             delegate:delegate,
-            queue:queue,
-            configuration:configuration)
+            queue:queue)
         delegate.model = modelTcp
         
         return modelTcp

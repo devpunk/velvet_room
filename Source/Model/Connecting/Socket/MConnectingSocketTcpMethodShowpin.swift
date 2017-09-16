@@ -10,5 +10,6 @@ final class MConnectingSocketTcpMethodShowpin:MConnectingSocketTcpMethodProtocol
     
     func strategy(model:MConnectingSocketTcp)
     {
+        model.strategyShowpin()
     }
 }

@@ -3,21 +3,21 @@ import CocoaAsyncSocket
 
 final class MConnectingSocketTcp
 {
+    private(set) weak var model:MConnectingSocket?
     private let socket:GCDAsyncSocket
     private let delegate:MConnectingSocketTcpDelegate
     private let queue:DispatchQueue
-    private let configuration:MVitaConfiguration
     
     init(
+        model:MConnectingSocket,
         socket:GCDAsyncSocket,
         delegate:MConnectingSocketTcpDelegate,
-        queue:DispatchQueue,
-        configuration:MVitaConfiguration)
+        queue:DispatchQueue)
     {
+        self.model = model
         self.socket = socket
         self.delegate = delegate
         self.queue = queue
-        self.configuration = configuration
     }
     
     //MARK: internal

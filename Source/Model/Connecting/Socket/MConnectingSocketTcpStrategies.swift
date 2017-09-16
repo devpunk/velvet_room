@@ -4,6 +4,10 @@ extension MConnectingSocketTcp
 {
     //MARK: internal
     
+    func strategyShowpin()
+    {
+    }
+    
     func strategyReplyOk()
     {
         
