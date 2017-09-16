@@ -2,6 +2,9 @@ import Foundation
 
 extension MVitaConfiguration
 {
+    private static let kResourceName:String = "vitaConfiguration"
+    private static let kResourceExtension:String = "plist"
+    
     //MARK: internal
     
     static func factoryMap() -> [String:Any]?

@@ -2,8 +2,6 @@ import Foundation
 
 extension MVitaConfiguration
 {
-    static let kResourceName:String = "vitaConnection"
-    static let kResourceExtension:String = "plist"
     static let kKeyBroadcast:String = "broadcast"
     static let kKeyBroadcastSearchCommand:String = "searchCommand"
     static let kKeyBroadcastSearchProtocol:String = "searchProtocol"

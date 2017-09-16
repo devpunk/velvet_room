@@ -8,9 +8,11 @@ extension MVitaDevice
         strings:[String],
         model:MConnectingSocket) -> String?
     {
+        let deviceIdTitle:String = 
+        
         for string:String in strings
         {
-            
+            guard
         }
     }
     
