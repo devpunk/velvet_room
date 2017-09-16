@@ -2,7 +2,7 @@ import Foundation
 
 struct MVitaDevice
 {
-    let identifier:String
     let ipAddress:String
-    let dataPort:UInt16
+    let identifier:String
+    let port:UInt16
 }
