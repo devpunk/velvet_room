@@ -31,11 +31,41 @@ extension MVitaDevice
         return nil
     }
     
-    private static func parseDataPort(
+    private static func parseDevicePort(
         strings:[String],
         model:MConnectingSocket) -> UInt16?
     {
+        let devicePortTitle:String = model.configuration.device.devicePortTitle
         
+        for string:String in strings
+        {
+            guard
+            
+                string.contains(devicePortTitle)
+            
+            else
+            {
+                continue
+            }
+            
+            let stringComponents:[String] = string.components(
+                separatedBy:devicePortTitle)
+            
+            guard
+            
+                let devicePortString:String = stringComponents.last
+            
+            else
+            {
+                return nil
+            }
+            
+            let devicePort:UInt16? = UInt16(devicePortString)
+            
+            return devicePort
+        }
+        
+        return nil
     }
     
     //MARK: internal
