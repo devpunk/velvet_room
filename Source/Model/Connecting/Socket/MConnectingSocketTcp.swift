@@ -51,6 +51,8 @@ final class MConnectingSocketTcp
     func acceptedConnection(acceptedSocket:GCDAsyncSocket)
     {
         self.acceptedSocket = acceptedSocket
+        model?.model?.vitaFound()
+        
         acceptedSocket.readData(withTimeout:0, tag:0)
     }
 }
