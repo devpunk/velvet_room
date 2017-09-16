@@ -15,17 +15,27 @@ final class MConnectingSocketTcpMethodRegister:MConnectingSocketTcpMethodProtoco
     private func parsePin(
         socket:MConnectingSocket) -> String?
     {
-        let compo1 = received.components(
-            separatedBy:socket.configuration.lineSeparator)
+        let pinTitle:String = socket.configuration.broadcast.pinTitle
+        let stringComponents:[String] = received.components(
+            separatedBy:
+            socket.configuration.lineSeparator)
         
-        for com in compo1
+        for component:String in stringComponents
         {
-            if com.contains("pin-code")
+            guard
+            
+                component.contains(pinTitle)
+            
+            else
             {
-                let compo2 = com.components(separatedBy:"pin-code:")
-                
-                return compo2[1]
+                continue
             }
+            
+            let pinComponents:[String] = component.components(
+                separatedBy:pinTitle)
+            let pinCode:String? = pinComponents.last
+            
+            return pinCode
         }
         
         return nil
