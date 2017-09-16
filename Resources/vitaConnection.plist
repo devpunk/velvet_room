@@ -25,5 +25,12 @@
 		<key>pinTitle</key>
 		<string>pin-code:</string>
 	</dict>
+	<key>device</key>
+	<dict>
+		<key>deviceIdTitle</key>
+		<string>device-id:</string>
+		<key>devicePortTitle</key>
+		<string>device-port:</string>
+	</dict>
 </dict>
 </plist>
