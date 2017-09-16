@@ -2,20 +2,6 @@ import Foundation
 
 extension MVitaConfiguration
 {
-    private static let kResourceName:String = "vitaConnection"
-    private static let kResourceExtension:String = "plist"
-    private static let kKeyBroadcast:String = "broadcast"
-    private static let kKeyBroadcastSearchCommand:String = "searchCommand"
-    private static let kKeyBroadcastSearchProtocol:String = "searchProtocol"
-    private static let kKeyBroadcastReplyAvailable:String = "replyAvailable"
-    private static let kKeyBroadcastReplyOk:String = "replyOk"
-    private static let kKeyBroadcastReplyPinError:String = "replyPinError"
-    private static let kKeyBroadcastReplyConnected:String = "replyConnected"
-    private static let kKeyBroadcastReplyConnectingError:String = "replyConnectingError"
-    private static let kKeyBroadcastPinTitle:String = "pinTitle"
-    private static let kKeyLineSeparator:String = "lineSeparator"
-    private static let kKeyPort:String = "port"
-    
     //MARK: private
     
     private static func factoryMap() -> [String:Any]?
