@@ -19,7 +19,7 @@ final class MConnectingSocketTcp
         self.delegate = delegate
         self.queue = queue
     }
-    
+
     //MARK: internal
     
     func cancel()
