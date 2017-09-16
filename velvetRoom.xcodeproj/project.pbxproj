@@ -102,6 +102,7 @@
 		DAD3A0C31F6CF53800026CA9 /* MConnectingPinFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0C21F6CF53800026CA9 /* MConnectingPinFactory.swift */; };
 		DAD3A0C51F6CFE6400026CA9 /* MVitaDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0C41F6CFE6400026CA9 /* MVitaDevice.swift */; };
 		DAD3A0C71F6D05E500026CA9 /* MVitaDeviceFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0C61F6D05E500026CA9 /* MVitaDeviceFactory.swift */; };
+		DAD3A0C91F6D0B8F00026CA9 /* MVitaConfigurationDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0C81F6D0B8F00026CA9 /* MVitaConfigurationDevice.swift */; };
 		DAD5897B1F6C16C40048D830 /* MHomeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5897A1F6C16C40048D830 /* MHomeSession.swift */; };
 		DAD5897D1F6C27050048D830 /* MConnectingSocketUdpFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5897C1F6C27050048D830 /* MConnectingSocketUdpFactory.swift */; };
 		DAD799261F57C04E001D6A4C /* Arch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799251F57C04E001D6A4C /* Arch.swift */; };
@@ -245,6 +246,7 @@
 		DAD3A0C21F6CF53800026CA9 /* MConnectingPinFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingPinFactory.swift; sourceTree = "<group>"; };
 		DAD3A0C41F6CFE6400026CA9 /* MVitaDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaDevice.swift; sourceTree = "<group>"; };
 		DAD3A0C61F6D05E500026CA9 /* MVitaDeviceFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaDeviceFactory.swift; sourceTree = "<group>"; };
+		DAD3A0C81F6D0B8F00026CA9 /* MVitaConfigurationDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationDevice.swift; sourceTree = "<group>"; };
 		DAD5897A1F6C16C40048D830 /* MHomeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeSession.swift; sourceTree = "<group>"; };
 		DAD5897C1F6C27050048D830 /* MConnectingSocketUdpFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingSocketUdpFactory.swift; sourceTree = "<group>"; };
 		DAD799251F57C04E001D6A4C /* Arch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arch.swift; sourceTree = "<group>"; };
@@ -346,6 +348,7 @@
 			children = (
 				DA4D19471F69F8CD0079EB70 /* MVitaConfiguration.swift */,
 				DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */,
+				DAD3A0C81F6D0B8F00026CA9 /* MVitaConfigurationDevice.swift */,
 				DA4D19491F69F9190079EB70 /* MVitaConfigurationFactory.swift */,
 				DAD3A0BC1F6CF08000026CA9 /* MVitaConfigurationFactoryKeys.swift */,
 				DAD3A0BE1F6CF0D000026CA9 /* MVitaConfigurationFactoryTools.swift */,
@@ -1007,6 +1010,7 @@
 				DA8B7E041F579037004EEE23 /* ExtensionNotification.swift in Sources */,
 				DAD8578F1F6B4E7900728361 /* MConnectingSocketTcpDelegate.swift in Sources */,
 				DA8B7E3C1F579369004EEE23 /* VCollectionFlow.swift in Sources */,
+				DAD3A0C91F6D0B8F00026CA9 /* MVitaConfigurationDevice.swift in Sources */,
 				DAFFC4B61F68B3F700F27ADD /* VConnectWalkCell.swift in Sources */,
 				DA8B7E161F579309004EEE23 /* Model.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
