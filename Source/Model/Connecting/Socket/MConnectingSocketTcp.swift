@@ -4,8 +4,9 @@ import CocoaAsyncSocket
 final class MConnectingSocketTcp
 {
     var device:MVitaDevice?
-    let socket:GCDAsyncSocket
+    let originalSocket:GCDAsyncSocket
     private(set) weak var model:MConnectingSocket?
+    private(set) var acceptedSocket:GCDAsyncSocket?
     private let delegate:MConnectingSocketTcpDelegate
     private let queue:DispatchQueue
     
@@ -16,7 +17,7 @@ final class MConnectingSocketTcp
         queue:DispatchQueue)
     {
         self.model = model
-        self.socket = socket
+        self.originalSocket = socket
         self.delegate = delegate
         self.queue = queue
     }
@@ -25,8 +26,11 @@ final class MConnectingSocketTcp
     
     func cancel()
     {
-        socket.delegate = nil
-        socket.disconnect()
+        originalSocket.delegate = nil
+        originalSocket.disconnect()
+        
+        acceptedSocket?.delegate = nil
+        acceptedSocket?.disconnect()
     }
     
     func receivedString(string:String)
@@ -42,5 +46,11 @@ final class MConnectingSocketTcp
         }
         
         method.strategy(model:self)
+    }
+    
+    func acceptedConnection(acceptedSocket:GCDAsyncSocket)
+    {
+        self.acceptedSocket = acceptedSocket
+        acceptedSocket.readData(withTimeout:0, tag:0)
     }
 }

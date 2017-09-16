@@ -88,7 +88,7 @@ extension MVitaDevice
         
         guard
         
-            let ipAddress:String = socket.socket.connectedHost,
+            let ipAddress:String = socket.acceptedSocket?.connectedHost,
             let deviceId:String = parseDeviceId(
                 strings:strings,
                 model:model),
