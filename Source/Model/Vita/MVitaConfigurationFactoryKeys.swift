@@ -13,6 +13,9 @@ extension MVitaConfiguration
     static let kKeyBroadcastReplyConnected:String = "replyConnected"
     static let kKeyBroadcastReplyConnectingError:String = "replyConnectingError"
     static let kKeyBroadcastPinTitle:String = "pinTitle"
+    static let kKeyDevice:String = "device"
+    static let kKeyDeviceDeviceIdTitle:String = "deviceIdTitle"
+    static let kKeyDeviceDevicePortTitle:String = "devicePortTitle"
     static let kKeyLineSeparator:String = "lineSeparator"
     static let kKeyPort:String = "port"
 }
