@@ -22,6 +22,8 @@
 		<string>HTTP/1.1 210 OK\r\n</string>
 		<key>replyConnectingError</key>
 		<string>HTTP/1.1 605 NG\r\n</string>
+		<key>pinTitle</key>
+		<string>pin-code:</string>
 	</dict>
 </dict>
 </plist>
