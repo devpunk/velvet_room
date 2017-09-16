@@ -3,8 +3,8 @@ import CocoaAsyncSocket
 
 final class MConnectingSocketTcp
 {
+    let socket:GCDAsyncSocket
     private(set) weak var model:MConnectingSocket?
-    private let socket:GCDAsyncSocket
     private let delegate:MConnectingSocketTcpDelegate
     private let queue:DispatchQueue
     
