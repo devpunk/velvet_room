@@ -2,8 +2,8 @@ import Foundation
 
 final class MConnectingPin
 {
-    private var pinString:String
-    private(set) var length:Int
+    let length:Int
+    private let pinString:String
     
     init()
     {
