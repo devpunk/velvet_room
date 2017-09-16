@@ -8,6 +8,11 @@ extension MVitaConfiguration
     private static let kKeyBroadcastSearchCommand:String = "searchCommand"
     private static let kKeyBroadcastSearchProtocol:String = "searchProtocol"
     private static let kKeyBroadcastReplyAvailable:String = "replyAvailable"
+    private static let kKeyBroadcastReplyOk:String = "replyOk"
+    private static let kKeyBroadcastReplyPinError:String = "replyPinError"
+    private static let kKeyBroadcastReplyConnected:String = "replyConnected"
+    private static let kKeyBroadcastReplyConnectingError:String = "replyConnectingError"
+    private static let kKeyBroadcastPinTitle:String = "pinTitle"
     private static let kKeyLineSeparator:String = "lineSeparator"
     private static let kKeyPort:String = "port"
     
@@ -77,7 +82,17 @@ extension MVitaConfiguration
             let searchProtocol:String = mapBroadcast[
                 kKeyBroadcastSearchProtocol] as? String,
             let replyAvailable:String = mapBroadcast[
-                kKeyBroadcastReplyAvailable] as? String
+                kKeyBroadcastReplyAvailable] as? String,
+            let replyOk:String = mapBroadcast[
+                kKeyBroadcastReplyOk] as? String,
+            let replyPinError:String = mapBroadcast[
+                kKeyBroadcastReplyPinError] as? String,
+            let replyConnected:String = mapBroadcast[
+                kKeyBroadcastReplyConnected] as? String,
+            let replyConnectingError:String = mapBroadcast[
+                kKeyBroadcastReplyConnectingError] as? String,
+            let pinTitle:String = mapBroadcast[
+                kKeyBroadcastPinTitle] as? String
         
         else
         {
@@ -90,7 +105,12 @@ extension MVitaConfiguration
         let broadcast:MVitaConfigurationBroadcast = MVitaConfigurationBroadcast(
             searchCommand:searchCommand,
             searchProtocol:searchProtocol,
-            replyAvailable:cleanedReplyAvailable)
+            replyAvailable:cleanedReplyAvailable,
+            replyOk:replyOk,
+            replyPinError:replyPinError,
+            replyConnected:replyConnected,
+            replyConnectingError:replyConnectingError,
+            pinTitle:pinTitle)
         
         return broadcast
     }
