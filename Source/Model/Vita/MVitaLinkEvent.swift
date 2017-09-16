@@ -1,6 +1,6 @@
 import Foundation
 
-class MVitaLinkEvent
+final class MVitaLinkEvent
 {
     
 }

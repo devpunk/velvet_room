@@ -1,6 +1,6 @@
 import Foundation
 
-class MVitaLinkCommand
+final class MVitaLinkCommand
 {
     
 }
