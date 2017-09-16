@@ -8,12 +8,27 @@ extension MVitaDevice
         strings:[String],
         model:MConnectingSocket) -> String?
     {
-        let deviceIdTitle:String = 
+        let deviceIdTitle:String = model.configuration.device.deviceIdTitle
         
         for string:String in strings
         {
             guard
+            
+                string.contains(deviceIdTitle)
+            
+            else
+            {
+                continue
+            }
+            
+            let stringComponents:[String] = string.components(
+                separatedBy:deviceIdTitle)
+            let deviceId:String? = stringComponents.last
+            
+            return deviceId
         }
+        
+        return nil
     }
     
     private static func parseDataPort(
