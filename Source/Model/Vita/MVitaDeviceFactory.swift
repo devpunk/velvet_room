@@ -74,54 +74,38 @@ extension MVitaDevice
         receivedString:String,
         socket:MConnectingSocketTcp) -> MVitaDevice?
     {
-        
-    }
-    
-    func parseDeviceInfo(string:String, host:String?) -> DeviceInfo?
-    {
-        let components:[String] = string.components(separatedBy: "\r\n")
-        
-        var deviceId:String?
-        var devicePort:String?
-        
-        for component:String in components
-        {
-            if component.contains("device-id")
-            {
-                let components2:[String] = component.components(separatedBy: "device-id:")
-                
-                if components2.count > 1
-                {
-                    deviceId = components2[1]
-                }
-            }
-            else if component.contains("device-port")
-            {
-                let components2:[String] = component.components(separatedBy: "device-port:")
-                
-                if components2.count > 1
-                {
-                    devicePort = components2[1]
-                }
-            }
-        }
-        
         guard
             
-            let foundId:String = deviceId,
-            let foundPort:String = devicePort,
-            let foundIp:String = host
+            let model:MConnectingSocket = socket.model
             
-            else
+        else
         {
             return nil
         }
         
-        let deviceInfo:DeviceInfo = DeviceInfo(
-            deviceId:foundId,
-            deviceIp:foundIp,
-            dataPort:foundPort)
+        let strings:[String] = receivedString.components(
+            separatedBy:model.configuration.lineSeparator)
         
-        return deviceInfo
+        guard
+        
+            let ipAddress:String = socket.socket.connectedHost,
+            let deviceId:String = parseDeviceId(
+                strings:strings,
+                model:model),
+            let devicePort:UInt16 = parseDevicePort(
+                strings:strings,
+                model:model)
+        
+        else
+        {
+            return nil
+        }
+        
+        let device:MVitaDevice = MVitaDevice(
+            ipAddress:ipAddress,
+            identifier:deviceId,
+            port:devicePort)
+        
+        return device
     }
 }
