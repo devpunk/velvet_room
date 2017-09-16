@@ -32,10 +32,9 @@ extension MConnectingSocket
         return queue
     }
     
-    private class func factoryUdpSocket(
+    private func factoryUdpSocket(
         delegate:MConnectingSocketUdpDelegate,
-        queue:DispatchQueue,
-        configuration:MVitaConfiguration) -> GCDAsyncUdpSocket?
+        queue:DispatchQueue) -> GCDAsyncUdpSocket?
     {
         let socket:GCDAsyncUdpSocket = GCDAsyncUdpSocket(
             delegate:delegate,
@@ -76,10 +75,9 @@ extension MConnectingSocket
         return socket
     }
     
-    private class func factoryTcpSocket(
+    private func factoryTcpSocket(
         delegate:MConnectingSocketTcpDelegate,
-        queue:DispatchQueue,
-        configuration:MVitaConfiguration) -> GCDAsyncSocket?
+        queue:DispatchQueue) -> GCDAsyncSocket?
     {
         let socket:GCDAsyncSocket = GCDAsyncSocket(
             delegate:delegate,
@@ -108,11 +106,9 @@ extension MConnectingSocket
         
         guard
         
-            let configuration:MVitaConfiguration = self.configuration,
-            let socket:GCDAsyncUdpSocket = MConnectingSocket.factoryUdpSocket(
+            let socket:GCDAsyncUdpSocket = factoryUdpSocket(
                 delegate:delegate,
-                queue:queue,
-                configuration:configuration)
+                queue:queue)
         
         else
         {
@@ -136,11 +132,9 @@ extension MConnectingSocket
         
         guard
         
-            let configuration:MVitaConfiguration = self.configuration,
-            let socket:GCDAsyncSocket = MConnectingSocket.factoryTcpSocket(
+            let socket:GCDAsyncSocket = factoryTcpSocket(
                 delegate:delegate,
-                queue:queue,
-                configuration:configuration)
+                queue:queue)
         
         else
         {

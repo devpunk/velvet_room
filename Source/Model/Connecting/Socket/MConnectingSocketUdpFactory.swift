@@ -32,13 +32,23 @@ extension MConnectingSocketUdp
         }
     }
     
-    private func responseString(deviceId:String) -> String
+    private func responseString(deviceId:String) -> String?
     {
+        guard
+            
+            let model:MConnectingSocket = self.model
+        
+        else
+        {
+            return nil
+        }
+        
         let hostName:String = String.localizedModel(
             key:"MConnectingSocketUdp_hostName")
-        let port:String = "\(configuration.port)"
+        let port:String = "\(model.configuration.port)"
         let string:String = String(
-            format:configuration.broadcast.replyAvailable,
+            format:
+            model.configuration.broadcast.replyAvailable,
             deviceId,
             hostName,
             port)

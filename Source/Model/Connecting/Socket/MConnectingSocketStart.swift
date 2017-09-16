@@ -7,19 +7,6 @@ extension MConnectingSocket
     private func asyncStart()
     {
         guard
-            
-            let configuration:MVitaConfiguration = MVitaConfiguration.factoryConfiguration()
-            
-        else
-        {
-            failedConfiguration()
-            
-            return
-        }
-        
-        self.configuration = configuration
-        
-        guard
         
             let modelTcp:MConnectingSocketTcp = factoryTcp()
         
@@ -44,13 +31,6 @@ extension MConnectingSocket
         
         self.modelTcp = modelTcp
         self.modelUdp = modelUdp
-    }
-    
-    private func failedConfiguration()
-    {
-        let message:String = String.localizedModel(
-            key:"MConnectingSocket_failedConfiguration")
-        model?.foundError(errorMessage:message)
     }
     
     private func failedTcpSocket()

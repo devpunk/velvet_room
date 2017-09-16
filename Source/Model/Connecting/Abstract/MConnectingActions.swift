@@ -4,6 +4,21 @@ extension MConnecting
 {
     //MARK: internal
     
+    func start()
+    {
+        guard
+        
+            let socket:MConnectingSocket = MConnectingSocket(model:self)
+        
+        else
+        {
+            return
+        }
+        
+        self.socket = socket
+        socket.start()
+    }
+    
     func createPin()
     {
         modelPin = MConnectingPin()

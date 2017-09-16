@@ -3,12 +3,26 @@ import Foundation
 final class MConnectingSocket
 {
     weak var model:MConnecting?
-    var configuration:MVitaConfiguration?
     var modelUdp:MConnectingSocketUdp?
     var modelTcp:MConnectingSocketTcp?
+    let configuration:MVitaConfiguration
     
-    init(model:MConnecting)
+    init?(model:MConnecting)
     {
+        guard
+            
+            let configuration:MVitaConfiguration = MVitaConfiguration.factoryConfiguration()
+            
+        else
+        {
+            let message:String = String.localizedModel(
+                key:"MConnectingSocket_failedConfiguration")
+            model.foundError(errorMessage:message)
+            
+            return nil
+        }
+        
+        self.configuration = configuration
         self.model = model
     }
     

@@ -27,16 +27,27 @@ final class MConnectingSocketUdp
     
     private func searchBroadcast(string:String) -> Bool
     {
+        guard
+            
+            let model:MConnectingSocket = self.model
+            
+        else
+        {
+            return false
+        }
+        
         let stringSeparated:[String] = string.components(
-            separatedBy:configuration.lineSeparator)
+            separatedBy:
+            model.configuration.lineSeparator)
         
         guard
         
             let firstComponent:String = stringSeparated.first,
             firstComponent.starts(
-                with:configuration.broadcast.searchCommand),
+                with:
+                model.configuration.broadcast.searchCommand),
             firstComponent.contains(
-                configuration.broadcast.searchProtocol)
+                model.configuration.broadcast.searchProtocol)
         
         else
         {
