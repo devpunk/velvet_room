@@ -8,6 +8,8 @@ final class MConnectingSocketTcpMethodShowpin:MConnectingSocketTcpMethodProtocol
     {
     }
     
+    //MARK: internal
+    
     func strategy(model:MConnectingSocketTcp)
     {
         model.strategyShowpin()

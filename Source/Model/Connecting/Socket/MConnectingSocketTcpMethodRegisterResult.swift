@@ -8,6 +8,8 @@ final class MConnectingSocketTcpMethodRegisterResult:MConnectingSocketTcpMethodP
     {
     }
     
+    //MARK: internal
+    
     func strategy(model:MConnectingSocketTcp)
     {
     }
