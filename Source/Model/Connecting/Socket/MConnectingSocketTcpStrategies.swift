@@ -6,6 +6,8 @@ extension MConnectingSocketTcp
     
     func strategyShowpin()
     {
+        model?.model?.createPin()
+        strategyReplyOk()
     }
     
     func strategyReplyOk()
