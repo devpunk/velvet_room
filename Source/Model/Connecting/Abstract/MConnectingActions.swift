@@ -2,6 +2,13 @@ import Foundation
 
 extension MConnecting
 {
+    //MARK: private
+    
+    private func startVitaLink()
+    {
+//        let vita
+    }
+    
     //MARK: internal
     
     func start()
@@ -27,6 +34,7 @@ extension MConnecting
     func registered()
     {
         cancelAndClean()
+        startVitaLink()
     }
     
     func createPin()

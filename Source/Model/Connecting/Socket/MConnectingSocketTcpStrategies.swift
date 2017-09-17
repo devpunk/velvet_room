@@ -45,7 +45,7 @@ extension MConnectingSocketTcp
     
     func strategyConnect(device:MVitaDevice)
     {
-        self.device = device
+        model?.model?.device = device
         strategyReplyOk()
     }
     
