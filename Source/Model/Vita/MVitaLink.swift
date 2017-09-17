@@ -8,16 +8,28 @@ final class MVitaLink
     let linkCommand:MVitaLinkCommand
     let linkEvent:MVitaLinkEvent
     
-    init(
+    init?(
         device:MVitaDevice,
         configuration:MVitaConfiguration,
         delegate:MVitaLinkDelegate?)
     {
+        guard
+            
+            let linkCommand:MVitaLinkCommand = MVitaLink.factoryLinkCommand(),
+            let linkEvent:MVitaLinkEvent = MVitaLink.factoryLinkEvent()
+        
+        else
+        {
+            return nil
+        }
+        
+        self.linkCommand = linkCommand
+        self.linkEvent = linkEvent
         self.device = device
         self.configuration = configuration
         self.delegate = delegate
         
-        linkCommand = MVitaLink.factoryLinkCommand()
-        linkEvent = MVitaLink.factoryLinkEvent()
+        linkCommand.model = self
+        linkEvent.model = self
     }
 }
