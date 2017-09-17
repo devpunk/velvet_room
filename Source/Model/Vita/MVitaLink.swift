@@ -9,7 +9,7 @@ final class MVitaLink
     init(
         device:MVitaDevice,
         configuration:MVitaConfiguration,
-        delegate:MVitaLinkDelegate)
+        delegate:MVitaLinkDelegate?)
     {
         self.device = device
         self.configuration = configuration

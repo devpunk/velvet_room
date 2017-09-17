@@ -8,7 +8,13 @@ extension MConnecting
         device:MVitaDevice,
         configuration:MVitaConfiguration)
     {
-//        let vita
+        let vitaLink:MVitaLink = MVitaLink(
+            device:device,
+            configuration:configuration,
+            delegate:self)
+        self.vitaLink = vitaLink
+        
+        
     }
     
     //MARK: internal
@@ -72,9 +78,11 @@ extension MConnecting
     func cancelAndClean()
     {
         modelTimer.cancel()
-        
         socket?.cancel()
+        
         socket = nil
+        device = nil
+        modelPin = nil
     }
     
     func foundError(errorMessage:String)
