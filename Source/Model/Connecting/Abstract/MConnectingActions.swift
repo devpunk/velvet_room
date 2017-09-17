@@ -4,7 +4,9 @@ extension MConnecting
 {
     //MARK: private
     
-    private func startVitaLink()
+    private func startVitaLink(
+        device:MVitaDevice,
+        configuration:MVitaConfiguration)
     {
 //        let vita
     }
@@ -33,8 +35,22 @@ extension MConnecting
     
     func registered()
     {
+        guard
+            
+            let device:MVitaDevice = self.device,
+            let configuration:MVitaConfiguration = socket?.configuration
+        
+        else
+        {
+            let message:String = String.localizedModel(
+                key:"MConnecting_errorRegistred")
+            foundError(errorMessage:message)
+            
+            return
+        }
+        
         cancelAndClean()
-        startVitaLink()
+        startVitaLink(device:device, configuration:configuration)
     }
     
     func createPin()

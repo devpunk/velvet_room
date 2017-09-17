@@ -12,3 +12,4 @@
 "MConnectingSocket_failedUdpSocket"="Failed starting UDP Socket,\ntry again";
 "MConnectingSocketUdp_hostName"="Velvet Room";
 "MConnectingSocketTcpMethodRegisterCancel_message"="Connection cancelled";
+"MConnecting_errorRegistred"="Failed registring connection,\ntry again";

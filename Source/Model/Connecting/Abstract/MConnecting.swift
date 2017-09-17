@@ -1,6 +1,8 @@
 import Foundation
 
-final class MConnecting:Model<ArchConnecting>
+final class MConnecting:
+    Model<ArchConnecting>,
+    MVitaLinkDelegate
 {
     var status:MConnectingStatusProtocol?
     var modelPin:MConnectingPin?
