@@ -13,4 +13,3 @@
 "MConnectingSocketUdp_hostName"="Velvet Room";
 "MConnectingSocketTcpMethodRegisterCancel_message"="Connection cancelled";
 "MConnecting_errorRegistred"="Failed registring connection,\ntry again";
-"MConnecting_errorVitaLink"="Failed starting link\ntry again";

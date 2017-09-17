@@ -34,21 +34,14 @@ extension MVitaLink
     
     //MARK: internal
     
-    class func factoryLinkCommand() -> MVitaLinkCommand?
+    class func factoryLinkCommand() -> MVitaLinkCommand
     {
         let delegate:MVitaLinkCommandDelegate = MVitaLinkCommandDelegate()
         let queue:DispatchQueue = factoryCommandQueue()
-        
-        guard
-            
-            let socket:GCDAsyncSocket = factoryTcpSocket(
-                delegate:delegate,
-                queue:queue)
-            
-        else
-        {
-            return nil
-        }
+        let socket:GCDAsyncSocket = GCDAsyncSocket(
+            delegate:delegate,
+            delegateQueue:queue,
+            socketQueue:queue)
         
         let linkCommand:MVitaLinkCommand = MVitaLinkCommand(
             socket:socket,
@@ -59,21 +52,14 @@ extension MVitaLink
         return linkCommand
     }
     
-    class func factoryLinkEvent() -> MVitaLinkEvent?
+    class func factoryLinkEvent() -> MVitaLinkEvent
     {
         let delegate:MVitaLinkEventDelegate = MVitaLinkEventDelegate()
         let queue:DispatchQueue = factoryEventQueue()
-        
-        guard
-            
-            let socket:GCDAsyncSocket = factoryTcpSocket(
-                delegate:delegate,
-                queue:queue)
-            
-        else
-        {
-            return nil
-        }
+        let socket:GCDAsyncSocket = GCDAsyncSocket(
+            delegate:delegate,
+            delegateQueue:queue,
+            socketQueue:queue)
         
         let linkEvent:MVitaLinkEvent = MVitaLinkEvent(
             socket:socket,

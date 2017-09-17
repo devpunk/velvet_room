@@ -8,21 +8,10 @@ extension MConnecting
         device:MVitaDevice,
         configuration:MVitaConfiguration)
     {
-        guard
-            
-            let vitaLink:MVitaLink = MVitaLink(
-                device:device,
-                configuration:configuration,
-                delegate:self)
-        
-        else
-        {
-            let message:String = String.localizedModel(
-                key:"MConnecting_errorVitaLink")
-            foundError(errorMessage:message)
-            
-            return
-        }
+        let vitaLink:MVitaLink = MVitaLink(
+            device:device,
+            configuration:configuration,
+            delegate:self)
         
         self.vitaLink = vitaLink
         vitaLink.start()
