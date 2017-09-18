@@ -8,7 +8,7 @@ class MVitaPtpMessageIn
     {
         guard
         
-            let header:MVitaPtpMessageInHeader = MVitaPtpMessageInHeader(
+            let header:MVitaPtpMessageInHeader = MVitaPtpMessageIn.factoryHeader(
                 data:data)
         
         else
