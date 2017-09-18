@@ -79,6 +79,7 @@ extension MConnecting
     {
         modelTimer.cancel()
         socket?.cancel()
+        vitaLink?.cancel()
         
         socket = nil
         device = nil
