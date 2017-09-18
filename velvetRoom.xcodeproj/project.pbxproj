@@ -16,7 +16,6 @@
 		DA03CF901F6F0CCA001AE828 /* MVitaLinkFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF8F1F6F0CCA001AE828 /* MVitaLinkFactory.swift */; };
 		DA03CF921F6F0D2B001AE828 /* MVitaLinkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF911F6F0D2B001AE828 /* MVitaLinkDelegate.swift */; };
 		DA03CF941F6F104E001AE828 /* MConnectingVitaLinkDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF931F6F104E001AE828 /* MConnectingVitaLinkDelegate.swift */; };
-		DA03CF961F6F1319001AE828 /* MVitaLinkStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF951F6F1319001AE828 /* MVitaLinkStart.swift */; };
 		DA03CFAF1F6F1413001AE828 /* MConnectingSocketTcp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF991F6F1413001AE828 /* MConnectingSocketTcp.swift */; };
 		DA03CFB01F6F1413001AE828 /* MConnectingSocketTcpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF9A1F6F1413001AE828 /* MConnectingSocketTcpDelegate.swift */; };
 		DA03CFB11F6F1413001AE828 /* MConnectingSocketTcpStrategies.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA03CF9B1F6F1413001AE828 /* MConnectingSocketTcpStrategies.swift */; };
@@ -167,7 +166,6 @@
 		DA03CF8F1F6F0CCA001AE828 /* MVitaLinkFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkFactory.swift; sourceTree = "<group>"; };
 		DA03CF911F6F0D2B001AE828 /* MVitaLinkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkDelegate.swift; sourceTree = "<group>"; };
 		DA03CF931F6F104E001AE828 /* MConnectingVitaLinkDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingVitaLinkDelegate.swift; sourceTree = "<group>"; };
-		DA03CF951F6F1319001AE828 /* MVitaLinkStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStart.swift; sourceTree = "<group>"; };
 		DA03CF991F6F1413001AE828 /* MConnectingSocketTcp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcp.swift; sourceTree = "<group>"; };
 		DA03CF9A1F6F1413001AE828 /* MConnectingSocketTcpDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcpDelegate.swift; sourceTree = "<group>"; };
 		DA03CF9B1F6F1413001AE828 /* MConnectingSocketTcpStrategies.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingSocketTcpStrategies.swift; sourceTree = "<group>"; };
@@ -451,7 +449,6 @@
 				DAD3A0C61F6D05E500026CA9 /* MVitaDeviceFactory.swift */,
 				DA03CF851F6DEB2D001AE828 /* MVitaLink.swift */,
 				DA35741A1F7023DA00286858 /* MVitaLinkStrategy.swift */,
-				DA03CF951F6F1319001AE828 /* MVitaLinkStart.swift */,
 				DA35740A1F701AD200286858 /* MVitaLinkActions.swift */,
 				DA03CF8F1F6F0CCA001AE828 /* MVitaLinkFactory.swift */,
 				DA03CF911F6F0D2B001AE828 /* MVitaLinkDelegate.swift */,
@@ -1005,7 +1002,6 @@
 				DA03CFBD1F6F1413001AE828 /* MConnectingSocketUdpFactory.swift in Sources */,
 				DA5D1A2A1F5FB4C600FAF140 /* MConnectConnected.swift in Sources */,
 				DA8B7E021F579037004EEE23 /* ExtensionCGImage.swift in Sources */,
-				DA03CF961F6F1319001AE828 /* MVitaLinkStart.swift in Sources */,
 				DA9751461F69938A00DBC757 /* MConnecting.swift in Sources */,
 				DA35741B1F7023DA00286858 /* MVitaLinkStrategy.swift in Sources */,
 				DAD3A0BD1F6CF08000026CA9 /* MVitaConfigurationFactoryKeys.swift in Sources */,

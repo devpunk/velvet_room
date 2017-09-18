@@ -8,4 +8,11 @@ final class MVitaLinkStrategyOff:MVitaLinkStrategyProtocol
     {
         self.model = model
     }
+    
+    //MARK: protocol
+    
+    func startConnection()
+    {
+        model?.start()
+    }
 }
