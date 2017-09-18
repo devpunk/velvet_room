@@ -4,7 +4,15 @@ extension MVitaLinkStrategyProtocol
 {
     func startConnection() { }
     func commandConnected() { }
-    func commandDisconnected() { }
     func eventConnected() { }
-    func eventDisconnected() { }
+    
+    func commandDisconnected()
+    {
+        model?.disconnected()
+    }
+    
+    func eventDisconnected()
+    {
+        model?.disconnected()
+    }
 }
