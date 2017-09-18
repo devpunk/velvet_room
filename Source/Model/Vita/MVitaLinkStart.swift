@@ -14,7 +14,13 @@ extension MVitaLink
         }
         catch
         {
+            let message:String = String.localizedModel(
+                key:"MVitaLink_errorConnectCommand")
+            delegate?.linkError(message:message)
             
+            return
         }
+        
+        
     }
 }
