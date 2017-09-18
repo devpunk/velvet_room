@@ -9,21 +9,10 @@ final class MHome:Model<ArchHome>
     {
         super.init()
         
-        let message:MVitaPtpMessageOut = factoryPtp()
-        let data:Data = message.export()
+        let message:MVitaPtpMessageOutProtocol = MVitaPtpMessageOutCommandRequest()
         
-        let messageIn:MVitaPtpMessageIn? = MVitaPtpMessageIn(data:data)
+        let messageIn:MVitaPtpMessageIn? = MVitaPtpMessageIn(data:message.data)
         
         print("\(messageIn?.header.size) \(messageIn?.header.type)")
-    }
-    
-    func factoryPtp() -> MVitaPtpMessageOut
-    {
-        let firstVal:UInt32 = 55
-        
-        let message:MVitaPtpMessageOut = MVitaPtpMessageOut()
-        message.append(value:firstVal)
-        
-        return message
     }
 }

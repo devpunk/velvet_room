@@ -1,9 +1,10 @@
 import Foundation
 
-class MVitaPtpMessageOutBuilder
+final class MVitaPtpMessageOutBuilder
 {
     private var size:UInt32
     private var data:Data
+    private let kTransactionId:UInt32 = 0
     
     init()
     {
@@ -25,7 +26,7 @@ class MVitaPtpMessageOutBuilder
     
     //MARK: internal
     
-    final func append<T>(value:T)
+    func append<T>(value:T)
     {
         var value:T = value
         let buffer:UnsafeBufferPointer = UnsafeBufferPointer(
@@ -36,7 +37,12 @@ class MVitaPtpMessageOutBuilder
         appendSize(value:value)
     }
     
-    final func export() -> Data
+    func appendTransactionId()
+    {
+        append(value:kTransactionId)
+    }
+    
+    func export() -> Data
     {
         let sizeBuffer:UnsafeBufferPointer = UnsafeBufferPointer(
             start:&size,
