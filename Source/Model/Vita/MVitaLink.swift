@@ -3,6 +3,7 @@ import Foundation
 final class MVitaLink
 {
     weak var delegate:MVitaLinkDelegate?
+    var strategy:MVitaLinkStrategyProtocol?
     let device:MVitaDevice
     let configuration:MVitaConfiguration
     let linkCommand:MVitaLinkCommand
