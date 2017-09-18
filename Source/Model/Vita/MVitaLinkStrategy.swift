@@ -6,6 +6,13 @@ extension MVitaLink
     
     func strategyOff()
     {
-        strategy = MVitaLinkStrategyOff(model:self)
+        strategy = MVitaLinkStrategyOff(
+            model:self)
+    }
+    
+    func strategyConnectCommand()
+    {
+        strategy = MVitaLinkStrategyConnectCommand(
+            model:self)
     }
 }

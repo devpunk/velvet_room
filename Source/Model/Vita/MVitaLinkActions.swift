@@ -32,6 +32,7 @@ extension MVitaLink
     
     func start()
     {
-        
+        strategyConnectCommand()
+        connectCommand()
     }
 }
