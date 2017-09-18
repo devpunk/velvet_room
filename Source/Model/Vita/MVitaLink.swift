@@ -23,6 +23,7 @@ final class MVitaLink
         linkCommand.model = self
         linkEvent.model = self
         
-        strategyOff()
+        changeStrategy(strategyType:
+            MVitaLinkStrategyOff.self)
     }
 }

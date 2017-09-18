@@ -6,13 +6,15 @@ extension MVitaLink
     
     func connectCommand()
     {
-        strategyConnectCommand()
+        changeStrategy(strategyType:
+            MVitaLinkStrategyConnectCommand.self)
         linkCommand.connect()
     }
     
     func connectEvent()
     {
-        strategyConnectEvent()
+        changeStrategy(strategyType:
+            MVitaLinkStrategyConnectEvent.self)
         linkEvent.connect()
     }
     

@@ -4,6 +4,12 @@ extension MVitaLink
 {
     //MARK: internal
     
+    func changeStrategy(
+        strategyType:MVitaLinkStrategyProtocol.Type)
+    {
+        strategy = strategyType.init(model:self)
+    }
+    
     func cancel()
     {
         linkCommand.cancel()
