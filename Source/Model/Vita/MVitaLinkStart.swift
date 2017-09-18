@@ -6,6 +6,15 @@ extension MVitaLink
     
     func start()
     {
-        
+        do
+        {
+            try linkCommand.socket.connect(
+                toHost:device.ipAddress,
+                onPort:device.port)
+        }
+        catch
+        {
+            
+        }
     }
 }
