@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessageIn
+class MVitaPtpMessageIn
 {
     
 }
