@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessage
+final class MVitaPtpMessageOut
 {
     private var size:UInt32
     private var data:Data
