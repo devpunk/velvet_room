@@ -9,16 +9,17 @@ final class MHome:Model<ArchHome>
     {
         super.init()
         
-        let message:MVitaPtpMessage = MVitaPtpMessage()
-        let data:Data = message.data
+        let message:MVitaPtpMessage = factoryPtp()
+        let data:Data = message.export()
+        print("size \(data.count)")
         
         let array:[UInt32] = data.withUnsafeBytes
         {
             
-            Array(UnsafeBufferPointer<UInt32>(start: $0, count:1))
+            Array(UnsafeBufferPointer<UInt32>(start: $0, count:2))
         }
         
-        print(array[0])
+        print(array)
     }
     
     func factoryPtp() -> MVitaPtpMessage
