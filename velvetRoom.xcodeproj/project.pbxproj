@@ -139,6 +139,7 @@
 		DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799271F57C085001D6A4C /* ArchConnect.swift */; };
 		DADB40051F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB40041F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift */; };
 		DADB40071F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB40061F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift */; };
+		DADB40091F703AD1006D13CA /* MVitaLinkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB40081F703AD1006D13CA /* MVitaLinkConnection.swift */; };
 		DAEE160C1F5795CA00D9F6DD /* MMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16081F5795CA00D9F6DD /* MMenu.swift */; };
 		DAEE160D1F5795CA00D9F6DD /* MMenuFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */; };
 		DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */; };
@@ -299,6 +300,7 @@
 		DAD799271F57C085001D6A4C /* ArchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnect.swift; sourceTree = "<group>"; };
 		DADB40041F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyConnectCommand.swift; sourceTree = "<group>"; };
 		DADB40061F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyConnectEvent.swift; sourceTree = "<group>"; };
+		DADB40081F703AD1006D13CA /* MVitaLinkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkConnection.swift; sourceTree = "<group>"; };
 		DAEE16081F5795CA00D9F6DD /* MMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenu.swift; sourceTree = "<group>"; };
 		DAEE16091F5795CA00D9F6DD /* MMenuFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuFactory.swift; sourceTree = "<group>"; };
 		DAEE160A1F5795CA00D9F6DD /* MMenuItemProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MMenuItemProtocol.swift; sourceTree = "<group>"; };
@@ -454,6 +456,7 @@
 				DA03CF851F6DEB2D001AE828 /* MVitaLink.swift */,
 				DA35741A1F7023DA00286858 /* MVitaLinkStrategy.swift */,
 				DA35740A1F701AD200286858 /* MVitaLinkActions.swift */,
+				DADB40081F703AD1006D13CA /* MVitaLinkConnection.swift */,
 				DA03CF8F1F6F0CCA001AE828 /* MVitaLinkFactory.swift */,
 				DA03CF911F6F0D2B001AE828 /* MVitaLinkDelegate.swift */,
 				DA03CF871F6DEE16001AE828 /* MVitaLinkCommand.swift */,
@@ -1110,6 +1113,7 @@
 				DADB40051F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
+				DADB40091F703AD1006D13CA /* MVitaLinkConnection.swift in Sources */,
 				DA03CF861F6DEB2D001AE828 /* MVitaLink.swift in Sources */,
 				DA8B7DFD1F579037004EEE23 /* ExtensionNSLayoutConstraint.swift in Sources */,
 				DAEE160E1F5795CA00D9F6DD /* MMenuItemProtocol.swift in Sources */,
