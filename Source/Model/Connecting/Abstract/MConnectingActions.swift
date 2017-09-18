@@ -14,7 +14,7 @@ extension MConnecting
             delegate:self)
         
         self.vitaLink = vitaLink
-        vitaLink.start()
+        vitaLink.strategy?.startConnection()
     }
     
     //MARK: internal
