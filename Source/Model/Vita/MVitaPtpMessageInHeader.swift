@@ -2,6 +2,6 @@ import Foundation
 
 struct MVitaPtpMessageInHeader
 {
-    let size:Int
-    let type:Int
+    let size:UInt32
+    let type:UInt32
 }
