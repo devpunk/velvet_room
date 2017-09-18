@@ -17,4 +17,12 @@ final class MVitaLinkCommand
         self.delegate = delegate
         self.queue = queue
     }
+    
+    //MARK: internal
+    
+    func cancel()
+    {
+        socket.delegate = nil
+        socket.disconnect()
+    }
 }

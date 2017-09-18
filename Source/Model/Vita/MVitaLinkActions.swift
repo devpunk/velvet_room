@@ -6,6 +6,7 @@ extension MVitaLink
     
     func cancel()
     {
-        
+        linkCommand.cancel()
+        linkEvent.cancel()
     }
 }
