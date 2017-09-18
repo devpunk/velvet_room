@@ -2,25 +2,20 @@ import Foundation
 
 class MVitaPtpMessageIn
 {
-    let size:Int
-    let type:Int
+    let header:MVitaPtpMessageInHeader
     
     init?(data:Data)
     {
+        guard
         
+            let header:MVitaPtpMessageInHeader = MVitaPtpMessageInHeader(
+                data:data)
         
-        let headerInfo:[UInt32] = data.withUnsafeBytes
-        { (pointer:UnsafePointer<UInt32>) -> [UInt32] in
-            
-            let bufferPointer:UnsafeBufferPointer = UnsafeBufferPointer(
-                start:pointer,
-                count:2)
-            let array:[UInt32] = Array(bufferPointer)
-            
-            return array
+        else
+        {
+            return nil
         }
         
-        size = headerInfo[0]
-        type = headerInfo[1]
+        self.header = header
     }
 }
