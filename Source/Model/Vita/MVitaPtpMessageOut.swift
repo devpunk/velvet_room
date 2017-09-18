@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessageOut
+class MVitaPtpMessageOut
 {
     private var size:UInt32
     private var data:Data
@@ -25,7 +25,7 @@ final class MVitaPtpMessageOut
     
     //MARK: internal
     
-    func append<T>(value:T)
+    final func append<T>(value:T)
     {
         var value:T = value
         let pointer:UnsafeBufferPointer = UnsafeBufferPointer(
@@ -36,7 +36,7 @@ final class MVitaPtpMessageOut
         appendSize(value:value)
     }
     
-    func export() -> Data
+    final func export() -> Data
     {
         let pointer:UnsafeBufferPointer = UnsafeBufferPointer(
             start:&size,
