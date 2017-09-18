@@ -135,29 +135,36 @@ final class VSlider:UIView, UIGestureRecognizerDelegate
         
         let width:CGFloat = viewBase.bounds.maxX
         
-        if width > 0
+        guard
+            
+            width > 0
+            
+        else
         {
-            let translationX:CGFloat = gesture.translation(in:self).x
-            var newWidth:CGFloat = panInitialWidth + translationX
+            return
+        }
+        
+        let translationX:CGFloat = gesture.translation(in:self).x
+        var newWidth:CGFloat = panInitialWidth + translationX
+        
+        if newWidth < 0
+        {
+            newWidth = 0
+        }
+        else if newWidth > width
+        {
+            newWidth = width
+        }
+        
+        layoutBarWidth.constant = newWidth
+        let percentUsed:CGFloat = newWidth / width
+        self.percentUsed = percentUsed
+        
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
             
-            if newWidth < 0
-            {
-                newWidth = 0
-            }
-            else if newWidth > width
-            {
-                newWidth = width
-            }
-            
-            layoutBarWidth.constant = newWidth
-            let percentUsed:CGFloat = newWidth / width
-            self.percentUsed = percentUsed
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.sliderChange?(percentUsed)
-            }
+            self?.sliderChange?(percentUsed)
         }
     }
     
@@ -177,7 +184,8 @@ final class VSlider:UIView, UIGestureRecognizerDelegate
     
     //MARK: gesture delegate
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer:UIGestureRecognizer) -> Bool
+    override func gestureRecognizerShouldBegin(
+        _ gestureRecognizer:UIGestureRecognizer) -> Bool
     {
         guard
         

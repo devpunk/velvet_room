@@ -14,8 +14,10 @@ extension MConnectingSocket
             label:kUdpQueueLabel,
             qos:DispatchQoS.background,
             attributes:DispatchQueue.Attributes(),
-            autoreleaseFrequency:DispatchQueue.AutoreleaseFrequency.inherit,
-            target:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+            autoreleaseFrequency:
+            DispatchQueue.AutoreleaseFrequency.inherit,
+            target:DispatchQueue.global(
+                qos:DispatchQoS.QoSClass.background))
         
         return queue
     }
@@ -26,8 +28,10 @@ extension MConnectingSocket
             label:kTcpQueueLabel,
             qos:DispatchQoS.background,
             attributes:DispatchQueue.Attributes(),
-            autoreleaseFrequency:DispatchQueue.AutoreleaseFrequency.inherit,
-            target:DispatchQueue.global(qos:DispatchQoS.QoSClass.background))
+            autoreleaseFrequency:
+            DispatchQueue.AutoreleaseFrequency.inherit,
+            target:DispatchQueue.global(
+                qos:DispatchQoS.QoSClass.background))
         
         return queue
     }

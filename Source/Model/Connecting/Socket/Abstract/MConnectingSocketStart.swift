@@ -51,7 +51,8 @@ extension MConnectingSocket
     
     func start()
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.asyncStart()

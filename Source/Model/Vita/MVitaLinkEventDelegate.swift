@@ -14,7 +14,8 @@ final class MVitaLinkEventDelegate:
         didConnectToHost host:String,
         port:UInt16)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.model?.model?.strategy?.eventConnected()
@@ -25,7 +26,8 @@ final class MVitaLinkEventDelegate:
         _ sock:GCDAsyncSocket,
         withError err:Error?)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.model?.model?.strategy?.eventDisconnected()

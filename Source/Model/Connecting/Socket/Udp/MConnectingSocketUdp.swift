@@ -77,7 +77,8 @@ final class MConnectingSocketUdp
             return
         }
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.socket.send(

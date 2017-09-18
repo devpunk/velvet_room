@@ -13,7 +13,8 @@ final class MConnectingSocketTcpDelegate:
         _ sock:GCDAsyncSocket,
         didAcceptNewSocket newSocket:GCDAsyncSocket)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.model?.acceptedConnection(
@@ -37,7 +38,8 @@ final class MConnectingSocketTcpDelegate:
             return
         }
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.model?.receivedString(string:string)

@@ -17,7 +17,8 @@ extension MConnectingSocketTcp
             return
         }
         
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.socketWrite(data:data)
