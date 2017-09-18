@@ -15,4 +15,10 @@ extension MVitaLink
         strategy = MVitaLinkStrategyConnectCommand(
             model:self)
     }
+    
+    func strategyConnectEvent()
+    {
+        strategy = MVitaLinkStrategyConnectEvent(
+            model:self)
+    }
 }

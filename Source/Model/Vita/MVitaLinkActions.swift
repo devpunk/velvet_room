@@ -32,6 +32,21 @@ extension MVitaLink
     
     func connectEvent()
     {
+        strategyConnectEvent()
         
+        do
+        {
+            try linkEvent.socket.connect(
+                toHost:device.ipAddress,
+                onPort:device.port)
+        }
+        catch
+        {
+            let message:String = String.localizedModel(
+                key:"MVitaLink_errorConnectEvent")
+            delegate?.linkError(message:message)
+            
+            return
+        }
     }
 }

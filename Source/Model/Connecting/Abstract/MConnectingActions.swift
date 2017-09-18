@@ -81,6 +81,7 @@ extension MConnecting
         socket?.cancel()
         vitaLink?.cancel()
         
+        vitaLink = nil
         socket = nil
         device = nil
         modelPin = nil
