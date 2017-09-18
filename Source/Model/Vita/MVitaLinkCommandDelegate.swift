@@ -14,7 +14,8 @@ final class MVitaLinkCommandDelegate:
         didConnectToHost host:String,
         port:UInt16)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.model?.model?.strategy?.commandConnected()
@@ -25,10 +26,25 @@ final class MVitaLinkCommandDelegate:
         _ sock:GCDAsyncSocket,
         withError err:Error?)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
             self?.model?.model?.strategy?.commandDisconnected()
+        }
+    }
+    
+    func socket(
+        _ sock:GCDAsyncSocket,
+        didRead data:Data,
+        withTag tag:Int)
+    {
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model?.model?.strategy?.commandRead(
+                data:data)
         }
     }
 }

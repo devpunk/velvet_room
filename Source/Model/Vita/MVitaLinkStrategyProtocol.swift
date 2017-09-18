@@ -11,4 +11,5 @@ protocol MVitaLinkStrategyProtocol
     func commandDisconnected()
     func eventConnected()
     func eventDisconnected()
+    func commandRead(data:Data)
 }

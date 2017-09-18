@@ -5,6 +5,7 @@ extension MVitaLinkStrategyProtocol
     func startConnection() { }
     func commandConnected() { }
     func eventConnected() { }
+    func commandRead(data:Data) {  }
     
     func commandDisconnected()
     {
