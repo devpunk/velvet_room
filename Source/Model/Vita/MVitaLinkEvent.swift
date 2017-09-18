@@ -20,6 +20,31 @@ final class MVitaLinkEvent
     
     //MARK: internal
     
+    func connect()
+    {
+        guard
+        
+            let model:MVitaLink = self.model
+        
+        else
+        {
+            return
+        }
+        
+        do
+        {
+            try socket.connect(
+                toHost:model.device.ipAddress,
+                onPort:model.device.port)
+        }
+        catch
+        {
+            let message:String = String.localizedModel(
+                key:"MVitaLinkEvent_errorConnect")
+            model.delegate?.linkError(message:message)
+        }
+    }
+    
     func cancel()
     {
         socket.delegate = nil

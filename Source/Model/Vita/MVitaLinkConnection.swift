@@ -7,45 +7,25 @@ extension MVitaLink
     func connectCommand()
     {
         strategyConnectCommand()
-        
-        do
-        {
-            try linkCommand.socket.connect(
-                toHost:device.ipAddress,
-                onPort:device.port)
-        }
-        catch
-        {
-            let message:String = String.localizedModel(
-                key:"MVitaLink_errorConnectCommand")
-            delegate?.linkError(message:message)
-            
-            return
-        }
+        linkCommand.connect()
     }
     
     func connectEvent()
     {
         strategyConnectEvent()
-        
-        do
-        {
-            try linkEvent.socket.connect(
-                toHost:device.ipAddress,
-                onPort:device.port)
-        }
-        catch
-        {
-            let message:String = String.localizedModel(
-                key:"MVitaLink_errorConnectEvent")
-            delegate?.linkError(message:message)
-            
-            return
-        }
+        linkEvent.connect()
     }
     
     func requestCommand()
     {
+        let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
         
+        linkCommand.socket.write(
+            message.data,
+            withTimeout:0,
+            tag:0)
+        linkCommand.socket.readData(
+            withTimeout:0,
+            tag:0)
     }
 }

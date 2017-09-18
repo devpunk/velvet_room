@@ -9,10 +9,10 @@ final class MHome:Model<ArchHome>
     {
         super.init()
         
-        let message:MVitaPtpMessageOutProtocol = MVitaPtpMessageOutCommandRequest()
-        
-        let messageIn:MVitaPtpMessageIn? = MVitaPtpMessageIn(data:message.data)
-        
-        print("\(messageIn?.header.size) \(messageIn?.header.type)")
+//        let message:MVitaPtpMessageOutProtocol = MVitaPtpMessageOutCommandRequest()
+//        
+//        let messageIn:MVitaPtpMessageIn? = MVitaPtpMessageIn(data:message.data)
+//        
+//        print("\(messageIn?.header.size) \(messageIn?.header.type)")
     }
 }
