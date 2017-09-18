@@ -7,4 +7,6 @@ protocol MVitaLinkStrategyProtocol
     init(model:MVitaLink)
     
     func startConnection()
+    func commandConnected()
+    func commandDisconnected()
 }
