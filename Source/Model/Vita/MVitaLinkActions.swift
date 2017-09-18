@@ -2,10 +2,18 @@ import Foundation
 
 extension MVitaLink
 {
-    //MARK: private
+    //MARK: internal
     
-    private func connectCommand()
+    func cancel()
     {
+        linkCommand.cancel()
+        linkEvent.cancel()
+    }
+    
+    func connectCommand()
+    {
+        strategyConnectCommand()
+        
         do
         {
             try linkCommand.socket.connect(
@@ -22,17 +30,8 @@ extension MVitaLink
         }
     }
     
-    //MARK: internal
-    
-    func cancel()
+    func connectEvent()
     {
-        linkCommand.cancel()
-        linkEvent.cancel()
-    }
-    
-    func start()
-    {
-        strategyConnectCommand()
-        connectCommand()
+        
     }
 }

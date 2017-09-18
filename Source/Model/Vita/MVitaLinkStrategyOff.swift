@@ -13,6 +13,6 @@ final class MVitaLinkStrategyOff:MVitaLinkStrategyProtocol
     
     func startConnection()
     {
-        model?.start()
+        model?.connectCommand()
     }
 }

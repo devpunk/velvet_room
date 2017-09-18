@@ -10,4 +10,14 @@ final class MVitaLinkStrategyConnectCommand:MVitaLinkStrategyProtocol
     }
     
     //MARK: protocol
+    
+    func commandConnected()
+    {
+        model?.connectEvent()
+    }
+    
+    func commandDisconnected()
+    {
+        model?.connectCommand()
+    }
 }
