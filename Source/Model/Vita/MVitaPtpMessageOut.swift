@@ -28,21 +28,21 @@ class MVitaPtpMessageOut
     final func append<T>(value:T)
     {
         var value:T = value
-        let pointer:UnsafeBufferPointer = UnsafeBufferPointer(
+        let buffer:UnsafeBufferPointer = UnsafeBufferPointer(
             start:&value,
             count:1)
         
-        data.append(pointer)
+        data.append(buffer)
         appendSize(value:value)
     }
     
     final func export() -> Data
     {
-        let pointer:UnsafeBufferPointer = UnsafeBufferPointer(
+        let sizeBuffer:UnsafeBufferPointer = UnsafeBufferPointer(
             start:&size,
             count:1)
         
-        var data:Data = Data(buffer:pointer)
+        var data:Data = Data(buffer:sizeBuffer)
         data.append(self.data)
         
         return data
