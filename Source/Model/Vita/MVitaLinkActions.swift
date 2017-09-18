@@ -10,6 +10,13 @@ extension MVitaLink
         linkEvent.cancel()
     }
     
+    func disconnected()
+    {
+        let message:String = String.localizedModel(
+            key:"MVitaLink_errorDisconnected")
+        delegate?.linkError(message:message)
+    }
+    
     func connectCommand()
     {
         strategyConnectCommand()
@@ -48,5 +55,10 @@ extension MVitaLink
             
             return
         }
+    }
+    
+    func requestCommand()
+    {
+        
     }
 }

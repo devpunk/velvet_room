@@ -11,4 +11,8 @@ final class MVitaLinkStrategyConnectEvent:MVitaLinkStrategyProtocol
     
     //MARK: protocol
     
+    func eventConnected()
+    {
+        model?.requestCommand()
+    }
 }

@@ -15,3 +15,4 @@
 "MConnecting_errorRegistred"="Failed registring connection,\ntry again";
 "MVitaLink_errorConnectCommand"="Failed connecting Command Socket,\ntry again";
 "MVitaLink_errorConnectEvent"="Failed connecting Event Socket,\ntry again";
+"MVitaLink_errorDisconnected"="Got disconnected,\ntry again";
