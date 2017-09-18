@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessageOutCommandRequest:MVitaPtpMessageOut
+struct MVitaPtpMessageOutCommandRequest:MVitaPtpMessageOutProtocol
 {
-    
+    let data:Data
 }
