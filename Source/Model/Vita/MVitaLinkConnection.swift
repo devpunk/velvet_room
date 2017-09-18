@@ -20,14 +20,8 @@ extension MVitaLink
     
     func requestCommand()
     {
-        let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
-        
-        linkCommand.socket.write(
-            message.data,
-            withTimeout:0,
-            tag:0)
-        linkCommand.socket.readData(
-            withTimeout:0,
-            tag:0)
+        changeStrategy(strategyType:
+            MVitaLinkStrategyRequestCommand.self)
+        linkCommand.request()
     }
 }

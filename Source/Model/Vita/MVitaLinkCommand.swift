@@ -45,6 +45,19 @@ final class MVitaLinkCommand
         }
     }
     
+    func request()
+    {
+        let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
+        
+        socket.write(
+            message.data,
+            withTimeout:0,
+            tag:0)
+        socket.readData(
+            withTimeout:0,
+            tag:0)
+    }
+    
     func cancel()
     {
         socket.delegate = nil
