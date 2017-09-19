@@ -38,51 +38,91 @@ class MVitaLinkPtpDelegate:
         socket:GCDAsyncSocket,
         data:Data)
     {
-        var readAgain:Bool = true
         let mergedData:Data = mergeData(data:data)
 
         guard
             
-            let header:PTPHeader = PTPHeader(data:mergedData),
-            header.size <= mergedData.count
+            let header:MVitaPtpMessageInHeader = MVitaPtpMessageIn.factoryHeader(
+                data:data),
+            mergedData.count >= header.size
             
-            else
+        else
         {
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                {
-                    self.carryData(data:mergedData)
-                    self.connected?.readCommand()
-            }
+            carryData(data:data)
+            asyncRead(socket:socket)
             
             return
         }
         
-        if header.size < mergedData.count
-        {
-            readAgain = false
+        read(
+            header:header,
+            socket:socket,
+            data:mergedData)
+        checkSurplus(
+            header:header,
+            socket:socket,
+            data:data)
+    }
+    
+    private func read(
+        header:MVitaPtpMessageInHeader,
+        socket:GCDAsyncSocket,
+        data:Data)
+    {
+        let unheaderDataRange:Range<Data.Index> = Range<Data.Index>(
+            MVitaPtpMessageInHeader.size ..< header.size)
+        let unheaderData:Data = data.subdata(
+            in:unheaderDataRange)
+        
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
             
-            defer
-            {
-                DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                    {
-                        let sub:Data = mergedData.subdata(in:Int(header.size) ..< mergedData.count)
-                        print("subdata: \(sub.count)")
-                        self.dataRead(data:sub, sock:sock)
-                }
-            }
+            self?.received(
+                header:header,
+                data:unheaderData)
+        }
+    }
+    
+    private func checkSurplus(
+        header:MVitaPtpMessageInHeader,
+        socket:GCDAsyncSocket,
+        data:Data)
+    {
+        guard
+            
+            data.count > header.size
+            
+        else
+        {
+            return
         }
         
-        let dataUnheader:Data = mergedData.subdata(in:8 ..< Int(header.size))
+        let surplusDataRange:Range<Data.Index> = Range<Data.Index>(
+            header.size ..< data.count)
+        let surplusData:Data = data.subdata(
+            in:surplusDataRange)
+        
+        read(socket:socket, data:surplusData)
     }
     
     private func asyncRead(socket:GCDAsyncSocket)
     {
-        DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
         {
             socket.readData(
                 withTimeout:0,
                 tag:0)
         }
+    }
+    
+    //MARK: internal
+    
+    func received(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
     }
     
     //MARK: delegate
@@ -92,6 +132,13 @@ class MVitaLinkPtpDelegate:
         didRead data:Data,
         withTag tag:Int)
     {
-        read(socket:sock, data:data)
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.read(
+                socket:sock,
+                data:data)
+        }
     }
 }

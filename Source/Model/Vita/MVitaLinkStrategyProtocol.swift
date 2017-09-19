@@ -11,5 +11,10 @@ protocol MVitaLinkStrategyProtocol
     func commandDisconnected()
     func eventConnected()
     func eventDisconnected()
-    func commandRead(data:Data)
+    func commandReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    func eventReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
 }

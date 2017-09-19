@@ -5,6 +5,15 @@ final class MVitaLinkEventDelegate:MVitaLinkPtpDelegate
 {
     weak var model:MVitaLinkEvent?
     
+    override func received(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        model?.model?.strategy?.eventReceived(
+            header:header,
+            data:data)
+    }
+    
     //MARK: delegate
     
     func socket(

@@ -8,7 +8,7 @@ extension MVitaPtpMessageIn
     {
         guard
             
-            data.count >= 8
+            data.count >= MVitaPtpMessageInHeader.size
             
         else
         {
@@ -20,7 +20,7 @@ extension MVitaPtpMessageIn
             
             let bufferPointer:UnsafeBufferPointer = UnsafeBufferPointer(
                 start:pointer,
-                count:2)
+                count:MVitaPtpMessageInHeader.elements)
             let array:[UInt32] = Array(bufferPointer)
             
             return array

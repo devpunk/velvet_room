@@ -5,7 +5,12 @@ extension MVitaLinkStrategyProtocol
     func startConnection() { }
     func commandConnected() { }
     func eventConnected() { }
-    func commandRead(data:Data) {  }
+    func commandReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data) {  }
+    func eventReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data) {  }
     
     func commandDisconnected()
     {
