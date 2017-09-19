@@ -54,6 +54,7 @@
 		DA57E3371F635F2F00B3EA73 /* PTPDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E3361F635F2F00B3EA73 /* PTPDelegate.swift */; };
 		DA57E3391F649BC100B3EA73 /* PTPDelegateWrite.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA57E3381F649BC100B3EA73 /* PTPDelegateWrite.swift */; };
 		DA5D1A2A1F5FB4C600FAF140 /* MConnectConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */; };
+		DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */; };
 		DA76226F1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */; };
 		DA7622751F6BF2500049195B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622711F6BF2500049195B /* Database.swift */; };
 		DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622721F6BF2500049195B /* DatabaseFactory.swift */; };
@@ -220,6 +221,7 @@
 		DA57E3381F649BC100B3EA73 /* PTPDelegateWrite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PTPDelegateWrite.swift; sourceTree = "<group>"; };
 		DA5C66591F5CE4F80006B049 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectConnected.swift; sourceTree = "<group>"; };
+		DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkPtpDelegate.swift; sourceTree = "<group>"; };
 		DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationBroadcast.swift; sourceTree = "<group>"; };
 		DA7622711F6BF2500049195B /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DA7622721F6BF2500049195B /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				DADB40081F703AD1006D13CA /* MVitaLinkConnection.swift */,
 				DA03CF8F1F6F0CCA001AE828 /* MVitaLinkFactory.swift */,
 				DA03CF911F6F0D2B001AE828 /* MVitaLinkDelegate.swift */,
+				DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */,
 				DA03CF871F6DEE16001AE828 /* MVitaLinkCommand.swift */,
 				DA03CF8D1F6DEEF3001AE828 /* MVitaLinkCommandDelegate.swift */,
 				DA03CF891F6DEE32001AE828 /* MVitaLinkEvent.swift */,
@@ -1084,6 +1087,7 @@
 				DA1A1BD91F6738F600E8B084 /* MConnectFactory.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
 				DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */,
+				DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */,
 				DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */,
 				DAEE160F1F5795CA00D9F6DD /* MMenuOrder.swift in Sources */,
 				DA9751441F69938A00DBC757 /* MConnectingStatusProtocol.swift in Sources */,
