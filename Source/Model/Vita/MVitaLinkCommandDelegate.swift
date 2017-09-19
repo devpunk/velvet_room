@@ -1,9 +1,7 @@
 import Foundation
 import CocoaAsyncSocket
 
-final class MVitaLinkCommandDelegate:
-    NSObject,
-    GCDAsyncSocketDelegate
+final class MVitaLinkCommandDelegate:MVitaLinkPtpDelegate
 {
     weak var model:MVitaLinkCommand?
     
@@ -31,20 +29,6 @@ final class MVitaLinkCommandDelegate:
         { [weak self] in
             
             self?.model?.model?.strategy?.commandDisconnected()
-        }
-    }
-    
-    func socket(
-        _ sock:GCDAsyncSocket,
-        didRead data:Data,
-        withTag tag:Int)
-    {
-        DispatchQueue.global(
-            qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.model?.model?.strategy?.commandRead(
-                data:data)
         }
     }
 }

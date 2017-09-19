@@ -1,9 +1,7 @@
 import Foundation
 import CocoaAsyncSocket
 
-final class MVitaLinkEventDelegate:
-    NSObject,
-    GCDAsyncSocketDelegate
+final class MVitaLinkEventDelegate:MVitaLinkPtpDelegate
 {
     weak var model:MVitaLinkEvent?
     
