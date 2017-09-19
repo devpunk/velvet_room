@@ -26,7 +26,8 @@ extension MVitaPtpMessageIn
             return array
         }
         
-        let size:UInt32 = headerInfo[0]
+        let sizeUnsigned:UInt32 = headerInfo[0]
+        let size:Int = Int(sizeUnsigned)
         let type:UInt32 = headerInfo[1]
         
         let header:MVitaPtpMessageInHeader = MVitaPtpMessageInHeader(
