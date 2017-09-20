@@ -10,4 +10,38 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     }
     
     //MARK: protocol
+    
+    func eventReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        guard
+            
+            let requestCommand:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
+                header:header,
+                data:data),
+            header.type == MVitaPtpType.commandRequestAccepted
+            
+        else
+        {
+            return
+        }
+        
+        success(requestCommand:requestCommand)
+    }
+    
+    //MARK: private
+    
+    private func failed()
+    {
+        let message:String = String.localizedModel(
+            key:"MVitaLinkStrategyRequestCommand_messageFailed")
+        model?.delegate?.linkError(message:message)
+    }
+    
+    private func success(
+        requestCommand:MVitaPtpMessageInRequestCommand)
+    {
+        
+    }
 }
