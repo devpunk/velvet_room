@@ -65,6 +65,7 @@
 		DA7ABF751F6C018B0092B797 /* CHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF741F6C018B0092B797 /* CHome.swift */; };
 		DA7ABF771F6C01AB0092B797 /* ArchHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF761F6C01AB0092B797 /* ArchHome.swift */; };
 		DA7ABF791F6C02170092B797 /* MMenuItemHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7ABF781F6C02170092B797 /* MMenuItemHome.swift */; };
+		DA7DFC1F1F71FE2A00C8D1E8 /* MVitaPtpMessageInCommandRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7DFC1E1F71FE2A00C8D1E8 /* MVitaPtpMessageInCommandRequest.swift */; };
 		DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD01F578E7C004EEE23 /* LocalizableController.strings */; };
 		DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */; };
 		DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */; };
@@ -232,6 +233,7 @@
 		DA7ABF741F6C018B0092B797 /* CHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CHome.swift; sourceTree = "<group>"; };
 		DA7ABF761F6C01AB0092B797 /* ArchHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchHome.swift; sourceTree = "<group>"; };
 		DA7ABF781F6C02170092B797 /* MMenuItemHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMenuItemHome.swift; sourceTree = "<group>"; };
+		DA7DFC1E1F71FE2A00C8D1E8 /* MVitaPtpMessageInCommandRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaPtpMessageInCommandRequest.swift; sourceTree = "<group>"; };
 		DA8B7DCE1F578E7C004EEE23 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		DA8B7DD11F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableController.strings; sourceTree = "<group>"; };
 		DA8B7DD31F578E7C004EEE23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LocalizableModel.strings; sourceTree = "<group>"; };
@@ -493,6 +495,7 @@
 				DAF79EE61F70745A00117BA4 /* MVitaPtpMessageIn.swift */,
 				DAF79EEC1F707BE800117BA4 /* MVitaPtpMessageInFactory.swift */,
 				DAF79EE81F7079B900117BA4 /* MVitaPtpMessageInHeader.swift */,
+				DA7DFC1E1F71FE2A00C8D1E8 /* MVitaPtpMessageInCommandRequest.swift */,
 				DAF79EF61F70875800117BA4 /* MVitaPtpType.swift */,
 				DAF79EF81F70881C00117BA4 /* MVitaPtpDataPhase.swift */,
 			);
@@ -1117,6 +1120,7 @@
 				DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */,
 				DA35740B1F701AD200286858 /* MVitaLinkActions.swift in Sources */,
 				DA9751511F69940C00DBC757 /* MConnectingTimer.swift in Sources */,
+				DA7DFC1F1F71FE2A00C8D1E8 /* MVitaPtpMessageInCommandRequest.swift in Sources */,
 				DAD3A0CB1F6D0C0A00026CA9 /* MVitaConfigurationFactoryDevice.swift in Sources */,
 				DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */,
 				DAF79EF91F70881C00117BA4 /* MVitaPtpDataPhase.swift in Sources */,

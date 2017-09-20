@@ -4,7 +4,7 @@ class MVitaPtpMessageIn
 {
     let header:MVitaPtpMessageInHeader
     
-    init(
+    init?(
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
