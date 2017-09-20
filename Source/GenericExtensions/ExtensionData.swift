@@ -33,19 +33,46 @@ extension Data
         return fileUrl
     }
     
-    func arrayFromBytes<T>(count:Int) -> [T]
+    func arrayFromBytes<T>(elements:Int) -> [T]?
     {
+        let valueSize:Int = MemoryLayout.size(ofValue:T.self)
+        let expectedSize:Int = elements * valueSize
+        
+        guard
+            
+            count >= expectedSize
+        
+        else
+        {
+            return nil
+        }
+        
         let array:[T] = withUnsafeBytes
         { (pointer:UnsafePointer<T>) -> [T] in
             
             let bufferPointer:UnsafeBufferPointer = UnsafeBufferPointer(
                 start:pointer,
-                count:count)
+                count:elements)
             let array:[T] = Array(bufferPointer)
             
             return array
         }
         
         return array
+    }
+    
+    func valueFromBytes<T>() -> T?
+    {
+        guard
+        
+            let array:[T] = arrayFromBytes(elements:1),
+            let value:T = array.first
+        
+        else
+        {
+            return nil
+        }
+        
+        return value
     }
 }
