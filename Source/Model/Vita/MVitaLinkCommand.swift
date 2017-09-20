@@ -12,7 +12,7 @@ final class MVitaLinkCommand:MVitaLinkSocket
     
     func openSession()
     {
-        let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
+        let message:MVitaPtpMessageOutOpenSession = MVitaPtpMessageOutOpenSession()
         writeMessage(message:message)
     }
 }
