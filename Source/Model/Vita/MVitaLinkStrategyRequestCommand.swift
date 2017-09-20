@@ -11,4 +11,10 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
     
     //MARK: protocol
     
+    func commandReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        
+    }
 }
