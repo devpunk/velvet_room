@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessageInOpenSession:MVitaPtpMessageIn
+final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
 {
     let code:UInt16
     let transactionId:UInt32
