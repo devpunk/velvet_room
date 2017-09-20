@@ -2,6 +2,8 @@ import Foundation
 
 extension Data
 {
+    //MARK: internal
+    
     func writeToTemporal(withExtension:String?) -> URL?
     {
         var randomName:String = UUID().uuidString
@@ -17,7 +19,9 @@ extension Data
         
         do
         {
-            try write(to:fileUrl, options:Data.WritingOptions.atomicWrite)
+            try write(
+                to:fileUrl,
+                options:Data.WritingOptions.atomicWrite)
         }
         catch
         {
@@ -25,5 +29,21 @@ extension Data
         }
         
         return fileUrl
+    }
+    
+    func arrayFromBytes<T>(count:Int) -> [T]
+    {
+        let array:[T] = withUnsafeBytes
+        { (pointer:UnsafePointer<T>) -> [T] in
+            
+            let bufferPointer:UnsafeBufferPointer = UnsafeBufferPointer(
+                start:pointer,
+                count:count)
+            let array:[T] = Array(bufferPointer)
+            
+            return array
+        }
+        
+        return array
     }
 }
