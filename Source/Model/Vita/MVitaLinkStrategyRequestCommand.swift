@@ -17,7 +17,7 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
     {
         guard
         
-            let message:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
+            let response:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
                 header:header,
                 data:data),
             header.type == MVitaPtpType.commandRequestAccepted
@@ -27,7 +27,7 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
             return
         }
         
-        success(message:message)
+        success(response:response)
     }
     
     //MARK: private
@@ -40,7 +40,7 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
     }
     
     private func success(
-        message:MVitaPtpMessageInRequestCommand)
+        response:MVitaPtpMessageInRequestCommand)
     {
         
     }

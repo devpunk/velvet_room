@@ -24,4 +24,9 @@ extension MVitaLink
             MVitaLinkStrategyRequestCommand.self)
         linkCommand.request()
     }
+    
+    func requestEvent(response:MVitaPtpMessageInRequestCommand)
+    {
+        
+    }
 }
