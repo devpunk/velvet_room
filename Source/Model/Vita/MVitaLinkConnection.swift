@@ -28,6 +28,8 @@ extension MVitaLink
     func requestEvent(
         response:MVitaPtpMessageInRequestCommand)
     {
-        
+        changeStrategy(strategyType:
+            MVitaLinkStrategyRequestEvent.self)
+        linkEvent.request()
     }
 }
