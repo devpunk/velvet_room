@@ -2,8 +2,8 @@ import Foundation
 
 final class MVitaPtpMessageInReceiveData:MVitaPtpMessageIn
 {
+    let payload:Int
     let transactionId:UInt32
-    let payload:UInt32
     private let kElements:Int = 2
     
     override init?(
@@ -15,7 +15,7 @@ final class MVitaPtpMessageInReceiveData:MVitaPtpMessageIn
             let arrayData:[UInt32] = data.arrayFromBytes(
                 elements:kElements),
             let transactionId:UInt32 = arrayData.first,
-            let payload:UInt32 = arrayData.last
+            let payloadUnsigned:UInt32 = arrayData.last
             
         else
         {
@@ -23,7 +23,7 @@ final class MVitaPtpMessageInReceiveData:MVitaPtpMessageIn
         }
         
         self.transactionId = transactionId
-        self.payload = payload
+        payload = Int(payloadUnsigned)
         
         super.init(
             header:header,

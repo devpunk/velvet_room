@@ -6,7 +6,7 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
     var payload:Int
     private(set) var model:MVitaLink?
     
-    init(model:MVitaLink)
+    required init(model:MVitaLink)
     {
         self.model = model
         data = Data()
@@ -19,25 +19,70 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
-        guard
-            
-            let requestVitaInfo:MVitaPtpMessageInRequestVitaInfo = MVitaPtpMessageInRequestVitaInfo(
-                header:header,
-                data:data),
-            header.type == MVitaPtpType.dataPacketStart,
-            requestVitaInfo.payload > 0
-            
-            else
+        switch header.type
         {
+        case MVitaPtpType.dataPacketStart:
+            
+            receivedPacketStart(
+                header:header,
+                data:data)
+            
+            break
+            
+        case MVitaPtpType.dataPacket:
+            
+            receivedPacket(
+                header:header,
+                data:data)
+            
+            break
+            
+        case MVitaPtpType.dataPacketEnd:
+            
+            receivedPacketEnd(
+                header:header,
+                data:data)
+            
+            break
+            
+        default:
+            
             failed()
             
-            return
+            break
         }
-        
-        success()
     }
     
     //MARK: private
     
+    private func receivedPacketStart(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        
+    }
     
+    private func receivedPacket(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        
+    }
+    
+    private func receivedPacketEnd(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        
+    }
+    
+    //MARK: internal
+    
+    func failed()
+    {
+    }
+    
+    func success()
+    {
+    }
 }
