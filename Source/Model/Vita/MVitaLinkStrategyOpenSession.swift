@@ -17,11 +17,11 @@ final class MVitaLinkStrategyOpenSession:MVitaLinkStrategyProtocol
     {
         guard
             
-            let openSession:MVitaPtpMessageInOpenSession = MVitaPtpMessageInOpenSession(
+            let confirm:MVitaPtpMessageInConfirm = MVitaPtpMessageInConfirm(
                 header:header,
                 data:data),
             header.type == MVitaPtpType.commandAccepted,
-            openSession.code == MVitaPtpCommand.success
+            confirm.code == MVitaPtpCommand.success
             
         else
         {

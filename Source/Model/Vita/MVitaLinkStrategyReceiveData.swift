@@ -45,6 +45,14 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
             
             break
             
+        case MVitaPtpType.commandAccepted:
+            
+            receivedConfirm(
+                header:header,
+                data:data)
+            
+            break
+            
         default:
             
             failed()
@@ -70,6 +78,13 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
     }
     
     private func receivedPacketEnd(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        
+    }
+    
+    private func receivedConfirm(
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
