@@ -25,7 +25,8 @@ extension MVitaLink
         linkCommand.request()
     }
     
-    func requestEvent(response:MVitaPtpMessageInRequestCommand)
+    func requestEvent(
+        response:MVitaPtpMessageInRequestCommand)
     {
         
     }
