@@ -26,10 +26,10 @@ extension MVitaLink
     }
     
     func requestEvent(
-        response:MVitaPtpMessageInRequestCommand)
+        requestCommand:MVitaPtpMessageInRequestCommand)
     {
         changeStrategy(strategyType:
             MVitaLinkStrategyRequestEvent.self)
-        linkEvent.request()
+        linkEvent.request(requestCommand:requestCommand)
     }
 }

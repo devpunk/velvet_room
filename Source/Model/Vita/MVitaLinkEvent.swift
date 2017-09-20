@@ -45,9 +45,10 @@ final class MVitaLinkEvent
         }
     }
     
-    func request()
+    func request(requestCommand:MVitaPtpMessageInRequestCommand)
     {
-        let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
+        let message:MVitaPtpMessageOutRequestEvent = MVitaPtpMessageOutRequestEvent(
+            requestCommand:requestCommand)
         
         socket.write(
             message.data,
