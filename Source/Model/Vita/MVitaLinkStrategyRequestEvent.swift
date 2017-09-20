@@ -17,17 +17,17 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     {
         guard
             
-            let requestCommand:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
+            let requestEvent:MVitaPtpMessageInRequestEvent = MVitaPtpMessageInRequestEvent(
                 header:header,
                 data:data),
-            header.type == MVitaPtpType.commandRequestAccepted
+            header.type == MVitaPtpType.eventRequestAccepted
             
         else
         {
             return
         }
         
-        success(requestCommand:requestCommand)
+        success(requestEvent:requestEvent)
     }
     
     //MARK: private
@@ -35,12 +35,12 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     private func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategyRequestCommand_messageFailed")
+            key:"MVitaLinkStrategyRequestEvent_messageFailed")
         model?.delegate?.linkError(message:message)
     }
     
     private func success(
-        requestCommand:MVitaPtpMessageInRequestCommand)
+        requestEvent:MVitaPtpMessageInRequestEvent)
     {
         
     }
