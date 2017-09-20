@@ -15,6 +15,8 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        guard
         
+            let message:MVitaPtpMessageInCommandRequest
     }
 }

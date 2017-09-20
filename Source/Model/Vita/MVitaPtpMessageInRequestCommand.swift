@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessageInCommandRequest:MVitaPtpMessageIn
+final class MVitaPtpMessageInRequestCommand:MVitaPtpMessageIn
 {
     let eventPipeId:UInt32
     
@@ -22,7 +22,7 @@ final class MVitaPtpMessageInCommandRequest:MVitaPtpMessageIn
         guard
             
             let eventPipeId:UInt32 = arrayData.first
-        
+            
         else
         {
             return nil
