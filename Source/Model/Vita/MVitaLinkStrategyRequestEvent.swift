@@ -17,7 +17,7 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     {
         guard
             
-            let requestEvent:MVitaPtpMessageInRequestEvent = MVitaPtpMessageInRequestEvent(
+            let openSession:MVitaPtpMessageInOpenSession = MVitaPtpMessageInOpenSession(
                 header:header,
                 data:data),
             header.type == MVitaPtpType.eventRequestAccepted
