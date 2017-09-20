@@ -32,4 +32,9 @@ extension MVitaLink
             MVitaLinkStrategyRequestEvent.self)
         linkEvent.request(requestCommand:requestCommand)
     }
+    
+    func openSession()
+    {
+        
+    }
 }

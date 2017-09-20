@@ -42,6 +42,6 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
     private func success(
         requestCommand:MVitaPtpMessageInRequestCommand)
     {
-        
+        model?.requestEvent(requestCommand:requestCommand)
     }
 }

@@ -42,6 +42,6 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     private func success(
         requestEvent:MVitaPtpMessageInRequestEvent)
     {
-        
+        model?.openSession()
     }
 }
