@@ -18,6 +18,19 @@ final class MVitaLinkCommand
         self.queue = queue
     }
     
+    //MARK: private
+    
+    private func writeMessage(message:MVitaPtpMessageOutProtocol)
+    {
+        socket.write(
+            message.data,
+            withTimeout:0,
+            tag:0)
+        socket.readData(
+            withTimeout:0,
+            tag:0)
+    }
+    
     //MARK: internal
     
     func connect()
@@ -48,14 +61,13 @@ final class MVitaLinkCommand
     func request()
     {
         let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
-        
-        socket.write(
-            message.data,
-            withTimeout:0,
-            tag:0)
-        socket.readData(
-            withTimeout:0,
-            tag:0)
+        writeMessage(message:message)
+    }
+    
+    func openSession()
+    {
+        let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
+        writeMessage(message:message)
     }
     
     func cancel()

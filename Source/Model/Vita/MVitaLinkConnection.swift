@@ -35,6 +35,8 @@ extension MVitaLink
     
     func openSession()
     {
-        
+        changeStrategy(strategyType:
+            MVitaLinkStrategyOpenSession.self)
+        linkCommand.openSession()
     }
 }
