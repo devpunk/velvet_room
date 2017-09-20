@@ -17,6 +17,31 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
     {
         guard
         
-            let message:MVitaPtpMessageInCommandRequest
+            let message:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
+                header:header,
+                data:data),
+            header.type == MVitaPtpType.commandRequestAccepted
+        
+        else
+        {
+            return
+        }
+        
+        success(message:message)
+    }
+    
+    //MARK: private
+    
+    private func failed()
+    {
+        let message:String = String.localizedModel(
+            key:"MVitaLinkStrategyRequestCommand_messageFailed")
+        model?.delegate?.linkError(message:message)
+    }
+    
+    private func success(
+        message:MVitaPtpMessageInRequestCommand)
+    {
+        
     }
 }

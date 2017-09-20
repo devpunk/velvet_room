@@ -16,3 +16,4 @@
 "MVitaLinkCommand_errorConnect"="Failed connecting Command Socket,\ntry again";
 "MVitaLinkEvent_errorConnect"="Failed connecting Event Socket,\ntry again";
 "MVitaLink_errorDisconnected"="Got disconnected,\ntry again";
+"MVitaLinkStrategyRequestCommand_messageFailed"="Failed requesting Command Socket,\ntry again";
