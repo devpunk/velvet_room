@@ -17,13 +17,15 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     {
         guard
             
-            let openSession:MVitaPtpMessageInOpenSession = MVitaPtpMessageInOpenSession(
+            let requestEvent:MVitaPtpMessageInRequestEvent = MVitaPtpMessageInRequestEvent(
                 header:header,
                 data:data),
             header.type == MVitaPtpType.eventRequestAccepted
             
         else
         {
+            failed()
+            
             return
         }
         

@@ -39,4 +39,9 @@ extension MVitaLink
             MVitaLinkStrategyOpenSession.self)
         linkCommand.openSession()
     }
+    
+    func requestVitaInfo()
+    {
+        
+    }
 }

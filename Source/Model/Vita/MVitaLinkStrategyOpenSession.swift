@@ -17,17 +17,20 @@ final class MVitaLinkStrategyOpenSession:MVitaLinkStrategyProtocol
     {
         guard
             
-            let requestCommand:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
+            let openSession:MVitaPtpMessageInOpenSession = MVitaPtpMessageInOpenSession(
                 header:header,
                 data:data),
-            header.type == MVitaPtpType.commandRequestAccepted
+            header.type == MVitaPtpType.commandAccepted,
+            openSession.code == MVitaPtpCommand.success
             
         else
         {
+            failed()
+            
             return
         }
         
-        success(requestCommand:requestCommand)
+        success()
     }
     
     //MARK: private
@@ -35,13 +38,12 @@ final class MVitaLinkStrategyOpenSession:MVitaLinkStrategyProtocol
     private func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategyRequestCommand_messageFailed")
+            key:"MVitaLinkStrategyOpenSession_messageFailed")
         model?.delegate?.linkError(message:message)
     }
     
-    private func success(
-        requestCommand:MVitaPtpMessageInRequestCommand)
+    private func success()
     {
-        model?.requestEvent(requestCommand:requestCommand)
+        model?.requestVitaInfo()
     }
 }

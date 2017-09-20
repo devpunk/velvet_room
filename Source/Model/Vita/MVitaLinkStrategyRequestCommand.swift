@@ -24,6 +24,8 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
         
         else
         {
+            failed()
+            
             return
         }
         
