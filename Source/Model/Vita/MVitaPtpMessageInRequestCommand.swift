@@ -8,6 +8,17 @@ final class MVitaPtpMessageInRequestCommand:MVitaPtpMessageIn
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        let expectedSize:Int = MemoryLayout.size(ofValue:UInt32.self)
+        
+        guard
+            
+            data.count == expectedSize
+        
+        else
+        {
+            return nil
+        }
+        
         let arrayData:[UInt32] = data.withUnsafeBytes
         { (pointer:UnsafePointer<UInt32>) -> [UInt32] in
             
