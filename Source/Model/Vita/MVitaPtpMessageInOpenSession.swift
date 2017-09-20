@@ -26,32 +26,10 @@ final class MVitaPtpMessageInOpenSession:MVitaPtpMessageIn
             codeSize ..< data.count)
         let subdataTransaction:Data = data.subdata(in:rangeTransaction)
         
-        let arrayCode:[UInt16] = data.withUnsafeBytes
-        { (pointer:UnsafePointer<UInt16>) -> [UInt16] in
-            
-            let bufferPointer:UnsafeBufferPointer = UnsafeBufferPointer(
-                start:pointer,
-                count:1)
-            let array:[UInt16] = Array(bufferPointer)
-            
-            return array
-        }
-        
-        let arrayTransaction:[UInt32] = subdataTransaction.withUnsafeBytes
-        { (pointer:UnsafePointer<UInt32>) -> [UInt32] in
-            
-            let bufferPointer:UnsafeBufferPointer = UnsafeBufferPointer(
-                start:pointer,
-                count:1)
-            let array:[UInt32] = Array(bufferPointer)
-            
-            return array
-        }
-        
         guard
             
-            let code:UInt16 = arrayCode.first,
-            let transactionId:UInt32 = arrayTransaction.first
+            let code:UInt16 = data.valueFromBytes(),
+            let transactionId:UInt32 = subdataTransaction.valueFromBytes()
             
         else
         {
