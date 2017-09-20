@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaPtpMessageInRequestVitaInfo:MVitaPtpMessageIn
+final class MVitaPtpMessageInReceiveData:MVitaPtpMessageIn
 {
     let transactionId:UInt32
     let payload:UInt32
