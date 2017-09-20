@@ -2,6 +2,8 @@ import Foundation
 
 extension Data
 {
+    private static let kDot:String = "."
+    
     //MARK: internal
     
     func writeToTemporal(withExtension:String?) -> URL?
@@ -10,7 +12,7 @@ extension Data
         
         if let withExtension:String = withExtension
         {
-            randomName.append(".")
+            randomName.append(Data.kDot)
             randomName.append(withExtension)
         }
         
