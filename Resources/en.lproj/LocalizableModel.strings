@@ -18,3 +18,4 @@
 "MVitaLinkStrategyRequestCommand_messageFailed"="Failed requesting Command Socket,\ntry again";
 "MVitaLinkStrategyRequestEvent_messageFailed"="Failed requesting Event Socket,\ntry again";
 "MVitaLinkStrategyOpenSession_messageFailed"="Failed opening session,\ntry again";
+"MVitaLinkStrategyRequestVitaInfo_messageFailed"="Failed requesting Vita's info,\ntry again";

@@ -17,11 +17,11 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyProtocol
     {
         guard
             
-            let openSession:MVitaPtpMessageInOpenSession = MVitaPtpMessageInOpenSession(
+            let requestVitaInfo:MVitaPtpMessageInRequestVitaInfo = MVitaPtpMessageInRequestVitaInfo(
                 header:header,
                 data:data),
-            header.type == MVitaPtpType.commandAccepted,
-            openSession.code == MVitaPtpCommand.success
+            header.type == MVitaPtpType.dataPacketStart,
+            requestVitaInfo.payload > 0
             
         else
         {
@@ -38,7 +38,7 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyProtocol
     private func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategyOpenSession_messageFailed")
+            key:"MVitaLinkStrategyRequestVitaInfo_messageFailed")
         model?.delegate?.linkError(message:message)
     }
     

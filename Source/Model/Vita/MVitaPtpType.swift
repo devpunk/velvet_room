@@ -8,4 +8,7 @@ struct MVitaPtpType
     static let eventRequestAccepted:UInt32 = 4
     static let command:UInt32 = 6
     static let commandAccepted:UInt32 = 7
+    static let dataPacketStart:UInt32 = 9
+    static let dataPacket:UInt32 = 10
+    static let dataPacketEnd:UInt32 = 12
 }
