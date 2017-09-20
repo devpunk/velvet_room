@@ -7,4 +7,5 @@ struct MVitaPtpType
     static let eventRequest:UInt32 = 3
     static let eventRequestAccepted:UInt32 = 4
     static let command:UInt32 = 6
+    static let commandAccepted:UInt32 = 7
 }
