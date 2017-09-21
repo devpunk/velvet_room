@@ -3,6 +3,8 @@ import Foundation
 struct MVitaPtpMessageOutRequestCommand:MVitaPtpMessageOutProtocol
 {
     let data:Data
+    private let kGuidStart:UInt32 = 0
+    private let kGuidEnd:UInt32 = 0
     
     init()
     {
@@ -10,6 +12,8 @@ struct MVitaPtpMessageOutRequestCommand:MVitaPtpMessageOutProtocol
         builder.append(value:MVitaPtpType.commandRequest)
         builder.append(value:MVitaPtpDataPhase.none)
         builder.appendTransactionId()
+        builder.append(value:kGuidStart)
+        builder.append(value:kGuidEnd)
         
         data = builder.export()
     }
