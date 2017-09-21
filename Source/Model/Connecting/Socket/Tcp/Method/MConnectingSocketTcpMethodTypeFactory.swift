@@ -37,9 +37,6 @@ extension MConnectingSocketTcpMethodType
     
     static func factoryMethod(string:String) -> MConnectingSocketTcpMethodProtocol?
     {
-        print("method")
-        print(string)
-        
         guard
         
             let type:MConnectingSocketTcpMethodType = MConnectingSocketTcpMethodType(

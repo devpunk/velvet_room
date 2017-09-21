@@ -37,15 +37,23 @@ extension MVitaConfiguration
         
         let cleanedReplyAvailable:String = removeDoubleScaping(
             string:replyAvailable)
+        let cleanedReplyOk:String = removeDoubleScaping(
+            string:replyOk)
+        let cleanedReplyPinError:String = removeDoubleScaping(
+            string:replyPinError)
+        let cleanedReplyConnected:String = removeDoubleScaping(
+            string:replyConnected)
+        let cleanedReplyConnectingError:String = removeDoubleScaping(
+            string:replyConnectingError)
         
         let broadcast:MVitaConfigurationBroadcast = MVitaConfigurationBroadcast(
             searchCommand:searchCommand,
             searchProtocol:searchProtocol,
             replyAvailable:cleanedReplyAvailable,
-            replyOk:replyOk,
-            replyPinError:replyPinError,
-            replyConnected:replyConnected,
-            replyConnectingError:replyConnectingError,
+            replyOk:cleanedReplyOk,
+            replyPinError:cleanedReplyPinError,
+            replyConnected:cleanedReplyConnected,
+            replyConnectingError:cleanedReplyConnectingError,
             pinTitle:pinTitle,
             methodSeparator:methodSeparator)
         
