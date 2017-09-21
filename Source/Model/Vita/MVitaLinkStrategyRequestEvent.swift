@@ -14,12 +14,9 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
     func eventReceived(
         header:MVitaPtpMessageInHeader,
         data:Data)
-    {
+    {   
         guard
             
-            let requestEvent:MVitaPtpMessageInRequestEvent = MVitaPtpMessageInRequestEvent(
-                header:header,
-                data:data),
             header.type == MVitaPtpType.eventRequestAccepted
             
         else
