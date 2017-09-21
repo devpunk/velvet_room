@@ -34,8 +34,8 @@ extension Data
     }
     
     func arrayFromBytes<T>(elements:Int) -> [T]?
-    {
-        let valueSize:Int = MemoryLayout.size(ofValue:T.self)
+    {   
+        let valueSize:Int = MemoryLayout<T>.size
         let expectedSize:Int = elements * valueSize
         
         guard

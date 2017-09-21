@@ -18,8 +18,7 @@ final class MVitaPtpMessageOutBuilder
     
     private func appendSize<T>(value:T)
     {
-        let sizeInt:Int = MemoryLayout.size(
-            ofValue:value)
+        let sizeInt:Int = MemoryLayout<T>.size
         let size:UInt32 = UInt32(sizeInt)
         self.size += size
     }

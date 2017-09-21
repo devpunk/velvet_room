@@ -9,8 +9,8 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
-        let codeSize:Int = MemoryLayout.size(ofValue:UInt16.self)
-        let transactionSize:Int = MemoryLayout.size(ofValue:UInt32.self)
+        let codeSize:Int = MemoryLayout<UInt16>.size
+        let transactionSize:Int = MemoryLayout<UInt32>.size
         let expectedSize:Int = codeSize + transactionSize
         
         guard
