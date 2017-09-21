@@ -22,8 +22,6 @@ final class MConnectingSocketTcpDelegate:
         didRead data:Data,
         withTag tag:Int)
     {
-        print("read")
-        
         guard
             
             let string:String = String(
@@ -41,9 +39,5 @@ final class MConnectingSocketTcpDelegate:
             
             self?.model?.receivedString(string:string)
         }
-    }
-    
-    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        print("error : \(err)")
     }
 }

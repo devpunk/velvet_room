@@ -61,7 +61,6 @@ extension MConnectingSocketTcp
             return
         }
         
-        debugPrint(reply)
         socketWrite(string:reply)
     }
     
