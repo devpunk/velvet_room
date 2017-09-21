@@ -1,12 +1,15 @@
 PODS:
   - CocoaAsyncSocket (7.6.1)
+  - XmlHero (1.0.0)
 
 DEPENDENCIES:
   - CocoaAsyncSocket
+  - XmlHero
 
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 7eadd3f59e1a6c84e2aefc93e9ff7b55156fe174
+  XmlHero: 8d7d8ea313d35c4dbb9fe4caee765d28b2c35056
 
-PODFILE CHECKSUM: 0cce6336732b3d2506ba274b975a9917e5ea2d56
+PODFILE CHECKSUM: 678600e43367cee22848c70af5bd35ab2b0ca775
 
 COCOAPODS: 1.3.1
