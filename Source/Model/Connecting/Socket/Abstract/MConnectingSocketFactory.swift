@@ -45,9 +45,6 @@ extension MConnectingSocket
             delegateQueue:queue,
             socketQueue:queue)
         
-        socket.setPreferIPv4()
-        socket.setIPv6Enabled(false)
-        
         do
         {
             try socket.bind(

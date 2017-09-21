@@ -55,7 +55,9 @@ final class MConnectingSocketTcp
         DispatchQueue.global(
             qos:DispatchQoS.QoSClass.background).async
         {
-            acceptedSocket.readData(withTimeout:0, tag:0)
+            acceptedSocket.readData(
+                withTimeout:-1,
+                tag:0)
         }
     }
 }

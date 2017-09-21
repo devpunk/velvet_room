@@ -84,7 +84,7 @@ final class MConnectingSocketUdp
             self?.socket.send(
                 replyAvailable,
                 toAddress:address,
-                withTimeout:0,
+                withTimeout:-1,
                 tag:0)
         }
     }

@@ -112,7 +112,7 @@ class MVitaLinkPtpDelegate:
             qos:DispatchQoS.QoSClass.background).async
         {
             socket.readData(
-                withTimeout:0,
+                withTimeout:-1,
                 tag:0)
         }
     }

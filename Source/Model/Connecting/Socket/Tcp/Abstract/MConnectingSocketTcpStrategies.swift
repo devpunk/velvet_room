@@ -29,10 +29,10 @@ extension MConnectingSocketTcp
     {
         acceptedSocket?.write(
             data,
-            withTimeout:0,
+            withTimeout:-1,
             tag:0)
         acceptedSocket?.readData(
-            withTimeout:0,
+            withTimeout:-1,
             tag:0)
     }
     

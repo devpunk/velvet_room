@@ -35,6 +35,6 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
     
     private func vitaInfo(xml:Any)
     {
-        
+        print(xml)
     }
 }

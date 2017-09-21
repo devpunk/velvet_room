@@ -50,10 +50,10 @@ class MVitaLinkSocket
     {
         socket.write(
             message.data,
-            withTimeout:0,
+            withTimeout:-1,
             tag:0)
         socket.readData(
-            withTimeout:0,
+            withTimeout:-1,
             tag:0)
     }
     
