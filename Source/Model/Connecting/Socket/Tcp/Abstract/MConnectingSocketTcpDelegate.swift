@@ -13,7 +13,6 @@ final class MConnectingSocketTcpDelegate:
         _ sock:GCDAsyncSocket,
         didAcceptNewSocket newSocket:GCDAsyncSocket)
     {
-        print("accepted \(sock)")
         model?.acceptedConnection(
             acceptedSocket:newSocket)
     }
@@ -23,7 +22,6 @@ final class MConnectingSocketTcpDelegate:
         didRead data:Data,
         withTag tag:Int)
     {
-        print("read")
         guard
             
             let string:String = String(
@@ -41,10 +39,5 @@ final class MConnectingSocketTcpDelegate:
             
             self?.model?.receivedString(string:string)
         }
-    }
-    
-    func socketDidDisconnect(_ sock: GCDAsyncSocket, withError err: Error?) {
-        print("error")
-        print(err)
     }
 }
