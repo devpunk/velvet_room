@@ -13,13 +13,8 @@ final class MConnectingSocketTcpDelegate:
         _ sock:GCDAsyncSocket,
         didAcceptNewSocket newSocket:GCDAsyncSocket)
     {
-        DispatchQueue.global(
-            qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.model?.acceptedConnection(
-                acceptedSocket:newSocket)
-        }
+        model?.acceptedConnection(
+            acceptedSocket:newSocket)
     }
     
     func socket(

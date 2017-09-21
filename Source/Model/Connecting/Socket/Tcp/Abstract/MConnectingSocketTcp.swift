@@ -52,6 +52,10 @@ final class MConnectingSocketTcp
         self.acceptedSocket = acceptedSocket
         model?.model?.vitaFound()
         
-        acceptedSocket.readData(withTimeout:0, tag:0)
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        {
+            acceptedSocket.readData(withTimeout:0, tag:0)
+        }
     }
 }
