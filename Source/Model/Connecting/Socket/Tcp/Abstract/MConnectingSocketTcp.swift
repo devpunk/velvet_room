@@ -20,6 +20,40 @@ final class MConnectingSocketTcp
         self.delegate = delegate
         self.queue = queue
     }
+    
+    //MARK: private
+    
+    private func parseMethod(string:String) -> String?
+    {
+        guard
+            
+            let lineSeparator:String = model?.configuration.lineSeparator,
+            let methodSeparator:String = model?.configuration.broadcast.methodSeparator
+        
+        else
+        {
+            return nil
+        }
+        
+        let components:[String] = string.components(
+            separatedBy:lineSeparator)
+        
+        guard
+        
+            let first:String = components.first
+        
+        else
+        {
+            return nil
+        }
+        
+        let firstComponents:[String] = first.components(
+            separatedBy:methodSeparator)
+        
+        let method:String? = firstComponents.first
+        
+        return method
+    }
 
     //MARK: internal
     
@@ -36,8 +70,10 @@ final class MConnectingSocketTcp
     {
         guard
         
+            let methodString:String = parseMethod(
+                string:string),
             let method:MConnectingSocketTcpMethodProtocol = MConnectingSocketTcpMethodType.factoryMethod(
-                string:string)
+                string:methodString)
         
         else
         {
