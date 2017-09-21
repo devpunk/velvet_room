@@ -26,7 +26,9 @@ extension MVitaConfiguration
             let replyConnectingError:String = mapBroadcast[
                 kKeyBroadcastReplyConnectingError] as? String,
             let pinTitle:String = mapBroadcast[
-                kKeyBroadcastPinTitle] as? String
+                kKeyBroadcastPinTitle] as? String,
+            let methodSeparator:String = mapBroadcast[
+                kKeyBroadcastMethodSeparator] as? String
             
         else
         {
@@ -44,7 +46,8 @@ extension MVitaConfiguration
             replyPinError:replyPinError,
             replyConnected:replyConnected,
             replyConnectingError:replyConnectingError,
-            pinTitle:pinTitle)
+            pinTitle:pinTitle,
+            methodSeparator:methodSeparator)
         
         return broadcast
     }

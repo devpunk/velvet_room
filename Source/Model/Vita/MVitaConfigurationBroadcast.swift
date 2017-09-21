@@ -10,4 +10,5 @@ struct MVitaConfigurationBroadcast
     let replyConnected:String
     let replyConnectingError:String
     let pinTitle:String
+    let methodSeparator:String
 }
