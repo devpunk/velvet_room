@@ -1,4 +1,5 @@
 import Foundation
+import XmlHero
 
 final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
 {
@@ -11,16 +12,29 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
     
     override func success()
     {
-        if let receivingString:String = String(
-            data:data,
-            encoding:String.Encoding.utf8)
-        {
-            print("data in xml:")
-            print(receivingString)
+        Xml.object(data:data)
+        { [weak self] (xml:Any?, error:XmlError?) in
+            
+            guard
+            
+                let xml:Any = xml,
+                error == nil
+            
+            else
+            {
+                self?.failed()
+                
+                return
+            }
+            
+            self?.vitaInfo(xml:xml)
         }
-        else
-        {
-            print("can't create string")
-        }
+    }
+    
+    //MARK: private
+    
+    private func vitaInfo(xml:Any)
+    {
+        
     }
 }
