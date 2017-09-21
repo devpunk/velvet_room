@@ -35,12 +35,14 @@ extension MConnectingSocketTcpMethodType
     
     //MARK: internal
     
-    static func factoryMethod(string:String) -> MConnectingSocketTcpMethodProtocol?
+    static func factoryMethod(
+        name:String,
+        received:String) -> MConnectingSocketTcpMethodProtocol?
     {
         guard
         
             let type:MConnectingSocketTcpMethodType = MConnectingSocketTcpMethodType(
-                rawValue:string)
+                rawValue:name)
         
         else
         {
@@ -50,7 +52,7 @@ extension MConnectingSocketTcpMethodType
         let methodType:MConnectingSocketTcpMethodProtocol.Type = factoryMethod(
             type:type)
         let method:MConnectingSocketTcpMethodProtocol = methodType.init(
-            received:string)
+            received:received)
         
         return method
     }

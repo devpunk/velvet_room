@@ -70,10 +70,11 @@ final class MConnectingSocketTcp
     {
         guard
         
-            let methodString:String = parseMethod(
+            let methodName:String = parseMethod(
                 string:string),
             let method:MConnectingSocketTcpMethodProtocol = MConnectingSocketTcpMethodType.factoryMethod(
-                string:methodString)
+                name:methodName,
+                received:string)
         
         else
         {
