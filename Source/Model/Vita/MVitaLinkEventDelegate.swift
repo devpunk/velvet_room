@@ -33,8 +33,6 @@ final class MVitaLinkEventDelegate:MVitaLinkPtpDelegate
         _ sock:GCDAsyncSocket,
         withError err:Error?)
     {
-        print("error \(err)")
-        
         DispatchQueue.global(
             qos:DispatchQoS.QoSClass.background).async
         { [weak self] in

@@ -26,7 +26,7 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
             return
         }
         
-        success(requestEvent:requestEvent)
+        success()
     }
     
     //MARK: private
@@ -38,8 +38,7 @@ final class MVitaLinkStrategyRequestEvent:MVitaLinkStrategyProtocol
         model?.delegate?.linkError(message:message)
     }
     
-    private func success(
-        requestEvent:MVitaPtpMessageInRequestEvent)
+    private func success()
     {
         model?.openSession()
     }
