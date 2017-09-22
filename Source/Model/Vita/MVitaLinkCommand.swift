@@ -7,18 +7,18 @@ final class MVitaLinkCommand:MVitaLinkSocket
     func request()
     {
         let message:MVitaPtpMessageOutRequestCommand = MVitaPtpMessageOutRequestCommand()
-        writeMessage(message:message)
+        writeMessageAndRead(message:message)
     }
     
     func openSession()
     {
         let message:MVitaPtpMessageOutOpenSession = MVitaPtpMessageOutOpenSession()
-        writeMessage(message:message)
+        writeMessageAndRead(message:message)
     }
     
     func requestVitaInfo()
     {
         let message:MVitaPtpMessageOutRequestVitaInfo = MVitaPtpMessageOutRequestVitaInfo()
-        writeMessage(message:message)
+        writeMessageAndRead(message:message)
     }
 }

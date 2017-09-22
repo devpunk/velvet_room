@@ -66,6 +66,11 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
     
     //MARK: private
     
+    private func readAgain()
+    {
+        model?.linkCommand.readData()
+    }
+    
     private func receivedPacketStart(
         header:MVitaPtpMessageInHeader,
         data:Data)
@@ -86,13 +91,68 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         
         self.transactionId = transactionId
         payload = Int(payloadUnsigned)
+        
+        readAgain()
     }
     
     private func receivedPacket(
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        let dataMinusTransaction:Data = dataUnheader.subdata(in:4..<dataUnheader.count)
         
+        self.dataReceived?.append(dataMinusTransaction)
+        
+        //[size, response:10 or 12]
+        //10:PTPIP_DATA_PACKET
+        //12:PTPIP_END_DATA_PACKET
+        
+        if header.type == 12
+        {
+            step = 4
+            let datareceived:Data = self.dataReceived!
+            
+            print("total data: \(datareceived.count)")
+            
+            
+            if let receivingString:String = String(
+                data:datareceived,
+                encoding:String.Encoding.ascii)
+            {
+                print("data in xml:")
+                print(receivingString)
+                
+                /**
+                 
+                 <VITAInformation responderVersion="3.65" protocolVersion="01800010" comVersion="190" modelInfo="PCH02006ZA11" timezone="10"><photoThumb type="0" codecType="17" width="213" height="120"/><videoThumb type="1" codecType="5" width="213" height="120" duration="15"/><musicThumb type="0" codecType="17" width="192" height="192"/><gameThumb type="0" codecType="17" width="192" height="192"/></VITAInformation>
+                 
+                 ***/
+            }
+            else
+            {
+                print("can't create string")
+            }
+            self.dataReceived = nil
+        }
+        else if header.type == 10
+        {
+            print("------- read again")
+        }
+        else
+        {
+            print("error header type: \(header.type)")
+        }
+        
+        defer
+        {
+            if readAgain
+            {
+                DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
+                    {
+                        self.connected?.readCommand()
+                }
+            }
+        }
     }
     
     private func receivedPacketEnd(

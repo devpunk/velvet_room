@@ -45,16 +45,27 @@ class MVitaLinkSocket
         }
     }
     
-    final func writeMessage(
-        message:MVitaPtpMessageOutProtocol)
+    final func writeData(
+        data:Data)
     {
         socket.write(
-            message.data,
+            data,
             withTimeout:-1,
             tag:0)
+    }
+    
+    final func readData()
+    {
         socket.readData(
             withTimeout:-1,
             tag:0)
+    }
+    
+    final func writeMessageAndRead(
+        message:MVitaPtpMessageOutProtocol)
+    {
+        writeData(data:message.data)
+        readData()
     }
     
     final func cancel()

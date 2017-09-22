@@ -9,6 +9,6 @@ final class MVitaLinkEvent:MVitaLinkSocket
     {
         let message:MVitaPtpMessageOutRequestEvent = MVitaPtpMessageOutRequestEvent(
             requestCommand:requestCommand)
-        writeMessage(message:message)
+        writeMessageAndRead(message:message)
     }
 }
