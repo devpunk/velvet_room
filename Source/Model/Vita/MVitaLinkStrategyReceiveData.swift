@@ -88,7 +88,7 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
             transactionSize ..< data.count)
         let subdata:Data = data.subdata(in:subdataRange)
         
-        return data
+        return subdata
     }
     
     private func receivedPacketStart(
