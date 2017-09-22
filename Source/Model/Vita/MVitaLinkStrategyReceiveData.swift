@@ -22,8 +22,6 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
-        print("header type \(header.type)")
-        
         switch header.type
         {
         case MVitaPtpType.dataPacketStart:
@@ -179,24 +177,7 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
     {
         guard
             
-            let code:UInt16 = data.valueFromBytes()
-        
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        let subData:Data = data.subdata(in:4..<data.count)
-        let tranid:UInt16? = subData.valueFromBytes()
-        
-        print("tranid \(tranid)")
-        
-        print("code \(code) data size: \(data.count) header size: \(header.size)")
-        
-        guard
-            
+            let code:UInt16 = data.valueFromBytes(),
             code == MVitaPtpCommand.success
         
         else

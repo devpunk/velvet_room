@@ -15,6 +15,14 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
         Xml.object(data:data)
         { [weak self] (xml:Any?, error:XmlError?) in
             
+            if let error:XmlError = error
+            {
+                print("error")
+                print(error.localizedDescription)
+                
+                return
+            }
+            
             guard
             
                 let xml:Any = xml,
@@ -22,6 +30,7 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
             
             else
             {
+                print("error \(error?.localizedDescription)")
                 self?.failed()
                 
                 return
