@@ -8,4 +8,9 @@ extension MConnecting
     {
         foundError(errorMessage:message)
     }
+    
+    func stopBroadcast()
+    {
+        cancelAndClean()
+    }
 }

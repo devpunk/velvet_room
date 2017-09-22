@@ -55,7 +55,6 @@ extension MConnecting
             return
         }
         
-        cancelAndClean()
         startVitaLink(device:device, configuration:configuration)
     }
     

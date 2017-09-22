@@ -172,7 +172,24 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
     {
         guard
             
-            let code:UInt16 = data.valueFromBytes(),
+            let code:UInt16 = data.valueFromBytes()
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        let subData:Data = data.subdata(in:4..<data.count)
+        let tranid:UInt32? = subData.valueFromBytes()
+        
+        print("tranid \(tranid)")
+        
+        print("code \(code) data size: \(data.count) header size: \(header.size)")
+        
+        guard
+            
             code == MVitaPtpCommand.success
         
         else
