@@ -47,16 +47,16 @@ class MVitaLinkPtpDelegate:
         data:Data)
     {
         let mergedData:Data = mergeData(data:data)
-
+        
         guard
             
             let header:MVitaPtpMessageInHeader = MVitaPtpMessageIn.factoryHeader(
-                data:data),
+                data:mergedData),
             mergedData.count >= header.size
             
         else
         {
-            carryData(data:data)
+            carryData(data:mergedData)
             asyncRead(socket:socket)
             
             return
@@ -69,7 +69,7 @@ class MVitaLinkPtpDelegate:
         checkSurplus(
             header:header,
             socket:socket,
-            data:data)
+            data:mergedData)
     }
     
     private func read(
@@ -82,14 +82,9 @@ class MVitaLinkPtpDelegate:
         let unheaderData:Data = data.subdata(
             in:unheaderDataRange)
         
-        DispatchQueue.global(
-            qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.received(
-                header:header,
-                data:unheaderData)
-        }
+        received(
+            header:header,
+            data:unheaderData)
     }
     
     private func checkSurplus(
@@ -129,9 +124,7 @@ class MVitaLinkPtpDelegate:
     
     func received(
         header:MVitaPtpMessageInHeader,
-        data:Data)
-    {
-    }
+        data:Data) { }
     
     //MARK: delegate
     
