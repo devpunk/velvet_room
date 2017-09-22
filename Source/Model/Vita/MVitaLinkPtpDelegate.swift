@@ -5,7 +5,15 @@ class MVitaLinkPtpDelegate:
     NSObject,
     GCDAsyncSocketDelegate
 {
+    private let queue:DispatchQueue
     private var carriedData:Data?
+    
+    override init()
+    {
+        queue = MVitaLinkPtpDelegate.factoryQueue()
+        
+        super.init()
+    }
     
     //MARK: private
     
@@ -132,8 +140,7 @@ class MVitaLinkPtpDelegate:
         didRead data:Data,
         withTag tag:Int)
     {
-        DispatchQueue.global(
-            qos:DispatchQoS.QoSClass.background).async
+        queue.async
         { [weak self] in
             
             self?.read(
