@@ -22,6 +22,8 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        print("header type \(header.type)")
+        
         switch header.type
         {
         case MVitaPtpType.dataPacketStart:
@@ -68,7 +70,12 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
     
     private func readAgain()
     {
-        model?.linkCommand.readData()
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model?.linkCommand.readData()
+        }
     }
     
     private func removeTransaction(data:Data) -> Data?
@@ -182,7 +189,7 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         }
         
         let subData:Data = data.subdata(in:4..<data.count)
-        let tranid:UInt32? = subData.valueFromBytes()
+        let tranid:UInt16? = subData.valueFromBytes()
         
         print("tranid \(tranid)")
         
