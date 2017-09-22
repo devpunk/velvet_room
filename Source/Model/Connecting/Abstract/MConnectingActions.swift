@@ -76,11 +76,15 @@ extension MConnecting
     
     func cancelAndClean()
     {
+        cancelBroadcast()
         modelTimer.cancel()
-        socket?.cancel()
         vitaLink?.cancel()
-        
         vitaLink = nil
+    }
+    
+    func cancelBroadcast()
+    {
+        socket?.cancel()
         socket = nil
         device = nil
         modelPin = nil

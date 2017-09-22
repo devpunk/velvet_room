@@ -11,6 +11,6 @@ extension MConnecting
     
     func stopBroadcast()
     {
-        cancelAndClean()
+        cancelBroadcast()
     }
 }
