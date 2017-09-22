@@ -71,6 +71,26 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         model?.linkCommand.readData()
     }
     
+    private func removeTransaction(data:Data) -> Data?
+    {
+        guard
+            
+            let transactionId:UInt32 = data.valueFromBytes(),
+            self.transactionId == transactionId
+            
+        else
+        {
+            return nil
+        }
+        
+        let transactionSize:Int = MemoryLayout<UInt32>.size
+        let subdataRange:Range<Data.Index> = Range<Data.Index>(
+            transactionSize ..< data.count)
+        let subdata:Data = data.subdata(in:subdataRange)
+        
+        return data
+    }
+    
     private func receivedPacketStart(
         header:MVitaPtpMessageInHeader,
         data:Data)
@@ -99,83 +119,74 @@ class MVitaLinkStrategyReceiveData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
-        let dataMinusTransaction:Data = dataUnheader.subdata(in:4..<dataUnheader.count)
+        guard
         
-        self.dataReceived?.append(dataMinusTransaction)
+            let data:Data = removeTransaction(data:data)
         
-        //[size, response:10 or 12]
-        //10:PTPIP_DATA_PACKET
-        //12:PTPIP_END_DATA_PACKET
-        
-        if header.type == 12
-        {
-            step = 4
-            let datareceived:Data = self.dataReceived!
-            
-            print("total data: \(datareceived.count)")
-            
-            
-            if let receivingString:String = String(
-                data:datareceived,
-                encoding:String.Encoding.ascii)
-            {
-                print("data in xml:")
-                print(receivingString)
-                
-                /**
-                 
-                 <VITAInformation responderVersion="3.65" protocolVersion="01800010" comVersion="190" modelInfo="PCH02006ZA11" timezone="10"><photoThumb type="0" codecType="17" width="213" height="120"/><videoThumb type="1" codecType="5" width="213" height="120" duration="15"/><musicThumb type="0" codecType="17" width="192" height="192"/><gameThumb type="0" codecType="17" width="192" height="192"/></VITAInformation>
-                 
-                 ***/
-            }
-            else
-            {
-                print("can't create string")
-            }
-            self.dataReceived = nil
-        }
-        else if header.type == 10
-        {
-            print("------- read again")
-        }
         else
         {
-            print("error header type: \(header.type)")
+            failed()
+            
+            return
         }
         
-        defer
-        {
-            if readAgain
-            {
-                DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-                    {
-                        self.connected?.readCommand()
-                }
-            }
-        }
+        self.data.append(data)
+        
+        readAgain()
     }
     
     private func receivedPacketEnd(
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        guard
+            
+            let data:Data = removeTransaction(data:data)
+            
+        else
+        {
+            failed()
+            
+            return
+        }
         
+        self.data.append(data)
+        
+        guard
+        
+            self.data.count == payload
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        readAgain()
     }
     
     private func receivedConfirm(
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        guard
+            
+            let code:UInt16 = data.valueFromBytes(),
+            code == MVitaPtpCommand.success
         
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        success()
     }
     
     //MARK: internal
     
-    func failed()
-    {
-    }
-    
-    func success()
-    {
-    }
+    func failed() { }
+    func success() { }
 }
