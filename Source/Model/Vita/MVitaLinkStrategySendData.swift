@@ -15,6 +15,8 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         data = Data()
         payload = 0
         transactionId = 0
+        changeStatus(
+            status:MVitaLinkStrategySendDataStatusHeader.self)
     }
     
     //MARK: protocol
@@ -42,6 +44,12 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
             code:code)
         model?.linkCommand.writeMessage(
             message:message)
+    }
+    
+    final func packetStart()
+    {
+        changeStatus(
+            status:MVitaLinkStrategySendDataStatusPacketStart.self)
     }
     
     func failed() { }
