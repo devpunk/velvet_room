@@ -6,7 +6,6 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     private var bytesSent:Int
     private var data:Data?
     private var status:MVitaLinkStrategySendDataStatusProtocol?
-    private let kNullEnd:String = "\0"
     private let kMaxBlockSize:Int = 32756
     
     required init(model:MVitaLink)
@@ -26,8 +25,6 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
-        print("header:\(header.size) \(header.type)")
-        
         guard
             
             let confirm:MVitaPtpMessageInConfirm = MVitaPtpMessageInConfirm(
@@ -35,7 +32,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
                 data:data),
             header.type == MVitaPtpType.commandAccepted,
             confirm.code == MVitaPtpCommand.success
-            
+        
         else
         {
             failed()
@@ -74,8 +71,6 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
             data:data,
             bytes:remainBytes)
         
-        print("sub \(packetData.count) total: \(self.data!.count)")
-        
         changeStatus(
             status:MVitaLinkStrategySendDataStatusConfirm.self)
         
@@ -100,16 +95,14 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         return packetData
     }
     
-    private func wrapData(data:Data) -> Data
+    private func wrapData(data:Data)
     {
         let size:UInt32 = UInt32(data.count)
-        print("wrapping size \(size)")
         var dataWrapped:Data = Data()
         dataWrapped.append(value:size)
         dataWrapped.append(data)
-//        dataWrapped.append(value:kNullEnd)
         
-        return dataWrapped
+        self.data = dataWrapped
     }
     
     //MARK: internal
@@ -118,13 +111,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         data:Data,
         code:UInt16)
     {
-        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"3.55.764345\" protocolVersion=\"01900010\" name=\"Content Manager Assistant\" applicationType=\"5\" />\0"
-        
-        let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
-        
-        self.data = wrapData(data:xmlData)
-        
-        print("wrapped size:\(self.data?.count)")
+        wrapData(data:data)
         
         changeStatus(
             status:MVitaLinkStrategySendDataStatusHeader.self)

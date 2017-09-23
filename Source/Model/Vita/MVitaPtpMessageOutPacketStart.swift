@@ -11,8 +11,7 @@ struct MVitaPtpMessageOutPacketStart:MVitaPtpMessageOutProtocol
         
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.dataPacketStart)
-        let tran:UInt32 = 5
-        builder.append(value:tran)
+        builder.appendTransactionId()
         builder.append(value:dataSizeUnsigned)
         builder.append(value:kStartingByte)
         

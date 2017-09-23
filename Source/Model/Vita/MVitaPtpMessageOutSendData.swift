@@ -10,9 +10,7 @@ struct MVitaPtpMessageOutSendData:MVitaPtpMessageOutProtocol
         builder.append(value:MVitaPtpType.command)
         builder.append(value:MVitaPtpDataPhase.send)
         builder.append(value:code)
-        
-        let tran:UInt32 = 5
-        builder.append(value:tran)
+        builder.appendTransactionId()
         
         data = builder.export()
     }

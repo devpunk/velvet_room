@@ -31,8 +31,6 @@ final class MVitaPtpMessageOutBuilder
         
         self.data.append(data)
         self.size += size
-        
-        print("size in builder \(self.size)")
     }
     
     func append<T>(value:T)
