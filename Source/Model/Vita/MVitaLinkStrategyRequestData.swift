@@ -185,28 +185,14 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
             return
         }
         
-        validateSize()
+        unwrapData()
+        success()
     }
     
-    private func validateSize()
+    private func unwrapData()
     {
-        guard
-        
-            let dataSize:UInt32 = data.valueFromBytes()
-        
-        else
-        {
-            failed()
-            
-            return
-        }
-        
         let headerSize:Int = MemoryLayout<UInt32>.size
         data = data.subdata(start:headerSize)
-        
-        print("data size: \(dataSize) payload:\(payload)")
-        
-        success()
     }
     
     //MARK: internal
