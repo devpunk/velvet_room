@@ -96,4 +96,22 @@ extension Data
         
         return sliced
     }
+    
+    func subdata(start:Int) -> Data
+    {
+        let sliced:Data = subdata(
+            start:start,
+            endNotIncluding:count)
+        
+        return sliced
+    }
+    
+    func subdata(endNotIncluding:Int) -> Data
+    {
+        let sliced:Data = subdata(
+            start:0,
+            endNotIncluding:endNotIncluding)
+        
+        return sliced
+    }
 }
