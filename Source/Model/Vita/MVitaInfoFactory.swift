@@ -13,16 +13,19 @@ extension MVitaInfo
     {
         guard
             
-            let responderVersion:Float = xml[
-                kKeyResponderVersion] as? Float,
+            let responderVersion:String = xml[
+                kKeyResponderVersion] as? String,
+            let responderVersionFloat:Float = Float(responderVersion),
             let protocolVersion:String = xml[
                 kKeyProtocolVersion] as? String,
-            let comVersion:Int = xml[
-                kKeyComVersion] as? Int,
+            let comVersion:String = xml[
+                kKeyComVersion] as? String,
+            let comVersionInt:Int = Int(comVersion),
             let modelVersion:String = xml[
                 kKeyModelVersion] as? String,
-            let timezone:Int = xml[
-                kKeyTimezone] as? Int
+            let timezone:String = xml[
+                kKeyTimezone] as? String,
+            let timezoneInt:Int = Int(timezone)
         
         else
         {
@@ -36,9 +39,9 @@ extension MVitaInfo
             infoMusic:infoMusic,
             protocolVersion:protocolVersion,
             modelVersion:modelVersion,
-            responderVersion:responderVersion,
-            comVersion:comVersion,
-            timezone:timezone)
+            responderVersion:responderVersionFloat,
+            comVersion:comVersionInt,
+            timezone:timezoneInt)
         
         return infoVita
     }
@@ -48,29 +51,43 @@ extension MVitaInfo
     {
         guard
         
-            let thumbType:Int = xml[
-                kKeyThumbThumbType] as? Int,
-            let codecType:Int = xml[
-                kKeyThumbCodecType] as? Int,
-            let width:Int = xml[
-                kKeyThumbWidth] as? Int,
-            let height:Int = xml[
-                kKeyThumbHeight] as? Int
+            let thumbType:String = xml[
+                kKeyThumbThumbType] as? String,
+            let thumbTypeInt:Int = Int(thumbType),
+            let codecType:String = xml[
+                kKeyThumbCodecType] as? String,
+            let codecTypeInt:Int = Int(codecType),
+            let width:String = xml[
+                kKeyThumbWidth] as? String,
+            let widthInt:Int = Int(width),
+            let height:String = xml[
+                kKeyThumbHeight] as? String,
+            let heightInt:Int = Int(height)
         
         else
         {
             return nil
         }
         
-        let duration:Float? = xml[
-            kKeyThumbDuration] as? Float
+        let duration:String? = xml[
+            kKeyThumbDuration] as? String
+        let durationFloat:Float?
+        
+        if let durationString:String = duration
+        {
+             durationFloat = Float(durationString)
+        }
+        else
+        {
+            durationFloat = nil
+        }
         
         let infoThumb:MVitaInfoThumb = MVitaInfoThumb(
-            thumbType:thumbType,
-            codecType:codecType,
-            width:width,
-            height:height,
-            duration:duration)
+            thumbType:thumbTypeInt,
+            codecType:codecTypeInt,
+            width:widthInt,
+            height:heightInt,
+            duration:durationFloat)
         
         return infoThumb
     }
