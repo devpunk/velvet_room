@@ -18,6 +18,10 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     //MARK: protocol
     
+    func commandWrite()
+    {
+        
+    }
     
     //MARK: internal
     
