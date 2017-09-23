@@ -1,15 +1,15 @@
 import Foundation
 
-struct MVitaPtpMessageOutRequestVitaInfo:MVitaPtpMessageOutProtocol
+struct MVitaPtpMessageOutRequestData:MVitaPtpMessageOutProtocol
 {
     let data:Data
     
-    init()
+    init(code:UInt16)
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command)
         builder.append(value:MVitaPtpDataPhase.receive)
-        builder.append(value:MVitaPtpCommand.requestVitaInfo)
+        builder.append(value:code)
         builder.appendTransactionId()
         
         data = builder.export()
