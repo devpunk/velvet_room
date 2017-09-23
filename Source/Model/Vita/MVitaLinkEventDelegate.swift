@@ -45,5 +45,11 @@ final class MVitaLinkEventDelegate:MVitaLinkPtpDelegate
         _ sock:GCDAsyncSocket,
         didWriteDataWithTag tag:Int)
     {
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.model?.model?.strategy?.eventWrite()
+        }
     }
 }

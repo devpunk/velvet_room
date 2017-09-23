@@ -5,6 +5,8 @@ extension MVitaLinkStrategyProtocol
     func startConnection() { }
     func commandConnected() { }
     func eventConnected() { }
+    func commandWrite() { }
+    func eventWrite() { }
     func commandReceived(
         header:MVitaPtpMessageInHeader,
         data:Data) {  }
