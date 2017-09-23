@@ -8,9 +8,12 @@ struct MVitaPtpMessageOutPacketEnd:MVitaPtpMessageOutProtocol
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.dataPacketEnd)
-        builder.appendTransactionId()
+        let tran:UInt32 = 5
+        builder.append(value:tran)
         builder.append(data:packetData)
         
         data = builder.export()
+        
+        print("data in message \(data.count)")
     }
 }

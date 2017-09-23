@@ -72,6 +72,8 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
             data:data,
             bytes:remainBytes)
         
+        print("sub \(packetData.count) total: \(self.data!.count)")
+        
         changeStatus(
             status:MVitaLinkStrategySendDataStatusConfirm.self)
         
@@ -96,18 +98,16 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         return packetData
     }
     
-    private func addNullEnd(data:Data) -> Data
+    private func wrapData(data:Data) -> Data
     {
-        var dataWithEnd:Data = Data()
+        let size:UInt32 = UInt32(data.count)
+        print("wrapping size \(size)")
+        var dataWrapped:Data = Data()
+        dataWrapped.append(value:size)
+        dataWrapped.append(data)
+//        dataWrapped.append(value:kNullEnd)
         
-        if let nullEnd:Data = kNullEnd.data(
-            using:String.Encoding.utf8,
-            allowLossyConversion:false)
-        {
-            dataWithEnd.append(nullEnd)
-        }
-        
-        return dataWithEnd
+        return dataWrapped
     }
     
     //MARK: internal
@@ -116,7 +116,13 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         data:Data,
         code:UInt16)
     {
-        self.data = addNullEnd(data:data)
+        let xmlString:String = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><initiatorInfo platformType=\"PC\" platformSubtype=\"Unknown\" osVersion=\"0.0\" version=\"3.55.764345\" protocolVersion=\"01900010\" name=\"Content Manager Assistant\" applicationType=\"5\" />\0"
+        
+        let xmlData:Data = xmlString.data(using:String.Encoding.ascii, allowLossyConversion:false)!
+        
+        self.data = wrapData(data:xmlData)
+        
+        print("wrapped size:\(self.data?.count)")
         
         changeStatus(
             status:MVitaLinkStrategySendDataStatusHeader.self)

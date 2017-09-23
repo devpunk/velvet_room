@@ -27,17 +27,17 @@ final class MVitaPtpMessageOutBuilder
     
     func append(data:Data)
     {
+        let size:UInt32 = UInt32(data.count)
+        
         self.data.append(data)
+        self.size += size
+        
+        print("size in builder \(self.size)")
     }
     
     func append<T>(value:T)
     {
-        var value:T = value
-        let buffer:UnsafeBufferPointer = UnsafeBufferPointer(
-            start:&value,
-            count:1)
-        
-        data.append(buffer)
+        data.append(value:value)
         appendSize(value:value)
     }
     
