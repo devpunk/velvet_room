@@ -53,6 +53,7 @@ extension MVitaLink
     {
         self.vitaInfo = vitaInfo
         
-        print("send local info")
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendLocalInfo.self)
     }
 }
