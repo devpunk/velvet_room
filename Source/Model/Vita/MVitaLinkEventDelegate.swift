@@ -40,4 +40,10 @@ final class MVitaLinkEventDelegate:MVitaLinkPtpDelegate
             self?.model?.model?.strategy?.eventDisconnected()
         }
     }
+    
+    func socket(
+        _ sock:GCDAsyncSocket,
+        didWriteDataWithTag tag:Int)
+    {
+    }
 }
