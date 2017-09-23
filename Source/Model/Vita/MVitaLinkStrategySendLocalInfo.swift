@@ -21,7 +21,7 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
     
     override func success()
     {
-        print("success sent local info")
+        model?.requestVitaCapabilities()
     }
     
     //MARK: private

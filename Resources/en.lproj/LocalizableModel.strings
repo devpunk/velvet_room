@@ -18,5 +18,6 @@
 "MVitaLinkStrategyRequestCommand_messageFailed"="Failed requesting Command Socket,\ntry again";
 "MVitaLinkStrategyRequestEvent_messageFailed"="Failed requesting Event Socket,\ntry again";
 "MVitaLinkStrategyOpenSession_messageFailed"="Failed opening session,\ntry again";
-"MVitaLinkStrategyRequestVitaInfo_messageFailed"="Failed requesting Vita's info,\ntry again";
+"MVitaLinkStrategyRequestVitaInfo_messageFailed"="Failed requesting Vita's Info,\ntry again";
 "MVitaLinkStrategySendLocalInfo_messageFailed"="Failed sending Local Info,\ntry again";
+"MVitaLinkStrategyRequestVitaCapabilities_messageFailed"="Failed request Vita's Capabilities,\ntry again";

@@ -56,4 +56,9 @@ extension MVitaLink
         changeStrategy(strategyType:
             MVitaLinkStrategySendLocalInfo.self)
     }
+    
+    func requestVitaCapabilities()
+    {
+        
+    }
 }
