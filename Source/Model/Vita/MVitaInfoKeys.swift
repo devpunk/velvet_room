@@ -12,7 +12,7 @@ extension MVitaInfo
     static let kKeyComVersion:String = "comVersion"
     static let kKeyModelVersion:String = "modelInfo"
     static let kKeyTimezone:String = "timezone"
-    static let kKeyThumbThumbType:String = "type"
+    static let kKeyThumbType:String = "type"
     static let kKeyThumbCodecType:String = "codecType"
     static let kKeyThumbWidth:String = "width"
     static let kKeyThumbHeight:String = "height"

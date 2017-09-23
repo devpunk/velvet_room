@@ -52,7 +52,7 @@ extension MVitaInfo
         guard
         
             let thumbType:String = xml[
-                kKeyThumbThumbType] as? String,
+                kKeyThumbType] as? String,
             let thumbTypeInt:Int = Int(thumbType),
             let codecType:String = xml[
                 kKeyThumbCodecType] as? String,
