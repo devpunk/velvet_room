@@ -7,8 +7,8 @@ struct MVitaInfo
     let infoVideo:MVitaInfoThumb
     let infoMusic:MVitaInfoThumb
     let protocolVersion:String
-    let comVersion:String
     let modelVersion:String
     let responderVersion:Float
-    let timeZone:Int
+    let comVersion:Int
+    let timezone:Int
 }
