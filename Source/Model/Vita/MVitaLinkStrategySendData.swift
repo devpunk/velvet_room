@@ -2,21 +2,13 @@ import Foundation
 
 class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
 {
-    var data:Data
-    var payload:Int
-    var transactionId:UInt32
     private(set) var model:MVitaLink?
-    private(set) var status:MVitaLinkStrategySendDataStatusProtocol?
-    private let kElementsStart:Int = 2
+    private var data:Data?
+    private var status:MVitaLinkStrategySendDataStatusProtocol?
     
     required init(model:MVitaLink)
     {
         self.model = model
-        data = Data()
-        payload = 0
-        transactionId = 0
-        changeStatus(
-            status:MVitaLinkStrategySendDataStatusHeader.self)
     }
     
     //MARK: protocol
@@ -40,6 +32,11 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         data:Data,
         code:UInt16)
     {
+        self.data = data
+        
+        changeStatus(
+            status:MVitaLinkStrategySendDataStatusHeader.self)
+        
         let message:MVitaPtpMessageOutSendData = MVitaPtpMessageOutSendData(
             code:code)
         model?.linkCommand.writeMessage(
@@ -48,8 +45,22 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     final func packetStart()
     {
+        guard
+            
+            let dataSize:Int = data?.count
+        
+        else
+        {
+            return
+        }
+        
         changeStatus(
             status:MVitaLinkStrategySendDataStatusPacketStart.self)
+        
+        let message:MVitaPtpMessageOutPacketStart = MVitaPtpMessageOutPacketStart(
+            dataSize:dataSize)
+        model?.linkCommand.writeMessage(
+            message:message)
     }
     
     func failed() { }
