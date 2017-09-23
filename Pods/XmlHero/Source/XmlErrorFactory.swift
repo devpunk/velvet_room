@@ -21,8 +21,8 @@ extension XmlError
             key,
             tableName:nil,
             bundle:bundle,
-            value:"",
-            comment:"")
+            value:String(),
+            comment:String())
         
         return string
     }
@@ -53,10 +53,10 @@ extension XmlError
         return error
     }
     
-    static func failedSerializing() -> XmlError
+    static func failedDeserializing() -> XmlError
     {
         let error:XmlError = errorWithKey(
-            key:"XmlError_failedSerializing")
+            key:"XmlError_failedDeserializing")
         
         return error
     }

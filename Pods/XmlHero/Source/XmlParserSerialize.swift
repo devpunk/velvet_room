@@ -1,12 +1,12 @@
 import Foundation
 
 extension XmlParser
-{
+{    
     //MARK: private
     
     private func serializeArray(
         name:String,
-        elements:[XmlElement]) -> Any
+        elements:[XmlElement]) -> [String:Any]
     {
         var dictionary:[String:[Any]] = [:]
         var array:[Any] = []
@@ -14,61 +14,68 @@ extension XmlParser
         
         for element:XmlElement in elements
         {
-            guard
-            
-                let serialized:Any = serialize(xml:element)
-            
-            else
-            {
-                continue
-            }
-            
+            let serialized:Any = serialize(xml:element)
             array.append(serialized)
         }
         
         return dictionary
     }
     
-    private func serializeDictionary(elements:[XmlElement]) -> Any
+    private func serializeDictionary(elements:[XmlElement]) -> [String:Any]
     {
         var dictionary:[String:Any] = [:]
         
         for element:XmlElement in elements
         {   
-            guard
-                
-                let serialized:Any = serialize(xml:element)
-                
-            else
-            {
-                continue
-            }
-            
+            let serialized:Any = serialize(xml:element)
             dictionary[element.name] = serialized
         }
         
         return dictionary
     }
     
-    private func serialize(xml:XmlElement) -> Any?
+    private func serialize(xml:XmlElement) -> [String:Any]
     {
+        var serialized:[String:Any] = [:]
+        
         if let children:[XmlElement] = xml.children
         {
-            let serialized:Any? = serialize(elements:children)
-            
-            return serialized
+            serialized = serialize(elements:children)
         }
         else if let value:String = xml.value
         {
-            return value
+            serialized[Xml.kTextKey] = value
         }
         
-        return nil
+        let serializedAttributed:[String:Any] = attribute(
+            xml:xml,
+            serialized:serialized)
+        
+        return serializedAttributed
+    }
+    
+    private func attribute(
+        xml:XmlElement,
+        serialized:[String:Any]) -> [String:Any]
+    {
+        var mutable:[String:Any] = serialized
+        
+        if let attributes:[String:String] = xml.attributes
+        {
+            let keys:[String] = Array(attributes.keys)
+            
+            for key:String in keys
+            {
+                mutable[key] = attributes[key]
+            }
+        }
+        
+        return mutable
     }
     
     //MARK: internal
     
-    func serialize(elements:[XmlElement]) -> Any?
+    func serialize(elements:[XmlElement]) -> [String:Any]
     {
         guard
             
@@ -77,10 +84,12 @@ extension XmlParser
             
         else
         {
-            return nil
+            let dictionary:[String:Any] = [:]
+            
+            return dictionary
         }
         
-        let serialized:Any
+        let serialized:[String:Any]
         let count:Int = elements.count
         
         if count > 1 && first.name == last.name

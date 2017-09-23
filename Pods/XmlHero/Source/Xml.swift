@@ -2,46 +2,90 @@ import Foundation
 
 public final class Xml
 {
-    private(set) var status:XmlStatusProtocol
+    static let kTextKey:String = "text"
+    private(set) public var status:XmlStatus
     private var parser:XmlParser?
-    private var completion:((Any?, XmlError?) -> ())?
+    private var builder:XmlBuilder?
+    private var completionParsing:(([String:Any]?, XmlError?) -> ())?
+    private var completionBuilding:((Data?, XmlError?) -> ())?
     
     init()
     {
-        status = XmlStatusStandby()
+        status = XmlStatus.standby
     }
     
     //MARK: internal
     
     func parse(
         data:Data,
-        completion:@escaping((Any?, XmlError?) -> ()))
+        completion:@escaping(([String:Any]?, XmlError?) -> ()))
     {
-        status = XmlStatusParsing()
+        status = XmlStatus.parsing
         
-        self.completion = completion
+        self.completionParsing = completion
         parser = XmlParser(
             xml:self,
             data:data)
     }
     
-    func parsingError(error:XmlError)
+    func build(
+        object:Any,
+        completion:@escaping((Data?, XmlError?) -> ()))
     {
-        status = XmlStatusError()
-        completion?(nil, error)
+        status = XmlStatus.building
+        
+        self.completionBuilding = completion
+        builder = XmlBuilder(
+            xml:self,
+            object:object)
     }
     
-    func parsingFinished(xml:Any)
+    func parsingError(error:XmlError)
     {
-        status = XmlStatusFinished()
-        completion?(xml, nil)
+        status = XmlStatus.error
+        
+        completionParsing?(nil, error)
+        parser = nil
+        completionParsing = nil
+    }
+    
+    func parsingFinished(xml:[String:Any])
+    {
+        status = XmlStatus.finished
+        
+        completionParsing?(xml, nil)
+        parser = nil
+        completionParsing = nil
+    }
+    
+    func buildingError(error:XmlError)
+    {
+        status = XmlStatus.error
+        
+        completionBuilding?(nil, error)
+        builder = nil
+        completionBuilding = nil
+    }
+    
+    func buildingFinished(data:Data)
+    {
+        status = XmlStatus.finished
+        
+        completionBuilding?(data, nil)
+        builder = nil
+        completionBuilding = nil
     }
     
     //MARK: public
     
     public func cancel()
     {
-        status = XmlStatusCanceled()
+        status = XmlStatus.canceled
+        
         parser?.cancel()
+        parser = nil
+        builder = nil
+        completionParsing = nil
+        completionBuilding = nil
     }
 }

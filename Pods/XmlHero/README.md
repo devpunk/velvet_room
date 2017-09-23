@@ -4,7 +4,7 @@
 ![Swift](https://img.shields.io/badge/Swift-4-orange.svg)
 ![license](https://img.shields.io/github/license/mashape/apistatus.svg?style=plastic)
 
-XML parser
+XML engine for parsing and creation
 
 # Install
 ### CocoaPods
@@ -22,24 +22,43 @@ If you are wondering what is CocoaPods take a look at: [https://cocoapods.org](h
 
 # Usage
 ### Xml
-Xml is the class you need to use for XML loading
+Xml is the class you need to use for XML parsing
 
-### Add GifHero
+### Add XmlHero
 Once the Pod is installed import it in your project
 ```
 import XmlHero
 ```
+
 Parse a XML file
 ```
-// if your file is myFile.xml
+// myFile.xml
 
-Xml.object(
-    fileName:"myFile",
-    withExtension:"xml",
-    bundle:nil)
-{ (xml:Any?, error:XmlError?) in
+<?xml version="1.0" encoding="utf-8"?>
+<colours>
+    <red>#FF0000</red>
+</colours>
+```
 
-    // xml is the parsed object
+```
+// your project
+
+Xml.object(fileName:"myFile.xml")
+{ (xml:[String:Any]?, error:XmlError?) in
+
+    print(xml?["colours"])
+}
+```
+
+Create a XML file
+```
+var myObject:[String:Any] = [:]
+myObject["colour"] = "red"
+
+Xml.data(object:myObject)
+{ (data:Data?, error:XmlError?) in
+
+    // do something with data
 }
 ```
 

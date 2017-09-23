@@ -4,28 +4,11 @@ extension XmlParser
 {
     //MARK: delegate
     
-    func parserDidStartDocument(
-        _ parser:XMLParser)
-    {
-        
-    }
-    
     func parserDidEndDocument(
         _ parser:XMLParser)
-    {
-        guard
-        
-            let serialized:Any = serialize(elements:root)
-        
-        else
-        {
-            let error:XmlError = XmlError.failedSerializing()
-            parsingError(error:error)
-            
-            return
-        }
-        
-        parsingFinished(object:serialized)
+    {        
+        let serialized:[String:Any] = serialize(elements:root)
+        parsingFinished(xml:serialized)
     }
     
     func parser(
@@ -45,7 +28,8 @@ extension XmlParser
     {
         let element:XmlElement = XmlElement(
             name:elementName,
-            parent:current)
+            parent:current,
+            attributes:attributeDict)
         
         if let current:XmlElement = self.current
         {
