@@ -6,6 +6,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     var payload:Int
     var transactionId:UInt32
     private(set) var model:MVitaLink?
+    private(set) var status:MVitaLinkStrategySendDataStatusProtocol?
     private let kElementsStart:Int = 2
     
     required init(model:MVitaLink)
@@ -20,7 +21,15 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     func commandWrite()
     {
-        
+        status?.commandWrite(strategy:self)
+    }
+    
+    //MARK: private
+    
+    private func changeStatus(
+        status:MVitaLinkStrategySendDataStatusProtocol.Type)
+    {
+        self.status = status.init()
     }
     
     //MARK: internal
