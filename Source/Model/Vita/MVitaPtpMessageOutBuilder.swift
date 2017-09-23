@@ -25,6 +25,11 @@ final class MVitaPtpMessageOutBuilder
     
     //MARK: internal
     
+    func append(data:Data)
+    {
+        self.data.append(data)
+    }
+    
     func append<T>(value:T)
     {
         var value:T = value
