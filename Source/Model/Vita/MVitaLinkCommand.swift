@@ -22,4 +22,11 @@ final class MVitaLinkCommand:MVitaLinkSocket
             code:MVitaPtpCommand.requestVitaInfo)
         writeMessageAndRead(message:message)
     }
+    
+    func requestVitaCapabilities()
+    {
+        let message:MVitaPtpMessageOutRequestData = MVitaPtpMessageOutRequestData(
+            code:MVitaPtpCommand.requestVitaCapabilities)
+        writeMessageAndRead(message:message)
+    }
 }

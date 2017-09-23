@@ -59,6 +59,8 @@ extension MVitaLink
     
     func requestVitaCapabilities()
     {
-        
+        changeStrategy(strategyType:
+            MVitaLinkStrategyRequestVitaCapabilities.self)
+        linkCommand.requestVitaCapabilities()
     }
 }
