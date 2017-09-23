@@ -31,6 +31,16 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     private func packet(data:Data)
     {
+        let endIndex:Int = bytesSent + kMaxBlockSize
+        let subdataRange:Range<Data.Index> = Range<Data.Index>(
+            bytesSent ..< endIndex)
+        let subdata:Data = data.subdata(
+            in:subdataRange)
+        
+        bytesSent += kMaxBlockSize
+        
+        let message
+        
         print("remain: \(remain)")
         
         if remain > maxBlockSize
