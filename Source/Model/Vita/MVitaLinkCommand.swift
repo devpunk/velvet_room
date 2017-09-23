@@ -18,7 +18,8 @@ final class MVitaLinkCommand:MVitaLinkSocket
     
     func requestVitaInfo()
     {
-        let message:MVitaPtpMessageOutRequestVitaInfo = MVitaPtpMessageOutRequestVitaInfo()
+        let message:MVitaPtpMessageOutRequestData = MVitaPtpMessageOutRequestData(
+            code:MVitaPtpCommand.requestVitaInfo)
         writeMessageAndRead(message:message)
     }
 }
