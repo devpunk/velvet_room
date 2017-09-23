@@ -85,4 +85,15 @@ extension Data
         
         return value
     }
+    
+    func subdata(
+        start:Int,
+        endNotIncluding:Int) -> Data
+    {
+        let range:Range<Data.Index> = Range<Data.Index>(
+            start ..< endNotIncluding)
+        let sliced:Data = subdata(in:range)
+        
+        return sliced
+    }
 }
