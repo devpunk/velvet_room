@@ -15,7 +15,7 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
         
         guard
             
-            data.count == expectedSize
+            data.count >= expectedSize
             
         else
         {
