@@ -8,6 +8,7 @@ final class MVitaLink
     let configuration:MVitaConfiguration
     let linkCommand:MVitaLinkCommand
     let linkEvent:MVitaLinkEvent
+    var vitaInfo:MVitaInfo?
     
     init(
         device:MVitaDevice,

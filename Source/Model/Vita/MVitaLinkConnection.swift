@@ -48,4 +48,11 @@ extension MVitaLink
             MVitaLinkStrategyRequestVitaInfo.self)
         linkCommand.requestVitaInfo()
     }
+    
+    func sendLocalInfo(vitaInfo:MVitaInfo)
+    {
+        self.vitaInfo = vitaInfo
+        
+        print("send local info")
+    }
 }

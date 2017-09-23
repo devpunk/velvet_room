@@ -13,7 +13,7 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
     override func success()
     {
         Xml.object(data:data)
-        { [weak self] (xml:Any?, error:XmlError?) in
+        { [weak self] (xml:[String:Any]?, error:XmlError?) in
             
             if let error:XmlError = error
             {
@@ -25,16 +25,18 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
             
             guard
             
-                let xml:Any = xml,
+                let xml:[String:Any] = xml,
                 error == nil
             
             else
             {
-                print("error \(error?.localizedDescription)")
                 self?.failed()
                 
                 return
             }
+            
+            print("xml")
+            print(xml)
             
             self?.vitaInfo(xml:xml)
         }
@@ -42,8 +44,20 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
     
     //MARK: private
     
-    private func vitaInfo(xml:Any)
+    private func vitaInfo(xml:[String:Any])
     {
-        print(xml)
+        guard
+        
+            let vitaInfo:MVitaInfo = MVitaInfo.factoryInfo(
+                xml:xml)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        model?.sendLocalInfo(vitaInfo:vitaInfo)
     }
 }
