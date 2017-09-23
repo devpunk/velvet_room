@@ -6,6 +6,6 @@ final class MVitaLinkStrategySendDataStatusConfirm:MVitaLinkStrategySendDataStat
     
     func commandWrite(strategy:MVitaLinkStrategySendData)
     {
-        strategy.packet()
+        strategy.model?.linkCommand.readData()
     }
 }

@@ -21,6 +21,28 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         status?.commandWrite(strategy:self)
     }
     
+    func commandReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        guard
+            
+            let confirm:MVitaPtpMessageInConfirm = MVitaPtpMessageInConfirm(
+                header:header,
+                data:data),
+            header.type == MVitaPtpType.commandAccepted,
+            confirm.code == MVitaPtpCommand.success
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        success()
+    }
+    
     //MARK: private
     
     private func changeStatus(
@@ -49,7 +71,13 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         data:Data,
         remainBytes:Int)
     {
+        changeStatus(
+            status:MVitaLinkStrategySendDataStatusConfirm.self)
         
+        let message:MVitaPtpMessageOutSendData = MVitaPtpMessageOutSendData(
+            code:code)
+        model?.linkCommand.writeMessage(
+            message:message)
         
         
         
