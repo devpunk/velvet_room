@@ -6,6 +6,6 @@ final class MVitaLinkStrategySendDataStatusPacketStart:MVitaLinkStrategySendData
     
     func commandWrite(strategy:MVitaLinkStrategySendData)
     {
-        strategy.sendStartPacket()
+        strategy.packetStart()
     }
 }
