@@ -56,6 +56,8 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
             return
         }
         
+        debugPrint(String.init(data:data, encoding:String.Encoding.utf8))
+        
         send(
             data:data,
             code:MVitaPtpCommand.sendLocalInfo)

@@ -1,9 +1,9 @@
-<?xml version=\"1.0\" encoding=\"UTF-8\" ?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <initiatorInfo
-    platformType=\"PC\"
-    platformSubtype=\"Unknown\"
-    osVersion=\"1.0\"
-    version=\"1.0\"
-    protocolVersion=\"01900010\"
-    name=\"Velvet Room\"
-    applicationType=\"5\" />
+    platformType="PC"
+    platformSubtype="Unknown"
+    osVersion="1.0"
+    version="1.0"
+    protocolVersion="01900010"
+    name="Velvet Room"
+    applicationType="5" />

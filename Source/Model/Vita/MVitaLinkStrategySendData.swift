@@ -6,6 +6,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     private var bytesSent:Int
     private var data:Data?
     private var status:MVitaLinkStrategySendDataStatusProtocol?
+    private let kNullEnd:String = "\0"
     private let kMaxBlockSize:Int = 32756
     
     required init(model:MVitaLink)
@@ -95,13 +96,27 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         return packetData
     }
     
+    private func addNullEnd(data:Data) -> Data
+    {
+        var dataWithEnd:Data = Data()
+        
+        if let nullEnd:Data = kNullEnd.data(
+            using:String.Encoding.utf8,
+            allowLossyConversion:false)
+        {
+            dataWithEnd.append(nullEnd)
+        }
+        
+        return dataWithEnd
+    }
+    
     //MARK: internal
     
     final func send(
         data:Data,
         code:UInt16)
     {
-        self.data = data
+        self.data = addNullEnd(data:data)
         
         changeStatus(
             status:MVitaLinkStrategySendDataStatusHeader.self)
@@ -143,8 +158,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
             return
         }
         
-        let size:Int = data.count
-        let remainBytes:Int = size - bytesSent
+        let remainBytes:Int = data.count - bytesSent
         
         if remainBytes > kMaxBlockSize
         {

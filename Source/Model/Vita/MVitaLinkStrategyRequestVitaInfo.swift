@@ -15,14 +15,6 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyRequestData
         Xml.object(data:data)
         { [weak self] (xml:[String:Any]?, error:XmlError?) in
             
-            if let error:XmlError = error
-            {
-                print("error")
-                print(error.localizedDescription)
-                
-                return
-            }
-            
             guard
             
                 let xml:[String:Any] = xml,
@@ -34,9 +26,6 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyRequestData
                 
                 return
             }
-            
-            print("xml")
-            print(xml)
             
             self?.vitaInfo(xml:xml)
         }
