@@ -9,8 +9,7 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
     required init(model:MVitaLink)
     {
         super.init(model:model)
-        
-        guard
+        sendData()
     }
     
     override func failed()
@@ -23,5 +22,42 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
     override func success()
     {
         print("success sent local info")
+    }
+    
+    //MARK: private
+    
+    private func sendData()
+    {
+        guard
+            
+            let infoUrl:URL = Bundle.main.url(
+                forResource:kResourceName,
+                withExtension:kResourceExtension)
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:infoUrl,
+                options:Data.ReadingOptions.mappedIfSafe)
+        }
+        catch
+        {
+            failed()
+            
+            return
+        }
+        
+        send(
+            data:data,
+            code:MVitaPtpCommand.sendLocalInfo)
     }
 }
