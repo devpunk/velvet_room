@@ -1,7 +1,7 @@
 import Foundation
 import XmlHero
 
-final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyReceiveData
+final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyRequestData
 {
     override func failed()
     {
