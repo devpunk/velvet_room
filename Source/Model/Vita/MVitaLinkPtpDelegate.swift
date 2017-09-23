@@ -77,10 +77,9 @@ class MVitaLinkPtpDelegate:
         socket:GCDAsyncSocket,
         data:Data)
     {
-        let unheaderDataRange:Range<Data.Index> = Range<Data.Index>(
-            MVitaPtpMessageInHeader.size ..< header.size)
         let unheaderData:Data = data.subdata(
-            in:unheaderDataRange)
+            start:MVitaPtpMessageInHeader.size,
+            endNotIncluding:header.size)
         
         received(
             header:header,
@@ -101,10 +100,8 @@ class MVitaLinkPtpDelegate:
             return
         }
         
-        let surplusDataRange:Range<Data.Index> = Range<Data.Index>(
-            header.size ..< data.count)
         let surplusData:Data = data.subdata(
-            in:surplusDataRange)
+            start:header.size)
         
         read(socket:socket, data:surplusData)
     }

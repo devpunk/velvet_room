@@ -89,9 +89,7 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
         }
         
         let transactionSize:Int = MemoryLayout<UInt32>.size
-        let subdataRange:Range<Data.Index> = Range<Data.Index>(
-            transactionSize ..< data.count)
-        let subdata:Data = data.subdata(in:subdataRange)
+        let subdata:Data = data.subdata(start:transactionSize)
         
         return subdata
     }
@@ -187,7 +185,19 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
             return
         }
         
-        success()
+        validateSize()
+    }
+    
+    private func validateSize()
+    {
+        guard
+        
+            let headerSize:UInt32 = data.valueFromBytes()
+        
+        else
+        {
+            return
+        }
     }
     
     //MARK: internal

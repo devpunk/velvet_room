@@ -22,9 +22,8 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
             return nil
         }
         
-        let rangeTransaction:Range<Data.Index> = Range<Data.Index>(
-            codeSize ..< data.count)
-        let subdataTransaction:Data = data.subdata(in:rangeTransaction)
+        let subdataTransaction:Data = data.subdata(
+            start:codeSize)
         
         guard
             

@@ -85,10 +85,9 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         bytes:Int) -> Data
     {
         let endIndex:Int = bytesSent + bytes
-        let packetRange:Range<Data.Index> = Range<Data.Index>(
-            bytesSent ..< endIndex)
         let packetData:Data = data.subdata(
-            in:packetRange)
+            start:bytesSent,
+            endNotIncluding:endIndex)
         
         bytesSent += bytes
         
