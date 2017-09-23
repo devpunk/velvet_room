@@ -38,6 +38,7 @@
 		DA04ABB81F65EA3D0077CA06 /* PTPDelegate2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA04ABB71F65EA3D0077CA06 /* PTPDelegate2.swift */; };
 		DA16C7091F5888CF0062D37A /* MMenuItemConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */; };
 		DA16C70B1F5898410062D37A /* generic.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA16C70A1F5898410062D37A /* generic.xcassets */; };
+		DA17D1171F762AF900A28B35 /* vitaLocalInfo.xml in Resources */ = {isa = PBXBuildFile; fileRef = DA17D1161F762AF900A28B35 /* vitaLocalInfo.xml */; };
 		DA1A1BCD1F67255A00E8B084 /* brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1A1BCC1F67255A00E8B084 /* brand.xcassets */; };
 		DA1A1BD31F67379900E8B084 /* connect.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1A1BD21F67379900E8B084 /* connect.xcassets */; };
 		DA1A1BD51F67388F00E8B084 /* MConnectWalkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1A1BD41F67388F00E8B084 /* MConnectWalkProtocol.swift */; };
@@ -217,6 +218,7 @@
 		DA16C7081F5888CF0062D37A /* MMenuItemConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MMenuItemConnect.swift; sourceTree = "<group>"; };
 		DA16C70A1F5898410062D37A /* generic.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = generic.xcassets; sourceTree = "<group>"; };
 		DA16C70C1F5898830062D37A /* velvetRoom.sketch */ = {isa = PBXFileReference; lastKnownFileType = file; path = velvetRoom.sketch; sourceTree = "<group>"; };
+		DA17D1161F762AF900A28B35 /* vitaLocalInfo.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = vitaLocalInfo.xml; sourceTree = "<group>"; };
 		DA1A1BCC1F67255A00E8B084 /* brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = brand.xcassets; sourceTree = "<group>"; };
 		DA1A1BD21F67379900E8B084 /* connect.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = connect.xcassets; sourceTree = "<group>"; };
 		DA1A1BD41F67388F00E8B084 /* MConnectWalkProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectWalkProtocol.swift; sourceTree = "<group>"; };
@@ -605,6 +607,7 @@
 				DA8B7DD21F578E7C004EEE23 /* LocalizableModel.strings */,
 				DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */,
 				DAD3A0CC1F6D0D9000026CA9 /* vitaConfiguration.plist */,
+				DA17D1161F762AF900A28B35 /* vitaLocalInfo.xml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1005,6 +1008,7 @@
 				DA1A1BCD1F67255A00E8B084 /* brand.xcassets in Resources */,
 				DA8B7DE51F578E7D004EEE23 /* LocalizableView.strings in Resources */,
 				DA8B7DEA1F578F1B004EEE23 /* infoPlist.strings in Resources */,
+				DA17D1171F762AF900A28B35 /* vitaLocalInfo.xml in Resources */,
 				DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */,
 				DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */,
 				DAD3A0CD1F6D0D9000026CA9 /* vitaConfiguration.plist in Resources */,
