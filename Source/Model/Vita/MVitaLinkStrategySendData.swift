@@ -21,9 +21,14 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     //MARK: internal
     
-    final func send(data:Data, code:UInt16)
+    final func send(
+        data:Data,
+        code:UInt16)
     {
-        
+        let message:MVitaPtpMessageOutSendData = MVitaPtpMessageOutSendData(
+            code:code)
+        model?.linkCommand.writeMessage(
+            message:message)
     }
     
     func failed() { }
