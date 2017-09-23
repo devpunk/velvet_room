@@ -33,6 +33,16 @@ extension Data
         return fileUrl
     }
     
+    mutating func append<T>(value:T)
+    {
+        var value:T = value
+        let buffer:UnsafeBufferPointer = UnsafeBufferPointer(
+            start:&value,
+            count:1)
+        
+        append(buffer)
+    }
+    
     func arrayFromBytes<T>(elements:Int) -> [T]?
     {   
         let valueSize:Int = MemoryLayout<T>.size
