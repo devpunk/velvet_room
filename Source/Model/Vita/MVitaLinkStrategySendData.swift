@@ -26,6 +26,8 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
+        print("header:\(header.size) \(header.type)")
+        
         guard
             
             let confirm:MVitaPtpMessageInConfirm = MVitaPtpMessageInConfirm(
