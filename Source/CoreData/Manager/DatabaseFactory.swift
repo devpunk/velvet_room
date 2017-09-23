@@ -7,7 +7,6 @@ extension Database
     private static let kModelExtension:String = "momd"
     private static let kSQLiteExtension:String = ".sqlite"
     private static let kBundleSeparator:String = "."
-    private static let kEmptyString:String = ""
     
     //MARK: private
     
@@ -73,7 +72,7 @@ extension Database
         }
         else
         {
-            bundleIdentifier = kEmptyString
+            bundleIdentifier = String()
         }
         
         var sqliteFile:String = bundleIdentifier

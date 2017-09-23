@@ -19,3 +19,4 @@
 "MVitaLinkStrategyRequestEvent_messageFailed"="Failed requesting Event Socket,\ntry again";
 "MVitaLinkStrategyOpenSession_messageFailed"="Failed opening session,\ntry again";
 "MVitaLinkStrategyRequestVitaInfo_messageFailed"="Failed requesting Vita's info,\ntry again";
+"MVitaLinkStrategySendLocalInfo_messageFailed"="Failed sending Local Info,\ntry again";
