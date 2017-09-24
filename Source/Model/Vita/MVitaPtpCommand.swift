@@ -6,6 +6,7 @@ enum MVitaPtpCommand:UInt16
     case error = 8194
     case requestVitaInfo = 38161
     case sendLocalInfo = 38172
+    case requestSettings = 38180
     case sendLocalStatus = 38186
     case requestVitaCapabilities = 38203
     case sendLocalCapabilities = 38204
