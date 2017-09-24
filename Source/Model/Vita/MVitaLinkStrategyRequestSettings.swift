@@ -35,9 +35,6 @@ final class MVitaLinkStrategyRequestSettings:MVitaLinkStrategyRequestData
     
     private func vitaSettings(xml:[String:Any])
     {
-        print("xml")
-        print(xml)
-        
         guard
 
             let vitaSettings:MVitaSettings = MVitaSettings.factorySettings(
