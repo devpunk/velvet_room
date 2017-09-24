@@ -34,11 +34,6 @@ extension MConnecting
         socket.start()
     }
     
-    func vitaFound()
-    {
-        modelTimer.cancel()
-    }
-    
     func registered()
     {
         guard

@@ -87,7 +87,6 @@ final class MConnectingSocketTcp
     func acceptedConnection(acceptedSocket:GCDAsyncSocket)
     {
         self.acceptedSocket = acceptedSocket
-        model?.model?.vitaFound()
         
         DispatchQueue.global(
             qos:DispatchQoS.QoSClass.background).async
