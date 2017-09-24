@@ -4,7 +4,8 @@ extension MVitaPtpMessageIn
 {
     //MARK: internal
     
-    class func factoryHeader(data:Data) -> MVitaPtpMessageInHeader?
+    class func factoryHeader(
+        data:Data) -> MVitaPtpMessageInHeader?
     {
         guard
             
@@ -36,5 +37,23 @@ extension MVitaPtpMessageIn
             size:size)
         
         return header
+    }
+    
+    class func factoryCommand(
+        rawCode:UInt16) -> MVitaPtpCommand
+    {
+        let command:MVitaPtpCommand
+        
+        if let code:MVitaPtpCommand = MVitaPtpCommand(
+            rawValue:rawCode)
+        {
+            command = code
+        }
+        else
+        {
+            command = MVitaPtpCommand.unknown
+        }
+        
+        return command
     }
 }
