@@ -29,7 +29,13 @@ extension MVitaLink
         logItem:MVitaLinkLogProtocol)
     {
         log.append(logItem)
-        delegate?.vitaLinkLogUpdated()
+        
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.delegate?.vitaLinkLogUpdated()
+        }
     }
     
     func cancel()
