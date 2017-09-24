@@ -1,6 +1,6 @@
 import Foundation
 
-final class MConnected:Model
+final class MConnected:Model<ArchConnected>
 {
     
 }

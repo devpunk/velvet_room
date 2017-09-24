@@ -1,6 +1,6 @@
 import Foundation
 
-final class CConnected:Controller
+final class CConnected:Controller<ArchConnected>
 {
     
 }
