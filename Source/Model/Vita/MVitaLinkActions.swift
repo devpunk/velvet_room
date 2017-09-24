@@ -10,6 +10,21 @@ extension MVitaLink
         strategy = strategyType.init(model:self)
     }
     
+    func strategyEvent(
+        event:MVitaPtpMessageInEvent)
+    {
+        guard
+            
+            var strategyEvent:MVitaLinkStrategyEventProtocol = strategy as? MVitaLinkStrategyEventProtocol
+            
+        else
+        {
+            return
+        }
+        
+        strategyEvent.event = event
+    }
+    
     func cancel()
     {
         linkCommand.cancel()
@@ -30,7 +45,9 @@ extension MVitaLink
         linkEvent.readData()
     }
     
-    func receivedSettings(vitaSettings:MVitaSettings)
+    func receivedSettings(
+        vitaSettings:MVitaSettings,
+        event:MVitaPtpMessageInEvent)
     {
         self.vitaSettings = vitaSettings
         

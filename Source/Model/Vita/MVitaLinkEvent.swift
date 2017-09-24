@@ -16,6 +16,8 @@ extension MVitaLink
     {
         changeStrategy(strategyType:
             MVitaLinkStrategyRequestSettings.self)
+        strategyEvent(event:event)
+        
         linkCommand.requestSettings(event:event)
     }
     

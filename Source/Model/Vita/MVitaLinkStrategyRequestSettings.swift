@@ -42,7 +42,8 @@ final class MVitaLinkStrategyRequestSettings:
         guard
 
             let vitaSettings:MVitaSettings = MVitaSettings.factorySettings(
-                xml:xml)
+                xml:xml),
+            let event:MVitaPtpMessageInEvent = self.event
 
         else
         {
@@ -52,6 +53,7 @@ final class MVitaLinkStrategyRequestSettings:
         }
 
         model?.receivedSettings(
-            vitaSettings:vitaSettings)
+            vitaSettings:vitaSettings,
+            event:event)
     }
 }
