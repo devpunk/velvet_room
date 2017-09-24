@@ -14,6 +14,9 @@ final class VConnectedOnClose:View<ArchConnected>
         button.setImage(
             #imageLiteral(resourceName: "assetConnectClose"),
             for:UIControlState.normal)
+        button.setImage(
+            #imageLiteral(resourceName: "assetConnectCloseHover"),
+            for:UIControlState.highlighted)
         button.imageView!.clipsToBounds = true
         button.imageView!.contentMode = UIViewContentMode.center
         button.addTarget(

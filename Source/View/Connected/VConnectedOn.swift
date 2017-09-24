@@ -3,7 +3,7 @@ import UIKit
 final class VConnectedOn:View<ArchConnected>
 {
     private let kBarHeight:CGFloat = 64
-    private let kCloseBottom:CGFloat = -30
+    private let kCloseBottom:CGFloat = -35
     private let kCloseHeight:CGFloat = 80
     
     required init(controller:CConnected)
