@@ -4,13 +4,11 @@ final class MVitaLinkStrategySendLocalStatusConnectionEnd:MVitaLinkStrategySendL
 {
     override func failed()
     {
-        print("failed connection end")
-        model?.delegate?.vitaLinkConnectionClosed()
+        model?.closeSession()
     }
     
     override func success()
     {
-        print("success connection end")
-        model?.delegate?.vitaLinkConnectionClosed()
+        model?.closeSession()
     }
 }

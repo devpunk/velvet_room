@@ -1,9 +1,8 @@
 import Foundation
 
-struct MVitaPtpMessageOutOpenSession:MVitaPtpMessageOutProtocol
+struct MVitaPtpMessageOutCloseSession:MVitaPtpMessageOutProtocol
 {
     let data:Data
-    private let kSessionId:UInt32 = 1
     
     init()
     {
@@ -12,7 +11,6 @@ struct MVitaPtpMessageOutOpenSession:MVitaPtpMessageOutProtocol
         builder.append(value:MVitaPtpDataPhase.none.rawValue)
         builder.append(value:MVitaPtpCommand.closeSession.rawValue)
         builder.appendTransactionId()
-        builder.append(value:kSessionId)
         
         data = builder.export()
     }

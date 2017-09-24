@@ -54,4 +54,10 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
             result:result)
         writeMessageAndRead(message:message)
     }
+    
+    func closeSession()
+    {
+        let message:MVitaPtpMessageOutCloseSession = MVitaPtpMessageOutCloseSession()
+        writeMessageAndRead(message:message)
+    }
 }

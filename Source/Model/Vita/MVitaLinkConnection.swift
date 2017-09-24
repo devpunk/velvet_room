@@ -80,4 +80,11 @@ extension MVitaLink
         sendLocalStatus(
             status:MVitaPtpLocalStatus.connection)
     }
+    
+    func closeSession()
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategyCloseSession.self)
+        linkCommand.closeSession()
+    }
 }
