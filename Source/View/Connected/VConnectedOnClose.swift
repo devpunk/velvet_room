@@ -3,7 +3,7 @@ import UIKit
 final class VConnectedOnClose:View<ArchConnected>
 {
     private weak var layoutButtonLeft:NSLayoutConstraint!
-    private let kButtonWidth:CGFloat = 150
+    private let kButtonWidth:CGFloat = 100
     
     required init(controller:CConnected)
     {
