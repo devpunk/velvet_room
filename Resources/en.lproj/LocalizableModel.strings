@@ -24,3 +24,4 @@
 "MVitaLinkStrategySendLocalCapabilities_messageFailed"="Failed sending Local Capabilities,\ntry again";
 "MVitaLinkStrategySendLocalStatus_messageFailed"="Failed sending local status,\ntry again";
 "MVitaLinkStrategyListenEvents_messageFailed"="Failed Listening for Events,\ntry again";
+"MVitaLink_unknownEventReceived"="Unknown Event Code received,\ntry again";

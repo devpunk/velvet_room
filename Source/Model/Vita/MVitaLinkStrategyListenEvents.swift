@@ -43,6 +43,7 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
     
     private func success(message:MVitaPtpMessageInEvent)
     {
-        model?.listenEvents()
+        model?.receivedEvent(
+            message:message)
     }
 }
