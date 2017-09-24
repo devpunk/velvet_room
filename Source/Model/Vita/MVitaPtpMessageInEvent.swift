@@ -3,7 +3,7 @@ import Foundation
 final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
 {
     let parameters:[UInt32]
-    let code:MVitaPtpCommand
+    let code:MVitaPtpEvent
     let transactionId:UInt32
     
     override init?(
@@ -43,7 +43,7 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
         
         self.transactionId = transactionId
         self.parameters = parameters
-        self.code = MVitaPtpMessageIn.factoryCode(
+        self.code = MVitaPtpMessageIn.factoryEventCode(
             rawCode:rawCode)
         
         super.init(

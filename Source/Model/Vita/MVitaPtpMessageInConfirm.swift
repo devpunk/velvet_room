@@ -36,7 +36,7 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
         }
         
         self.transactionId = transactionId
-        self.code = MVitaPtpMessageIn.factoryCode(
+        self.code = MVitaPtpMessageIn.factoryCommandCode(
             rawCode:rawCode)
         
         super.init(
