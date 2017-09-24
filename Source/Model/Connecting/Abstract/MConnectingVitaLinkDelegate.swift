@@ -28,4 +28,18 @@ extension MConnecting
         modelTimer.cancel()
         controller.connectionReady()
     }
+    
+    func vitaLinkConnectionClosed()
+    {
+        guard
+            
+            let controller:CConnecting = view?.controller as? CConnecting
+            
+        else
+        {
+            return
+        }
+        
+        controller.connectionClosed()
+    }
 }

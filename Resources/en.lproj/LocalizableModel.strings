@@ -22,7 +22,7 @@
 "MVitaLinkStrategySendLocalInfo_messageFailed"="Failed sending Local Info,\ntry again";
 "MVitaLinkStrategyRequestVitaCapabilities_messageFailed"="Failed request Vita's Capabilities,\ntry again";
 "MVitaLinkStrategySendLocalCapabilities_messageFailed"="Failed sending Local Capabilities,\ntry again";
-"MVitaLinkStrategySendLocalStatus_messageFailed"="Failed sending local status,\ntry again";
+"MVitaLinkStrategySendLocalStatusConnection_messageFailed"="Failed Establishing Connection,\ntry again";
 "MVitaLinkStrategyListenEvents_messageFailed"="Failed Listening for Events,\ntry again";
 "MVitaLink_unknownEventReceived"="Unknown Event Code received,\ntry again";
 "MVitaLinkStrategyRequestSettings_messageFailed"="Failed requesting settings,\ntry again";

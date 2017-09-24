@@ -6,8 +6,7 @@ final class CConnected:Controller<ArchConnected>
     
     private func confirmClose()
     {
-        parentController?.pop(
-            horizontal:ControllerParent.Horizontal.right)
+        model.closeConnection()
     }
     
     //MARK: internal
@@ -42,5 +41,15 @@ final class CConnected:Controller<ArchConnected>
         }
         
         present(alert, animated:true, completion:nil)
+    }
+    
+    func connectionClosed()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.parentController?.pop(
+                horizontal:ControllerParent.Horizontal.right)
+        }
     }
 }

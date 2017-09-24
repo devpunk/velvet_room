@@ -1,10 +1,10 @@
 import Foundation
 
-final class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
+class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
 {
     private(set) var model:MVitaLink?
     
-    init(model:MVitaLink)
+    required init(model:MVitaLink)
     {
         self.model = model
     }
@@ -33,17 +33,8 @@ final class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
         success()
     }
     
-    //MARK: private
+    //MARK: internal
     
-    private func failed()
-    {
-        let message:String = String.localizedModel(
-            key:"MVitaLinkStrategySendLocalStatus_messageFailed")
-        model?.delegate?.vitaLinkError(message:message)
-    }
-    
-    private func success()
-    {
-        model?.listenEvents()
-    }
+    func failed() { }
+    func success() { }
 }

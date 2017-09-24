@@ -67,7 +67,7 @@ final class CConnecting:Controller<ArchConnecting>
     func cancelConnection()
     {
         model.cancelAndClean()
-        parentController?.pop(vertical:ControllerParent.Vertical.bottom)
+        connectionClosed()
     }
     
     func connectionReady()
@@ -76,6 +76,16 @@ final class CConnecting:Controller<ArchConnecting>
         { [weak self] in
             
             self?.asyncConnectionReady()
+        }
+    }
+    
+    func connectionClosed()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.parentController?.pop(
+                vertical:ControllerParent.Vertical.bottom)
         }
     }
 }

@@ -10,6 +10,12 @@ extension MConnected
         vitaLink.delegate = self
     }
     
+    func closeConnection()
+    {
+        vitaLink?.sendLocalStatus(
+            status:MVitaPtpLocalStatus.connectionEnd)
+    }
+    
     func cancelAndClean()
     {
         vitaLink?.cancel()

@@ -40,9 +40,10 @@ extension MVitaLink
     
     func sendLocalStatus(status:MVitaPtpLocalStatus)
     {
-        changeStrategy(strategyType:
-            MVitaLinkStrategySendLocalStatus.self)
+        let strategyType:MVitaLinkStrategySendLocalStatus.Type = MVitaLink.factoryStrategyStatus(
+            status:status)
         
+        changeStrategy(strategyType:strategyType)
         linkCommand.sendLocalStatus(status:status)
     }
     

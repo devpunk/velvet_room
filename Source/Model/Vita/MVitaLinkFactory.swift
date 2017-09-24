@@ -73,4 +73,23 @@ extension MVitaLink
         
         return linkEvent
     }
+    
+    class func factoryStrategyStatus(
+        status:MVitaPtpLocalStatus) -> MVitaLinkStrategySendLocalStatus.Type
+    {
+        switch status
+        {
+        case MVitaPtpLocalStatus.connection:
+            
+            return MVitaLinkStrategySendLocalStatusConnection.self
+            
+        case MVitaPtpLocalStatus.connectionEnd:
+            
+            return MVitaLinkStrategySendLocalStatusConnectionEnd.self
+            
+        default:
+            
+            return MVitaLinkStrategySendLocalStatus.self
+        }
+    }
 }
