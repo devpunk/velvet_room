@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaLinkEvent:MVitaLinkSocket
+final class MVitaLinkSocketEvent:MVitaLinkSocket
 {
     //MARK: internal
     
