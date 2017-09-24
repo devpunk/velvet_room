@@ -159,6 +159,7 @@
 		DAC6961F1F7723D900269F3F /* MVitaCapabilitiesFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC6961E1F7723D900269F3F /* MVitaCapabilitiesFactory.swift */; };
 		DAC696211F7724B800269F3F /* MVitaCapabilitiesKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC696201F7724B800269F3F /* MVitaCapabilitiesKeys.swift */; };
 		DAC696231F772C1E00269F3F /* MVitaLinkStrategySendLocalCapabilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC696221F772C1E00269F3F /* MVitaLinkStrategySendLocalCapabilities.swift */; };
+		DAC696251F772CE000269F3F /* vitaLocalCapabilities.xml in Resources */ = {isa = PBXBuildFile; fileRef = DAC696241F772CE000269F3F /* vitaLocalCapabilities.xml */; };
 		DAD3A0BD1F6CF08000026CA9 /* MVitaConfigurationFactoryKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0BC1F6CF08000026CA9 /* MVitaConfigurationFactoryKeys.swift */; };
 		DAD3A0BF1F6CF0D000026CA9 /* MVitaConfigurationFactoryTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0BE1F6CF0D000026CA9 /* MVitaConfigurationFactoryTools.swift */; };
 		DAD3A0C11F6CF19500026CA9 /* MVitaConfigurationFactoryBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD3A0C01F6CF19500026CA9 /* MVitaConfigurationFactoryBroadcast.swift */; };
@@ -364,6 +365,7 @@
 		DAC6961E1F7723D900269F3F /* MVitaCapabilitiesFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaCapabilitiesFactory.swift; sourceTree = "<group>"; };
 		DAC696201F7724B800269F3F /* MVitaCapabilitiesKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaCapabilitiesKeys.swift; sourceTree = "<group>"; };
 		DAC696221F772C1E00269F3F /* MVitaLinkStrategySendLocalCapabilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategySendLocalCapabilities.swift; sourceTree = "<group>"; };
+		DAC696241F772CE000269F3F /* vitaLocalCapabilities.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = vitaLocalCapabilities.xml; sourceTree = "<group>"; };
 		DAD3A0BC1F6CF08000026CA9 /* MVitaConfigurationFactoryKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationFactoryKeys.swift; sourceTree = "<group>"; };
 		DAD3A0BE1F6CF0D000026CA9 /* MVitaConfigurationFactoryTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationFactoryTools.swift; sourceTree = "<group>"; };
 		DAD3A0C01F6CF19500026CA9 /* MVitaConfigurationFactoryBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationFactoryBroadcast.swift; sourceTree = "<group>"; };
@@ -569,8 +571,8 @@
 				DA7DFC281F72581600C8D1E8 /* MVitaLinkStrategyOpenSession.swift */,
 				DA1C18921F72F7060045A644 /* MVitaLinkStrategyRequestVitaInfo.swift */,
 				DA17D1181F76308100A28B35 /* MVitaLinkStrategySendLocalInfo.swift */,
-				DAC696221F772C1E00269F3F /* MVitaLinkStrategySendLocalCapabilities.swift */,
 				DAFF8C8E1F76FAA200EF7BDF /* MVitaLinkStrategyRequestVitaCapabilities.swift */,
+				DAC696221F772C1E00269F3F /* MVitaLinkStrategySendLocalCapabilities.swift */,
 				DAF79EF41F7085CE00117BA4 /* MVitaPtpMessageOutBuilder.swift */,
 				DAF79EF01F70848D00117BA4 /* MVitaPtpMessageOutProtocol.swift */,
 				DAF79EFA1F708BE800117BA4 /* MVitaPtpMessageOutRequestCommand.swift */,
@@ -662,6 +664,7 @@
 				DA8B7DD41F578E7C004EEE23 /* LocalizableView.strings */,
 				DAD3A0CC1F6D0D9000026CA9 /* vitaConfiguration.plist */,
 				DA17D1161F762AF900A28B35 /* vitaLocalInfo.xml */,
+				DAC696241F772CE000269F3F /* vitaLocalCapabilities.xml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1064,6 +1067,7 @@
 				DA8B7DEA1F578F1B004EEE23 /* infoPlist.strings in Resources */,
 				DA17D1171F762AF900A28B35 /* vitaLocalInfo.xml in Resources */,
 				DA8B7DE31F578E7D004EEE23 /* LocalizableController.strings in Resources */,
+				DAC696251F772CE000269F3F /* vitaLocalCapabilities.xml in Resources */,
 				DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */,
 				DAD3A0CD1F6D0D9000026CA9 /* vitaConfiguration.plist in Resources */,
 				DA16C70B1F5898410062D37A /* generic.xcassets in Resources */,
