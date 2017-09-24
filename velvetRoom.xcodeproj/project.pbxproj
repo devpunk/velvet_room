@@ -87,6 +87,8 @@
 		DA59B5371F765E0F00A50968 /* MVitaPtpMessageOutPacketEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59B5361F765E0F00A50968 /* MVitaPtpMessageOutPacketEnd.swift */; };
 		DA5D1A2A1F5FB4C600FAF140 /* MConnectConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */; };
 		DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */; };
+		DA74764D1F785E4E00A9A84A /* VConnectedOnEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA74764C1F785E4E00A9A84A /* VConnectedOnEvents.swift */; };
+		DA74764F1F785E8E00A9A84A /* VConnectedOnEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA74764E1F785E8E00A9A84A /* VConnectedOnEventsCell.swift */; };
 		DA76226F1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */; };
 		DA7622751F6BF2500049195B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622711F6BF2500049195B /* Database.swift */; };
 		DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622721F6BF2500049195B /* DatabaseFactory.swift */; };
@@ -328,6 +330,8 @@
 		DA5C66591F5CE4F80006B049 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectConnected.swift; sourceTree = "<group>"; };
 		DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkPtpDelegate.swift; sourceTree = "<group>"; };
+		DA74764C1F785E4E00A9A84A /* VConnectedOnEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedOnEvents.swift; sourceTree = "<group>"; };
+		DA74764E1F785E8E00A9A84A /* VConnectedOnEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedOnEventsCell.swift; sourceTree = "<group>"; };
 		DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationBroadcast.swift; sourceTree = "<group>"; };
 		DA7622711F6BF2500049195B /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DA7622721F6BF2500049195B /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
@@ -614,6 +618,8 @@
 				DA00768A1F77C141005619B3 /* VConnectedOn.swift */,
 				DA0076941F77C5F2005619B3 /* VConnectedOnBar.swift */,
 				DAED1F9C1F783C8400E310E4 /* VConnectedOnClose.swift */,
+				DA74764C1F785E4E00A9A84A /* VConnectedOnEvents.swift */,
+				DA74764E1F785E8E00A9A84A /* VConnectedOnEventsCell.swift */,
 				DAEE1CC71F77CAD8003DA23F /* VConnectedError.swift */,
 			);
 			path = Connected;
@@ -1430,6 +1436,7 @@
 				DA57E3391F649BC100B3EA73 /* PTPDelegateWrite.swift in Sources */,
 				DA9751421F69938A00DBC757 /* MConnectingStatusLoading.swift in Sources */,
 				DA8B7E3E1F579369004EEE23 /* VPushBackground.swift in Sources */,
+				DA74764D1F785E4E00A9A84A /* VConnectedOnEvents.swift in Sources */,
 				DA8B7E0E1F57929C004EEE23 /* AppDelegate.swift in Sources */,
 				DA8B7DFC1F579037004EEE23 /* ExtensionURLResponse.swift in Sources */,
 				DA03CFC01F6F1413001AE828 /* MConnectingSocketStart.swift in Sources */,
@@ -1481,6 +1488,7 @@
 				DA8B7E161F579309004EEE23 /* Model.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
 				DADB40071F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift in Sources */,
+				DA74764F1F785E8E00A9A84A /* VConnectedOnEventsCell.swift in Sources */,
 				DA8B7E061F579037004EEE23 /* ExtensionUIColor.swift in Sources */,
 				DAC03D981F77ABD200C11F69 /* MVitaSettingsFactory.swift in Sources */,
 				DAEE25BA1F7797E800AAAE18 /* MVitaLinkSocketCommandDelegate.swift in Sources */,
