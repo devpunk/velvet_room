@@ -73,7 +73,7 @@ extension MVitaLink
             MVitaLinkStrategySendLocalCapabilities.self)
     }
     
-    func sendLocalStatus(status:UInt32)
+    func sendLocalStatus(status:MVitaPtpLocalStatus)
     {
         print("send status")
     }
