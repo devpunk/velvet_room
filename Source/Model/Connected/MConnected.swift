@@ -13,4 +13,9 @@ final class MConnected:
         
         statusOn()
     }
+    
+    deinit
+    {
+        cancelAndClean()
+    }
 }

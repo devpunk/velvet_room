@@ -8,4 +8,10 @@ extension MConnected
     {
         status = MConnectedStatusOn()
     }
+    
+    func statusError(errorMessage:String)
+    {
+        status = MConnectedStatusError(
+            errorMessage:errorMessage)
+    }
 }
