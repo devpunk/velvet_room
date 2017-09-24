@@ -1,12 +1,13 @@
 import Foundation
 
-struct MVitaPtpCommand
+enum MVitaPtpCommand:UInt16
 {
-    static let openSession:UInt16 = 4098
-    static let success:UInt16 = 8193
-    static let error:UInt16 = 8194
-    static let requestVitaInfo:UInt16 = 38161
-    static let sendLocalInfo:UInt16 = 38172
-    static let requestVitaCapabilities:UInt16 = 38203
-    static let sendLocalCapabilities:UInt16 = 38204
+    case unknown
+    case openSession = 4098
+    case success = 8193
+    case error = 8194
+    case requestVitaInfo = 38161
+    case sendLocalInfo = 38172
+    case requestVitaCapabilities = 38203
+    case sendLocalCapabilities = 38204
 }
