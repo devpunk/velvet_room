@@ -25,3 +25,4 @@
 "MVitaLinkStrategySendLocalStatus_messageFailed"="Failed sending local status,\ntry again";
 "MVitaLinkStrategyListenEvents_messageFailed"="Failed Listening for Events,\ntry again";
 "MVitaLink_unknownEventReceived"="Unknown Event Code received,\ntry again";
+"MVitaLinkStrategyRequestSettings_messageFailed"="Failed requesting settings,\ntry again";
