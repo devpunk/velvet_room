@@ -4,7 +4,7 @@ final class MConnectingTimer
 {
     weak var model:MConnecting?
     private weak var timer:Timer?
-    private let kTimeout:TimeInterval = 15
+    private let kTimeout:TimeInterval = 20
     
     init()
     {
