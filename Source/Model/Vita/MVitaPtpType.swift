@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaPtpType:UInt32
 {
     case unknown

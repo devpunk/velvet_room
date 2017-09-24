@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaPtpCommand:UInt16
 {
     case unknown

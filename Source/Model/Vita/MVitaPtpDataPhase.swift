@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaPtpDataPhase:UInt32
 {
     case none = 0

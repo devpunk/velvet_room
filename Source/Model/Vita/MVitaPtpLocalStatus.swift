@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaPtpLocalStatus:UInt32
 {
     case connection = 0
