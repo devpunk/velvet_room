@@ -2,7 +2,7 @@ import UIKit
 
 final class VConnectedOn:View<ArchConnected>
 {
-    private weak var viewEvents:VConnectedOnEvents!
+    private(set) weak var viewEvents:VConnectedOnEvents!
     private let kBarHeight:CGFloat = 64
     private let kCloseBottom:CGFloat = -35
     private let kCloseHeight:CGFloat = 80

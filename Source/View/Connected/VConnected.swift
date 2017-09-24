@@ -14,4 +14,20 @@ final class VConnected:ViewMain
     {
         return nil
     }
+    
+    //MARK: internal
+    
+    func updateEvents()
+    {
+        guard
+        
+            let viewStatus:VConnectedOn = self.viewStatus as? VConnectedOn
+        
+        else
+        {
+            return
+        }
+        
+        viewStatus.viewEvents.update()
+    }
 }
