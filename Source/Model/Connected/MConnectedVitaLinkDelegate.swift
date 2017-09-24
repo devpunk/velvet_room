@@ -21,4 +21,9 @@ extension MConnected
         
         controller.connectionClosed()
     }
+    
+    func vitaLinkLogUpdated()
+    {
+        
+    }
 }
