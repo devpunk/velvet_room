@@ -27,3 +27,4 @@
 "MVitaLink_unknownEventReceived"="Unknown Event Code received,\ntry again";
 "MVitaLinkStrategyRequestSettings_messageFailed"="Failed requesting settings,\ntry again";
 "MVitaLinkStrategySendResult_messageFailed"="Failed sending Result,\ntry again";
+"MVitaLinkLogConnectionStart_descr"="Connection ready";

@@ -2,8 +2,7 @@ import Foundation
 
 enum MVitaLinkLogType
 {
-    case connectionStart
-    case connectionEnd
+    case connection
     case request
     case send
 }
