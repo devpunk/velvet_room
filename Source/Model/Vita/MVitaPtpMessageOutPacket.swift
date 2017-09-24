@@ -7,7 +7,7 @@ struct MVitaPtpMessageOutPacket:MVitaPtpMessageOutProtocol
     init(packetData:Data)
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
-        builder.append(value:MVitaPtpType.dataPacket)
+        builder.append(value:MVitaPtpType.dataPacket.rawValue)
         builder.appendTransactionId()
         builder.append(data:packetData)
         

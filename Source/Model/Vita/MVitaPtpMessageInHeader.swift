@@ -2,9 +2,9 @@ import Foundation
 
 struct MVitaPtpMessageInHeader
 {
-    static let size:Int = 8
-    static let elements:Int = 2
+    static let kSize:Int = 8
+    static let kElements:Int = 2
     
+    let type:MVitaPtpType
     let size:Int
-    let type:UInt32
 }

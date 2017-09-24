@@ -2,6 +2,7 @@ import Foundation
 
 enum MVitaPtpType:UInt32
 {
+    case unknown
     case commandRequest = 1
     case commandRequestAccepted = 2
     case eventRequest = 3

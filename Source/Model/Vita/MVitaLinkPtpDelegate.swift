@@ -78,7 +78,7 @@ class MVitaLinkPtpDelegate:
         data:Data)
     {
         let unheaderData:Data = data.subdata(
-            start:MVitaPtpMessageInHeader.size,
+            start:MVitaPtpMessageInHeader.kSize,
             endNotIncluding:header.size)
         
         received(

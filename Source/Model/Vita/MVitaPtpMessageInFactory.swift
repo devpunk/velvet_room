@@ -8,9 +8,9 @@ extension MVitaPtpMessageIn
     {
         guard
             
-            data.count >= MVitaPtpMessageInHeader.size,
+            data.count >= MVitaPtpMessageInHeader.kSize,
             let headerInfo:[UInt32] = data.arrayFromBytes(
-                elements:MVitaPtpMessageInHeader.elements)
+                elements:MVitaPtpMessageInHeader.kElements)
             
         else
         {
@@ -19,11 +19,21 @@ extension MVitaPtpMessageIn
         
         let sizeUnsigned:UInt32 = headerInfo[0]
         let size:Int = Int(sizeUnsigned)
-        let type:UInt32 = headerInfo[1]
+        let rawType:UInt32 = headerInfo[1]
+        let type:MVitaPtpType
+        
+        if let ptpType:MVitaPtpType = MVitaPtpType(rawValue:rawType)
+        {
+            type = ptpType
+        }
+        else
+        {
+            type = MVitaPtpType.unknown
+        }
         
         let header:MVitaPtpMessageInHeader = MVitaPtpMessageInHeader(
-            size:size,
-            type:type)
+            type:type,
+            size:size)
         
         return header
     }
