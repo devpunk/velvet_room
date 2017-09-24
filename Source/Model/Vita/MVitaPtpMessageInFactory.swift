@@ -39,7 +39,7 @@ extension MVitaPtpMessageIn
         return header
     }
     
-    class func factoryCode(
+    class func factoryCommandCode(
         rawCode:UInt16) -> MVitaPtpCommand
     {
         let command:MVitaPtpCommand
@@ -55,5 +55,23 @@ extension MVitaPtpMessageIn
         }
         
         return command
+    }
+    
+    class func factoryEventCode(
+        rawCode:UInt16) -> MVitaPtpEvent
+    {
+        let event:MVitaPtpEvent
+        
+        if let code:MVitaPtpEvent = MVitaPtpEvent(
+            rawValue:rawCode)
+        {
+            event = code
+        }
+        else
+        {
+            event = MVitaPtpEvent.unknown
+        }
+        
+        return event
     }
 }
