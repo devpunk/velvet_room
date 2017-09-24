@@ -4,7 +4,7 @@ extension MConnected
 {
     //MARK: delegate
     
-    func linkError(message:String)
+    func vitaLinkError(message:String)
     {
     }
 }

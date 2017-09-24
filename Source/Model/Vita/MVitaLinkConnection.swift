@@ -73,11 +73,11 @@ extension MVitaLink
             MVitaLinkStrategySendLocalCapabilities.self)
     }
     
-    func sendLocalStatus(status:MVitaPtpLocalStatus)
+    func connectionReady()
     {
-        changeStrategy(strategyType:
-            MVitaLinkStrategySendLocalStatus.self)
+        delegate?.connectionReady()
         
-        linkCommand.sendLocalStatus(status:status)
+        sendLocalStatus(
+            status:MVitaPtpLocalStatus.connection)
     }
 }

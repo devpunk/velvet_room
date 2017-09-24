@@ -4,17 +4,17 @@ extension MConnecting
 {
     //MARK: delegate
     
-    func linkError(message:String)
+    func vitaLinkError(message:String)
     {
         foundError(errorMessage:message)
     }
     
-    func stopBroadcast()
+    func vitaLinkStopBroadcast()
     {
         cancelBroadcast()
     }
     
-    func connectionReady()
+    func vitaLinkConnectionReady()
     {
         guard
         

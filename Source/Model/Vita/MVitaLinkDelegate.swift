@@ -2,7 +2,7 @@ import Foundation
 
 protocol MVitaLinkDelegate:class
 {
-    func linkError(message:String)
-    func stopBroadcast()
-    func connectionReady()
+    func vitaLinkError(message:String)
+    func vitaLinkStopBroadcast()
+    func vitaLinkConnectionReady()
 }

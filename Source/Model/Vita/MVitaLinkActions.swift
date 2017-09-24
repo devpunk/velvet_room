@@ -38,6 +38,14 @@ extension MVitaLink
         delegate?.linkError(message:message)
     }
     
+    func sendLocalStatus(status:MVitaPtpLocalStatus)
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendLocalStatus.self)
+        
+        linkCommand.sendLocalStatus(status:status)
+    }
+    
     func listenEvents()
     {
         changeStrategy(strategyType:
