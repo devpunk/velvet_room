@@ -12,22 +12,22 @@ extension MVitaLink
     }
     
     private func requestSettings(
-        message:MVitaPtpMessageInEvent)
+        event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
             MVitaLinkStrategyRequestSettings.self)
-        linkCommand.requestSettings(message:message)
+        linkCommand.requestSettings(event:event)
     }
     
     //MARK: internal
     
-    func receivedEvent(message:MVitaPtpMessageInEvent)
+    func receivedEvent(event:MVitaPtpMessageInEvent)
     {
-        switch message.code
+        switch event.code
         {
         case MVitaPtpEvent.requestSettings:
             
-            requestSettings(message:message)
+            requestSettings(event:event)
             
             break
             

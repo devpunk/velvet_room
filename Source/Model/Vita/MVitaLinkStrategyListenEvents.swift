@@ -44,6 +44,6 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
     private func success(message:MVitaPtpMessageInEvent)
     {
         model?.receivedEvent(
-            message:message)
+            event:message)
     }
 }
