@@ -7,6 +7,7 @@ extension MConnected
     func start(vitaLink:MVitaLink)
     {
         self.vitaLink = vitaLink
+        vitaLink.delegate = self
     }
     
     func cancelAndClean()

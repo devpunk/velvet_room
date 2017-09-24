@@ -7,8 +7,4 @@ extension MConnected
     func linkError(message:String)
     {
     }
-    
-    func stopBroadcast()
-    {
-    }
 }

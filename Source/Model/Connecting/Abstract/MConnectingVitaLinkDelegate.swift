@@ -13,4 +13,18 @@ extension MConnecting
     {
         cancelBroadcast()
     }
+    
+    func connectionReady()
+    {
+        guard
+        
+            let controller:CConnecting = view?.controller as? CConnecting
+        
+        else
+        {
+            return
+        }
+        
+        controller.connectionReady()
+    }
 }
