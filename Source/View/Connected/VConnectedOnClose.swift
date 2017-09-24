@@ -54,6 +54,6 @@ final class VConnectedOnClose:View<ArchConnected>
     @objc
     private func selectorClose(sender button:UIButton)
     {
-        
+        controller.close()
     }
 }
