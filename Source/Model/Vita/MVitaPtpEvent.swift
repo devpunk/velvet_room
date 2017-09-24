@@ -1,5 +1,5 @@
 enum MVitaPtpEvent:UInt16
 {
     case unknown
-    case fetchSettings = 49426
+    case requestSettings = 49426
 }
