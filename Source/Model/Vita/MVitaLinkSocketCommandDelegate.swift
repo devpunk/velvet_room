@@ -1,7 +1,7 @@
 import Foundation
 import CocoaAsyncSocket
 
-final class MVitaLinkCommandDelegate:MVitaLinkPtpDelegate
+final class MVitaLinkSocketCommandDelegate:MVitaLinkPtpDelegate
 {
     weak var model:MVitaLinkCommand?
     
