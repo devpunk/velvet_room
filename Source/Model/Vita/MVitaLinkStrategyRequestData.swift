@@ -175,7 +175,9 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
     {
         guard
             
-            let code:UInt16 = data.valueFromBytes(),
+            let rawCode:UInt16 = data.valueFromBytes(),
+            let code:MVitaPtpCommand = MVitaPtpCommand(
+                rawValue:rawCode),
             code == MVitaPtpCommand.success
             
         else

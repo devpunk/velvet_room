@@ -139,7 +139,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     final func send(
         data:Data,
-        code:UInt16)
+        code:MVitaPtpCommand)
     {
         wrapData(data:data)
         

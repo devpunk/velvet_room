@@ -2,7 +2,7 @@ import Foundation
 
 final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
 {
-    let code:UInt16
+    let code:MVitaPtpCommand
     let transactionId:UInt32
     
     override init?(
@@ -27,7 +27,7 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
         
         guard
             
-            let code:UInt16 = data.valueFromBytes(),
+            let rawCode:UInt16 = data.valueFromBytes(),
             let transactionId:UInt32 = subdataTransaction.valueFromBytes()
             
         else
@@ -35,7 +35,16 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
             return nil
         }
         
-        self.code = code
+        if let code:MVitaPtpCommand = MVitaPtpCommand(
+            rawValue:rawCode)
+        {
+            self.code = code
+        }
+        else
+        {
+            self.code = MVitaPtpCommand.unknown
+        }
+        
         self.transactionId = transactionId
         
         super.init(
