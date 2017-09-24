@@ -3,7 +3,6 @@ import Foundation
 struct MVitaPtpMessageOutSendLocalStatus:MVitaPtpMessageOutProtocol
 {
     let data:Data
-    private let kSessionId:UInt32 = 1
     
     init(status:MVitaPtpLocalStatus)
     {

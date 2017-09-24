@@ -75,6 +75,9 @@ extension MVitaLink
     
     func sendLocalStatus(status:MVitaPtpLocalStatus)
     {
-        print("send status")
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendLocalStatus.self)
+        
+        linkCommand.sendLocalStatus(status:status)
     }
 }

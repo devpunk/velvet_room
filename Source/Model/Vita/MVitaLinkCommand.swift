@@ -29,4 +29,11 @@ final class MVitaLinkCommand:MVitaLinkSocket
             code:MVitaPtpCommand.requestVitaCapabilities)
         writeMessageAndRead(message:message)
     }
+    
+    func sendLocalStatus(status:MVitaPtpLocalStatus)
+    {
+        let message:MVitaPtpMessageOutSendLocalStatus = MVitaPtpMessageOutSendLocalStatus(
+            status:status)
+        writeMessageAndRead(message:message)
+    }
 }
