@@ -1,8 +1,8 @@
 import Foundation
 
-struct MVitaPtpDataPhase
+enum MVitaPtpDataPhase:UInt32
 {
-    static let none:UInt32 = 0
-    static let send:UInt32 = 1
-    static let receive:UInt32 = 2
+    case none = 0
+    case send = 1
+    case receive = 2
 }
