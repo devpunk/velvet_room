@@ -3,7 +3,7 @@ import UIKit
 final class VConnectedOnBar:View<ArchConnected>
 {
     private let kTitleTop:CGFloat = 20
-    private let kFontSize:CGFloat = 18
+    private let kFontSize:CGFloat = 16
     private let kBorderHeight:CGFloat = 1
     
     required init(controller:CConnected)
@@ -24,7 +24,7 @@ final class VConnectedOnBar:View<ArchConnected>
             key:"VConnectedOnBar_labelTitle")
         
         let border:VBorder = VBorder(
-            colour:UIColor(white:0, alpha:0.2))
+            colour:UIColor(white:0, alpha:0.1))
         
         addSubview(labelTitle)
         addSubview(border)

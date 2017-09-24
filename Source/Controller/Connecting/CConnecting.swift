@@ -31,6 +31,7 @@ final class CConnecting:Controller<ArchConnecting>
             return
         }
         
+        model.vitaLink = nil
         let controller:CConnected = CConnected()
         controller.model.start(
             vitaLink:vitaLink)
