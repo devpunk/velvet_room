@@ -3,7 +3,7 @@ import CocoaAsyncSocket
 
 final class MVitaLinkSocketEventDelegate:MVitaLinkPtpDelegate
 {
-    weak var model:MVitaLinkEvent?
+    weak var model:MVitaLinkSocketEvent?
     
     override func received(
         header:MVitaPtpMessageInHeader,

@@ -3,8 +3,8 @@ import CocoaAsyncSocket
 
 extension MVitaLink
 {
-    private static let kCommandQueueLabel:String = "velvetRoom.vitaLink.command"
-    private static let kEventQueueLabel:String = "velvetRoom.vitaLink.event"
+    private static let kCommandQueueLabel:String = "velvetRoom.vitaLink.socketCommand"
+    private static let kEventQueueLabel:String = "velvetRoom.vitaLink.socketEvent"
     
     //MARK: private
     
@@ -38,16 +38,16 @@ extension MVitaLink
     
     //MARK: internal
     
-    class func factoryLinkCommand() -> MVitaLinkCommand
+    class func factorySocketCommand() -> MVitaLinkSocketCommand
     {
-        let delegate:MVitaLinkCommandDelegate = MVitaLinkCommandDelegate()
+        let delegate:MVitaLinkSocketCommandDelegate = MVitaLinkSocketCommandDelegate()
         let queue:DispatchQueue = factoryCommandQueue()
         let socket:GCDAsyncSocket = GCDAsyncSocket(
             delegate:delegate,
             delegateQueue:queue,
             socketQueue:queue)
         
-        let linkCommand:MVitaLinkCommand = MVitaLinkCommand(
+        let linkCommand:MVitaLinkSocketCommand = MVitaLinkSocketCommand(
             socket:socket,
             delegate:delegate,
             queue:queue)
@@ -56,16 +56,16 @@ extension MVitaLink
         return linkCommand
     }
     
-    class func factoryLinkEvent() -> MVitaLinkEvent
+    class func factorySocketEvent() -> MVitaLinkSocketEvent
     {
-        let delegate:MVitaLinkEventDelegate = MVitaLinkEventDelegate()
+        let delegate:MVitaLinkSocketEventDelegate = MVitaLinkSocketEventDelegate()
         let queue:DispatchQueue = factoryEventQueue()
         let socket:GCDAsyncSocket = GCDAsyncSocket(
             delegate:delegate,
             delegateQueue:queue,
             socketQueue:queue)
         
-        let linkEvent:MVitaLinkEvent = MVitaLinkEvent(
+        let linkEvent:MVitaLinkSocketEvent = MVitaLinkSocketEvent(
             socket:socket,
             delegate:delegate,
             queue:queue)

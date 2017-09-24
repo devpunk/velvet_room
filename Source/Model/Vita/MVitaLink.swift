@@ -6,8 +6,8 @@ final class MVitaLink
     var strategy:MVitaLinkStrategyProtocol?
     let device:MVitaDevice
     let configuration:MVitaConfiguration
-    let linkCommand:MVitaLinkCommand
-    let linkEvent:MVitaLinkEvent
+    let linkCommand:MVitaLinkSocketCommand
+    let linkEvent:MVitaLinkSocketEvent
     var vitaInfo:MVitaInfo?
     var vitaCapabilities:MVitaCapabilities?
     
@@ -19,8 +19,8 @@ final class MVitaLink
         self.device = device
         self.configuration = configuration
         self.delegate = delegate
-        linkCommand = MVitaLink.factoryLinkCommand()
-        linkEvent = MVitaLink.factoryLinkEvent()
+        linkCommand = MVitaLink.factorySocketCommand()
+        linkEvent = MVitaLink.factorySocketEvent()
         
         linkCommand.model = self
         linkEvent.model = self
