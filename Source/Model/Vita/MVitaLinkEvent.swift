@@ -11,13 +11,23 @@ extension MVitaLink
         delegate?.linkError(message:message)
     }
     
+    private func requestSettings(
+        message:MVitaPtpMessageInEvent)
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategyRequestSettings.self)
+        linkCommand.requestSettings(message:message)
+    }
+    
     //MARK: internal
     
     func receivedEvent(message:MVitaPtpMessageInEvent)
     {
         switch message.code
         {
-        case MVitaPtpEvent.fetchSettings:
+        case MVitaPtpEvent.requestSettings:
+            
+            requestSettings(message:message)
             
             break
             

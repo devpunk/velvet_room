@@ -36,4 +36,10 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
             status:status)
         writeMessageAndRead(message:message)
     }
+    
+    func requestSettings(
+        message:MVitaPtpMessageInEvent)
+    {
+        
+    }
 }
