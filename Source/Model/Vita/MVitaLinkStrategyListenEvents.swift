@@ -11,4 +11,10 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
     
     //MARK: protocol
     
+    func eventReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        
+    }
 }
