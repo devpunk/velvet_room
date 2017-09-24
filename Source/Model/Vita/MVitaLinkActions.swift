@@ -35,7 +35,7 @@ extension MVitaLink
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_errorDisconnected")
-        delegate?.linkError(message:message)
+        delegate?.vitaLinkError(message:message)
     }
     
     func sendLocalStatus(status:MVitaPtpLocalStatus)

@@ -42,7 +42,7 @@ extension MVitaLink
     
     func requestVitaInfo()
     {
-        delegate?.stopBroadcast()
+        delegate?.vitaLinkStopBroadcast()
         
         changeStrategy(strategyType:
             MVitaLinkStrategyRequestVitaInfo.self)
@@ -75,7 +75,7 @@ extension MVitaLink
     
     func connectionReady()
     {
-        delegate?.connectionReady()
+        delegate?.vitaLinkConnectionReady()
         
         sendLocalStatus(
             status:MVitaPtpLocalStatus.connection)

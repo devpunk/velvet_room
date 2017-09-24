@@ -39,7 +39,7 @@ final class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategySendLocalStatus_messageFailed")
-        model?.delegate?.linkError(message:message)
+        model?.delegate?.vitaLinkError(message:message)
     }
     
     private func success()

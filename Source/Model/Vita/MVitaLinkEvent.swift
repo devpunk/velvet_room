@@ -8,7 +8,7 @@ extension MVitaLink
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_unknownEventReceived")
-        delegate?.linkError(message:message)
+        delegate?.vitaLinkError(message:message)
     }
     
     private func requestSettings(

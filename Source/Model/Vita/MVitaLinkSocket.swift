@@ -41,7 +41,7 @@ class MVitaLinkSocket
         {
             let message:String = String.localizedModel(
                 key:"MVitaLinkSocket_errorConnect")
-            model.delegate?.linkError(message:message)
+            model.delegate?.vitaLinkError(message:message)
         }
     }
     

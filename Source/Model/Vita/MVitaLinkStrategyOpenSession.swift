@@ -39,7 +39,7 @@ final class MVitaLinkStrategyOpenSession:MVitaLinkStrategyProtocol
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategyOpenSession_messageFailed")
-        model?.delegate?.linkError(message:message)
+        model?.delegate?.vitaLinkError(message:message)
     }
     
     private func success()
