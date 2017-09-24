@@ -35,7 +35,19 @@ final class MVitaLinkStrategyRequestVitaCapabilities:MVitaLinkStrategyRequestDat
     
     private func vitaCapabilities(xml:[String:Any])
     {
-        print("xml")
-        print(xml)
+        guard
+            
+            let vitaCapabilities:MVitaCapabilities = MVitaCapabilities.factoryCapabilities(
+                xml:xml)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        model?.sendLocalCapabilities(
+            vitaCapabilities:vitaCapabilities)
     }
 }

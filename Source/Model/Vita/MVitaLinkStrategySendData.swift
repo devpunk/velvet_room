@@ -106,6 +106,37 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     //MARK: internal
     
+    final func loadData(
+        resourceName:String,
+        resourceExtension:String) -> Data?
+    {
+        guard
+            
+            let url:URL = Bundle.main.url(
+                forResource:resourceName,
+                withExtension:resourceExtension)
+            
+        else
+        {
+            return nil
+        }
+        
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:url,
+                options:Data.ReadingOptions())
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return data
+    }
+    
     final func send(
         data:Data,
         code:UInt16)

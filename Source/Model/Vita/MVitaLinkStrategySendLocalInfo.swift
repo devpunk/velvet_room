@@ -30,26 +30,11 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
     {
         guard
             
-            let infoUrl:URL = Bundle.main.url(
-                forResource:kResourceName,
-                withExtension:kResourceExtension)
+            let data:Data = loadData(
+                resourceName:kResourceName,
+                resourceExtension:kResourceExtension)
             
         else
-        {
-            failed()
-            
-            return
-        }
-        
-        let data:Data
-        
-        do
-        {
-            try data = Data(
-                contentsOf:infoUrl,
-                options:Data.ReadingOptions.mappedIfSafe)
-        }
-        catch
         {
             failed()
             

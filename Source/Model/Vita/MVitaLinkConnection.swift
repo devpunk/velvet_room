@@ -63,4 +63,13 @@ extension MVitaLink
             MVitaLinkStrategyRequestVitaCapabilities.self)
         linkCommand.requestVitaCapabilities()
     }
+    
+    func sendLocalCapabilities(
+        vitaCapabilities:MVitaCapabilities)
+    {
+        self.vitaCapabilities = vitaCapabilities
+        
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendLocalCapabilities.self)
+    }
 }

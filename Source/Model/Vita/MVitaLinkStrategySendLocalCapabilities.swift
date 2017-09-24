@@ -3,7 +3,7 @@ import XmlHero
 
 final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
 {
-    private let kResourceName:String = "vitaLocalInfo"
+    private let kResourceName:String = "vitaLocalCapabilities"
     private let kResourceExtension:String = "xml"
     
     required init(model:MVitaLink)
@@ -15,13 +15,13 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
     override func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategySendLocalInfo_messageFailed")
+            key:"MVitaLinkStrategySendLocalCapabilities_messageFailed")
         model?.delegate?.linkError(message:message)
     }
     
     override func success()
     {
-        model?.requestVitaCapabilities()
+        
     }
     
     //MARK: private
@@ -30,26 +30,11 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
     {
         guard
             
-            let infoUrl:URL = Bundle.main.url(
-                forResource:kResourceName,
-                withExtension:kResourceExtension)
+            let data:Data = loadData(
+                resourceName:kResourceName,
+                resourceExtension:kResourceExtension)
             
         else
-        {
-            failed()
-            
-            return
-        }
-        
-        let data:Data
-        
-        do
-        {
-            try data = Data(
-                contentsOf:infoUrl,
-                options:Data.ReadingOptions.mappedIfSafe)
-        }
-        catch
         {
             failed()
             
