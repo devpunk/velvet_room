@@ -17,6 +17,10 @@ extension MVitaLink
     {
         switch message.code
         {
+        case MVitaPtpEvent.fetchSettings:
+            
+            break
+            
         default:
             
             unknownEventReceived()

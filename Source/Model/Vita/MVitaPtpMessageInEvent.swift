@@ -4,6 +4,7 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
 {
     let parameters:[UInt32]
     let code:MVitaPtpEvent
+    let eventId:UInt32
     let transactionId:UInt32
     
     override init?(
@@ -12,7 +13,8 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
     {
         let codeSize:Int = MemoryLayout<UInt16>.size
         let parameterSize:Int = MemoryLayout<UInt32>.size
-        let expectedSize:Int = codeSize + parameterSize
+        let codeTransactionSize:Int = codeSize + parameterSize
+        let expectedSize:Int = codeTransactionSize + parameterSize
         
         guard
             
@@ -25,6 +27,8 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
         
         let subdataTransaction:Data = data.subdata(
             start:codeSize)
+        let subdataEventId:Data = data.subdata(
+            start:codeTransactionSize)
         let subdataParameters:Data = data.subdata(
             start:expectedSize)
         let countParameters:Int = subdataParameters.count / parameterSize
@@ -33,6 +37,7 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
             
             let rawCode:UInt16 = data.valueFromBytes(),
             let transactionId:UInt32 = subdataTransaction.valueFromBytes(),
+            let eventId:UInt32 = subdataEventId.valueFromBytes(),
             let parameters:[UInt32] = subdataParameters.arrayFromBytes(
                 elements:countParameters)
             
@@ -42,6 +47,7 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
         }
         
         self.transactionId = transactionId
+        self.eventId = eventId
         self.parameters = parameters
         self.code = MVitaPtpMessageIn.factoryEventCode(
             rawCode:rawCode)
