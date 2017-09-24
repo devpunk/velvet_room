@@ -1,14 +1,14 @@
 import Foundation
 
-struct MVitaPtpType
+enum MVitaPtpType:UInt32
 {
-    static let commandRequest:UInt32 = 1
-    static let commandRequestAccepted:UInt32 = 2
-    static let eventRequest:UInt32 = 3
-    static let eventRequestAccepted:UInt32 = 4
-    static let command:UInt32 = 6
-    static let commandAccepted:UInt32 = 7
-    static let dataPacketStart:UInt32 = 9
-    static let dataPacket:UInt32 = 10
-    static let dataPacketEnd:UInt32 = 12
+    case commandRequest = 1
+    case commandRequestAccepted = 2
+    case eventRequest = 3
+    case eventRequestAccepted = 4
+    case command = 6
+    case commandAccepted = 7
+    case dataPacketStart = 9
+    case dataPacket = 10
+    case dataPacketEnd = 12
 }
