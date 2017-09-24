@@ -33,6 +33,10 @@ extension MVitaLink
     func receivedSettings(vitaSettings:MVitaSettings)
     {
         self.vitaSettings = vitaSettings
-        listenEvents()
+        
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendResult.self)
+        
+        linkCommand.sendLocalStatus(status:status)
     }
 }
