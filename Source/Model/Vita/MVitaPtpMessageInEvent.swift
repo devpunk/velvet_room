@@ -43,7 +43,7 @@ final class MVitaPtpMessageInEvent:MVitaPtpMessageIn
         
         self.transactionId = transactionId
         self.parameters = parameters
-        self.code = MVitaPtpMessageIn.factoryCommand(
+        self.code = MVitaPtpMessageIn.factoryCode(
             rawCode:rawCode)
         
         super.init(

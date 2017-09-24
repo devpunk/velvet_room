@@ -39,7 +39,7 @@ extension MVitaPtpMessageIn
         return header
     }
     
-    class func factoryCommand(
+    class func factoryCode(
         rawCode:UInt16) -> MVitaPtpCommand
     {
         let command:MVitaPtpCommand
