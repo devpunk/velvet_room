@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaLinkCommand:MVitaLinkSocket
+final class MVitaLinkSocketCommand:MVitaLinkSocket
 {
     //MARK: internal
     
