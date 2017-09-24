@@ -10,7 +10,7 @@ struct MVitaPtpMessageOutRequestCommand:MVitaPtpMessageOutProtocol
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.commandRequest.rawValue)
-        builder.append(value:MVitaPtpDataPhase.none)
+        builder.append(value:MVitaPtpDataPhase.none.rawValue)
         builder.appendTransactionId()
         builder.append(value:kGuidStart)
         builder.append(value:kGuidEnd)
