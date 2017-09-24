@@ -26,3 +26,4 @@
 "MVitaLinkStrategyListenEvents_messageFailed"="Failed Listening for Events,\ntry again";
 "MVitaLink_unknownEventReceived"="Unknown Event Code received,\ntry again";
 "MVitaLinkStrategyRequestSettings_messageFailed"="Failed requesting settings,\ntry again";
+"MVitaLinkStrategySendResult_messageFailed"="Failed sending Result,\ntry again";
