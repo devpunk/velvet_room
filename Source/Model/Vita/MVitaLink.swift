@@ -10,6 +10,7 @@ final class MVitaLink
     let linkEvent:MVitaLinkSocketEvent
     var vitaInfo:MVitaInfo?
     var vitaCapabilities:MVitaCapabilities?
+    var vitaSettings:MVitaSettings?
     
     init(
         device:MVitaDevice,

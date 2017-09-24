@@ -29,4 +29,10 @@ extension MVitaLink
             MVitaLinkStrategyListenEvents.self)
         linkEvent.readData()
     }
+    
+    func receivedSettings(vitaSettings:MVitaSettings)
+    {
+        self.vitaSettings = vitaSettings
+        listenEvents()
+    }
 }

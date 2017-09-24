@@ -27,30 +27,30 @@ final class MVitaLinkStrategyRequestSettings:MVitaLinkStrategyRequestData
                 return
             }
             
-            self?.settings(xml:xml)
+            self?.vitaSettings(xml:xml)
         }
     }
     
     //MARK: private
     
-    private func settings(xml:[String:Any])
+    private func vitaSettings(xml:[String:Any])
     {
         print("xml")
         print(xml)
         
-//        guard
-//
-//            let vitaCapabilities:MVitaCapabilities = MVitaCapabilities.factoryCapabilities(
-//                xml:xml)
-//
-//            else
-//        {
-//            failed()
-//
-//            return
-//        }
-//
-//        model?.sendLocalCapabilities(
-//            vitaCapabilities:vitaCapabilities)
+        guard
+
+            let vitaSettings:MVitaSettings = MVitaSettings.factorySettings(
+                xml:xml)
+
+        else
+        {
+            failed()
+
+            return
+        }
+
+        model?.receivedSettings(
+            vitaSettings:vitaSettings)
     }
 }
