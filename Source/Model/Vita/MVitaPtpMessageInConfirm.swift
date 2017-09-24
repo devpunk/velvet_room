@@ -35,17 +35,9 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
             return nil
         }
         
-        if let code:MVitaPtpCommand = MVitaPtpCommand(
-            rawValue:rawCode)
-        {
-            self.code = code
-        }
-        else
-        {
-            self.code = MVitaPtpCommand.unknown
-        }
-        
         self.transactionId = transactionId
+        self.code = MVitaPtpMessageIn.factoryCommand(
+            rawCode:rawCode)
         
         super.init(
             header:header,
