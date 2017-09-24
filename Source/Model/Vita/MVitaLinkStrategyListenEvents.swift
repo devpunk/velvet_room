@@ -19,7 +19,8 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
         
             let message:MVitaPtpMessageInEvent = MVitaPtpMessageInEvent(
                 header:header,
-                data:data)
+                data:data),
+            header.type == MVitaPtpType.event
         
         else
         {
@@ -27,6 +28,8 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
             
             return
         }
+        
+        success(message:message)
     }
     
     //MARK: private
@@ -34,11 +37,11 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
     private func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategySendLocalStatus_messageFailed")
+            key:"MVitaLinkStrategyListenEvents_messageFailed")
         model?.delegate?.linkError(message:message)
     }
     
-    private func success()
+    private func success(message:MVitaPtpMessageInEvent)
     {
         model?.listenEvents()
     }
