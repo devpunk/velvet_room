@@ -4,4 +4,5 @@ final class VConnectedOnEvents:VCollection<
     ArchConnected,
     VConnectedOnEventsCell>
 {
+    
 }
