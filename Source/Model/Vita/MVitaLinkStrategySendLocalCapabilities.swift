@@ -21,7 +21,8 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
     
     override func success()
     {
-        
+        model?.sendLocalStatus(
+            status:MVitaPtpLocalStatus.connection)
     }
     
     //MARK: private
@@ -43,6 +44,6 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
         
         send(
             data:data,
-            code:MVitaPtpCommand.sendLocalInfo)
+            code:MVitaPtpCommand.sendLocalCapabilities)
     }
 }

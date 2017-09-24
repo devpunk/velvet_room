@@ -72,4 +72,9 @@ extension MVitaLink
         changeStrategy(strategyType:
             MVitaLinkStrategySendLocalCapabilities.self)
     }
+    
+    func sendLocalStatus(status:UInt32)
+    {
+        print("send status")
+    }
 }

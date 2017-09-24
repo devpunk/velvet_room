@@ -7,4 +7,5 @@ struct MVitaPtpCommand
     static let requestVitaInfo:UInt16 = 38161
     static let sendLocalInfo:UInt16 = 38172
     static let requestVitaCapabilities:UInt16 = 38203
+    static let sendLocalCapabilities:UInt16 = 38204
 }
