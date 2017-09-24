@@ -75,6 +75,9 @@ extension MVitaLink
     
     func connectionReady()
     {
+        let logItem:MVitaLinkLogConnectionStart = MVitaLinkLogConnectionStart()
+        
+        addToLog(logItem:logItem)
         delegate?.vitaLinkConnectionReady()
         
         sendLocalStatus(

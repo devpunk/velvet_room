@@ -25,6 +25,13 @@ extension MVitaLink
         strategyEvent.event = event
     }
     
+    func addToLog(
+        logItem:MVitaLinkLogProtocol)
+    {
+        log.append(logItem)
+        delegate?.vitaLinkLogUpdated()
+    }
+    
     func cancel()
     {
         linkCommand.cancel()

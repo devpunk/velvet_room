@@ -6,4 +6,5 @@ protocol MVitaLinkDelegate:class
     func vitaLinkStopBroadcast()
     func vitaLinkConnectionReady()
     func vitaLinkConnectionClosed()
+    func vitaLinkLogUpdated()
 }
