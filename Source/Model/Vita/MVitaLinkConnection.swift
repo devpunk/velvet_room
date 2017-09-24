@@ -80,4 +80,9 @@ extension MVitaLink
         
         linkCommand.sendLocalStatus(status:status)
     }
+    
+    func activateEvents()
+    {
+        print("activate events")
+    }
 }

@@ -17,19 +17,20 @@ final class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
     {
         guard
             
-            let requestCommand:MVitaPtpMessageInRequestCommand = MVitaPtpMessageInRequestCommand(
+            let confirm:MVitaPtpMessageInConfirm = MVitaPtpMessageInConfirm(
                 header:header,
                 data:data),
-            header.type == MVitaPtpType.commandRequestAccepted
+            header.type == MVitaPtpType.commandAccepted,
+            confirm.code == MVitaPtpCommand.success
             
-            else
+        else
         {
             failed()
             
             return
         }
         
-        success(requestCommand:requestCommand)
+        success()
     }
     
     //MARK: private
@@ -37,13 +38,12 @@ final class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
     private func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategyRequestCommand_messageFailed")
+            key:"MVitaLinkStrategySendLocalStatus_messageFailed")
         model?.delegate?.linkError(message:message)
     }
     
-    private func success(
-        requestCommand:MVitaPtpMessageInRequestCommand)
+    private func success()
     {
-        model?.requestEvent(requestCommand:requestCommand)
+        model?.activateEvents()
     }
 }

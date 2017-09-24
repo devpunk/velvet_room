@@ -22,3 +22,4 @@
 "MVitaLinkStrategySendLocalInfo_messageFailed"="Failed sending Local Info,\ntry again";
 "MVitaLinkStrategyRequestVitaCapabilities_messageFailed"="Failed request Vita's Capabilities,\ntry again";
 "MVitaLinkStrategySendLocalCapabilities_messageFailed"="Failed sending Local Capabilities,\ntry again";
+"MVitaLinkStrategySendLocalStatus_messageFailed"="Failed sending local status,\ntry again";
