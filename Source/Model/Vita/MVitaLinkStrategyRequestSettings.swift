@@ -1,8 +1,12 @@
 import Foundation
 import XmlHero
 
-final class MVitaLinkStrategyRequestSettings:MVitaLinkStrategyRequestData
+final class MVitaLinkStrategyRequestSettings:
+    MVitaLinkStrategyRequestData,
+    MVitaLinkStrategyEventProtocol
 {
+    var event:MVitaPtpMessageInEvent?
+    
     override func failed()
     {
         let message:String = String.localizedModel(
