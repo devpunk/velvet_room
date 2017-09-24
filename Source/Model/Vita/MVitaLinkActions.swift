@@ -44,16 +44,4 @@ extension MVitaLink
             MVitaLinkStrategyListenEvents.self)
         linkEvent.readData()
     }
-    
-    func receivedSettings(
-        vitaSettings:MVitaSettings,
-        event:MVitaPtpMessageInEvent)
-    {
-        self.vitaSettings = vitaSettings
-        
-        changeStrategy(strategyType:
-            MVitaLinkStrategySendResult.self)
-        
-        linkCommand.sendLocalStatus(status:status)
-    }
 }

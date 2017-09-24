@@ -52,7 +52,7 @@ final class MVitaLinkStrategyRequestSettings:
             return
         }
 
-        model?.receivedSettings(
+        model?.sendResult(
             vitaSettings:vitaSettings,
             event:event)
     }
