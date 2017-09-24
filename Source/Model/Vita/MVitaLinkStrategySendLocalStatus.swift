@@ -44,6 +44,6 @@ final class MVitaLinkStrategySendLocalStatus:MVitaLinkStrategyProtocol
     
     private func success()
     {
-        model?.activateEvents()
+        model?.listenEvents()
     }
 }

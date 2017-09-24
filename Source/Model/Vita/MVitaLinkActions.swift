@@ -22,4 +22,11 @@ extension MVitaLink
             key:"MVitaLink_errorDisconnected")
         delegate?.linkError(message:message)
     }
+    
+    func listenEvents()
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategyListenEvents.self)
+        linkEvent.readData()
+    }
 }
