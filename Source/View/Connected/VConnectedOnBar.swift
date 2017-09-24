@@ -29,6 +29,13 @@ final class VConnectedOnBar:View<ArchConnected>
         addSubview(labelTitle)
         addSubview(border)
         
+        NSLayoutConstraint.topToTop(
+            view:labelTitle,
+            toView:self,
+            constant:kTitleTop)
+        NSLayoutConstraint.bottomToBottom(
+            view:labelTitle,
+            toView:self)
         NSLayoutConstraint.equalsHorizontal(
             view:labelTitle,
             toView:self)
