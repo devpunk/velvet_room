@@ -93,6 +93,7 @@
 		DA7476531F78653F00A9A84A /* MVitaLinkLogType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7476521F78653F00A9A84A /* MVitaLinkLogType.swift */; };
 		DA7476551F78676900A9A84A /* MVitaLinkLogConnectionStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7476541F78676900A9A84A /* MVitaLinkLogConnectionStart.swift */; };
 		DA7476571F786A0900A9A84A /* MConnectedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7476561F786A0900A9A84A /* MConnectedEvent.swift */; };
+		DA7476591F786A8400A9A84A /* MConnectedEventFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7476581F786A8400A9A84A /* MConnectedEventFactory.swift */; };
 		DA76226F1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */; };
 		DA7622751F6BF2500049195B /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622711F6BF2500049195B /* Database.swift */; };
 		DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7622721F6BF2500049195B /* DatabaseFactory.swift */; };
@@ -340,6 +341,7 @@
 		DA7476521F78653F00A9A84A /* MVitaLinkLogType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkLogType.swift; sourceTree = "<group>"; };
 		DA7476541F78676900A9A84A /* MVitaLinkLogConnectionStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkLogConnectionStart.swift; sourceTree = "<group>"; };
 		DA7476561F786A0900A9A84A /* MConnectedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectedEvent.swift; sourceTree = "<group>"; };
+		DA7476581F786A8400A9A84A /* MConnectedEventFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectedEventFactory.swift; sourceTree = "<group>"; };
 		DA76226E1F6BE8F00049195B /* MVitaConfigurationBroadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaConfigurationBroadcast.swift; sourceTree = "<group>"; };
 		DA7622711F6BF2500049195B /* Database.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		DA7622721F6BF2500049195B /* DatabaseFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseFactory.swift; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 				DA0076901F77C2A6005619B3 /* MConnectedStatusOn.swift */,
 				DAEE1CC51F77CA8F003DA23F /* MConnectedStatusError.swift */,
 				DA7476561F786A0900A9A84A /* MConnectedEvent.swift */,
+				DA7476581F786A8400A9A84A /* MConnectedEventFactory.swift */,
 			);
 			path = Connected;
 			sourceTree = "<group>";
@@ -1468,6 +1471,7 @@
 				DA00768F1F77C276005619B3 /* MConnectedStatusProtocol.swift in Sources */,
 				DADB40051F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift in Sources */,
 				DA8B7E011F579037004EEE23 /* ExtensionString.swift in Sources */,
+				DA7476591F786A8400A9A84A /* MConnectedEventFactory.swift in Sources */,
 				DA59B5371F765E0F00A50968 /* MVitaPtpMessageOutPacketEnd.swift in Sources */,
 				DA1C188D1F72DE050045A644 /* MVitaPtpMessageOutOpenSession.swift in Sources */,
 				DA8B7DFB1F579037004EEE23 /* ExtensionUICollectionReusableView.swift in Sources */,
