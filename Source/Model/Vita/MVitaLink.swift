@@ -11,6 +11,7 @@ final class MVitaLink
     var vitaInfo:MVitaInfo?
     var vitaCapabilities:MVitaCapabilities?
     var vitaSettings:MVitaSettings?
+    var log:[MVitaLinkLogProtocol]
     
     init(
         device:MVitaDevice,
@@ -22,6 +23,7 @@ final class MVitaLink
         self.delegate = delegate
         linkCommand = MVitaLink.factorySocketCommand()
         linkEvent = MVitaLink.factorySocketEvent()
+        log = []
         
         linkCommand.model = self
         linkEvent.model = self
