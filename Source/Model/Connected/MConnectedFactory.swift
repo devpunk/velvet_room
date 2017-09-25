@@ -126,6 +126,10 @@ extension MConnected
     class func factoryEvents(
         logs:[MVitaLinkLogProtocol]) -> [MConnectedEventProtocol]
     {
+        let log1:MVitaLinkLogProtocol = MVitaLinkLogSystem(
+            systemType:MVitaLinkLogSystemType.connectionStart)
+        let logs:[MVitaLinkLogProtocol] = [
+            log1]
         var events:[MConnectedEventProtocol] = []
         let dateFormatter:DateFormatter = factoryDateFormatter()
         

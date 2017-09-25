@@ -38,6 +38,7 @@ extension VConnected
         { [weak self] in
             
             self?.asyncUpdateStatus()
+            self?.updateEvents()
         }
     }
 }
