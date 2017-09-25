@@ -72,8 +72,10 @@ final class VConnectedOnEvents:VCollection<
         _ collectionView:UICollectionView,
         cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
     {
-        let item:MConnectedEvent = modelAtIndex(index:indexPath)
-        let cell:VConnectedOnEventsCell = cellAtIndex(indexPath:indexPath)
+        let item:MConnectedEventProtocol = modelAtIndex(index:indexPath)
+        let cell:VConnectedOnEventsCell = cellAtIndex(
+            reusableIdentifier:item.reusableIdentifier,
+            indexPath:indexPath)
         cell.config(model:item)
         
         return cell
@@ -132,9 +134,9 @@ final class VConnectedOnEvents:VCollection<
             animated:true)
     }
     
-    private func modelAtIndex(index:IndexPath) -> MConnectedEvent
+    private func modelAtIndex(index:IndexPath) -> MConnectedEventProtocol
     {
-        let item:MConnectedEvent = controller.model.events[
+        let item:MConnectedEventProtocol = controller.model.events[
             index.item]
         
         return item

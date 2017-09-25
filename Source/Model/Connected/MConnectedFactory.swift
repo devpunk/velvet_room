@@ -4,22 +4,27 @@ extension MConnected
 {
     //MARK: private
     
-    private func factoryEvent(
-        log:MVitaLinkLogProtocol) -> MConnectedEvent
+    private class func factoryEvent(
+        log:MVitaLinkLogProtocol) -> MConnectedEventProtocol
     {
         
     }
     
+    
+    
     //MARK: internal
     
-    static func factoryEvents(
-        logs:[MVitaLinkLogProtocol]) -> [MConnectedEvent]
+    class func factoryEvents(
+        logs:[MVitaLinkLogProtocol]) -> [MConnectedEventProtocol]
     {
-        var events:[MConnectedEvent] = []
+        var events:[MConnectedEventProtocol] = []
         
         for log:MVitaLinkLogProtocol in logs
         {
-            let event:MConnectedEvent
+            let event:MConnectedEventProtocol = factoryEvent(
+                log:log)
+            
+            events.append(event)
         }
         
         return events

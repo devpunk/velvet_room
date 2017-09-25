@@ -46,7 +46,7 @@ class VConnectedOnEventsCell:UICollectionViewCell
     
     //MARK: internal
     
-    func config(model:MConnectedEvent)
+    func config(model:MConnectedEventProtocol)
     {
     }
 }

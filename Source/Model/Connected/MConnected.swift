@@ -6,7 +6,7 @@ final class MConnected:
 {
     var status:MConnectedStatusProtocol?
     var vitaLink:MVitaLink?
-    var events:[MConnectedEvent]
+    var events:[MConnectedEventProtocol]
     
     required init()
     {
