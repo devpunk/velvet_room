@@ -2,8 +2,12 @@ import UIKit
 
 final class VConnectedOnBar:View<ArchConnected>
 {
-    private let kTitleTop:CGFloat = 20
-    private let kFontSize:CGFloat = 16
+    private weak var layoutIconLeft:NSLayoutConstraint!
+    private let kIconWidth:CGFloat = 32
+    private let kIconLeft:CGFloat = -65
+    private let kTitleWidth:CGFloat = 140
+    private let kContentTop:CGFloat = 20
+    private let kFontSize:CGFloat = 15
     private let kBorderHeight:CGFloat = 1
     
     required init(controller:CConnected)
@@ -11,6 +15,13 @@ final class VConnectedOnBar:View<ArchConnected>
         super.init(controller:controller)
         backgroundColor = UIColor.white
         isUserInteractionEnabled = false
+        
+        let icon:UIImageView = UIImageView()
+        icon.isUserInteractionEnabled = false
+        icon.translatesAutoresizingMaskIntoConstraints = false
+        icon.clipsToBounds = true
+        icon.contentMode = UIViewContentMode.center
+        icon.image = #imageLiteral(resourceName: "assetConnectTitle")
         
         let labelTitle:UILabel = UILabel()
         labelTitle.isUserInteractionEnabled = false
@@ -23,22 +34,50 @@ final class VConnectedOnBar:View<ArchConnected>
         labelTitle.text = String.localizedView(
             key:"VConnectedOnBar_labelTitle")
         
+        addSubview(icon)
         addSubview(labelTitle)
+        
+        NSLayoutConstraint.topToTop(
+            view:icon,
+            toView:self,
+            constant:kContentTop)
+        layoutIconLeft = NSLayoutConstraint.leftToLeft(
+            view:icon,
+            toView:self)
+        NSLayoutConstraint.width(
+            view:icon,
+            constant:kIconWidth)
+        NSLayoutConstraint.bottomToBottom(
+            view:icon,
+            toView:self)
         
         NSLayoutConstraint.topToTop(
             view:labelTitle,
             toView:self,
-            constant:kTitleTop)
+            constant:kContentTop)
         NSLayoutConstraint.bottomToBottom(
             view:labelTitle,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.width(
             view:labelTitle,
-            toView:self)
+            constant:kTitleWidth)
+        NSLayoutConstraint.leftToRight(
+            view:labelTitle,
+            toView:icon)
     }
     
     required init?(coder:NSCoder)
     {
         return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        let width:CGFloat = bounds.width
+        let width_2:CGFloat = width / 2.0
+        let marginLeft:CGFloat = width_2 + kIconLeft
+        layoutIconLeft.constant = marginLeft
+        
+        super.layoutSubviews()
     }
 }
