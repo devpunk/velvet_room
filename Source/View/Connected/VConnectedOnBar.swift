@@ -35,16 +35,6 @@ final class VConnectedOnBar:View<ArchConnected>
         NSLayoutConstraint.equalsHorizontal(
             view:labelTitle,
             toView:self)
-        
-        NSLayoutConstraint.bottomToBottom(
-            view:border,
-            toView:self)
-        NSLayoutConstraint.height(
-            view:border,
-            constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:border,
-            toView:self)
     }
     
     required init?(coder:NSCoder)
