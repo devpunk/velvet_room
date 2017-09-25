@@ -15,6 +15,14 @@ final class MConnected:
         super.init()
         
         statusOn()
+        
+        //MARK: MOCK
+        
+        let log1:MVitaLinkLogProtocol = MVitaLinkLogSystem(
+            systemType:MVitaLinkLogSystemType.connectionStart)
+        let logs:[MVitaLinkLogProtocol] = [
+            log1]
+        updateEvents(logs:logs)
     }
     
     deinit

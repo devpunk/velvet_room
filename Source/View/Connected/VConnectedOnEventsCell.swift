@@ -2,41 +2,47 @@ import UIKit
 
 class VConnectedOnEventsCell:UICollectionViewCell
 {
-    private let kBaseMargin:CGFloat = 2
-    private let kBaseBottom:CGFloat = -32
-    private let kCornerRadius:CGFloat = 8
-    private let kBorderWidth:CGFloat = 1
+    private weak var label:UILabel!
+    private weak var layoutLabelHeight:NSLayoutConstraint!
+    private let options:NSStringDrawingOptions
+    private let boundingSize:CGSize
+    private let kMaxTextHeight:CGFloat = 1000
     
     override init(frame:CGRect)
     {
+        let width:CGFloat = frame.width
+        options = NSStringDrawingOptions([
+            NSStringDrawingOptions.usesLineFragmentOrigin,
+            NSStringDrawingOptions.usesFontLeading])
+        boundingSize = CGSize(
+            width:width,
+            height:kMaxTextHeight)
+        
         super.init(frame:frame)
         backgroundColor = UIColor.clear
         clipsToBounds = true
         isUserInteractionEnabled = false
         
-        let viewBase:UIView = UIView()
-        viewBase.isUserInteractionEnabled = false
-        viewBase.translatesAutoresizingMaskIntoConstraints = false
-        viewBase.clipsToBounds = true
-        viewBase.layer.cornerRadius = kCornerRadius
-        viewBase.layer.borderWidth = kBorderWidth
-        viewBase.layer.borderColor = UIColor(
-            white:0, alpha:0.1).cgColor
+        let labelTop:CGFloat = width
+        let label:UILabel = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.isUserInteractionEnabled = false
+        label.backgroundColor = UIColor.clear
+        label.numberOfLines = 0
+        self.label = label
         
-        addSubview(viewBase)
+        addSubview(label)
         
         NSLayoutConstraint.topToTop(
-            view:viewBase,
+            view:label,
             toView:self,
-            constant:kBaseMargin)
-        NSLayoutConstraint.bottomToBottom(
-            view:viewBase,
-            toView:self,
-            constant:kBaseBottom)
+            constant:labelTop)
+        layoutLabelHeight = NSLayoutConstraint.height(
+            view:label,
+            toView:self)
         NSLayoutConstraint.equalsHorizontal(
-            view:viewBase,
-            toView:self,
-            margin:kBaseMargin)
+            view:label,
+            toView:self)
     }
     
     required init?(coder:NSCoder)
@@ -48,5 +54,17 @@ class VConnectedOnEventsCell:UICollectionViewCell
     
     func config(model:MConnectedEventProtocol)
     {
+    }
+    
+    final func configText(string:NSAttributedString)
+    {
+        label.attributedText = string
+        
+        let stringRect:CGRect = string.boundingRect(
+            with:boundingSize,
+            options:options,
+            context:nil)
+        let stringHeight:CGFloat = ceil(stringRect.height)
+        layoutLabelHeight.constant = stringHeight
     }
 }
