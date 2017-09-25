@@ -5,12 +5,23 @@ final class VConnectedOnEvents:VCollection<
     VConnectedOnEventsCell>
 {
     private var currentItems:Int
+    private let kCellWidth:CGFloat = 160
+    private let kInterItem:CGFloat = 10
     
     required init(controller:CConnected)
     {
         currentItems = controller.model.events.count
         
         super.init(controller:controller)
+        
+        collectionView.alwaysBounceHorizontal = true
+        
+        if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
+        {
+            flow.scrollDirection = UICollectionViewScrollDirection.horizontal
+            flow.minimumInteritemSpacing = kInterItem
+            flow.minimumLineSpacing = kInterItem
+        }
     }
     
     required init?(coder:NSCoder)
