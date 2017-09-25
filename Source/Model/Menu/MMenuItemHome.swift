@@ -4,5 +4,5 @@ struct MMenuItemHome:MMenuItemProtocol
 {
     let order:MMenu.Order = MMenu.Order.home
     let icon:UIImage = #imageLiteral(resourceName: "assetGenericMenuHome")
-    let controllerType:UIViewController.Type = CHome.self
+    let controllerType:UIViewController.Type = CConnected.self
 }

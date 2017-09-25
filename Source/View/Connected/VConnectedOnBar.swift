@@ -3,11 +3,11 @@ import UIKit
 final class VConnectedOnBar:View<ArchConnected>
 {
     private weak var layoutIconLeft:NSLayoutConstraint!
-    private let kIconWidth:CGFloat = 32
-    private let kIconLeft:CGFloat = -65
-    private let kTitleWidth:CGFloat = 140
+    private let kIconWidth:CGFloat = 35
+    private let kIconLeft:CGFloat = -48
+    private let kTitleWidth:CGFloat = 130
     private let kContentTop:CGFloat = 20
-    private let kFontSize:CGFloat = 15
+    private let kFontSize:CGFloat = 20
     private let kBorderHeight:CGFloat = 1
     
     required init(controller:CConnected)
@@ -27,9 +27,8 @@ final class VConnectedOnBar:View<ArchConnected>
         labelTitle.isUserInteractionEnabled = false
         labelTitle.backgroundColor = UIColor.clear
         labelTitle.translatesAutoresizingMaskIntoConstraints = false
-        labelTitle.textAlignment = NSTextAlignment.center
         labelTitle.textColor = UIColor.colourBackgroundDark
-        labelTitle.font = UIFont.medium(
+        labelTitle.font = UIFont.regular(
             size:kFontSize)
         labelTitle.text = String.localizedView(
             key:"VConnectedOnBar_labelTitle")
