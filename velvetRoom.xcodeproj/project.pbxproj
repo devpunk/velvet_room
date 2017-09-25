@@ -166,6 +166,7 @@
 		DA9751531F69944700DBC757 /* MConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751521F69944700DBC757 /* MConnectingStatus.swift */; };
 		DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */; };
 		DAA197E41F794E1B00A849E4 /* VConnectedOnEventsCellIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA197E31F794E1B00A849E4 /* VConnectedOnEventsCellIcon.swift */; };
+		DAA197E61F794E4C00A849E4 /* VConnectedOnEventsCellPicture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA197E51F794E4C00A849E4 /* VConnectedOnEventsCellPicture.swift */; };
 		DAADEE7C1F74F64500F18A34 /* MVitaLinkPtpDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADEE7B1F74F64500F18A34 /* MVitaLinkPtpDelegateFactory.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -418,6 +419,7 @@
 		DA9751521F69944700DBC757 /* MConnectingStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatus.swift; sourceTree = "<group>"; };
 		DA9FC4E11F5E79F4009B2D98 /* MConnect2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect2.swift; sourceTree = "<group>"; };
 		DAA197E31F794E1B00A849E4 /* VConnectedOnEventsCellIcon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedOnEventsCellIcon.swift; sourceTree = "<group>"; };
+		DAA197E51F794E4C00A849E4 /* VConnectedOnEventsCellPicture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedOnEventsCellPicture.swift; sourceTree = "<group>"; };
 		DAADEE7B1F74F64500F18A34 /* MVitaLinkPtpDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkPtpDelegateFactory.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -633,6 +635,7 @@
 				DA74764C1F785E4E00A9A84A /* VConnectedOnEvents.swift */,
 				DA74764E1F785E8E00A9A84A /* VConnectedOnEventsCell.swift */,
 				DAA197E31F794E1B00A849E4 /* VConnectedOnEventsCellIcon.swift */,
+				DAA197E51F794E4C00A849E4 /* VConnectedOnEventsCellPicture.swift */,
 				DAEE1CC71F77CAD8003DA23F /* VConnectedError.swift */,
 			);
 			path = Connected;
@@ -1313,6 +1316,7 @@
 				DA03CFBE1F6F1413001AE828 /* MConnectingSocket.swift in Sources */,
 				DA0076951F77C5F2005619B3 /* VConnectedOnBar.swift in Sources */,
 				DA7ABF6F1F6C01370092B797 /* VHome.swift in Sources */,
+				DAA197E61F794E4C00A849E4 /* VConnectedOnEventsCellPicture.swift in Sources */,
 				DAF79EF71F70875800117BA4 /* MVitaPtpType.swift in Sources */,
 				DAEE160D1F5795CA00D9F6DD /* MMenuFactory.swift in Sources */,
 				DA8B7E381F579369004EEE23 /* VAlert.swift in Sources */,
