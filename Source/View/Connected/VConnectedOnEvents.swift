@@ -54,6 +54,44 @@ final class VConnectedOnEvents:VCollection<
         return insets
     }
     
+    override func numberOfSections(
+        in collectionView:UICollectionView) -> Int
+    {
+        return 1
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        numberOfItemsInSection section:Int) -> Int
+    {
+        return currentItems
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MConnectedEvent = modelAtIndex(index:indexPath)
+        let cell:VConnectedOnEventsCell = cellAtIndex(indexPath:indexPath)
+        cell.config(model:item)
+        
+        return cell
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        shouldSelectItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        shouldHighlightItemAt indexPath:IndexPath) -> Bool
+    {
+        return false
+    }
+    
     //MARK: private
     
     private func factoryIndexPaths(endingIndex:Int) -> [IndexPath]
@@ -91,6 +129,14 @@ final class VConnectedOnEvents:VCollection<
             at:lastItem,
             at:UICollectionViewScrollPosition.centeredHorizontally,
             animated:true)
+    }
+    
+    private func modelAtIndex(index:IndexPath) -> MConnectedEvent
+    {
+        let item:MConnectedEvent = controller.model.events[
+            index.item]
+        
+        return item
     }
     
     //MARK: internal
