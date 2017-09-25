@@ -15,8 +15,9 @@ final class VConnectedOnEvents:VCollection<
         currentItems = controller.model.events.count
         
         super.init(controller:controller)
-        
         collectionView.alwaysBounceHorizontal = true
+        registerCell(cell:VConnectedOnEventsCellIcon.self)
+        registerCell(cell:VConnectedOnEventsCellPicture.self)
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
