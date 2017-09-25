@@ -170,6 +170,7 @@
 		DAA197E81F794EEC00A849E4 /* MConnectedEventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA197E71F794EEC00A849E4 /* MConnectedEventProtocol.swift */; };
 		DAA197EC1F7950CF00A849E4 /* MVitaLinkLogTransferType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA197EB1F7950CF00A849E4 /* MVitaLinkLogTransferType.swift */; };
 		DAA197EE1F79510600A849E4 /* MVitaLinkLogSystemType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA197ED1F79510600A849E4 /* MVitaLinkLogSystemType.swift */; };
+		DAA197F01F79514100A849E4 /* MVitaLinkLogSystemProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA197EF1F79514100A849E4 /* MVitaLinkLogSystemProtocol.swift */; };
 		DAADEE7C1F74F64500F18A34 /* MVitaLinkPtpDelegateFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAADEE7B1F74F64500F18A34 /* MVitaLinkPtpDelegateFactory.swift */; };
 		DABF34A91F68968A001CF436 /* spinner.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABF34A81F68968A001CF436 /* spinner.xcassets */; };
 		DABF34B31F68A896001CF436 /* ArchConnecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABF34B21F68A896001CF436 /* ArchConnecting.swift */; };
@@ -426,6 +427,7 @@
 		DAA197E71F794EEC00A849E4 /* MConnectedEventProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectedEventProtocol.swift; sourceTree = "<group>"; };
 		DAA197EB1F7950CF00A849E4 /* MVitaLinkLogTransferType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkLogTransferType.swift; sourceTree = "<group>"; };
 		DAA197ED1F79510600A849E4 /* MVitaLinkLogSystemType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkLogSystemType.swift; sourceTree = "<group>"; };
+		DAA197EF1F79514100A849E4 /* MVitaLinkLogSystemProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkLogSystemProtocol.swift; sourceTree = "<group>"; };
 		DAADEE7B1F74F64500F18A34 /* MVitaLinkPtpDelegateFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkPtpDelegateFactory.swift; sourceTree = "<group>"; };
 		DABF34A81F68968A001CF436 /* spinner.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = spinner.xcassets; sourceTree = "<group>"; };
 		DABF34B21F68A896001CF436 /* ArchConnecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnecting.swift; sourceTree = "<group>"; };
@@ -731,6 +733,7 @@
 				DAA197EB1F7950CF00A849E4 /* MVitaLinkLogTransferType.swift */,
 				DAA197ED1F79510600A849E4 /* MVitaLinkLogSystemType.swift */,
 				DA7476541F78676900A9A84A /* MVitaLinkLogConnectionStart.swift */,
+				DAA197EF1F79514100A849E4 /* MVitaLinkLogSystemProtocol.swift */,
 				DAF79EF41F7085CE00117BA4 /* MVitaPtpMessageOutBuilder.swift */,
 				DAF79EF01F70848D00117BA4 /* MVitaPtpMessageOutProtocol.swift */,
 				DAF79EFA1F708BE800117BA4 /* MVitaPtpMessageOutRequestCommand.swift */,
@@ -1460,6 +1463,7 @@
 				DA03CFB11F6F1413001AE828 /* MConnectingSocketTcpStrategies.swift in Sources */,
 				DAEE1CCA1F77CBBA003DA23F /* MVitaLinkDelegateDefault.swift in Sources */,
 				DA8B7E391F579369004EEE23 /* VBlur.swift in Sources */,
+				DAA197F01F79514100A849E4 /* MVitaLinkLogSystemProtocol.swift in Sources */,
 				DA4D19481F69F8CD0079EB70 /* MVitaConfiguration.swift in Sources */,
 				DA00A5761F77B28E004E6FFE /* MVitaLinkStrategyEventProtocol.swift in Sources */,
 				DA7DFC291F72581600C8D1E8 /* MVitaLinkStrategyOpenSession.swift in Sources */,
