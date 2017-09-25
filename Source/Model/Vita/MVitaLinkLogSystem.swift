@@ -4,5 +4,5 @@ struct MVitaLinkLogSystem:MVitaLinkLogProtocol
 {
     let logType:MVitaLinkLogType = MVitaLinkLogType.system
     let systemType:MVitaLinkLogSystemType
-    let timestamp:TimeInterval = Date().timeIntervalSinceNow
+    let timestamp:Date = Date()
 }
