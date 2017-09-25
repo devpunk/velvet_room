@@ -28,3 +28,4 @@
 "MVitaLinkStrategyRequestSettings_messageFailed"="Failed requesting settings,\ntry again";
 "MVitaLinkStrategySendResult_messageFailed"="Failed sending Result,\ntry again";
 "MConnected_eventSystemConnectionStart"="Connection started";
+"MConnected_eventLogGameSave"="Game save";

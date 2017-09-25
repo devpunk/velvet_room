@@ -6,7 +6,7 @@ extension MConnected
     
     private func addLogs(logs:[MVitaLinkLogProtocol])
     {
-        let events:[MConnectedEvent] = MConnectedEvent.factoryEvents(
+        let events:[MConnectedEventProtocol] = MConnected.factoryEvents(
             logs:logs)
         self.events.append(contentsOf:events)
         
