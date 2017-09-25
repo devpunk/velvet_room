@@ -1,7 +1,15 @@
 import Foundation
 
-extension MConnectedEvent
+extension MConnected
 {
+    //MARK: private
+    
+    private func factoryEvent(
+        log:MVitaLinkLogProtocol) -> MConnectedEvent
+    {
+        
+    }
+    
     //MARK: internal
     
     static func factoryEvents(
@@ -11,7 +19,7 @@ extension MConnectedEvent
         
         for log:MVitaLinkLogProtocol in logs
         {
-            
+            let event:MConnectedEvent
         }
         
         return events
