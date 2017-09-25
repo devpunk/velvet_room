@@ -1,6 +1,6 @@
 import UIKit
 
-final class VConnectedOnEventsCell:UICollectionViewCell
+class VConnectedOnEventsCell:UICollectionViewCell
 {
     private let kBaseMargin:CGFloat = 2
     private let kBaseBottom:CGFloat = -32
