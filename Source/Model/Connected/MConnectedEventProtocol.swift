@@ -2,6 +2,7 @@ import Foundation
 
 protocol MConnectedEventProtocol
 {
+    var reusableIdentifier:String { get }
     var title:String { get }
-    var timestamp:TimeInterval { get }
+    var timestamp:String { get }
 }
