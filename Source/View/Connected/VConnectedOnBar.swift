@@ -23,11 +23,7 @@ final class VConnectedOnBar:View<ArchConnected>
         labelTitle.text = String.localizedView(
             key:"VConnectedOnBar_labelTitle")
         
-        let border:VBorder = VBorder(
-            colour:UIColor(white:0, alpha:0.1))
-        
         addSubview(labelTitle)
-        addSubview(border)
         
         NSLayoutConstraint.topToTop(
             view:labelTitle,
