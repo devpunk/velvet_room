@@ -6,5 +6,5 @@ struct MVitaLinkLogGameSave:MVitaLinkLogProtocol
     let transferType:MVitaLinkLogTransferType
     let image:UIImage
     let gameName:String
-    let timestamp:TimeInterval
+    let timestamp:TimeInterval = Date().timeIntervalSinceNow
 }
