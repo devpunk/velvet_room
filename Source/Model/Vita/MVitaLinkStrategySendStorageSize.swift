@@ -5,6 +5,8 @@ final class MVitaLinkStrategySendStorageSize:
     MVitaLinkStrategySendData,
     MVitaLinkStrategyEventProtocol
 {
+    private var event:MVitaPtpMessageInEvent?
+    
     override func failed()
     {
         let message:String = String.localizedModel(
@@ -14,13 +16,26 @@ final class MVitaLinkStrategySendStorageSize:
     
     override func success()
     {
-        print("storage sent")
+        guard
+            
+            let event:MVitaPtpMessageInEvent = self.event
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        model?.sendResultSuccess(event:event)
     }
     
     //MARK: event protocol
     
     func config(event:MVitaPtpMessageInEvent)
     {
+        self.event = event
+        
         let data:Data = factoryData()
         let code:MVitaPtpCommand = MVitaPtpCommand.sendStorageSize
         let message:MVitaPtpMessageOutSendEventData = MVitaPtpMessageOutSendEventData(
