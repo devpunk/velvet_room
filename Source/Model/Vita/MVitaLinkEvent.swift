@@ -24,7 +24,9 @@ extension MVitaLink
     private func sendStorageSize(
         event:MVitaPtpMessageInEvent)
     {
-        
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendStorageSize.self)
+        strategyEvent(event:event)
     }
     
     //MARK: internal

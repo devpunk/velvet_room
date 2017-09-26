@@ -1,8 +1,12 @@
 import Foundation
 import XmlHero
 
-final class MVitaLinkStrategySendStorageSize:MVitaLinkStrategySendData
+final class MVitaLinkStrategySendStorageSize:
+    MVitaLinkStrategySendData,
+    MVitaLinkStrategyEventProtocol
 {
+    var event:MVitaPtpMessageInEvent?
+    
     required init(model:MVitaLink)
     {
         super.init(model:model)
@@ -25,9 +29,13 @@ final class MVitaLinkStrategySendStorageSize:MVitaLinkStrategySendData
     
     private func sendData()
     {
-//        send(
-//            data:data,
-//            code:MVitaPtpCommand.sendLocalInfo)
+        let data:Data = factoryData()
+        let message
+    }
+    
+    private func factoryData() -> Data
+    {
+        
     }
     
     private func factoryStorageSize() -> UInt64
