@@ -13,7 +13,6 @@ final class VConnectedOnBar:View<ArchConnected>
     required init(controller:CConnected)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor.white
         isUserInteractionEnabled = false
         
         let icon:UIImageView = UIImageView()
