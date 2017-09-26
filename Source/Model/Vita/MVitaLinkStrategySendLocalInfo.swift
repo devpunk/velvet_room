@@ -41,8 +41,12 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
             return
         }
         
+        let code:MVitaPtpCommand = MVitaPtpCommand.sendLocalInfo
+        let message:MVitaPtpMessageOutSendData = MVitaPtpMessageOutSendData(
+            code:code)
+        
         send(
             data:data,
-            code:MVitaPtpCommand.sendLocalInfo)
+            message:message)
     }
 }
