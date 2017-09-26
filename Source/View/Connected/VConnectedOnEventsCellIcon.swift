@@ -3,9 +3,17 @@ import UIKit
 final class VConnectedOnEventsCellIcon:VConnectedOnEventsCell
 {
     private weak var imageView:UIImageView!
+    private let attributesTitle:[NSAttributedStringKey:Any]
+    private let kTitleFontSize:CGFloat = 14
     
     override init(frame:CGRect)
     {
+        attributesTitle = [
+            NSAttributedStringKey.foregroundColor:
+                UIColor.colourBackgroundDark,
+            NSAttributedStringKey.font:
+                UIFont.medium(size:kTitleFontSize)]
+        
         let imageViewHeight:CGFloat = frame.width
         
         super.init(frame:frame)
@@ -46,6 +54,29 @@ final class VConnectedOnEventsCellIcon:VConnectedOnEventsCell
             return
         }
         
+        let attributedString:NSAttributedString = factoryString(
+            model:model)
+        
         imageView.image = model.icon
+        configText(string:attributedString)
+    }
+    
+    //MARK: private
+    
+    private func factoryString(model:MConnectedEventIcon) -> NSAttributedString
+    {
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:model.title,
+            attributes:attributesTitle)
+        let stringTimestamp:NSAttributedString = NSAttributedString(
+            string:model.timestamp,
+            attributes:attributesTimestamp)
+        
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(stringTitle)
+        mutableString.append(lineBreak)
+        mutableString.append(stringTimestamp)
+        
+        return mutableString
     }
 }

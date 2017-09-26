@@ -2,14 +2,27 @@ import UIKit
 
 class VConnectedOnEventsCell:UICollectionViewCell
 {
+    let lineBreak:NSAttributedString
+    let attributesTimestamp:[NSAttributedStringKey:Any]
     private weak var label:UILabel!
     private weak var layoutLabelHeight:NSLayoutConstraint!
     private let options:NSStringDrawingOptions
     private let boundingSize:CGSize
+    private let kLineBreak:String = "\n"
     private let kMaxTextHeight:CGFloat = 1000
+    private let kTimestampFontSize:CGFloat = 14
     
     override init(frame:CGRect)
     {
+        attributesTimestamp = [
+            NSAttributedStringKey.foregroundColor:
+                UIColor(white:0.6, alpha:1),
+            NSAttributedStringKey.font:
+                UIFont.regular(size:kTimestampFontSize)]
+        
+        lineBreak = NSAttributedString(
+            string:kLineBreak)
+        
         let width:CGFloat = frame.width
         options = NSStringDrawingOptions([
             NSStringDrawingOptions.usesLineFragmentOrigin,
