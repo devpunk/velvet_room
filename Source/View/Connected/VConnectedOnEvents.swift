@@ -4,11 +4,11 @@ final class VConnectedOnEvents:VCollection<
     ArchConnected,
     VConnectedOnEventsCell>
 {
+    private var cellSize:CGSize?
     private var currentItems:Int
-    private let kCellWidth:CGFloat = 160
-    private let kCellHeight:CGFloat = 190
+    private let kCellWidth:CGFloat = 200
     private let kInterItem:CGFloat = 10
-    private let kInsetsTop:CGFloat = 150
+    private let kInsetsTop:CGFloat = 100
     
     required init(controller:CConnected)
     {
@@ -24,9 +24,6 @@ final class VConnectedOnEvents:VCollection<
             flow.scrollDirection = UICollectionViewScrollDirection.horizontal
             flow.minimumInteritemSpacing = kInterItem
             flow.minimumLineSpacing = kInterItem
-            flow.itemSize = CGSize(
-                width:kCellWidth,
-                height:kCellHeight)
         }
     }
     
@@ -41,18 +38,39 @@ final class VConnectedOnEvents:VCollection<
         insetForSectionAt section:Int) -> UIEdgeInsets
     {
         let width:CGFloat = collectionView.bounds.width
-        let height:CGFloat = collectionView.bounds.height
         let remainWidth:CGFloat = width - kCellWidth
         let marginHorizontal:CGFloat = remainWidth / 2.0
-        let usedHeight:CGFloat = kInsetsTop + kCellHeight
-        let marginBottom:CGFloat = height - usedHeight
         let insets:UIEdgeInsets = UIEdgeInsets(
             top:kInsetsTop,
             left:marginHorizontal,
-            bottom:marginBottom,
+            bottom:0,
             right:marginHorizontal)
         
         return insets
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        layout collectionViewLayout:UICollectionViewLayout,
+        sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        guard
+        
+            let cellSize:CGSize = self.cellSize
+        
+        else
+        {
+            let height:CGFloat = collectionView.bounds.height
+            let cellHeight:CGFloat = height - kInsetsTop
+            let cellSize:CGSize = CGSize(
+                width:kCellWidth,
+                height:cellHeight)
+            self.cellSize = cellSize
+            
+            return cellSize
+        }
+        
+        return cellSize
     }
     
     override func numberOfSections(
