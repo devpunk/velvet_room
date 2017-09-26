@@ -69,6 +69,8 @@ extension MVitaPtpMessageIn
         }
         else
         {
+            print("event number found \(rawCode)")
+            
             event = MVitaPtpEvent.unknown
         }
         
