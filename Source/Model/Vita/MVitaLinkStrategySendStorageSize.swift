@@ -25,7 +25,7 @@ final class MVitaLinkStrategySendStorageSize:MVitaLinkStrategySendData
     
     private func sendData()
     {
-        
+        model?.configuration.
 //        send(
 //            data:data,
 //            code:MVitaPtpCommand.sendLocalInfo)
