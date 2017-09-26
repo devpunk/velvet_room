@@ -10,6 +10,7 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
     private let kBorderWidth:CGFloat = 1
     private let kTitleFontSize:CGFloat = 16
     private let kDescrFontSize:CGFloat = 16
+    private let kBadgeHolderSize:CGFloat = 200
     
     override init(frame:CGRect)
     {
@@ -24,6 +25,8 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
                 UIColor(white:0.4, alpha:1),
             NSAttributedStringKey.font:
                 UIFont.regular(size:kDescrFontSize)]
+        
+        let badgeHolder_2:CGFloat = kBadgeHolderSize / 2.0
         
         super.init(frame:frame)
         isUserInteractionEnabled = false
@@ -45,7 +48,15 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
         imageView.contentMode = UIViewContentMode.scaleAspectFill
         self.imageView = imageView
         
+        let badgeHolder:UIImageView = UIImageView()
+        badgeHolder.isUserInteractionEnabled = false
+        badgeHolder.translatesAutoresizingMaskIntoConstraints = false
+        badgeHolder.clipsToBounds = true
+        badgeHolder.contentMode = UIViewContentMode.center
+        badgeHolder.image = #imageLiteral(resourceName: "assetConnectBadgeHolder")
+        
         viewBase.addSubview(imageView)
+        viewBase.addSubview(badgeHolder)
         addSubview(viewBase)
         
         NSLayoutConstraint.topToTop(
@@ -63,6 +74,18 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
         NSLayoutConstraint.equals(
             view:imageView,
             toView:viewBase)
+        
+        NSLayoutConstraint.topToBottom(
+            view:badgeHolder,
+            toView:viewBase,
+            constant:-badgeHolder_2)
+        NSLayoutConstraint.leftToRight(
+            view:badgeHolder,
+            toView:viewBase,
+            constant:-badgeHolder_2)
+        NSLayoutConstraint.size(
+            view:badgeHolder,
+            constant:kBadgeHolderSize)
     }
     
     required init?(coder:NSCoder)
