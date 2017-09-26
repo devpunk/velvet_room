@@ -6,6 +6,7 @@ extension MConnected
     
     func vitaLinkError(message:String)
     {
+        print("error \(message)")
     }
     
     func vitaLinkConnectionClosed()

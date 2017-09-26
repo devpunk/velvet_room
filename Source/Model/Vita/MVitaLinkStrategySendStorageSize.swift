@@ -56,13 +56,24 @@ final class MVitaLinkStrategySendStorageSize:
         
         print("st: \(storageSize) \(availableStorage)")
         
-        let empty:CUnsignedChar = 0
-        let full:CUnsignedChar = 255
-        
-        let storage:UInt32 = 0
+        let storage:UInt64 = 100
+        let storage2:UInt64 = 1
+        let empty:UInt8 = 0
+        let empty2:UInt8 = 255
         
         var data:Data = Data()
         data.append(value:storage)
+        data.append(value:storage2)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty2)
+        data.append(value:empty)
 //        data.append(value:availableStorage)
 //        data.append(value:empty)
 //        data.append(value:empty)
