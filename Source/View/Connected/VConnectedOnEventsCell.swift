@@ -10,7 +10,7 @@ class VConnectedOnEventsCell:UICollectionViewCell
     private let boundingSize:CGSize
     private let kLineBreak:String = "\n"
     private let kMaxTextHeight:CGFloat = 1000
-    private let kLabelTop:CGFloat = 10
+    private let kLabelTop:CGFloat = 5
     private let kTimestampFontSize:CGFloat = 13
     
     override init(frame:CGRect)

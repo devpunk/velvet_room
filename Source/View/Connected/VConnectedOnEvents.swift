@@ -6,9 +6,9 @@ final class VConnectedOnEvents:VCollection<
 {
     private var cellSize:CGSize?
     private var currentItems:Int
-    private let kCellWidth:CGFloat = 200
-    private let kInterItem:CGFloat = 10
-    private let kInsetsTop:CGFloat = 100
+    private let kCellWidth:CGFloat = 160
+    private let kInterItem:CGFloat = 30
+    private let kInsetsTop:CGFloat = 104
     
     required init(controller:CConnected)
     {
