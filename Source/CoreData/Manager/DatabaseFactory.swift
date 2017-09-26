@@ -80,7 +80,7 @@ extension Database
         sqliteFile.append(kModelName)
         sqliteFile.append(kSQLiteExtension)
         
-        let url:URL = FileManager.appDirectory.appendingPathComponent(
+        let url:URL = FileManager.default.appDirectory.appendingPathComponent(
             sqliteFile)
         
         return url
