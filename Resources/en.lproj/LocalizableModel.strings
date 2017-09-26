@@ -29,3 +29,5 @@
 "MVitaLinkStrategySendResult_messageFailed"="Failed sending Result,\ntry again";
 "MConnected_eventSystemConnectionStart"="Connection started";
 "MConnected_eventLogGameSave"="Game save";
+"MConnected_eventTransferTypeRequest"=" received";
+"MConnected_eventTransferTypeSend"=" sent";

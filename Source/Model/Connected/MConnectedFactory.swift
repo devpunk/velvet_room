@@ -65,10 +65,18 @@ extension MConnected
             return nil
         }
         
+        let titleGameSave:String = String.localizedModel(key:
+            "MConnected_eventLogGameSave")
+        let titleTransfer:String = factoryTransferTitle(
+            transferType:logGameSave.transferType)
+        
+        var descr:String = String()
+        descr.append(titleGameSave)
+        descr.append(titleTransfer)
+        
         let badge:UIImage = factoryBadge(
             transferType:logGameSave.transferType)
-        let descr:String = String.localizedModel(key:
-            "MConnected_eventLogGameSave")
+        
         let event:MConnectedEventPicture = MConnectedEventPicture(
             picture:logGameSave.image,
             badge:badge,
@@ -90,6 +98,31 @@ extension MConnected
             
             title = String.localizedModel(key:
             "MConnected_eventSystemConnectionStart")
+            
+            break
+        }
+        
+        return title
+    }
+    
+    private class func factoryTransferTitle(
+        transferType:MVitaLinkLogTransferType) -> String
+    {
+        let title:String
+        
+        switch transferType
+        {
+        case MVitaLinkLogTransferType.request:
+            
+            title = String.localizedModel(key:
+                "MConnected_eventTransferTypeRequest")
+            
+            break
+            
+        case MVitaLinkLogTransferType.send:
+            
+            title = String.localizedModel(key:
+                "MConnected_eventTransferTypeSend")
             
             break
         }
