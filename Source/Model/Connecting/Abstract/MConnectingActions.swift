@@ -64,6 +64,8 @@ extension MConnecting
     {
         socket?.cancel()
         socket = nil
+        vitaLink?.cancel()
+        vitaLink = nil
         
         statusTimeout()
         view?.updateStatus()
