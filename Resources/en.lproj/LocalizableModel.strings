@@ -31,3 +31,4 @@
 "MConnected_eventLogGameSave"="Game save";
 "MConnected_eventTransferTypeRequest"=" received";
 "MConnected_eventTransferTypeSend"=" sent";
+"MVitaLinkStrategySendStorageSize_messageFailed"="Failed sending Storage Size\n,try again";

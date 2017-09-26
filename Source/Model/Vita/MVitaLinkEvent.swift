@@ -21,6 +21,12 @@ extension MVitaLink
         linkCommand.requestSettings(event:event)
     }
     
+    private func sendStorageSize(
+        event:MVitaPtpMessageInEvent)
+    {
+        
+    }
+    
     //MARK: internal
     
     func receivedEvent(event:MVitaPtpMessageInEvent)
@@ -30,6 +36,12 @@ extension MVitaLink
         case MVitaPtpEvent.requestSettings:
             
             requestSettings(event:event)
+            
+            break
+            
+        case MVitaPtpEvent.sendStorageSize:
+            
+            sendStorageSize(event:event)
             
             break
             
