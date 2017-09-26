@@ -38,6 +38,8 @@
 	<dict>
 		<key>availableStorage</key>
 		<integer>100000</integer>
+		<key>storageSize</key>
+		<integer>10000000</integer>
 	</dict>
 </dict>
 </plist>
