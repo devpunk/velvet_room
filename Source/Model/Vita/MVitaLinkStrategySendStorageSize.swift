@@ -54,9 +54,23 @@ final class MVitaLinkStrategySendStorageSize:
         let storageSize:UInt64 = factoryStorageSize()
         let availableStorage:UInt64 = factoryAvailableStorage()
         
+        print("st: \(storageSize) \(availableStorage)")
+        
+        let empty:UInt16 = 0
+        let full:UInt16 = 255
+        
         var data:Data = Data()
         data.append(value:storageSize)
         data.append(value:availableStorage)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:empty)
+        data.append(value:full)
+        data.append(value:full)
+        data.append(value:full)
+        data.append(value:full)
+        data.append(value:full)
         
         return data
     }
@@ -77,10 +91,12 @@ final class MVitaLinkStrategySendStorageSize:
     
     private func factoryAvailableStorage() -> UInt64
     {
+        let realAvailableStorage:UInt64 = FileManager.default.systemFreeSize
+        
         guard
         
             let available:UInt64 = model?.configuration.local.availableStorage,
-            available >= FileManager.default.systemFreeSize
+            realAvailableStorage >= available
         
         else
         {
