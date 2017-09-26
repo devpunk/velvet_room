@@ -2,5 +2,6 @@ import Foundation
 
 struct MVitaConfigurationLocal
 {
-    let availableStorage:Int
+    let storageSize:UInt64
+    let availableStorage:UInt64
 }

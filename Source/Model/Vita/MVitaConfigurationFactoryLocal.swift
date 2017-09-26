@@ -11,9 +11,12 @@ extension MVitaConfiguration
             
             let mapLocal:[String:Any] = map[
                 kKeyLocal] as? [String:Any],
+            let rawStorageSize:String = mapLocal[
+                kKeyLocalStorageSize] as? String,
             let rawAvailableStorage:String = mapLocal[
                 kKeyLocalAvailableStorage] as? String,
-            let availableStorage:Int = Int(rawAvailableStorage)
+            let storageSize:UInt64 = UInt64(rawStorageSize),
+            let availableStorage:UInt64 = UInt64(rawAvailableStorage)
             
         else
         {
@@ -21,6 +24,7 @@ extension MVitaConfiguration
         }
         
         let local:MVitaConfigurationLocal = MVitaConfigurationLocal(
+            storageSize:storageSize,
             availableStorage:availableStorage)
         
         return local
