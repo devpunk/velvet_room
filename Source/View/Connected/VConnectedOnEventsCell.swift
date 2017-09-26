@@ -50,21 +50,29 @@ class VConnectedOnEventsCell:UICollectionViewCell
         return nil
     }
     
-    //MARK: internal
+    //MARK: private
     
-    func config(model:MConnectedEventProtocol)
+    private func heightForString(string:NSAttributedString) -> CGFloat
     {
-    }
-    
-    final func configText(string:NSAttributedString)
-    {
-        label.attributedText = string
-        
         let stringRect:CGRect = string.boundingRect(
             with:boundingSize,
             options:options,
             context:nil)
-        let stringHeight:CGFloat = ceil(stringRect.height)
+        let height:CGFloat = ceil(stringRect.height)
+        
+        return height
+    }
+    
+    //MARK: internal
+    
+    final func configText(string:NSAttributedString)
+    {
+        let stringHeight:CGFloat = heightForString(
+            string:string)
+        
+        label.attributedText = string
         layoutLabelHeight.constant = stringHeight
     }
+    
+    func config(model:MConnectedEventProtocol) { }
 }
