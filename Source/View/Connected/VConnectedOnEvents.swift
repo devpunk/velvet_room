@@ -130,11 +130,31 @@ final class VConnectedOnEvents:VCollection<
         return indexPaths
     }
     
-    private func addItems(
-        indexPaths:[IndexPath],
-        currentItems:Int)
+    private func asyncUpdate()
     {
-        self.currentItems = currentItems
+        let items:Int = controller.model.events.count
+        let newItems:Int = items - currentItems
+        
+        guard
+            
+            newItems > 0
+            
+            else
+        {
+            return
+        }
+        
+        let endingIndex:Int = currentItems + newItems
+        let indexPaths:[IndexPath] = factoryIndexPaths(
+            endingIndex:endingIndex)
+        currentItems = endingIndex
+        
+        addItems(indexPaths:indexPaths)
+    }
+    
+    private func addItems(
+        indexPaths:[IndexPath])
+    {
         collectionView.insertItems(at:indexPaths)
         
         guard
@@ -164,28 +184,10 @@ final class VConnectedOnEvents:VCollection<
     
     func update()
     {
-        let items:Int = controller.model.events.count
-        let newItems:Int = items - currentItems
-        
-        guard
-            
-            newItems > 0
-            
-        else
-        {
-            return
-        }
-        
-        let endingIndex:Int = currentItems + newItems
-        let indexPaths:[IndexPath] = factoryIndexPaths(
-            endingIndex:endingIndex)
-        
         DispatchQueue.main.async
         { [weak self] in
             
-            self?.addItems(
-                indexPaths:indexPaths,
-                currentItems:endingIndex)
+            self?.asyncUpdate()
         }
     }
 }

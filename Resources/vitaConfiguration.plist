@@ -37,9 +37,9 @@
 	<key>local</key>
 	<dict>
 		<key>availableStorage</key>
-		<integer>100000</integer>
+		<real>1000</real>
 		<key>storageSize</key>
-		<integer>10000000</integer>
+		<real>10000</real>
 	</dict>
 </dict>
 </plist>
