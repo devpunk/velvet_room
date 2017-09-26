@@ -22,15 +22,28 @@ final class MVitaLinkStrategySendStorageSize:
     func config(event:MVitaPtpMessageInEvent)
     {
         let data:Data = factoryData()
+        let code:MVitaPtpCommand = MVitaPtpCommand.sendStorageSize
         let message:MVitaPtpMessageOutSendEventData = MVitaPtpMessageOutSendEventData(
-            event:event)
+            event:event,
+            code:code)
+        
+        send(
+            data:data,
+            message:message)
     }
     
     //MARK: private
     
     private func factoryData() -> Data
     {
-        return Data()
+        let storageSize:UInt64 = factoryStorageSize()
+        let availableStorage:UInt64 = factoryAvailableStorage()
+        
+        var data:Data = Data()
+        data.append(value:storageSize)
+        data.append(value:availableStorage)
+        
+        return data
     }
     
     private func factoryStorageSize() -> UInt64
