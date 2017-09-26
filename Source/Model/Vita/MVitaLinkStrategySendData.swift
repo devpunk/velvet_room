@@ -139,15 +139,12 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     
     final func send(
         data:Data,
-        code:MVitaPtpCommand)
+        message:MVitaPtpMessageOutProtocol)
     {
         wrapData(data:data)
         
         changeStatus(
             status:MVitaLinkStrategySendDataStatusHeader.self)
-        
-        let message:MVitaPtpMessageOutSendData = MVitaPtpMessageOutSendData(
-            code:code)
         model?.linkCommand.writeMessage(
             message:message)
     }
