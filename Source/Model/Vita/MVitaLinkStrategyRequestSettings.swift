@@ -5,7 +5,7 @@ final class MVitaLinkStrategyRequestSettings:
     MVitaLinkStrategyRequestData,
     MVitaLinkStrategyEventProtocol
 {
-    var event:MVitaPtpMessageInEvent?
+    private var event:MVitaPtpMessageInEvent?
     
     override func failed()
     {
@@ -33,6 +33,13 @@ final class MVitaLinkStrategyRequestSettings:
             
             self?.vitaSettings(xml:xml)
         }
+    }
+    
+    //MARK: event protocol
+    
+    func config(event:MVitaPtpMessageInEvent)
+    {
+        self.event = event
     }
     
     //MARK: private

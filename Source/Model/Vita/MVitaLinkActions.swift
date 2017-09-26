@@ -15,14 +15,14 @@ extension MVitaLink
     {
         guard
             
-            var strategyEvent:MVitaLinkStrategyEventProtocol = strategy as? MVitaLinkStrategyEventProtocol
+            let strategyEvent:MVitaLinkStrategyEventProtocol = strategy as? MVitaLinkStrategyEventProtocol
             
         else
         {
             return
         }
         
-        strategyEvent.event = event
+        strategyEvent.config(event:event)
     }
     
     func addToLog(

@@ -2,5 +2,5 @@ import Foundation
 
 protocol MVitaLinkStrategyEventProtocol
 {
-    var event:MVitaPtpMessageInEvent? { get set }
+    func config(event:MVitaPtpMessageInEvent)
 }
