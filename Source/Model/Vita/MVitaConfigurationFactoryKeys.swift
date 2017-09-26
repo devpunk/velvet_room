@@ -15,6 +15,8 @@ extension MVitaConfiguration
     static let kKeyDevice:String = "device"
     static let kKeyDeviceDeviceIdTitle:String = "deviceIdTitle"
     static let kKeyDeviceDevicePortTitle:String = "devicePortTitle"
+    static let kKeyLocal:String = "local"
+    static let kKeyLocalAvailableStorage:String = "availableStorage"
     static let kKeyLineSeparator:String = "lineSeparator"
     static let kKeyPort:String = "port"
 }
