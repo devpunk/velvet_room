@@ -3,6 +3,7 @@ import UIKit
 final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
 {
     private weak var imageView:UIImageView!
+    private weak var imageBadge:UIImageView!
     private let attributesTitle:[NSAttributedStringKey:Any]
     private let attributesDescr:[NSAttributedStringKey:Any]
     private let kBaseMargin:CGFloat = 1
@@ -11,6 +12,7 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
     private let kTitleFontSize:CGFloat = 16
     private let kDescrFontSize:CGFloat = 16
     private let kBadgeHolderSize:CGFloat = 200
+    private let kBadgeSize:CGFloat = 50
     
     override init(frame:CGRect)
     {
@@ -55,8 +57,16 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
         badgeHolder.contentMode = UIViewContentMode.center
         badgeHolder.image = #imageLiteral(resourceName: "assetConnectBadgeHolder")
         
+        let imageBadge:UIImageView = UIImageView()
+        imageBadge.isUserInteractionEnabled = false
+        imageBadge.translatesAutoresizingMaskIntoConstraints = false
+        imageBadge.clipsToBounds = true
+        imageBadge.contentMode = UIViewContentMode.center
+        self.imageBadge = imageBadge
+        
         viewBase.addSubview(imageView)
         viewBase.addSubview(badgeHolder)
+        viewBase.addSubview(imageBadge)
         addSubview(viewBase)
         
         NSLayoutConstraint.topToTop(
@@ -86,6 +96,16 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
         NSLayoutConstraint.size(
             view:badgeHolder,
             constant:kBadgeHolderSize)
+        
+        NSLayoutConstraint.rightToRight(
+            view:imageBadge,
+            toView:viewBase)
+        NSLayoutConstraint.bottomToBottom(
+            view:imageBadge,
+            toView:viewBase)
+        NSLayoutConstraint.size(
+            view:imageBadge,
+            constant:kBadgeSize)
     }
     
     required init?(coder:NSCoder)
@@ -108,6 +128,7 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
             model:model)
         
         imageView.image = model.picture
+        imageBadge.image = model.badge
         configText(string:attributedString)
     }
     
