@@ -33,7 +33,7 @@ final class MConnected:
             log2,
             log3,
             log1]
-        updateEvents(logs:logs)
+//        updateEvents(logs:logs)
     }
     
     deinit
