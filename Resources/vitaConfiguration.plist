@@ -34,5 +34,10 @@
 		<key>devicePortTitle</key>
 		<string>device-port:</string>
 	</dict>
+	<key>local</key>
+	<dict>
+		<key>availableStorage</key>
+		<integer>100000</integer>
+	</dict>
 </dict>
 </plist>
