@@ -17,7 +17,7 @@ class VConnectedOnEventsCell:UICollectionViewCell
     {
         attributesTimestamp = [
             NSAttributedStringKey.foregroundColor:
-                UIColor(white:0.6, alpha:1),
+                UIColor(white:0.7ç, alpha:1),
             NSAttributedStringKey.font:
                 UIFont.regular(size:kTimestampFontSize)]
         

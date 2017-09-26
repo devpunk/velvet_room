@@ -3,12 +3,28 @@ import UIKit
 final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
 {
     private weak var imageView:UIImageView!
+    private let attributesTitle:[NSAttributedStringKey:Any]
+    private let attributesDescr:[NSAttributedStringKey:Any]
     private let kBaseMargin:CGFloat = 1
     private let kCornerRadius:CGFloat = 7
     private let kBorderWidth:CGFloat = 1
+    private let kTitleFontSize:CGFloat = 16
+    private let kDescrFontSize:CGFloat = 16
     
     override init(frame:CGRect)
     {
+        attributesTitle = [
+            NSAttributedStringKey.foregroundColor:
+                UIColor.colourBackgroundDark,
+            NSAttributedStringKey.font:
+                UIFont.medium(size:kTitleFontSize)]
+        
+        attributesDescr = [
+            NSAttributedStringKey.foregroundColor:
+                UIColor(white:0.4, alpha:1),
+            NSAttributedStringKey.font:
+                UIFont.regular(size:kDescrFontSize)]
+        
         super.init(frame:frame)
         isUserInteractionEnabled = false
         
@@ -65,6 +81,34 @@ final class VConnectedOnEventsCellPicture:VConnectedOnEventsCell
             return
         }
         
+        let attributedString:NSAttributedString = factoryString(
+            model:model)
+        
         imageView.image = model.picture
+        configText(string:attributedString)
+    }
+    
+    //MARK: private
+    
+    private func factoryString(model:MConnectedEventPicture) -> NSAttributedString
+    {
+        let stringTitle:NSAttributedString = NSAttributedString(
+            string:model.title,
+            attributes:attributesTitle)
+        let stringDescr:NSAttributedString = NSAttributedString(
+            string:model.descr,
+            attributes:attributesDescr)
+        let stringTimestamp:NSAttributedString = NSAttributedString(
+            string:model.timestamp,
+            attributes:attributesTimestamp)
+        
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(stringTitle)
+        mutableString.append(lineBreak)
+        mutableString.append(stringDescr)
+        mutableString.append(lineBreak)
+        mutableString.append(stringTimestamp)
+        
+        return mutableString
     }
 }
