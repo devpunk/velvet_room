@@ -116,7 +116,7 @@ extension MConnected
     {
         let dateFormatter:DateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.none
-        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.short
         
         return dateFormatter
     }

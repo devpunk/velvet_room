@@ -10,7 +10,8 @@ class VConnectedOnEventsCell:UICollectionViewCell
     private let boundingSize:CGSize
     private let kLineBreak:String = "\n"
     private let kMaxTextHeight:CGFloat = 1000
-    private let kTimestampFontSize:CGFloat = 14
+    private let kLabelTop:CGFloat = 10
+    private let kTimestampFontSize:CGFloat = 13
     
     override init(frame:CGRect)
     {
@@ -24,6 +25,7 @@ class VConnectedOnEventsCell:UICollectionViewCell
             string:kLineBreak)
         
         let width:CGFloat = frame.width
+        let labelTop:CGFloat = width + kLabelTop
         options = NSStringDrawingOptions([
             NSStringDrawingOptions.usesLineFragmentOrigin,
             NSStringDrawingOptions.usesFontLeading])
@@ -36,7 +38,6 @@ class VConnectedOnEventsCell:UICollectionViewCell
         clipsToBounds = true
         isUserInteractionEnabled = false
         
-        let labelTop:CGFloat = width
         let label:UILabel = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.isUserInteractionEnabled = false
@@ -51,8 +52,7 @@ class VConnectedOnEventsCell:UICollectionViewCell
             toView:self,
             constant:labelTop)
         layoutLabelHeight = NSLayoutConstraint.height(
-            view:label,
-            toView:self)
+            view:label)
         NSLayoutConstraint.equalsHorizontal(
             view:label,
             toView:self)

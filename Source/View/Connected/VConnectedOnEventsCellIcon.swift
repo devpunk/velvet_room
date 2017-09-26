@@ -4,7 +4,7 @@ final class VConnectedOnEventsCellIcon:VConnectedOnEventsCell
 {
     private weak var imageView:UIImageView!
     private let attributesTitle:[NSAttributedStringKey:Any]
-    private let kTitleFontSize:CGFloat = 14
+    private let kTitleFontSize:CGFloat = 16
     
     override init(frame:CGRect)
     {
