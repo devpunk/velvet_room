@@ -48,8 +48,6 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     private func changeStatus(
         status:MVitaLinkStrategySendDataStatusProtocol.Type)
     {
-        print("send status \(status)")
-        
         self.status = status.init()
     }
     
