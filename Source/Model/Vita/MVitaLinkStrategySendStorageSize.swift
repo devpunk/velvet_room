@@ -54,36 +54,9 @@ final class MVitaLinkStrategySendStorageSize:
         let storageSize:UInt64 = factoryStorageSize()
         let availableStorage:UInt64 = factoryAvailableStorage()
         
-        print("st: \(storageSize) \(availableStorage)")
-        
-        let storage:UInt64 = 100
-        let storage2:UInt64 = 1
-        let empty:UInt8 = 0
-        let empty2:UInt8 = 255
-        
         var data:Data = Data()
-        data.append(value:storage)
-        data.append(value:storage2)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty)
-        data.append(value:empty2)
-        data.append(value:empty)
-//        data.append(value:availableStorage)
-//        data.append(value:empty)
-//        data.append(value:empty)
-//        data.append(value:empty)
-//        data.append(value:empty)
-//        data.append(value:full)
-//        data.append(value:full)
-//        data.append(value:full)
-//        data.append(value:full)
-//        data.append(value:full)
+        data.append(value:storageSize)
+        data.append(value:availableStorage)
         
         return data
     }
