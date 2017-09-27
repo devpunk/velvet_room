@@ -36,10 +36,10 @@ final class MVitaLinkStrategySendStorageSize:
         self.event = event
         
         let data:Data = factoryData()
-        let code:MVitaPtpCommand = MVitaPtpCommand.sendStorageSize
-        let message:MVitaPtpMessageOutSendEventData = MVitaPtpMessageOutSendEventData(
+        let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
-            code:code)
+            dataPhase:MVitaPtpDataPhase.send,
+            command:MVitaPtpCommand.sendStorageSize)
         
         send(
             data:data,
