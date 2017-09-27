@@ -11,6 +11,13 @@ extension MVitaLink
         delegate?.vitaLinkError(message:message)
     }
     
+    private func terminateReceived()
+    {
+        let message:String = String.localizedModel(
+            key:"MVitaLink_terminateReceived")
+        delegate?.vitaLinkError(message:message)
+    }
+    
     private func requestObjectStatus(
         event:MVitaPtpMessageInEvent)
     {
@@ -60,6 +67,12 @@ extension MVitaLink
         case MVitaPtpEvent.sendStorageSize:
             
             sendStorageSize(event:event)
+            
+            break
+            
+        case MVitaPtpEvent.terminate:
+            
+            terminateReceived()
             
             break
             

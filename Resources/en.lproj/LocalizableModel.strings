@@ -33,3 +33,4 @@
 "MConnected_eventTransferTypeSend"=" sent";
 "MVitaLinkStrategySendStorageSize_messageFailed"="Failed sending Storage Size\n,try again";
 "MVitaLinkStrategyRequestItemStatus_messageFailed"="Failed requesting Item Status,\ntry again";
+"MVitaLink_terminateReceived"="Connection has been terminated";
