@@ -32,4 +32,4 @@
 "MConnected_eventTransferTypeRequest"=" received";
 "MConnected_eventTransferTypeSend"=" sent";
 "MVitaLinkStrategySendStorageSize_messageFailed"="Failed sending Storage Size\n,try again";
-"MVitaLinkStrategyRequestObjectStatus_messageFailed"="Failed requesting Object Status,\ntry again";
+"MVitaLinkStrategyRequestItemStatus_messageFailed"="Failed requesting Object Status,\ntry again";

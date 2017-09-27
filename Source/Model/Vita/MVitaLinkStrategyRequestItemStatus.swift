@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaLinkStrategyRequestObjectStatus:
+final class MVitaLinkStrategyRequestItemStatus:
     MVitaLinkStrategyRequestData,
     MVitaLinkStrategyEventProtocol
 {
@@ -9,24 +9,13 @@ final class MVitaLinkStrategyRequestObjectStatus:
     override func failed()
     {
         let message:String = String.localizedModel(
-            key:"MVitaLinkStrategyRequestObjectStatus_messageFailed")
+            key:"MVitaLinkStrategyRequestItemStatus_messageFailed")
         model?.delegate?.vitaLinkError(message:message)
     }
     
     override func success()
     {
-        guard
         
-            let message:MVitaPtpMessageInObjectStatus = MVitaPtpMessageInObjectStatus(
-                header:header,
-                data:data)
-        
-        else
-        {
-            failed()
-            
-            return
-        }
     }
     
     //MARK: event protocol
@@ -38,3 +27,4 @@ final class MVitaLinkStrategyRequestObjectStatus:
     
     //MARK: private
 }
+
