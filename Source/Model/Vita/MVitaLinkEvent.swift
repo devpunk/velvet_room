@@ -15,10 +15,10 @@ extension MVitaLink
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
-            MVitaLinkStrategyRequestSettings.self)
+            MVitaLinkStrategyRequestObjectStatus.self)
         strategyEvent(event:event)
         
-        linkCommand.requestSettings(event:event)
+        linkCommand.requestObjectStatus(event:event)
     }
     
     private func requestSettings(
