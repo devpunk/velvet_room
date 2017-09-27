@@ -11,39 +11,11 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     
     override func success()
     {
-        guard
-            
-            let itemStatus:MVitaItemStatus = MVitaItemStatus.factoryStatus(
-                data:data)
-            
-            else
-        {
-            failed()
-            
-            return
-        }
+        let array:[UInt32]? = data.arrayFromBytes(elements:3)
         
-        requestItemStatus(itemStatus:itemStatus)
+        print("trate size:\(data.count) array:\(array)")
     }
     
     //MARK: private
-    
-    func requestItemStatus(
-        itemStatus:MVitaItemStatus)
-    {
-        guard
-            
-            let event:MVitaPtpMessageInEvent = self.event
-            
-            else
-        {
-            failed()
-            
-            return
-        }
-        
-        model?.requestItemStatus(
-            itemStatus:itemStatus,
-            event:event)
-    }
+
 }

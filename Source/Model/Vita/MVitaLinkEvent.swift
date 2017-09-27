@@ -18,7 +18,7 @@ extension MVitaLink
         delegate?.vitaLinkError(message:message)
     }
     
-    private func requestObjectStatus(
+    private func requestItemStatus(
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
@@ -50,7 +50,7 @@ extension MVitaLink
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
-            MVitaLinkStrategyRequestSettings.self)
+            MVitaLinkStrategyRequestItemTreat.self)
         strategyEvent(event:event)
         
         linkCommand.requestItemTreat(event:event)
@@ -64,7 +64,7 @@ extension MVitaLink
         {
         case MVitaPtpEvent.requestItemStatus:
             
-            requestObjectStatus(event:event)
+            requestItemStatus(event:event)
             
             break
             

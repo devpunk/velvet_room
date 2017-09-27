@@ -30,7 +30,7 @@ extension MVitaLinkSocketCommand
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
             dataPhase:MVitaPtpDataPhase.request,
-            command:MVitaPtpCommand.requestItemStatus)
+            command:MVitaPtpCommand.requestItemTreat)
         writeMessageAndRead(message:message)
     }
     

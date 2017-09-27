@@ -12,6 +12,7 @@ enum MVitaPtpCommand:UInt16
     case requestItemStatus              = 38184
     case sendLocalStatus                = 38186
     case sendStorageSize                = 38195
+    case requestItemTreat               = 38196
     case requestVitaCapabilities        = 38203
     case sendLocalCapabilities          = 38204
 }
