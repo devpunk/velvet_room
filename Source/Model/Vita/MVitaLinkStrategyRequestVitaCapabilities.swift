@@ -12,7 +12,10 @@ final class MVitaLinkStrategyRequestVitaCapabilities:MVitaLinkStrategyRequestDat
     
     override func success()
     {
-        Xml.object(data:data)
+        let unwrappedData:Data = MVitaLink.unwrapDataWithSizeHeader(
+            data:data)
+        
+        Xml.object(data:unwrappedData)
         { [weak self] (xml:[String:Any]?, error:XmlError?) in
             
             guard
