@@ -15,7 +15,19 @@ final class MVitaLinkStrategyRequestItemStatus:
     
     override func success()
     {
+        guard
         
+            let itemStatus:MVitaItemStatus = MVitaItemStatus.factoryStatus(
+                data:data)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        print("status: \(itemStatus.itemId) : \(itemStatus.name)")
     }
     
     //MARK: event protocol
@@ -26,5 +38,7 @@ final class MVitaLinkStrategyRequestItemStatus:
     }
     
     //MARK: private
+    
+    
 }
 
