@@ -15,6 +15,18 @@ final class MVitaLinkStrategyRequestObjectStatus:
     
     override func success()
     {
+        guard
+        
+            let message:MVitaPtpMessageInObjectStatus = MVitaPtpMessageInObjectStatus(
+                header:header,
+                data:data)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
     }
     
     //MARK: event protocol
