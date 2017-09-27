@@ -8,7 +8,7 @@ struct MVitaPtpMessageOutRequestSettings:MVitaPtpMessageOutProtocol
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command.rawValue)
-        builder.append(value:MVitaPtpDataPhase.receive.rawValue)
+        builder.append(value:MVitaPtpDataPhase.request.rawValue)
         builder.append(value:MVitaPtpCommand.requestSettings.rawValue)
         builder.appendTransactionId()
         builder.append(value:event.eventId)

@@ -19,7 +19,7 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
     func requestVitaInfo()
     {
         let message:MVitaPtpMessageOutGenericCommand = MVitaPtpMessageOutGenericCommand(
-            dataPhase:MVitaPtpDataPhase.receive,
+            dataPhase:MVitaPtpDataPhase.request,
             command:MVitaPtpCommand.requestVitaInfo)
         writeMessageAndRead(message:message)
     }
@@ -27,7 +27,7 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
     func requestVitaCapabilities()
     {
         let message:MVitaPtpMessageOutGenericCommand = MVitaPtpMessageOutGenericCommand(
-            dataPhase:MVitaPtpDataPhase.receive,
+            dataPhase:MVitaPtpDataPhase.request,
             command:MVitaPtpCommand.requestVitaCapabilities)
         writeMessageAndRead(message:message)
     }
