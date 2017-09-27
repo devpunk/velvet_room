@@ -8,6 +8,7 @@ extension MVitaLink
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_unknownEventReceived")
+        closeConnection()
         delegate?.vitaLinkError(message:message)
     }
     
@@ -56,6 +57,11 @@ extension MVitaLink
         linkCommand.requestItemTreat(event:event)
     }
     
+    private func itemPropertyChanged()
+    {
+        listenEvents()
+    }
+    
     //MARK: internal
     
     func receivedEvent(event:MVitaPtpMessageInEvent)
@@ -89,6 +95,12 @@ extension MVitaLink
         case MVitaPtpEvent.terminate:
             
             terminateReceived()
+            
+            break
+            
+        case MVitaPtpEvent.itemPropertyChanged:
+            
+            itemPropertyChanged()
             
             break
             

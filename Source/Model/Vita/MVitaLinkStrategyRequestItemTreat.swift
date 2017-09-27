@@ -13,7 +13,11 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     {
         let array:[UInt32]? = data.arrayFromBytes(elements:3)
         
-        print("trate size:\(data.count) array:\(array)")
+        //trate size:12 array:Optional([14, 1, 67108869])
+//        treat size:12 array:Optional([14, 1, 67108880])
+//        treat size:12 array:Optional([14, 1, 67108874])
+        
+        print("treat size:\(data.count) array:\(array)")
     }
     
     //MARK: private

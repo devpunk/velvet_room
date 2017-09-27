@@ -34,8 +34,7 @@ extension MConnected
     
     func closeConnection()
     {
-        vitaLink?.sendLocalStatus(
-            status:MVitaPtpLocalStatus.connectionEnd)
+        vitaLink?.closeConnection()
     }
     
     func cancelAndClean()

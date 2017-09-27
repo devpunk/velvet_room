@@ -38,6 +38,12 @@ extension MVitaLink
         }
     }
     
+    func closeConnection()
+    {
+        sendLocalStatus(
+            status:MVitaPtpLocalStatus.connectionEnd)
+    }
+    
     func cancel()
     {
         linkCommand.cancel()

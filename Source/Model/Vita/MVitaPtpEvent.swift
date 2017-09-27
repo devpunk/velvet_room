@@ -6,4 +6,5 @@ enum MVitaPtpEvent:UInt16
     case sendStorageSize                = 49433
     case requestItemTreat               = 49442
     case terminate                      = 49446
+    case itemPropertyChanged            = 51201
 }
