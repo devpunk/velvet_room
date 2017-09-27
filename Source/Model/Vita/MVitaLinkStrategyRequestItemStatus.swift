@@ -26,6 +26,8 @@ final class MVitaLinkStrategyRequestItemStatus:
             
             return
         }
+        
+        requestItemStatus(itemStatus:itemStatus)
     }
     
     //MARK: event protocol
