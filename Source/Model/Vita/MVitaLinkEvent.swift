@@ -15,7 +15,7 @@ extension MVitaLink
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
-            MVitaLinkStrategyRequestObjectStatus.self)
+            MVitaLinkStrategyRequestItemStatus.self)
         strategyEvent(event:event)
         
         linkCommand.requestObjectStatus(event:event)
@@ -45,7 +45,7 @@ extension MVitaLink
     {
         switch event.code
         {
-        case MVitaPtpEvent.requestObjectStatus:
+        case MVitaPtpEvent.requestItemStatus:
             
             requestObjectStatus(event:event)
             

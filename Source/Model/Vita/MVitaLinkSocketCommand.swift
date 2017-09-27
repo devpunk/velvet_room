@@ -55,7 +55,7 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
             dataPhase:MVitaPtpDataPhase.request,
-            command:MVitaPtpCommand.requestObjectStatus)
+            command:MVitaPtpCommand.requestItemStatus)
         writeMessageAndRead(message:message)
     }
     
