@@ -4,7 +4,7 @@ class MVitaLinkStrategyRequestDataEvent:
     MVitaLinkStrategyRequestData,
     MVitaLinkStrategyEventProtocol
 {
-    private var event:MVitaPtpMessageInEvent?
+    private(set) var event:MVitaPtpMessageInEvent?
     
     //MARK: event protocol
     

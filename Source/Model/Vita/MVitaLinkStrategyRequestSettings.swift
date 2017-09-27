@@ -1,12 +1,8 @@
 import Foundation
 import XmlHero
 
-final class MVitaLinkStrategyRequestSettings:
-    MVitaLinkStrategyRequestData,
-    MVitaLinkStrategyEventProtocol
+final class MVitaLinkStrategyRequestSettings:MVitaLinkStrategyRequestDataEvent
 {
-    private var event:MVitaPtpMessageInEvent?
-    
     override func failed()
     {
         let message:String = String.localizedModel(
@@ -36,13 +32,6 @@ final class MVitaLinkStrategyRequestSettings:
             
             self?.vitaSettings(xml:xml)
         }
-    }
-    
-    //MARK: event protocol
-    
-    func config(event:MVitaPtpMessageInEvent)
-    {
-        self.event = event
     }
     
     //MARK: private

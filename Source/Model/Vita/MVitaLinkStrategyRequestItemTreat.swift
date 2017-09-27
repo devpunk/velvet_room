@@ -1,11 +1,7 @@
 import Foundation
 
-final class MVitaLinkStrategyRequestItemTreat:
-    MVitaLinkStrategyRequestData,
-    MVitaLinkStrategyEventProtocol
+final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
-    private var event:MVitaPtpMessageInEvent?
-    
     override func failed()
     {
         let message:String = String.localizedModel(
@@ -28,13 +24,6 @@ final class MVitaLinkStrategyRequestItemTreat:
         }
         
         requestItemStatus(itemStatus:itemStatus)
-    }
-    
-    //MARK: event protocol
-    
-    func config(event:MVitaPtpMessageInEvent)
-    {
-        self.event = event
     }
     
     //MARK: private
