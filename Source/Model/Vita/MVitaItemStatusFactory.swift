@@ -34,6 +34,16 @@ extension MVitaItemStatus
         
         let nameLengthInt:Int = Int(nameLength)
         let nameEndIndex:Int = expectedSize + nameLengthInt
+        
+        guard
+            
+            data.count >= nameEndIndex
+        
+        else
+        {
+            return nil
+        }
+        
         let subdataName:Data = data.subdata(
             start:parameterSize,
             endNotIncluding:nameEndIndex)
