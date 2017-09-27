@@ -25,7 +25,7 @@ extension MVitaLink
             MVitaLinkStrategyRequestItemStatus.self)
         strategyEvent(event:event)
         
-        linkCommand.requestObjectStatus(event:event)
+        linkCommand.requestItemStatus(event:event)
     }
     
     private func requestSettings(
@@ -44,6 +44,16 @@ extension MVitaLink
         changeStrategy(strategyType:
             MVitaLinkStrategySendStorageSize.self)
         strategyEvent(event:event)
+    }
+    
+    private func requestItemTreat(
+        event:MVitaPtpMessageInEvent)
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategyRequestSettings.self)
+        strategyEvent(event:event)
+        
+        linkCommand.requestSettings(event:event)
     }
     
     //MARK: internal
@@ -67,6 +77,12 @@ extension MVitaLink
         case MVitaPtpEvent.sendStorageSize:
             
             sendStorageSize(event:event)
+            
+            break
+            
+        case MVitaPtpEvent.requestItemTreat:
+            
+            requestItemTreat(event:event)
             
             break
             

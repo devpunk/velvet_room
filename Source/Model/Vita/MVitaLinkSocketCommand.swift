@@ -49,7 +49,7 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
         writeMessageAndRead(message:message)
     }
     
-    func requestObjectStatus(
+    func requestItemStatus(
         event:MVitaPtpMessageInEvent)
     {
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
