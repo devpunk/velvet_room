@@ -37,5 +37,22 @@ final class MVitaLinkStrategyRequestItemStatus:
     
     //MARK: private
     
-    
+    func requestItemStatus(
+        itemStatus:MVitaItemStatus)
+    {
+        guard
+        
+            let event:MVitaPtpMessageInEvent = self.event
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        model?.requestItemStatus(
+            itemStatus:itemStatus,
+            event:event)
+    }
 }
