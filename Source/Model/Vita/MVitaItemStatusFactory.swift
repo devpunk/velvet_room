@@ -4,6 +4,24 @@ extension MVitaItemStatus
 {
     private static let kParameters:Int = 2
     
+    //MARK: private
+    
+    private static func factoryCategory(
+        rawCategory:UInt32) -> MVitaItemCategory
+    {
+        guard
+        
+            let category:MVitaItemCategory = MVitaItemCategory(
+                rawValue:rawCategory)
+        
+        else
+        {
+            return MVitaItemCategory.unknown
+        }
+        
+        return category
+    }
+    
     //MARK: internal
     
     static func factoryStatus(data:Data) -> MVitaItemStatus?
@@ -24,7 +42,7 @@ extension MVitaItemStatus
             
             let parameters:[UInt32] = data.arrayFromBytes(
                 elements:kParameters),
-            let itemId:UInt32 = parameters.first,
+            let rawCategory:UInt32 = parameters.first,
             let nameLength:UInt32 = parameters.last
             
         else
@@ -59,9 +77,11 @@ extension MVitaItemStatus
             return nil
         }
 
+        let category:MVitaItemCategory = factoryCategory(
+            rawCategory:rawCategory)
         let itemStatus:MVitaItemStatus = MVitaItemStatus(
-            name:name,
-            itemId:itemId)
+            category:category,
+            name:name)
 
         return itemStatus
     }
