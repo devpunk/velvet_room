@@ -34,3 +34,4 @@
 "MVitaLinkStrategySendStorageSize_messageFailed"="Failed sending Storage Size\n,try again";
 "MVitaLinkStrategyRequestItemStatus_messageFailed"="Failed requesting Item Status,\ntry again";
 "MVitaLink_terminateReceived"="Connection has been terminated";
+"MVitaLinkStrategyRequestItemTreat_messageFailed"="Failed requesting Item Treat,\ntry again";
