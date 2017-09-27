@@ -45,24 +45,24 @@ extension MVitaItemStatus
         }
         
         let subdataName:Data = data.subdata(
-            start:parameterSize,
+            start:expectedSize,
             endNotIncluding:nameEndIndex)
         
         guard
             
             let name:String = String(
                 data:subdataName,
-                encoding:String.Encoding.utf8)
+                encoding:String.Encoding.ascii)
             
         else
         {
             return nil
         }
-        
+
         let itemStatus:MVitaItemStatus = MVitaItemStatus(
             name:name,
             itemId:itemId)
-        
+
         return itemStatus
     }
 }

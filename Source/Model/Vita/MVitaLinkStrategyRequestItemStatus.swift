@@ -26,8 +26,6 @@ final class MVitaLinkStrategyRequestItemStatus:
             
             return
         }
-        
-        print("status: \(itemStatus.itemId) : \(itemStatus.name)")
     }
     
     //MARK: event protocol
