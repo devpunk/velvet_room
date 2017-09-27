@@ -95,16 +95,6 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         return packetData
     }
     
-    private func wrapData(data:Data)
-    {
-        let size:UInt32 = UInt32(data.count)
-        var dataWrapped:Data = Data()
-        dataWrapped.append(value:size)
-        dataWrapped.append(data)
-        
-        self.data = dataWrapped
-    }
-    
     //MARK: internal
     
     final func loadData(
@@ -142,7 +132,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         data:Data,
         message:MVitaPtpMessageOutProtocol)
     {
-        wrapData(data:data)
+        self.data = data
         
         changeStatus(
             status:MVitaLinkStrategySendDataStatusHeader.self)
