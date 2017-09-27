@@ -42,8 +42,10 @@ final class MVitaLinkSocketCommand:MVitaLinkSocket
     func requestSettings(
         event:MVitaPtpMessageInEvent)
     {
-        let message:MVitaPtpMessageOutRequestSettings = MVitaPtpMessageOutRequestSettings(
-            event:event)
+        let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
+            event:event,
+            dataPhase:MVitaPtpDataPhase.request,
+            command:MVitaPtpCommand.requestSettings)
         writeMessageAndRead(message:message)
     }
     
