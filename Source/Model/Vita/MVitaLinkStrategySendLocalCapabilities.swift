@@ -42,9 +42,9 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
         
         let wrappedData:Data = MVitaLink.wrapDataWithSizeHeader(
             data:data)
-        let code:MVitaPtpCommand = MVitaPtpCommand.sendLocalCapabilities
-        let message:MVitaPtpMessageOutSendData = MVitaPtpMessageOutSendData(
-            code:code)
+        let message:MVitaPtpMessageOutGenericCommand = MVitaPtpMessageOutGenericCommand(
+            dataPhase:MVitaPtpDataPhase.send,
+            command:MVitaPtpCommand.sendLocalCapabilities)
         
         send(
             data:wrappedData,
