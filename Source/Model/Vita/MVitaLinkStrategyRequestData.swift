@@ -187,14 +187,7 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
             return
         }
         
-        unwrapData()
         success()
-    }
-    
-    private func unwrapData()
-    {
-        let headerSize:Int = MemoryLayout<UInt32>.size
-        data = data.subdata(start:headerSize)
     }
     
     //MARK: internal
