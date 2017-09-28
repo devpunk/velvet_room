@@ -1,6 +1,6 @@
 import Foundation
 
-enum MVitaPtpItemProperty:UInt16
+enum MVitaPtpItemProperty:UInt32
 {
     case format = 56322
 }

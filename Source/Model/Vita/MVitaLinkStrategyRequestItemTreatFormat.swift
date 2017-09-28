@@ -8,5 +8,7 @@ final class MVitaLinkStrategyRequestItemTreatFormat:MVitaLinkStrategyRequestItem
         let format:UInt16? = strategy.data.valueFromBytes()
         
         print("format data size: \(strategy.data.count) value:\(format)")
+        
+        //format data size: 2 value:Optional(12289)
     }
 }
