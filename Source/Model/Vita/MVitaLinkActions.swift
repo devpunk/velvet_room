@@ -38,6 +38,12 @@ extension MVitaLink
         }
     }
     
+    func closeConnectionDueToError(message:String)
+    {
+        closeConnection()
+        delegate?.vitaLinkError(message:message)
+    }
+    
     func closeConnection()
     {
         sendLocalStatus(

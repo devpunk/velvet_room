@@ -8,8 +8,8 @@ extension MVitaLink
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_unknownEventReceived")
-        closeConnection()
-        delegate?.vitaLinkError(message:message)
+        closeConnectionDueToError(
+            message:message)
     }
     
     private func terminateReceived()

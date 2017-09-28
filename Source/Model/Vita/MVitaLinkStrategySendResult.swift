@@ -39,7 +39,8 @@ final class MVitaLinkStrategySendResult:MVitaLinkStrategyProtocol
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategySendResult_messageFailed")
-        model?.delegate?.vitaLinkError(message:message)
+        model?.closeConnectionDueToError(
+            message:message)
     }
     
     private func success()

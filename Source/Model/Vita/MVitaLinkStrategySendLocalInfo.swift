@@ -15,7 +15,8 @@ final class MVitaLinkStrategySendLocalInfo:MVitaLinkStrategySendData
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategySendLocalInfo_messageFailed")
-        model?.delegate?.vitaLinkError(message:message)
+        model?.closeConnectionDueToError(
+            message:message)
     }
     
     override func success()

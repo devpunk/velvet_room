@@ -7,7 +7,8 @@ final class MVitaLinkStrategyRequestVitaCapabilities:MVitaLinkStrategyRequestDat
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategyRequestVitaCapabilities_messageFailed")
-        model?.delegate?.vitaLinkError(message:message)
+        model?.closeConnectionDueToError(
+            message:message)
     }
     
     override func success()

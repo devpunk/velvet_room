@@ -38,7 +38,8 @@ final class MVitaLinkStrategyListenEvents:MVitaLinkStrategyProtocol
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategyListenEvents_messageFailed")
-        model?.delegate?.vitaLinkError(message:message)
+        model?.closeConnectionDueToError(
+            message:message)
     }
     
     private func success(message:MVitaPtpMessageInEvent)
