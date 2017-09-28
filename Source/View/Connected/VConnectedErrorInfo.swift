@@ -74,9 +74,9 @@ final class VConnectedErrorInfo:View<ArchConnected>
             key:"VConnectedErrorInfo_labelTitle")
         let attributes:[NSAttributedStringKey:Any] = [
             NSAttributedStringKey.font:
-                UIFont.medium(size:25),
+                UIFont.bold(size:22),
             NSAttributedStringKey.foregroundColor:
-                UIColor.colourBackgroundDark]
+                UIColor.colourFail]
         let attributed:NSAttributedString = NSAttributedString(
             string:string,
             attributes:attributes)
