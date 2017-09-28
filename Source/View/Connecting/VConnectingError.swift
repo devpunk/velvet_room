@@ -73,8 +73,10 @@ final class VConnectingError:View<ArchConnecting>
         let string:String = String.localizedView(
             key:"VConnectingError_labelTitle")
         let attributes:[NSAttributedStringKey:Any] = [
-            NSAttributedStringKey.font:UIFont.medium(size:22),
-            NSAttributedStringKey.foregroundColor:UIColor.white]
+            NSAttributedStringKey.font:
+                UIFont.medium(size:22),
+            NSAttributedStringKey.foregroundColor:
+                UIColor.white]
         let attributed:NSAttributedString = NSAttributedString(
             string:string,
             attributes:attributes)
@@ -96,8 +98,10 @@ final class VConnectingError:View<ArchConnecting>
         let string:String = String.localizedView(
             key:status.errorMessage)
         let attributes:[NSAttributedStringKey:Any] = [
-            NSAttributedStringKey.font:UIFont.regular(size:15),
-            NSAttributedStringKey.foregroundColor:UIColor(white:1, alpha:0.9)]
+            NSAttributedStringKey.font:
+                UIFont.regular(size:15),
+            NSAttributedStringKey.foregroundColor:
+                UIColor(white:1, alpha:0.9)]
         let attributed:NSAttributedString = NSAttributedString(
             string:string,
             attributes:attributes)
