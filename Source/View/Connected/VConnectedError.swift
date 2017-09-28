@@ -2,7 +2,8 @@ import UIKit
 
 final class VConnectedError:View<ArchConnected>
 {
-    private let kBarHeight:CGFloat = 200
+    private let kBarHeight:CGFloat = 150
+    private let kInfoHeight:CGFloat = 200
     
     required init(controller:CConnected)
     {
