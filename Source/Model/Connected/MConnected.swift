@@ -34,6 +34,8 @@ final class MConnected:
             log3,
             log1]
 //        updateEvents(logs:logs)
+        
+        foundError(errorMessage:"PS Vita not found,\ntry again")
     }
     
     deinit
