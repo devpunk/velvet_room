@@ -45,7 +45,6 @@ extension MConnected
     
     func foundError(errorMessage:String)
     {
-        cancelAndClean()
         statusError(errorMessage:errorMessage)
         view?.updateStatus()
     }

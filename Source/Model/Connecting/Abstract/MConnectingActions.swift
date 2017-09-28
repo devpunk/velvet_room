@@ -89,7 +89,6 @@ extension MConnecting
     
     func foundError(errorMessage:String)
     {
-        cancelAndClean()
         statusError(errorMessage:errorMessage)
         view?.updateStatus()
     }

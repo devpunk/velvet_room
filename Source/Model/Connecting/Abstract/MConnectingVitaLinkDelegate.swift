@@ -9,6 +9,11 @@ extension MConnecting
         foundError(errorMessage:message)
     }
     
+    func vitaLinkClean()
+    {
+        cancelAndClean()
+    }
+    
     func vitaLinkStopBroadcast()
     {
         cancelBroadcast()
