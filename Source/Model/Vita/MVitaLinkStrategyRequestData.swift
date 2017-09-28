@@ -192,6 +192,13 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
     
     //MARK: internal
     
+    final func restart()
+    {
+        data = Data()
+        payload = 0
+        transactionId = 0
+    }
+    
     func failed() { }
     func success() { }
 }

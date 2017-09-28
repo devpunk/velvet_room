@@ -55,6 +55,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             return
         }
         
+        restart()
         model?.linkCommand.requestItemFormat(
             event:event)
     }
