@@ -8,6 +8,9 @@ extension MVitaLink
         itemStatus:MVitaItemStatus,
         event:MVitaPtpMessageInEvent)
     {
+        //TODO: validate with db
+        //          result success if not found
+        
         sendResultSuccess(event:event)
     }
 }

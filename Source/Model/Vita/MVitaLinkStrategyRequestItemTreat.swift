@@ -2,6 +2,17 @@ import Foundation
 
 final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
+    private(set) var itemTreat:MVitaItemTreat?
+    private var status:MVitaLinkStrategyRequestItemTreatProtocol?
+    
+    required init(model:MVitaLink)
+    {
+        super.init(model:model)
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatStart.self)
+    }
+    
     override func failed()
     {
         let message:String = String.localizedModel(
@@ -11,15 +22,40 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     
     override func success()
     {
-        let array:[UInt32]? = data.arrayFromBytes(elements:3)
-        
-        //trate size:12 array:Optional([14, 1, 67108869])
-//        treat size:12 array:Optional([14, 1, 67108880])
-//        treat size:12 array:Optional([14, 1, 67108874])
-        
-        print("treat size:\(data.count) array:\(array)")
+        status?.success(strategy:self)
     }
     
     //MARK: private
 
+    private func changeStatus(
+        statusType:MVitaLinkStrategyRequestItemTreatProtocol.Type)
+    {
+        let status:MVitaLinkStrategyRequestItemTreatProtocol = statusType.init()
+        self.status = status
+    }
+    
+    //MARK: internal
+    
+    func requestItemFormat(
+        itemTreat:MVitaItemTreat)
+    {
+        self.itemTreat = itemTreat
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatFormat.self)
+        
+        guard
+        
+            let event:MVitaPtpMessageInEvent = self.event
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        model?.linkCommand.requestItemFormat(
+            event:event)
+    }
 }
