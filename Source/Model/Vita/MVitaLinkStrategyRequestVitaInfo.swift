@@ -7,7 +7,7 @@ final class MVitaLinkStrategyRequestVitaInfo:MVitaLinkStrategyRequestData
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategyRequestVitaInfo_messageFailed")
-        model?.closeConnectionDueToError(
+        model?.errorCloseConnection(
             message:message)
     }
     

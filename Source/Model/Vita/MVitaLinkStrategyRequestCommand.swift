@@ -38,7 +38,7 @@ final class MVitaLinkStrategyRequestCommand:MVitaLinkStrategyProtocol
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategyRequestCommand_messageFailed")
-        model?.closeConnectionDueToError(
+        model?.errorCloseConnection(
             message:message)
     }
     

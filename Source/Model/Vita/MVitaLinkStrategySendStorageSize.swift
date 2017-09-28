@@ -10,7 +10,7 @@ final class MVitaLinkStrategySendStorageSize:
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategySendStorageSize_messageFailed")
-        model?.closeConnectionDueToError(
+        model?.errorCloseConnection(
             message:message)
     }
     

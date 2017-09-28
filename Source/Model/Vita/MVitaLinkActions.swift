@@ -38,14 +38,13 @@ extension MVitaLink
         }
     }
     
-    func closeConnectionDueToError(message:String)
+    func errorCloseConnection(message:String)
     {
         delegate?.vitaLinkError(message:message)
-        delegate = nil
-        closeConnection()
+//        closeConnection()
     }
     
-    func closeConnection()
+    func userCloseConnection()
     {
         sendLocalStatus(
             status:MVitaPtpLocalStatus.connectionEnd)

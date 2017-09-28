@@ -15,7 +15,7 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategySendLocalCapabilities_messageFailed")
-        model?.closeConnectionDueToError(
+        model?.errorCloseConnection(
             message:message)
     }
     

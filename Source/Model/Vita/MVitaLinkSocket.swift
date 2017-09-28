@@ -41,7 +41,7 @@ class MVitaLinkSocket
         {
             let message:String = String.localizedModel(
                 key:"MVitaLinkSocket_errorConnect")
-            model.closeConnectionDueToError(
+            model.errorCloseConnection(
                 message:message)
         }
     }

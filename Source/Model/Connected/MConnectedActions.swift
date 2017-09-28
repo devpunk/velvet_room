@@ -34,7 +34,7 @@ extension MConnected
     
     func closeConnection()
     {
-        vitaLink?.closeConnection()
+        vitaLink?.userCloseConnection()
     }
     
     func cancelAndClean()

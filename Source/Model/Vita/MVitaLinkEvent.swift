@@ -8,7 +8,7 @@ extension MVitaLink
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_unknownEventReceived")
-        closeConnectionDueToError(
+        errorCloseConnection(
             message:message)
     }
     
