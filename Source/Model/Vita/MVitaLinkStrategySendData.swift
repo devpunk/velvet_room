@@ -46,10 +46,10 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     //MARK: private
     
     private func changeStatus(
-        status:MVitaLinkStrategySendDataStatusProtocol.Type)
+        statusType:MVitaLinkStrategySendDataStatusProtocol.Type)
     {
-        print(status)
-        self.status = status.init()
+        let status:MVitaLinkStrategySendDataStatusProtocol = statusType.init()
+        self.status = status
     }
     
     private func packet(data:Data)
@@ -69,7 +69,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         remainBytes:Int)
     {
         changeStatus(
-            status:MVitaLinkStrategySendDataStatusConfirm.self)
+            statusType:MVitaLinkStrategySendDataStatusConfirm.self)
         
         let packetData:Data = packetSubData(
             data:data,
@@ -135,7 +135,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         self.data = data
         
         changeStatus(
-            status:MVitaLinkStrategySendDataStatusHeader.self)
+            statusType:MVitaLinkStrategySendDataStatusHeader.self)
         model?.linkCommand.writeMessage(
             message:message)
     }
@@ -152,7 +152,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         }
         
         changeStatus(
-            status:MVitaLinkStrategySendDataStatusPacket.self)
+            statusType:MVitaLinkStrategySendDataStatusPacket.self)
         
         let message:MVitaPtpMessageOutPacketStart = MVitaPtpMessageOutPacketStart(
             dataSize:dataSize)
