@@ -39,7 +39,7 @@ extension MVitaLinkSocketCommand
     {
         let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
             itemTreat:itemTreat,
-            dataPhase:MVitaPtpDataPhase.request,
+            dataPhase:MVitaPtpDataPhase.send,
             property:MVitaPtpItemProperty.format)
         writeMessageAndRead(message:message)
     }
