@@ -3,6 +3,7 @@ import Foundation
 final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
     private(set) var itemTreat:MVitaItemTreat?
+    private(set) var itemFormat:MVitaItemFormat?
     private var status:MVitaLinkStrategyRequestItemTreatProtocol?
     
     required init(model:MVitaLink)
@@ -47,5 +48,13 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             statusType:MVitaLinkStrategyRequestItemTreatFormat.self)
         model?.linkCommand.requestItemFormat(
             itemTreat:itemTreat)
+    }
+    
+    func requestFileName(
+        itemFormat:MVitaItemFormat)
+    {
+        self.itemFormat = itemFormat
+        
+        restart()
     }
 }

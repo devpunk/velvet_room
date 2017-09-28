@@ -5,10 +5,18 @@ final class MVitaLinkStrategyRequestItemTreatFormat:MVitaLinkStrategyRequestItem
     func success(
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
-        let format:UInt16? = strategy.data.valueFromBytes()
+        guard
         
-        print("format data size: \(strategy.data.count) value:\(format)")
+            let itemFormat:MVitaItemFormat = MVitaItemFormat.factoryFormat(
+                data:strategy.data)
         
-        //format data size: 2 value:Optional(12289)
+        else
+        {
+            strategy.failed()
+            
+            return
+        }
+        
+        strategy.requestFileName(itemFormat:itemFormat)
     }
 }
