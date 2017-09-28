@@ -10,8 +10,8 @@ extension UIColor
     
     static let colourFail:UIColor = UIColor(
         red:1,
-        green:0.4666666666666667,
-        blue:0,
+        green:0.2352941176470589,
+        blue:0.3686274509803924,
         alpha:1)
     
     static let colourGradientLight:UIColor = UIColor(
