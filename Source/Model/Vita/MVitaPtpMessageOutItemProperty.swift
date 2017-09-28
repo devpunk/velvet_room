@@ -14,6 +14,7 @@ struct MVitaPtpMessageOutItemProperty:MVitaPtpMessageOutProtocol
         builder.append(value:dataPhase.rawValue)
         builder.append(value:MVitaPtpCommand.requestItemPropertyValue.rawValue)
         builder.appendTransactionId()
+        builder.appendTransactionId()
         builder.append(value:itemTreat.treatId)
         builder.append(value:property.rawValue)
         
