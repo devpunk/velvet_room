@@ -96,6 +96,10 @@
 		DA59B5371F765E0F00A50968 /* MVitaPtpMessageOutPacketEnd.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA59B5361F765E0F00A50968 /* MVitaPtpMessageOutPacketEnd.swift */; };
 		DA5D1A2A1F5FB4C600FAF140 /* MConnectConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */; };
 		DA5FD82B1F7D9FFC006E11D7 /* VConnectedErrorClose.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD82A1F7D9FFC006E11D7 /* VConnectedErrorClose.swift */; };
+		DA5FD82D1F7DAC28006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD82C1F7DAC28006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndUser.swift */; };
+		DA5FD8311F7DAC3F006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD8301F7DAC3F006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndError.swift */; };
+		DA5FD8331F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD8321F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift */; };
+		DA5FD8351F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */; };
 		DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */; };
 		DA74764D1F785E4E00A9A84A /* VConnectedOnEvents.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA74764C1F785E4E00A9A84A /* VConnectedOnEvents.swift */; };
 		DA74764F1F785E8E00A9A84A /* VConnectedOnEventsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA74764E1F785E8E00A9A84A /* VConnectedOnEventsCell.swift */; };
@@ -371,6 +375,10 @@
 		DA5C66591F5CE4F80006B049 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		DA5D1A291F5FB4C600FAF140 /* MConnectConnected.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectConnected.swift; sourceTree = "<group>"; };
 		DA5FD82A1F7D9FFC006E11D7 /* VConnectedErrorClose.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedErrorClose.swift; sourceTree = "<group>"; };
+		DA5FD82C1F7DAC28006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategySendLocalStatusConnectionEndUser.swift; sourceTree = "<group>"; };
+		DA5FD8301F7DAC3F006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategySendLocalStatusConnectionEndError.swift; sourceTree = "<group>"; };
+		DA5FD8321F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyCloseSessionUser.swift; sourceTree = "<group>"; };
+		DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyCloseSessionError.swift; sourceTree = "<group>"; };
 		DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkPtpDelegate.swift; sourceTree = "<group>"; };
 		DA74764C1F785E4E00A9A84A /* VConnectedOnEvents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedOnEvents.swift; sourceTree = "<group>"; };
 		DA74764E1F785E8E00A9A84A /* VConnectedOnEventsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedOnEventsCell.swift; sourceTree = "<group>"; };
@@ -770,6 +778,8 @@
 				DA7DFC221F724ED800C8D1E8 /* MVitaLinkStrategyRequestEvent.swift */,
 				DA7DFC281F72581600C8D1E8 /* MVitaLinkStrategyOpenSession.swift */,
 				DAED1FA41F784E3C00E310E4 /* MVitaLinkStrategyCloseSession.swift */,
+				DA5FD8321F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift */,
+				DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */,
 				DA1C18921F72F7060045A644 /* MVitaLinkStrategyRequestVitaInfo.swift */,
 				DA17D1181F76308100A28B35 /* MVitaLinkStrategySendLocalInfo.swift */,
 				DAFF8C8E1F76FAA200EF7BDF /* MVitaLinkStrategyRequestVitaCapabilities.swift */,
@@ -777,6 +787,8 @@
 				DAEE25AD1F778A8900AAAE18 /* MVitaLinkStrategySendLocalStatus.swift */,
 				DAED1F9E1F78487F00E310E4 /* MVitaLinkStrategySendLocalStatusConnection.swift */,
 				DAED1FA01F784A2900E310E4 /* MVitaLinkStrategySendLocalStatusConnectionEnd.swift */,
+				DA5FD82C1F7DAC28006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndUser.swift */,
+				DA5FD8301F7DAC3F006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndError.swift */,
 				DAEE25AF1F778D8F00AAAE18 /* MVitaLinkStrategyListenEvents.swift */,
 				DAC03D891F77A08300C11F69 /* MVitaLinkStrategyRequestSettings.swift */,
 				DA00A56F1F77AF6A004E6FFE /* MVitaLinkStrategySendResult.swift */,
@@ -1481,6 +1493,7 @@
 				DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */,
 				DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */,
 				DAC696211F7724B800269F3F /* MVitaCapabilitiesKeys.swift in Sources */,
+				DA5FD8351F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift in Sources */,
 				DAC696231F772C1E00269F3F /* MVitaLinkStrategySendLocalCapabilities.swift in Sources */,
 				DA7622761F6BF2500049195B /* DatabaseFactory.swift in Sources */,
 				DAEE1CC41F77CA0B003DA23F /* MConnectedActions.swift in Sources */,
@@ -1507,11 +1520,13 @@
 				DAFFC4C41F68CBE700F27ADD /* VConnectingPinList.swift in Sources */,
 				DAFDA3C91F699C11005AC320 /* VConnectingError.swift in Sources */,
 				DADF50B21F7C78B3008E4C2B /* MVitaLinkStrategyRequestItemTreatProtocol.swift in Sources */,
+				DA5FD8311F7DAC3F006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndError.swift in Sources */,
 				DA9751501F69940C00DBC757 /* MConnectingPin.swift in Sources */,
 				DAEE1CC21F77C993003DA23F /* MConnectedVitaLinkDelegate.swift in Sources */,
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
 				DAFFC4BA1F68B74300F27ADD /* VConnectingLoading.swift in Sources */,
 				DA57E3371F635F2F00B3EA73 /* PTPDelegate.swift in Sources */,
+				DA5FD82D1F7DAC28006E11D7 /* MVitaLinkStrategySendLocalStatusConnectionEndUser.swift in Sources */,
 				DA7ABF791F6C02170092B797 /* MMenuItemHome.swift in Sources */,
 				DA9751531F69944700DBC757 /* MConnectingStatus.swift in Sources */,
 				DACE3CF61F7ADD670090D725 /* MVitaLinkStrategySendStorageSize.swift in Sources */,
@@ -1591,6 +1606,7 @@
 				DA00768D1F77C199005619B3 /* VConnectedStatus.swift in Sources */,
 				DA30F7CA1F77BE59000A42AC /* MConnected.swift in Sources */,
 				DA8B7E411F579369004EEE23 /* VSpinner.swift in Sources */,
+				DA5FD8331F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift in Sources */,
 				DAF79EE71F70745A00117BA4 /* MVitaPtpMessageIn.swift in Sources */,
 				DA8B7E051F579037004EEE23 /* ExtensionData.swift in Sources */,
 				DADF50AC1F7C5E2A008E4C2B /* MVitaLinkStrategyRequestDataEvent.swift in Sources */,

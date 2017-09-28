@@ -1,10 +1,10 @@
 import Foundation
 
-final class MVitaLinkStrategyCloseSession:MVitaLinkStrategyProtocol
+class MVitaLinkStrategyCloseSession:MVitaLinkStrategyProtocol
 {
     private(set) var model:MVitaLink?
     
-    init(model:MVitaLink)
+    required init(model:MVitaLink)
     {
         self.model = model
     }
@@ -33,15 +33,8 @@ final class MVitaLinkStrategyCloseSession:MVitaLinkStrategyProtocol
         success()
     }
     
-    //MARK: private
+    //MARK: internal
     
-    private func failed()
-    {
-        model?.delegate?.vitaLinkConnectionClosed()
-    }
-    
-    private func success()
-    {
-        model?.delegate?.vitaLinkConnectionClosed()
-    }
+    func failed() { }
+    func success() { }
 }

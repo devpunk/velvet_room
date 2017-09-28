@@ -2,6 +2,16 @@ import Foundation
 
 extension MVitaLink
 {
+    //MARK: private
+    
+    private func sendLocalStatus(
+        status:MVitaPtpLocalStatus,
+        strategyType:MVitaLinkStrategySendLocalStatus.Type)
+    {
+        changeStrategy(strategyType:strategyType)
+        linkCommand.sendLocalStatus(status:status)
+    }
+    
     //MARK: internal
     
     func changeStrategy(
@@ -40,14 +50,22 @@ extension MVitaLink
     
     func errorCloseConnection(message:String)
     {
+        let status:MVitaPtpLocalStatus = MVitaPtpLocalStatus.connectionEnd
+        let strategyType:MVitaLinkStrategySendLocalStatus.Type = MVitaLinkStrategySendLocalStatusConnectionEndError.self
+        sendLocalStatus(
+            status:status,
+            strategyType:strategyType)
+        
         delegate?.vitaLinkError(message:message)
-//        closeConnection()
     }
     
     func userCloseConnection()
     {
+        let status:MVitaPtpLocalStatus = MVitaPtpLocalStatus.connectionEnd
+        let strategyType:MVitaLinkStrategySendLocalStatus.Type = MVitaLinkStrategySendLocalStatusConnectionEndUser.self
         sendLocalStatus(
-            status:MVitaPtpLocalStatus.connectionEnd)
+            status:status,
+            strategyType:strategyType)
     }
     
     func cancel()
@@ -61,15 +79,16 @@ extension MVitaLink
         let message:String = String.localizedModel(
             key:"MVitaLink_errorDisconnected")
         delegate?.vitaLinkError(message:message)
+        delegate?.vitaLinkClean()
     }
     
     func sendLocalStatus(status:MVitaPtpLocalStatus)
     {
         let strategyType:MVitaLinkStrategySendLocalStatus.Type = MVitaLink.factoryStrategyStatus(
             status:status)
-        
-        changeStrategy(strategyType:strategyType)
-        linkCommand.sendLocalStatus(status:status)
+        sendLocalStatus(
+            status:status,
+            strategyType:strategyType)
     }
     
     func listenEvents()

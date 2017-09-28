@@ -93,10 +93,17 @@ extension MVitaLink
             status:MVitaPtpLocalStatus.connection)
     }
     
-    func closeSession()
+    func closeSessionUser()
     {
         changeStrategy(strategyType:
-            MVitaLinkStrategyCloseSession.self)
+            MVitaLinkStrategyCloseSessionUser.self)
+        linkCommand.closeSession()
+    }
+    
+    func closeSessionError()
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategyCloseSessionError.self)
         linkCommand.closeSession()
     }
 }

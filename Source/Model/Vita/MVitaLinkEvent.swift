@@ -17,6 +17,7 @@ extension MVitaLink
         let message:String = String.localizedModel(
             key:"MVitaLink_terminateReceived")
         delegate?.vitaLinkError(message:message)
+        delegate?.vitaLinkClean()
     }
     
     private func requestItemStatus(
