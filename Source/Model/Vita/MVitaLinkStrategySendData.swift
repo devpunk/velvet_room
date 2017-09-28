@@ -48,8 +48,13 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     private func changeStatus(
         statusType:MVitaLinkStrategySendDataStatusProtocol.Type)
     {
-        let status:MVitaLinkStrategySendDataStatusProtocol = statusType.init()
-        self.status = status
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            let status:MVitaLinkStrategySendDataStatusProtocol = statusType.init()
+            self?.status = status
+        }
     }
     
     private func packet(data:Data)
