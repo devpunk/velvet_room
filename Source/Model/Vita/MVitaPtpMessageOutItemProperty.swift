@@ -15,8 +15,8 @@ struct MVitaPtpMessageOutItemProperty:MVitaPtpMessageOutProtocol
         builder.append(
             value:MVitaPtpCommand.requestItemPropertyValue.rawValue)
         builder.appendTransactionId()
-        builder.append(value:itemTreat.treatId)
         builder.append(value:property.rawValue)
+        builder.append(value:itemTreat.treatId)
         
         data = builder.export()
     }

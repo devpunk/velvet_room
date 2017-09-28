@@ -2,9 +2,9 @@ import Foundation
 
 class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
 {
-    var data:Data
-    var payload:Int
-    var transactionId:UInt32
+    private(set) var data:Data
+    private(set) var payload:Int
+    private(set) var transactionId:UInt32
     private(set) var model:MVitaLink?
     private let kElementsStart:Int = 2
     
