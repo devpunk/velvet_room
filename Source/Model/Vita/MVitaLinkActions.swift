@@ -40,8 +40,9 @@ extension MVitaLink
     
     func closeConnectionDueToError(message:String)
     {
-        closeConnection()
         delegate?.vitaLinkError(message:message)
+        delegate = nil
+        closeConnection()
     }
     
     func closeConnection()
