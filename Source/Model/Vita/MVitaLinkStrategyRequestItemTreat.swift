@@ -41,22 +41,10 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     {
         self.itemTreat = itemTreat
         
+        restart()
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatFormat.self)
-        
-        guard
-        
-            let event:MVitaPtpMessageInEvent = self.event
-        
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        restart()
         model?.linkCommand.requestItemFormat(
-            event:event)
+            itemTreat:itemTreat)
     }
 }
