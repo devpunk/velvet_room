@@ -2,5 +2,33 @@ import Foundation
 
 extension MVitaItemTreat
 {
+    private static let kElements:Int = 3
     
+    //MARK: internal
+    
+    static func factoryTreat(
+        data:Data) -> MVitaItemTreat?
+    {
+        guard
+        
+            var rawElements:[UInt32] = data.arrayFromBytes(
+                elements:kElements),
+            let treatId:UInt32 = rawElements.popLast(),
+            let status:UInt32 = rawElements.popLast(),
+            let rawCategory:UInt32 = rawElements.popLast(),
+            let category:MVitaItemCategory = MVitaItemCategory(
+                rawValue:rawCategory)
+        
+        else
+        {
+            return nil
+        }
+        
+        let itemTreat:MVitaItemTreat = MVitaItemTreat(
+            category:category,
+            treatId:treatId,
+            status:status)
+        
+        return itemTreat
+    }
 }
