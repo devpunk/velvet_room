@@ -18,8 +18,5 @@ struct MVitaPtpMessageOutItemProperty:MVitaPtpMessageOutProtocol
         builder.append(value:property.rawValue)
         
         data = builder.export()
-        
-        print("message size")
-        print(data.count)
     }
 }

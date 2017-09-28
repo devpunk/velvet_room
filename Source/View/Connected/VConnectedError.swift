@@ -5,7 +5,6 @@ final class VConnectedError:View<ArchConnected>
     required init(controller:CConnected)
     {
         super.init(controller:controller)
-        backgroundColor = UIColor.colourBackgroundGray
         
         factoryViews()
     }
