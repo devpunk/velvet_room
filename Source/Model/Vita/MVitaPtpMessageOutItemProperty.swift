@@ -12,11 +12,10 @@ struct MVitaPtpMessageOutItemProperty:MVitaPtpMessageOutProtocol
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command.rawValue)
         builder.append(value:dataPhase.rawValue)
-        builder.append(
-            value:MVitaPtpCommand.requestItemPropertyValue.rawValue)
+        builder.append(value:MVitaPtpCommand.requestItemPropertyValue.rawValue)
         builder.appendTransactionId()
-        builder.append(value:property.rawValue)
         builder.append(value:itemTreat.treatId)
+        builder.append(value:property.rawValue)
         
         data = builder.export()
     }
