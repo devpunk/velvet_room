@@ -101,7 +101,7 @@ final class VConnectedErrorInfo:View<ArchConnected>
             NSAttributedStringKey.font:
                 UIFont.regular(size:15),
             NSAttributedStringKey.foregroundColor:
-                UIColor(white:0.4, alpha:1)]
+                UIColor(white:0.6, alpha:1)]
         let attributed:NSAttributedString = NSAttributedString(
             string:string,
             attributes:attributes)

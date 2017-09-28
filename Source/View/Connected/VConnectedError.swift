@@ -2,7 +2,8 @@ import UIKit
 
 final class VConnectedError:View<ArchConnected>
 {
-    private let kBarHeight:CGFloat = 150
+    private let kBarTop:CGFloat = 120
+    private let kBarHeight:CGFloat = 80
     private let kInfoHeight:CGFloat = 220
     private let kCloseHeight:CGFloat = 60
     
@@ -35,7 +36,8 @@ final class VConnectedError:View<ArchConnected>
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
-            toView:self)
+            toView:self,
+            constant:kBarTop)
         NSLayoutConstraint.height(
             view:viewBar,
             constant:kBarHeight)

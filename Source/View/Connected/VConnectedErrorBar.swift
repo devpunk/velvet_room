@@ -2,8 +2,6 @@ import UIKit
 
 final class VConnectedErrorBar:View<ArchConnected>
 {
-    private let kContentTop:CGFloat = 20
-    
     required init(controller:CConnected)
     {
         super.init(controller:controller)
@@ -17,14 +15,7 @@ final class VConnectedErrorBar:View<ArchConnected>
         imageView.image = #imageLiteral(resourceName: "assetConnectError")
         addSubview(imageView)
         
-        NSLayoutConstraint.topToTop(
-            view:imageView,
-            toView:self,
-            constant:kContentTop)
-        NSLayoutConstraint.bottomToBottom(
-            view:imageView,
-            toView:self)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.equals(
             view:imageView,
             toView:self)
     }
