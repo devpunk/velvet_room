@@ -15,4 +15,5 @@ enum MVitaPtpCommand:UInt16
     case requestItemTreat               = 38196
     case requestVitaCapabilities        = 38203
     case sendLocalCapabilities          = 38204
+    case requestItemPropertyValue       = 38915
 }
