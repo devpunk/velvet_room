@@ -16,6 +16,7 @@ extension MVitaConfiguration
             let local:MVitaConfigurationLocal = factoryConfigurationLocal(
                 map:map),
             let lineSeparator:String = map[kKeyLineSeparator] as? String,
+            let storageId:UInt32 = map[kKeyStorageId] as? UInt32,
             let port:UInt16 = map[kKeyPort] as? UInt16
         
         else
@@ -31,6 +32,7 @@ extension MVitaConfiguration
             device:device,
             local:local,
             lineSeparator:cleanedLineSeparator,
+            storageId:storageId,
             port:port)
         
         return configuration
