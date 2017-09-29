@@ -90,6 +90,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         
         self.itemFileName = itemFileName
         
+        print("file name:\(itemFileName)")
+        
         restart()
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatFileName.self)
