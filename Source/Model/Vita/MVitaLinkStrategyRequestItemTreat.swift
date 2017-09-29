@@ -4,6 +4,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
     private(set) var itemTreat:MVitaItemTreat?
     private(set) var itemFormat:MVitaItemFormat?
+    private(set) var itemFileName:String?
     private var status:MVitaLinkStrategyRequestItemTreatProtocol?
     
     required init(model:MVitaLink)
@@ -65,6 +66,29 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         }
         
         self.itemFormat = itemFormat
+        
+        restart()
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatFileName.self)
+        model?.linkCommand.requestItemFileName(
+            itemTreat:itemTreat)
+    }
+    
+    func requestDateModified(
+        itemFileName:String)
+    {
+        guard
+            
+            let itemTreat:MVitaItemTreat = self.itemTreat
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        self.itemFileName = itemFileName
         
         restart()
         changeStatus(

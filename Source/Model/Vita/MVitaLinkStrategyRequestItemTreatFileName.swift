@@ -5,13 +5,10 @@ final class MVitaLinkStrategyRequestItemTreatFileName:MVitaLinkStrategyRequestIt
     func success(
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
-        print("filename length:\(strategy.data.count)")
-        
         guard
         
-            let fileName:String = String(
-                data:strategy.data,
-                encoding:String.Encoding.ascii)
+            let itemFileName:String = MVitaPtpString.factoryString(
+                data:strategy.data)
         
         else
         {
@@ -20,6 +17,7 @@ final class MVitaLinkStrategyRequestItemTreatFileName:MVitaLinkStrategyRequestIt
             return
         }
         
-        print("file name: \(fileName)")
+        strategy.requestDateModified(
+            itemFileName:itemFileName)
     }
 }
