@@ -28,10 +28,13 @@ final class MVitaPtpString
         return totalSize
     }
     
-    private class func factoryStringConfirm(
-        data:Data) -> String?
+    private class func factoryString(
+        data:Data,
+        length:Int) -> String?
     {
-        let wrappedData:Data = wrapData(data:data)
+        let wrappedData:Data = wrapData(
+            data:data,
+            length:length)
         
         guard
             
@@ -47,15 +50,18 @@ final class MVitaPtpString
         return string
     }
     
-    private class func wrapData(data:Data) -> Data
+    private class func wrapData(
+        data:Data,
+        length:Int) -> Data
     {
+        let subdataLength:Int = length - kBytesForSize
         let subData:Data = data.subdata(
-            start:kBytesForSize)
+            start:kBytesForSize,
+            endNotIncluding:subdataLength)
         
         var wrappedData:Data = Data()
         wrappedData.append(value:kWrappingCharacter)
         wrappedData.append(subData)
-        wrappedData.append(value:kWrappingCharacter)
         
         return wrappedData
     }
@@ -69,8 +75,9 @@ final class MVitaPtpString
             
             let length:Int = factoryLength(data:data),
             data.count > length,
-            let string:String = factoryStringConfirm(
-                data:data)
+            let string:String = factoryString(
+                data:data,
+                length:length)
         
         else
         {

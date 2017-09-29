@@ -124,6 +124,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     func itemElementsReceived(
         itemElements:[UInt32])
     {
-        
+        print("elements received")
+        print("\(itemElements)")
     }
 }
