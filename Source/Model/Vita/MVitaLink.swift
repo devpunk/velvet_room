@@ -3,6 +3,8 @@ import Foundation
 final class MVitaLink
 {
     weak var delegate:MVitaLinkDelegate?
+    var log:[MVitaLinkLogProtocol]
+    var database:Database?
     var strategy:MVitaLinkStrategyProtocol?
     let device:MVitaDevice
     let configuration:MVitaConfiguration
@@ -11,7 +13,6 @@ final class MVitaLink
     var vitaInfo:MVitaInfo?
     var vitaCapabilities:MVitaCapabilities?
     var vitaSettings:MVitaSettings?
-    var log:[MVitaLinkLogProtocol]
     
     init(
         device:MVitaDevice,
@@ -21,9 +22,10 @@ final class MVitaLink
         self.device = device
         self.configuration = configuration
         self.delegate = delegate
+        log = []
+        database = Database(bundle:nil)
         linkCommand = MVitaLink.factorySocketCommand()
         linkEvent = MVitaLink.factorySocketEvent()
-        log = []
         
         linkCommand.model = self
         linkEvent.model = self
