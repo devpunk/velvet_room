@@ -62,14 +62,14 @@ extension MVitaItemStatus
             return nil
         }
         
-        let subdataName:Data = data.subdata(
+        let subdataIdentifier:Data = data.subdata(
             start:expectedSize,
             endNotIncluding:nameEndIndex)
         
         guard
             
-            let name:String = String(
-                data:subdataName,
+            let identifier:String = String(
+                data:subdataIdentifier,
                 encoding:String.Encoding.ascii)
             
         else
@@ -81,7 +81,7 @@ extension MVitaItemStatus
             rawCategory:rawCategory)
         let itemStatus:MVitaItemStatus = MVitaItemStatus(
             category:category,
-            name:name)
+            identifier:identifier)
 
         return itemStatus
     }
