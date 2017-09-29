@@ -57,7 +57,7 @@ final class MVitaPtpString
         wrappedData.append(subData)
         wrappedData.append(value:kWrappingCharacter)
         
-        return data
+        return wrappedData
     }
     
     //MARK: internal
