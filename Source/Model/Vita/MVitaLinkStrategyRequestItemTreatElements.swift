@@ -25,7 +25,7 @@ final class MVitaLinkStrategyRequestItemTreatElements:MVitaLinkStrategyRequestIt
         
         guard
         
-            let elements:[UInt32] = subData.arrayFromBytes(
+            let itemElements:[UInt32] = subData.arrayFromBytes(
                 elements:countElements)
         
         else
@@ -34,5 +34,8 @@ final class MVitaLinkStrategyRequestItemTreatElements:MVitaLinkStrategyRequestIt
             
             return
         }
+        
+        strategy.itemElementsReceived(
+            itemElements:itemElements)
     }
 }

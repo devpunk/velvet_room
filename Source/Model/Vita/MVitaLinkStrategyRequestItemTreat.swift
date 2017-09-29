@@ -120,4 +120,10 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         model?.linkCommand.requestItemElements(
             itemTreat:itemTreat)
     }
+    
+    func itemElementsReceived(
+        itemElements:[UInt32])
+    {
+        
+    }
 }
