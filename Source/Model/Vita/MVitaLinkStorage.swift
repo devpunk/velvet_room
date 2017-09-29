@@ -107,6 +107,8 @@ extension MVitaLink
                 size:size,
                 directory:directory)
             
+            print("stored: \(name) at: \(localName)")
+            
             dispatchGroup.leave()
         }
     }
@@ -136,6 +138,8 @@ extension MVitaLink
         {
             return nil
         }
+        
+        print("path: \(elementPath)")
         
         return randomName
     }

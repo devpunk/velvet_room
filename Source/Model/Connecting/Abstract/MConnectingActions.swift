@@ -55,6 +55,7 @@ extension MConnecting
     
     func createPin()
     {
+        modelTimer.cancel()
         modelPin = MConnectingPin()
         statusPin()
         view?.updateStatus()
