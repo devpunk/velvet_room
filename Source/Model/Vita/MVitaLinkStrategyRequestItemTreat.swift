@@ -83,13 +83,13 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     {
         switch itemFormat
         {
-        case MVitaItemFormat.folder:
+        case MVitaItemFormat.directory:
             
             requestItemElements()
             
             break
             
-        case MVitaItemFormat.file,
+        case MVitaItemFormat.element,
              MVitaItemFormat.unknown:
             
             requestItemFileSize()
