@@ -53,8 +53,23 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     func requestFileName(
         itemFormat:MVitaItemFormat)
     {
+        guard
+            
+            let itemTreat:MVitaItemTreat = self.itemTreat
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
         self.itemFormat = itemFormat
         
         restart()
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatFileName.self)
+        model?.linkCommand.requestItemFileName(
+            itemTreat:itemTreat)
     }
 }
