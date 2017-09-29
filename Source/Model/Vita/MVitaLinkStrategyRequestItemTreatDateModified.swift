@@ -2,6 +2,8 @@ import Foundation
 
 final class MVitaLinkStrategyRequestItemTreatDateModified:MVitaLinkStrategyRequestItemTreatProtocol
 {
+    //MARK: internal
+    
     func success(
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
