@@ -57,10 +57,18 @@ extension MVitaLinkSocketCommand
     func requestItemElements(
         itemTreat:MVitaItemTreat)
     {
-        let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
+        guard
+            
+            let storageId:UInt32 = model?.configuration.storageId
+        
+        else
+        {
+            return
+        }
+        
+        let message:MVitaPtpMessageOutItemElements = MVitaPtpMessageOutItemElements(
             itemTreat:itemTreat,
-            dataPhase:MVitaPtpDataPhase.request,
-            property:MVitaPtpItemProperty.dateModified)
+            storageId:storageId)
         writeMessageAndRead(message:message)
     }
 }

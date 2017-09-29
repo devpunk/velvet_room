@@ -7,16 +7,16 @@ struct MVitaPtpMessageOutItemElements:MVitaPtpMessageOutProtocol
     
     init(
         itemTreat:MVitaItemTreat,
-        property:MVitaPtpItemProperty)
+        storageId:UInt32)
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command.rawValue)
         builder.append(value:MVitaPtpDataPhase.request.rawValue)
         builder.append(value:MVitaPtpCommand.requestItemElements.rawValue)
         builder.appendTransactionId()
-        builder.append(value:)
+        builder.append(value:storageId)
+        builder.append(value:kItemFormatCode)
         builder.append(value:itemTreat.treatId)
-        builder.append(value:property.rawValue)
         
         data = builder.export()
     }
