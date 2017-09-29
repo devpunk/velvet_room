@@ -38,6 +38,44 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         self.status = status
     }
     
+    private func requestItemElements()
+    {
+        guard
+            
+            let itemTreat:MVitaItemTreat = currentItem?.treat
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatElements.self)
+        model?.linkCommand.requestItemElements(
+            itemTreat:itemTreat)
+    }
+    
+    private func requestItemFileSize()
+    {
+        guard
+            
+            let itemTreat:MVitaItemTreat = currentItem?.treat
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatSize.self)
+        model?.linkCommand.requestItemFileSize(
+            itemTreat:itemTreat)
+    }
+    
     private func requestItem(
         rawElement:UInt32)
     {
@@ -168,8 +206,40 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             itemTreat:itemTreat)
     }
     
-    func requestItemElements(
+    func requestItemContent(
         itemDateModified:Date)
+    {
+        currentItem?.dateModified = itemDateModified
+        
+        guard
+            
+            let format:MVitaItemFormat = currentItem?.format
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        switch format
+        {
+        case MVitaItemFormat.folder:
+            
+            requestItemElements()
+            
+            break
+            
+        case MVitaItemFormat.unknown:
+            
+            requestItemFileSize()
+            
+            break
+        }
+    }
+    
+    func requestItemData(
+        itemSize:UInt64)
     {
         guard
             
@@ -182,11 +252,11 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             return
         }
         
-        currentItem?.dateModified = itemDateModified
+        currentItem?.size = itemSize
         
         changeStatus(
-            statusType:MVitaLinkStrategyRequestItemTreatElements.self)
-        model?.linkCommand.requestItemElements(
+            statusType:MVitaLinkStrategyRequestItemTreatData.self)
+        model?.linkCommand.requestItemData(
             itemTreat:itemTreat)
     }
     
@@ -194,6 +264,13 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         itemElements:[UInt32])
     {
         currentItem?.rawElements = itemElements
+        nextElement()
+    }
+    
+    func itemDataReceived(
+        itemData:Data)
+    {
+        currentItem?.data = itemData
         nextElement()
     }
 }

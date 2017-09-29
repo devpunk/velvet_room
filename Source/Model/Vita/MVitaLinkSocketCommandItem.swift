@@ -71,4 +71,23 @@ extension MVitaLinkSocketCommand
             storageId:storageId)
         writeMessageAndRead(message:message)
     }
+    
+    func requestItemFileSize(
+        itemTreat:MVitaItemTreat)
+    {
+        let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
+            itemTreat:itemTreat,
+            dataPhase:MVitaPtpDataPhase.request,
+            property:MVitaPtpItemProperty.fileSize)
+        writeMessageAndRead(message:message)
+    }
+    
+    func requestItemData(
+        itemTreat:MVitaItemTreat)
+    {
+        let message:MVitaPtpMessageOutItemData = MVitaPtpMessageOutItemData(
+            itemTreat:itemTreat,
+            dataPhase:MVitaPtpDataPhase.request)
+        writeMessageAndRead(message:message)
+    }
 }
