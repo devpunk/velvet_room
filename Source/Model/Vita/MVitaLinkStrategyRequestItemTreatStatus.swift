@@ -106,7 +106,7 @@ extension MVitaLinkStrategyRequestItemTreat
         currentItem?.format = itemFormat
         
         changeStatus(
-            statusType:MVitaLinkStrategyRequestItemTreatFileName.self)
+            statusType:MVitaLinkStrategyRequestItemTreatName.self)
         model?.linkCommand.requestItemFileName(
             itemTreat:itemTreat)
     }
