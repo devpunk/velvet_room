@@ -40,8 +40,10 @@ extension MVitaLink
         storeItem(
             vitaItem:vitaItem,
             database:database)
-        {
-                
+        { [weak self] in
+            
+            self?.logRequestItem(
+                vitaItem:vitaItem)
         }
     }
 }

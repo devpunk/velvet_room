@@ -2,17 +2,6 @@ import Foundation
 
 extension MVitaLink
 {
-    //MARK: private
-    
-    private func logConnectionReady()
-    {
-        let logSystemType:MVitaLinkLogSystemType = MVitaLinkLogSystemType.connectionStart
-        let logItem:MVitaLinkLogSystem = MVitaLinkLogSystem(
-            systemType:logSystemType)
-        
-        addToLog(logItem:logItem)
-    }
-    
     //MARK: internal
     
     func connectCommand()

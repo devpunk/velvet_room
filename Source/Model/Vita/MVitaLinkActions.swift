@@ -35,19 +35,6 @@ extension MVitaLink
         strategyEvent.config(event:event)
     }
     
-    func addToLog(
-        logItem:MVitaLinkLogProtocol)
-    {
-        log.append(logItem)
-        
-        DispatchQueue.global(
-            qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.delegate?.vitaLinkLogUpdated()
-        }
-    }
-    
     func errorCloseConnection(message:String)
     {
         let status:MVitaPtpLocalStatus = MVitaPtpLocalStatus.connectionEnd
