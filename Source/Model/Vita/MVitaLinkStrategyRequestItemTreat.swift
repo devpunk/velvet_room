@@ -92,7 +92,6 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             parentTreat:parentTreat,
             treatId:rawElement)
         
-        createNewItem(itemTreat:itemTreat)
         requestItemFormat(itemTreat:itemTreat)
     }
     
@@ -230,7 +229,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             
             break
             
-        case MVitaItemFormat.unknown:
+        case MVitaItemFormat.file,
+             MVitaItemFormat.unknown:
             
             requestItemFileSize()
             

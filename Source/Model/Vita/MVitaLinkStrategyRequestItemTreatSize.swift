@@ -9,7 +9,7 @@ final class MVitaLinkStrategyRequestItemTreatSize:MVitaLinkStrategyRequestItemTr
     {
         guard
         
-            let itemSize:UInt32 = strategy.data.valueFromBytes()
+            let itemSize:UInt64 = strategy.data.valueFromBytes()
         
         else
         {
@@ -18,6 +18,6 @@ final class MVitaLinkStrategyRequestItemTreatSize:MVitaLinkStrategyRequestItemTr
             return
         }
         
-        print("item size: \(itemSize)")
+        strategy.requestItemData(itemSize:itemSize)
     }
 }

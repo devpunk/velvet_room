@@ -19,8 +19,6 @@ final class MVitaLinkStrategyRequestItemTreatFormat:MVitaLinkStrategyRequestItem
             return
         }
         
-        print("format \(itemFormat.rawValue)")
-        
         strategy.requestFileName(itemFormat:itemFormat)
     }
 }
