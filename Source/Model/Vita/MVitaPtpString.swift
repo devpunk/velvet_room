@@ -68,7 +68,7 @@ final class MVitaPtpString
         guard
             
             let length:Int = factoryLength(data:data),
-            length > data.count,
+            data.count > length,
             let string:String = factoryStringConfirm(
                 data:data)
         

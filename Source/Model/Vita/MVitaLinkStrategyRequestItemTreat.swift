@@ -94,8 +94,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         
         restart()
         changeStatus(
-            statusType:MVitaLinkStrategyRequestItemTreatFileName.self)
-        model?.linkCommand.requestItemFileName(
+            statusType:MVitaLinkStrategyRequestItemTreatDateModified.self)
+        model?.linkCommand.requestItemDateModified(
             itemTreat:itemTreat)
     }
 }
