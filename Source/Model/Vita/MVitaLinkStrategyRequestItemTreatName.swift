@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaLinkStrategyRequestItemTreatFileName:MVitaLinkStrategyRequestItemTreatProtocol
+final class MVitaLinkStrategyRequestItemTreatName:MVitaLinkStrategyRequestItemTreatProtocol
 {
     //MARK: internal
     
@@ -8,10 +8,10 @@ final class MVitaLinkStrategyRequestItemTreatFileName:MVitaLinkStrategyRequestIt
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
         guard
-        
+            
             let itemFileName:String = MVitaPtpString.factoryString(
                 data:strategy.data)
-        
+            
         else
         {
             strategy.failed()
