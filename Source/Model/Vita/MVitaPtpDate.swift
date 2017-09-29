@@ -2,7 +2,8 @@ import Foundation
 
 final class MVitaPtpDate
 {
-    private static let kDateFormat:String = "yyyyMMdd'T'HH:mm:ss.SSS"
+    private static let kDateFormat:String = "yyyyMMdd'T'HHmmss"
+    private static let kComponentSeparator:String = "."
     
     //MARK: private
     
@@ -18,8 +19,21 @@ final class MVitaPtpDate
     
     private class func factoryDate(string:String) -> Date?
     {
+        let stringComponents:[String] = string.components(
+            separatedBy:kComponentSeparator)
+        
+        guard
+            
+            let firstComponent:String = stringComponents.first
+        
+        else
+        {
+            return nil
+        }
+        
         let dateFormatter:DateFormatter = factoryDateFormatter()
-        let date:Date? = dateFormatter.date(from:string)
+        let date:Date? = dateFormatter.date(
+            from:firstComponent)
         
         return date
     }
