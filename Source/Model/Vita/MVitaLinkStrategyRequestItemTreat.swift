@@ -2,10 +2,8 @@ import Foundation
 
 final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
-    private(set) var itemTreat:MVitaItemTreat?
-    private(set) var itemFormat:MVitaItemFormat?
-    private(set) var itemDateModified:Date?
-    private(set) var itemFileName:String?
+    private weak var currentItem:MVitaItemIn?
+    private var rootItemIn:MVitaItemIn?
     private var status:MVitaLinkStrategyRequestItemTreatProtocol?
     
     required init(model:MVitaLink)
@@ -34,8 +32,83 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     private func changeStatus(
         statusType:MVitaLinkStrategyRequestItemTreatProtocol.Type)
     {
+        restart()
+        
         let status:MVitaLinkStrategyRequestItemTreatProtocol = statusType.init()
         self.status = status
+    }
+    
+    private func requestItem(
+        rawElement:UInt32)
+    {
+        guard
+        
+            let parentTreat:MVitaItemTreat = currentItem?.treat
+        
+        else
+        {
+            return
+        }
+        
+        let itemTreat:MVitaItemTreat = MVitaItemTreat.factoryTreat(
+            parentTreat:parentTreat,
+            treatId:rawElement)
+        
+        createNewItem(itemTreat:itemTreat)
+        requestItemFormat(itemTreat:itemTreat)
+    }
+    
+    private func createNewItem(
+        itemTreat:MVitaItemTreat)
+    {
+        let newItem:MVitaItemIn = MVitaItemIn(
+            treat:itemTreat,
+            parent:currentItem)
+        currentItem?.addElement(element:newItem)
+        currentItem = newItem
+        
+        if rootItemIn == nil
+        {
+            rootItemIn = currentItem
+        }
+    }
+    
+    private func nextElement()
+    {
+        guard
+        
+            let rawElement:UInt32 = currentItem?.rawElements?.popLast()
+        
+        else
+        {
+            currentItemFinished()
+            
+            return
+        }
+        
+        requestItem(rawElement:rawElement)
+    }
+    
+    private func currentItemFinished()
+    {
+        guard
+        
+            let parent:MVitaItemIn = currentItem?.parent
+        
+        else
+        {
+            allItemsFinished()
+            
+            return
+        }
+        
+        currentItem = parent
+        nextElement()
+    }
+    
+    private func allItemsFinished()
+    {
+        print("finished all items")
     }
     
     //MARK: internal
@@ -43,9 +116,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     func requestItemFormat(
         itemTreat:MVitaItemTreat)
     {
-        self.itemTreat = itemTreat
+        createNewItem(itemTreat:itemTreat)
         
-        restart()
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatFormat.self)
         model?.linkCommand.requestItemFormat(
@@ -57,7 +129,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     {
         guard
             
-            let itemTreat:MVitaItemTreat = self.itemTreat
+            let itemTreat:MVitaItemTreat = currentItem?.treat
         
         else
         {
@@ -66,9 +138,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             return
         }
         
-        self.itemFormat = itemFormat
+        currentItem?.format = itemFormat
         
-        restart()
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatFileName.self)
         model?.linkCommand.requestItemFileName(
@@ -80,7 +151,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     {
         guard
             
-            let itemTreat:MVitaItemTreat = self.itemTreat
+            let itemTreat:MVitaItemTreat = currentItem?.treat
             
         else
         {
@@ -89,9 +160,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             return
         }
         
-        self.itemFileName = itemFileName
+        currentItem?.name = itemFileName
         
-        restart()
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatDateModified.self)
         model?.linkCommand.requestItemDateModified(
@@ -103,7 +173,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     {
         guard
             
-            let itemTreat:MVitaItemTreat = self.itemTreat
+            let itemTreat:MVitaItemTreat = currentItem?.treat
             
         else
         {
@@ -112,9 +182,8 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             return
         }
         
-        self.itemDateModified = itemDateModified
+        currentItem?.dateModified = itemDateModified
         
-        restart()
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatElements.self)
         model?.linkCommand.requestItemElements(
@@ -124,7 +193,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     func itemElementsReceived(
         itemElements:[UInt32])
     {
-        print("elements received")
-        print("\(itemElements)")
+        currentItem?.rawElements = itemElements
+        nextElement()
     }
 }
