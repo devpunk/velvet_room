@@ -28,6 +28,4 @@ extension DVitaItem
             self.rawFormat = rawFormat
         }
     }
-    
-    //MARK: internal
 }

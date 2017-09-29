@@ -35,7 +35,7 @@ extension DVitaItemDirectory
         category:MVitaItemCategory,
         name:String)
     {
-        self.fo
+        format = MVitaItemFormat.directory
         self.category = category
         self.name = name
     }
