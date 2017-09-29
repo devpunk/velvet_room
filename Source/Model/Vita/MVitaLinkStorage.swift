@@ -2,6 +2,8 @@ import Foundation
 
 extension MVitaLink
 {
+    private static let kRootDirectory:String = "storage"
+    
     //MARK: private
     
     private class func factoryDispatchGroup() -> DispatchGroup
@@ -22,23 +24,127 @@ extension MVitaLink
         database.create
         { [weak self] (directory:DVitaItemDirectory) in
             
+            guard
+                
+                let elements:[MVitaItemIn] = vitaItem.elements
             
+            else
+            {
+                self?.storeCompleted(
+                    database:database,
+                    completion:completion)
+                
+                return
+            }
+            
+            self?.storeElements(
+                elements:elements,
+                directory:directory,
+                database:database,
+                completion:completion)
         }
     }
     
     private func storeElements(
-        vitaItem:MVitaItemIn,
+        elements:[MVitaItemIn],
+        directory:DVitaItemDirectory,
         database:Database,
         completion:@escaping(() -> ()))
     {
         let dispatchGroup:DispatchGroup = MVitaLink.factoryDispatchGroup()
         
+        for element:MVitaItemIn in elements
+        {
+            storeElement(
+                element:element,
+                directory:directory,
+                database:database,
+                dispatchGroup:dispatchGroup)
+        }
+        
         dispatchGroup.notify(
             queue:DispatchQueue.global(
                 qos:DispatchQoS.QoSClass.background))
-        {
-            database.save(completion:completion)
+        { [weak self] in
+            
+            self?.storeCompleted(
+                database:database,
+                completion:completion)
         }
+    }
+    
+    private func storeElement(
+        element:MVitaItemIn,
+        directory:DVitaItemDirectory,
+        database:Database,
+        dispatchGroup:DispatchGroup)
+    {
+        guard
+            
+            let data:Data = element.data,
+            let directoryName:String = directory.name,
+            let localName:String = storeLocal(
+                data:data,
+                directoryName:directoryName),
+            let name:String = element.name,
+            let dateModified:Date = element.dateModified,
+            let size:UInt64 = element.size
+        
+        else
+        {
+            return
+        }
+        
+        dispatchGroup.enter()
+        
+        database.create
+        { (storedElement:DVitaItemElement) in
+            
+            storedElement.create(
+                name:name,
+                localName:localName,
+                dateModified:dateModified,
+                size:size,
+                directory:directory)
+            
+            dispatchGroup.leave()
+        }
+    }
+    
+    private func storeLocal(
+        data:Data,
+        directoryName:String) -> String?
+    {
+        let randomName:String = UUID().uuidString
+        
+        var elementPath:URL = FileManager.default.appDirectory
+        elementPath.appendPathComponent(
+            MVitaLink.kRootDirectory)
+        elementPath.appendPathComponent(
+            directoryName)
+        elementPath.appendPathComponent(randomName)
+        elementPath.excludeFromBackup()
+        
+        do
+        {
+            try data.write(
+                to:elementPath,
+                options:
+                Data.WritingOptions.atomicWrite)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return randomName
+    }
+    
+    private func storeCompleted(
+        database:Database,
+        completion:@escaping(() -> ()))
+    {
+        database.save(completion:completion)
     }
     
     //MARK: internal

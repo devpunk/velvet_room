@@ -26,7 +26,22 @@ extension MVitaLink
         vitaItem:MVitaItemIn,
         event:MVitaPtpMessageInEvent)
     {
-        print("store item")
         sendResultSuccess(event:event)
+        
+        guard
+            
+            let database:Database = self.database
+        
+        else
+        {
+            return
+        }
+        
+        storeItem(
+            vitaItem:vitaItem,
+            database:database)
+        {
+                
+        }
     }
 }
