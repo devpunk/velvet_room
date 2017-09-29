@@ -4,6 +4,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
     private(set) var itemTreat:MVitaItemTreat?
     private(set) var itemFormat:MVitaItemFormat?
+    private(set) var itemDateModified:Date?
     private(set) var itemFileName:String?
     private var status:MVitaLinkStrategyRequestItemTreatProtocol?
     
@@ -95,5 +96,11 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             statusType:MVitaLinkStrategyRequestItemTreatDateModified.self)
         model?.linkCommand.requestItemDateModified(
             itemTreat:itemTreat)
+    }
+    
+    func requestItemElements(
+        itemDateModified:Date)
+    {
+        self.itemDateModified = itemDateModified
     }
 }

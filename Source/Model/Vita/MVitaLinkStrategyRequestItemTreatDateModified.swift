@@ -5,13 +5,11 @@ final class MVitaLinkStrategyRequestItemTreatDateModified:MVitaLinkStrategyReque
     func success(
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
-        print("data length \(strategy.data.count)")
-        
         guard
             
-            let itemFileName:String = MVitaPtpString.factoryString(
+            let itemDateModified:Date = MVitaPtpDate.factoryDate(
                 data:strategy.data)
-            
+        
         else
         {
             strategy.failed()
@@ -19,9 +17,7 @@ final class MVitaLinkStrategyRequestItemTreatDateModified:MVitaLinkStrategyReque
             return
         }
         
-        print("date: \(itemFileName)")
-        
-        // data length 37
-        // date: 20170831T063531.0
+        strategy.requestItemElements(
+            itemDateModified:itemDateModified)
     }
 }
