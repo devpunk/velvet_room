@@ -20,5 +20,8 @@ final class MVitaLinkStrategyRequestItemTreatDateModified:MVitaLinkStrategyReque
         }
         
         print("date: \(itemFileName)")
+        
+        // data length 37
+        // date: 20170831T063531.0
     }
 }
