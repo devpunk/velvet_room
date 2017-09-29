@@ -73,7 +73,7 @@ extension MVitaLinkStrategyRequestItemTreat
     
     private func allItemsFinished()
     {
-        print("finished all items")
+        resportResult()
     }
     
     //MARK: internal

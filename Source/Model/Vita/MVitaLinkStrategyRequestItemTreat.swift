@@ -97,4 +97,23 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
             break
         }
     }
+    
+    func resportResult()
+    {
+        guard
+        
+            let event:MVitaPtpMessageInEvent = self.event,
+            let vitaItem:MVitaItemIn = rootItemIn
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        model?.sendResult(
+            vitaItem:vitaItem,
+            event:event)
+    }
 }

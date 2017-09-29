@@ -21,4 +21,12 @@ extension MVitaLink
         self.vitaSettings = vitaSettings
         sendResultSuccess(event:event)
     }
+    
+    func sendResult(
+        vitaItem:MVitaItemIn,
+        event:MVitaPtpMessageInEvent)
+    {
+        print("store item")
+        sendResultSuccess(event:event)
+    }
 }
