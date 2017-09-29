@@ -21,11 +21,26 @@ extension MVitaLink
         database:Database,
         completion:@escaping(() -> ()))
     {
+        guard
+            
+            let name:String = vitaItem.name
+        
+        else
+        {
+            return
+        }
+        
         database.create
         { [weak self] (directory:DVitaItemDirectory) in
             
+            directory.create(
+                category:vitaItem.treat.category,
+                name:name)
+            
             guard
                 
+                let directoryPath:URL = self?.createDirectoryPath(
+                    name:name),
                 let elements:[MVitaItemIn] = vitaItem.elements
             
             else
@@ -40,14 +55,42 @@ extension MVitaLink
             self?.storeElements(
                 elements:elements,
                 directory:directory,
+                directoryPath:directoryPath,
                 database:database,
                 completion:completion)
         }
     }
     
+    private func createDirectoryPath(
+        name:String) -> URL?
+    {
+        var directoryPath:URL = FileManager.default.appDirectory
+        directoryPath.appendPathComponent(
+            MVitaLink.kRootDirectory)
+        directoryPath.excludeFromBackup()
+        directoryPath.appendPathComponent(
+            name)
+        directoryPath.excludeFromBackup()
+        
+        do
+        {
+            try FileManager.default.createDirectory(
+                at:directoryPath,
+                withIntermediateDirectories:true,
+                attributes:nil)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return directoryPath
+    }
+    
     private func storeElements(
         elements:[MVitaItemIn],
         directory:DVitaItemDirectory,
+        directoryPath:URL,
         database:Database,
         completion:@escaping(() -> ()))
     {
@@ -58,6 +101,7 @@ extension MVitaLink
             storeElement(
                 element:element,
                 directory:directory,
+                directoryPath:directoryPath,
                 database:database,
                 dispatchGroup:dispatchGroup)
         }
@@ -76,16 +120,16 @@ extension MVitaLink
     private func storeElement(
         element:MVitaItemIn,
         directory:DVitaItemDirectory,
+        directoryPath:URL,
         database:Database,
         dispatchGroup:DispatchGroup)
     {
         guard
             
             let data:Data = element.data,
-            let directoryName:String = directory.name,
             let localName:String = storeLocal(
                 data:data,
-                directoryName:directoryName),
+                directoryPath:directoryPath),
             let name:String = element.name,
             let dateModified:Date = element.dateModified,
             let size:UInt64 = element.size
@@ -115,17 +159,11 @@ extension MVitaLink
     
     private func storeLocal(
         data:Data,
-        directoryName:String) -> String?
+        directoryPath:URL) -> String?
     {
         let randomName:String = UUID().uuidString
-        
-        var elementPath:URL = FileManager.default.appDirectory
-        elementPath.appendPathComponent(
-            MVitaLink.kRootDirectory)
-        elementPath.appendPathComponent(
-            directoryName)
-        elementPath.appendPathComponent(randomName)
-        elementPath.excludeFromBackup()
+        let elementPath:URL = directoryPath.appendingPathComponent(
+            randomName)
         
         do
         {
