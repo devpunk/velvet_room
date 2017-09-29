@@ -31,4 +31,16 @@ extension MVitaItemTreat
         
         return itemTreat
     }
+    
+    static func factoryTreat(
+        parentTreat:MVitaItemTreat,
+        treatId:UInt32) -> MVitaItemTreat
+    {
+        let itemTreat:MVitaItemTreat = MVitaItemTreat(
+            category:parentTreat.category,
+            treatId:treatId,
+            status:parentTreat.status)
+        
+        return itemTreat
+    }
 }
