@@ -30,6 +30,9 @@ extension MVitaLink
     func logRequestItem(
         vitaItem:MVitaItemIn)
     {
-        
+//        let logItem:MVitaLinkLogGameSave = MVitaLinkLogGameSave(
+//            transferType:MVitaLinkLogTransferType.request,
+//            image:im,
+//            gameName: <#T##String#>)
     }
 }
