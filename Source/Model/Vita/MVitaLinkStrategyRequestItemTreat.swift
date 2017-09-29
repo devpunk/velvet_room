@@ -101,6 +101,23 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
     func requestItemElements(
         itemDateModified:Date)
     {
+        guard
+            
+            let itemTreat:MVitaItemTreat = self.itemTreat
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
         self.itemDateModified = itemDateModified
+        
+        restart()
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatElements.self)
+        model?.linkCommand.requestItemElements(
+            itemTreat:itemTreat)
     }
 }
