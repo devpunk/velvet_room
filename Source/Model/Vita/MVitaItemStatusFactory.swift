@@ -2,6 +2,7 @@ import Foundation
 
 extension MVitaItemStatus
 {
+    private static let kNullTerminator:String = "\0"
     private static let kParameters:Int = 2
     
     //MARK: private
@@ -68,7 +69,7 @@ extension MVitaItemStatus
         
         guard
             
-            let identifier:String = String(
+            var identifier:String = String(
                 data:subdataIdentifier,
                 encoding:String.Encoding.ascii)
             
@@ -76,6 +77,10 @@ extension MVitaItemStatus
         {
             return nil
         }
+        
+        identifier = identifier.replacingOccurrences(
+            of:kNullTerminator,
+            with:String())
 
         let category:MVitaItemCategory = factoryCategory(
             rawCategory:rawCategory)
