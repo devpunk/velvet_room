@@ -119,8 +119,6 @@ extension MVitaLink
                 fileExtension:vitaItem.fileExtension,
                 directory:directory)
             
-            print("stored: \(elementName) at: \(localName)")
-            
             dispatchGroup.leave()
         }
     }
