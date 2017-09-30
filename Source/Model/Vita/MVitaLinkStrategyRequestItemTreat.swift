@@ -43,7 +43,7 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         guard
         
             let event:MVitaPtpMessageInEvent = self.event,
-            let vitaItem:MVitaItemIn = rootItem
+            let vitaItem:MVitaItemInDirectory = rootItem
         
         else
         {

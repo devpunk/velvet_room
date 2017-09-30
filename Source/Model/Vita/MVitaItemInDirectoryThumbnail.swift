@@ -4,13 +4,21 @@ extension MVitaItemInDirectory
 {
     //MARK: private
     
-    private func asyncFindThumbnail(
-        dispatchGroup:DispatchGroup)
+    private func asyncFindThumbnail()
     {
         let images:[Data] = allImages()
-        thumbnail = biggerImage(images:images)
         
-        dispatchGroup.leave()
+        guard
+            
+            let thumbnail:Data = biggerImage(
+                images:images)
+        
+        else
+        {
+            return
+        }
+        
+        self.thumbnail = thumbnail
     }
     
     private func allImages() -> [Data]
@@ -91,17 +99,13 @@ extension MVitaItemInDirectory
     
     //MARK: internal
     
-    func findThumbnail(
-        dispatchGroup:DispatchGroup)
+    func findThumbnail()
     {
-        dispatchGroup.enter()
-        
         DispatchQueue.global(
             qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
             
-            self?.asyncFindThumbnail(
-                dispatchGroup:dispatchGroup)
+            self?.asyncFindThumbnail()
         }
     }
 }

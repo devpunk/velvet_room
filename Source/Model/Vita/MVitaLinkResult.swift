@@ -2,6 +2,22 @@ import Foundation
 
 extension MVitaLink
 {
+    //MARK: private
+    
+    private func storeAndLog(
+        vitaItem:MVitaItemInDirectory,
+        database:Database)
+    {
+        storeItem(
+            vitaItem:vitaItem,
+            database:database)
+        { [weak self] in
+            
+            self?.logRequestItem(
+                vitaItem:vitaItem)
+        }
+    }
+    
     //MARK: internal
     
     func sendResultSuccess(
@@ -23,7 +39,7 @@ extension MVitaLink
     }
     
     func sendResult(
-        vitaItem:MVitaItemIn,
+        vitaItem:MVitaItemInDirectory,
         event:MVitaPtpMessageInEvent)
     {
         sendResultSuccess(event:event)
@@ -37,13 +53,8 @@ extension MVitaLink
             return
         }
         
-        storeItem(
+        storeAndLog(
             vitaItem:vitaItem,
             database:database)
-        { [weak self] in
-            
-            self?.logRequestItem(
-                vitaItem:vitaItem)
-        }
     }
 }

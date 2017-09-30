@@ -5,7 +5,7 @@ extension MVitaLink
     //MARK: private
     
     private func asyncStoreItem(
-        vitaItem:MVitaItemIn,
+        vitaItem:MVitaItemInDirectory,
         database:Database,
         completion:@escaping(() -> ()))
     {
@@ -180,7 +180,7 @@ extension MVitaLink
     //MARK: internal
     
     func storeItem(
-        vitaItem:MVitaItemIn,
+        vitaItem:MVitaItemInDirectory,
         database:Database,
         completion:@escaping(() -> ()))
     {
