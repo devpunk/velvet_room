@@ -46,7 +46,8 @@ final class MVitaLinkStrategySendItemMetadata:
         
         guard
         
-            let item:DVitaItem = self.item
+            let item:DVitaItemExportProtocol = self.item as? DVitaItemExportProtocol,
+            let event:MVitaPtpMessageInEvent = self.event
         
         else
         {
@@ -55,18 +56,43 @@ final class MVitaLinkStrategySendItemMetadata:
             return
         }
         
-        item.expo
+        export(item:item, event:event)
     }
     
     //MARK: private
     
-    private func factoryData() -> Data
+    private func export(
+        item:DVitaItemExportProtocol,
+        event:MVitaPtpMessageInEvent)
     {
-        let data:Data = factoryData()
+        item.export
+        { [weak self] (data:Data?) in
+            
+            guard
+                
+                let data:Data = data
+                
+            else
+            {
+                self?.failed()
+                
+                return
+            }
+            
+            self?.sendData(
+                data:data,
+                event:event)
+        }
+    }
+    
+    private func sendData(
+        data:Data,
+        event:MVitaPtpMessageInEvent)
+    {
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
             dataPhase:MVitaPtpDataPhase.send,
-            command:MVitaPtpCommand.sendStorageSize)
+            command:MVitaPtpCommand.sendItemMetadata)
         
         send(
             data:data,
