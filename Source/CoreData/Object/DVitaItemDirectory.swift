@@ -35,9 +35,11 @@ extension DVitaItemDirectory
         name:String,
         localName:String,
         dateModified:Date,
-        category:MVitaItemCategory)
+        category:MVitaItemCategory,
+        directoryType:UInt32)
     {
         self.category = category
+        self.directoryType = Int32(directoryType)
         
         create(
             name:name,

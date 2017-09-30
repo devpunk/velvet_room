@@ -51,7 +51,8 @@ extension MVitaLink
                 name:name,
                 localName:localName,
                 dateModified:dateModified,
-                category:vitaItem.category)
+                category:vitaItem.category,
+                directoryType:vitaItem.directoryType)
             
             createElements(
                 directory:directory,
