@@ -33,10 +33,14 @@ extension DVitaItemDirectory
     
     func create(
         category:MVitaItemCategory,
-        name:String)
+        name:String,
+        dateModified:Date)
     {
-        format = MVitaItemFormat.directory
         self.category = category
         self.name = name
+        
+        create(
+            format:MVitaItemFormat.directory,
+            dateModified:dateModified)
     }
 }

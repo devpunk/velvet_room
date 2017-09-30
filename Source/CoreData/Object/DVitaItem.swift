@@ -28,4 +28,17 @@ extension DVitaItem
             self.rawFormat = rawFormat
         }
     }
+    
+    //MARK: internal
+    
+    func create(
+        format:MVitaItemFormat,
+        dateModified:Date)
+    {
+        let timestamp:TimeInterval = Date().timeIntervalSince1970
+        
+        self.format = format
+        self.dateModified = dateModified.timeIntervalSince1970
+        dateReceived = timestamp
+    }
 }
