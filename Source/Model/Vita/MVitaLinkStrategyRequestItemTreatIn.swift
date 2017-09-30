@@ -72,6 +72,8 @@ extension MVitaLinkStrategyRequestItemTreat
     func requestItemContent(
         itemSize:UInt64)
     {
+        print("size received: \(itemSize)")
+        
         currentItem?.size = itemSize
         currentItem?.requestContent(strategy:self)
     }

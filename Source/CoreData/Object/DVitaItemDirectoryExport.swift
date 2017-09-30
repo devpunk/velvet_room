@@ -21,6 +21,7 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
                         "ohfiParent":rawCategory,
                         "ohfi":rawCategory,
                         "size":size,
+                        "dateTimeUpdated":dateString,
                         "dateTimeCreated":dateString]]]
             
             return root

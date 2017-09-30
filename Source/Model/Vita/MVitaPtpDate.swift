@@ -2,18 +2,26 @@ import Foundation
 
 final class MVitaPtpDate
 {
-    private static let kDateFormat:String = "yyyyMMdd'T'HHmmss"
+    private static let kInDateFormat:String = "yyyyMMdd'T'HHmmss"
+    private static let kOutDateFormat:String = "yyyy-MM-dd'T'HH:mm:ssZ"
     private static let kComponentSeparator:String = "."
-    private static let kMilliSeconds:String = "0"
     
     //MARK: private
     
     private init() { }
     
-    private class func factoryDateFormatter() -> DateFormatter
+    private class func factoryInDateFormatter() -> DateFormatter
     {
         let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.dateFormat = kDateFormat
+        dateFormatter.dateFormat = kInDateFormat
+        
+        return dateFormatter
+    }
+    
+    private class func factoryOutDateFormatter() -> DateFormatter
+    {
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.dateFormat = kOutDateFormat
         
         return dateFormatter
     }
@@ -32,7 +40,7 @@ final class MVitaPtpDate
             return nil
         }
         
-        let dateFormatter:DateFormatter = factoryDateFormatter()
+        let dateFormatter:DateFormatter = factoryInDateFormatter()
         let date:Date? = dateFormatter.date(
             from:firstComponent)
         
@@ -62,11 +70,9 @@ final class MVitaPtpDate
     class func factoryString(
         date:Date) -> String
     {
-        let dateFormatter:DateFormatter = factoryDateFormatter()
-        var string:String = dateFormatter.string(
+        let dateFormatter:DateFormatter = factoryOutDateFormatter()
+        let string:String = dateFormatter.string(
             from:date)
-        string.append(kComponentSeparator)
-        string.append(kMilliSeconds)
         
         return string
     }
