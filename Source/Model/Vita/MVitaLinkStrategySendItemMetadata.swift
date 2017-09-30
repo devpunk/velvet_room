@@ -44,6 +44,24 @@ final class MVitaLinkStrategySendItemMetadata:
     {
         self.event = event
         
+        guard
+        
+            let item:DVitaItem = self.item
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        item.expo
+    }
+    
+    //MARK: private
+    
+    private func factoryData() -> Data
+    {
         let data:Data = factoryData()
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
@@ -53,14 +71,5 @@ final class MVitaLinkStrategySendItemMetadata:
         send(
             data:data,
             message:message)
-    }
-    
-    //MARK: private
-    
-    private func factoryData() -> Data
-    {
-        var data:Data = Data()
-        
-        return data
     }
 }
