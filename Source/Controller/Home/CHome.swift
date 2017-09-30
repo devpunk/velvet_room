@@ -15,10 +15,16 @@ final class CHome:Controller<ArchHome>
             
                 directory.first?.export(completion: { (data:Data?) in
                     
-                    print("data")
+                    guard
                     
-                    let string:String? = String.init(data:data!, encoding:String.Encoding.utf8)
-                    print("\(string)")
+                    let string:String = String(data:data!, encoding:String.Encoding.utf8)
+                    
+                    else
+                    {
+                        return
+                    }
+                    
+                    print(string)
                 })
         }
     }

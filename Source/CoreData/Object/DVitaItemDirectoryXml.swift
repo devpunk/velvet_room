@@ -8,7 +8,7 @@ extension DVitaItemDirectory
         let root:[String:Any] = [
             "objectMetadata":[
                 "folder":[
-                    "type":"1",
+                    "type":directoryType,
                     "name":self.name!,
                     "title":self.name!,
                     "index":0,
