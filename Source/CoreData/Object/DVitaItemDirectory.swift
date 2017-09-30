@@ -35,6 +35,7 @@ extension DVitaItemDirectory
         name:String,
         localName:String,
         dateModified:Date,
+        size:UInt64,
         category:MVitaItemCategory,
         directoryType:UInt32)
     {
@@ -45,6 +46,7 @@ extension DVitaItemDirectory
             name:name,
             localName:localName,
             dateModified:dateModified,
+            size:size,
             format:MVitaItemFormat.directory)
     }
 }

@@ -35,14 +35,16 @@ extension DVitaItem
         name:String,
         localName:String,
         dateModified:Date,
+        size:UInt64,
         format:MVitaItemFormat)
     {
         let timestamp:TimeInterval = Date().timeIntervalSince1970
         
         self.name = name
         self.localName = localName
-        self.format = format
         self.dateModified = dateModified.timeIntervalSince1970
+        self.size = Int64(size)
+        self.format = format
         dateReceived = timestamp
     }
 }

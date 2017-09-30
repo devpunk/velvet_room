@@ -37,7 +37,6 @@ extension DVitaItemElement
         fileExtension:MVitaItemInExtension,
         directory:DVitaItemDirectory)
     {
-        self.size = Int64(size)
         self.fileExtension = fileExtension
         self.directory = directory
         
@@ -45,6 +44,7 @@ extension DVitaItemElement
             name:name,
             localName:localName,
             dateModified:dateModified,
+            size:size,
             format:MVitaItemFormat.element)
     }
 }
