@@ -13,8 +13,7 @@ extension MVitaLink
             database:database)
         { [weak self] (directory:DVitaItemDirectory) in
             
-            self?.logRequestItem(
-                vitaItem:vitaItem)
+            self?.logRequestItem(directory:directory)
         }
     }
     

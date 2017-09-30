@@ -47,6 +47,29 @@ extension MVitaLink
         return directoryPath
     }
     
+    class func thumbnail(
+        directoryName:String) -> Data?
+    {
+        let path:URL = directoryPath(
+            directoryName:directoryName)
+        let thumbnailPath:URL = path.appendingPathComponent(
+            kThumbnailName)
+        
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:thumbnailPath)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return data
+    }
+    
     class func storeThumbnail(
         directoryPath:URL,
         directory:MVitaItemInDirectory)

@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension MVitaLink
 {
@@ -17,6 +17,30 @@ extension MVitaLink
         }
     }
     
+    private func asyncLogRequestItem(
+        directory:DVitaItemDirectory)
+    {
+        guard
+            
+            let name:String = directory.name,
+            let localName:String = directory.localName,
+            let thumbnail:Data = MVitaLink.thumbnail(
+                directoryName:localName),
+            let image:UIImage = UIImage(
+                data:thumbnail)
+            
+        else
+        {
+            return
+        }
+        
+        let logItem:MVitaLinkLogGameSave = MVitaLinkLogGameSave(
+            transferType:MVitaLinkLogTransferType.request,
+            image:image,
+            gameName:name)
+        addToLog(logItem:logItem)
+    }
+    
     //MARK: internal
     
     func logConnectionReady()
@@ -28,11 +52,14 @@ extension MVitaLink
     }
     
     func logRequestItem(
-        vitaItem:MVitaItemIn)
+        directory:DVitaItemDirectory)
     {
-//        let logItem:MVitaLinkLogGameSave = MVitaLinkLogGameSave(
-//            transferType:MVitaLinkLogTransferType.request,
-//            image:im,
-//            gameName: <#T##String#>)
+        DispatchQueue.global(
+            qos:DispatchQoS.QoSClass.background).async
+        { [weak self] in
+            
+            self?.asyncLogRequestItem(
+                directory:directory)
+        }
     }
 }
