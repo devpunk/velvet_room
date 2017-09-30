@@ -2,9 +2,6 @@ import Foundation
 
 extension MVitaLink
 {
-    private static let kLookItemPredicate:String = "name == \"%@\""
-    private static let kLookItemSorter:String = "dateReceived"
-    
     //MARK: private
     
     private func itemFound(
@@ -29,9 +26,13 @@ extension MVitaLink
         itemStatus:MVitaItemStatus,
         event:MVitaPtpMessageInEvent)
     {
-        let predicate:NSPredicate = NSPredicate(
+        let identifier:String = String(
+            describing:itemStatus.identifier)
+        let predicateString:String = String(
             format:MVitaLink.kLookItemPredicate,
-            itemStatus.identifier)
+            identifier)
+        let predicate:NSPredicate = NSPredicate(
+            format:predicateString)
         let sorter:NSSortDescriptor = NSSortDescriptor(
             key:MVitaLink.kLookItemSorter,
             ascending:false)
