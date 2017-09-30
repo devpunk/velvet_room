@@ -1,7 +1,8 @@
 import Foundation
 
-enum MVitaItemIn:String
+enum MVitaItemInExtension:String
 {
+    case unknown
     case png = "png"
     case sfo = "sfo"
     case sav = "sav"
