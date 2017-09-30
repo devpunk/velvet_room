@@ -9,6 +9,7 @@ extension MVitaLink
         database:Database,
         completion:@escaping((DVitaItemDirectory) -> ()))
     {
+        vitaItem.mergeChildrenSize()
         let directoryLocalName:String = UUID().uuidString
         
         guard
