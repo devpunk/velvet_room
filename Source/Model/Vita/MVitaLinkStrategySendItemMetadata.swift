@@ -30,7 +30,6 @@ final class MVitaLinkStrategySendItemMetadata:
         }
         
         model?.sendResultSuccess(event:event)
-        print("metadata sent")
     }
     
     //MARK: event protocol
