@@ -7,11 +7,12 @@ final class MVitaItemIn
     var data:Data?
     var format:MVitaItemFormat?
     var dateModified:Date?
-    var name:String?
     var size:UInt64?
     var thumbnail:Data?
     private(set) weak var parent:MVitaItemIn?
     private(set) var elements:[MVitaItemIn]?
+    private(set) var name:String?
+    private(set) var fileExtension:MVitaItemInExtension
     
     init(
         treat:MVitaItemTreat,
@@ -19,6 +20,7 @@ final class MVitaItemIn
     {
         self.treat = treat
         self.parent = parent
+        fileExtension = MVitaItemInExtension.unknown
     }
     
     //MARK: internal
@@ -31,5 +33,14 @@ final class MVitaItemIn
         }
         
         elements?.append(element)
+    }
+    
+    func addName(name:String)
+    {
+        let fileExtension:MVitaItemInExtension = MVitaItemInExtension.factoryExtension(
+            name:name)
+        
+        self.name = name
+        self.fileExtension = fileExtension
     }
 }

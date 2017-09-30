@@ -125,7 +125,7 @@ extension MVitaLinkStrategyRequestItemTreat
             return
         }
         
-        currentItem?.name = itemFileName
+        currentItem?.addName(name:itemFileName)
         
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatDateModified.self)
