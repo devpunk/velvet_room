@@ -35,6 +35,21 @@ extension MVitaLink
         strategyEvent.config(event:event)
     }
     
+    func strategyItem(
+        item:DVitaItem)
+    {
+        guard
+            
+            let strategyItem:MVitaLinkStrategyItemProtocol = strategy as? MVitaLinkStrategyItemProtocol
+            
+        else
+        {
+            return
+        }
+        
+        strategyItem.config(item:item)
+    }
+    
     func errorCloseConnection(message:String)
     {
         let status:MVitaPtpLocalStatus = MVitaPtpLocalStatus.connectionEnd

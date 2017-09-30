@@ -11,12 +11,10 @@ extension MVitaLink
         item:DVitaItemDirectory,
         event:MVitaPtpMessageInEvent)
     {
-        item.export
-        { (data:Data?) in
-            
-        }
-        
-        sendResultSuccess(event:event)
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendItemMetadata.self)
+        strategyItem(item:item)
+        strategyEvent(event:event)
     }
     
     private func itemNotFound(

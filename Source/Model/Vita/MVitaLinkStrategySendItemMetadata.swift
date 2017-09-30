@@ -2,8 +2,10 @@ import Foundation
 
 final class MVitaLinkStrategySendItemMetadata:
     MVitaLinkStrategySendData,
-    MVitaLinkStrategyEventProtocol
+    MVitaLinkStrategyEventProtocol,
+    MVitaLinkStrategyItemProtocol
 {
+    private var item:DVitaItem?
     private var event:MVitaPtpMessageInEvent?
     
     override func failed()
@@ -32,6 +34,11 @@ final class MVitaLinkStrategySendItemMetadata:
     }
     
     //MARK: event protocol
+    
+    func config(item:DVitaItem)
+    {
+        self.item = item
+    }
     
     func config(event:MVitaPtpMessageInEvent)
     {
