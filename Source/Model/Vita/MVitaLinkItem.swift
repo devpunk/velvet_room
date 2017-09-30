@@ -11,7 +11,12 @@ extension MVitaLink
         item:DVitaItemDirectory,
         event:MVitaPtpMessageInEvent)
     {
+        item.export
+        { (data:Data?) in
+            
+        }
         
+        sendResultSuccess(event:event)
     }
     
     private func itemNotFound(
