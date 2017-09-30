@@ -7,7 +7,7 @@ extension MVitaLink
     private class func asyncStoreItem(
         vitaItem:MVitaItemInDirectory,
         database:Database,
-        completion:@escaping(() -> ()))
+        completion:@escaping((DVitaItemDirectory) -> ()))
     {
         guard
             
@@ -32,7 +32,7 @@ extension MVitaLink
         dateModified:Date,
         vitaItem:MVitaItemInDirectory,
         database:Database,
-        completion:@escaping(() -> ()))
+        completion:@escaping((DVitaItemDirectory) -> ()))
     {
         let directoryPath:URL = createDirectory(
             directoryName:name)
@@ -62,7 +62,7 @@ extension MVitaLink
         directoryPath:URL,
         elements:[MVitaItemInElement],
         database:Database,
-        completion:@escaping(() -> ()))
+        completion:@escaping((DVitaItemDirectory) -> ()))
     {
         let dispatchGroup:DispatchGroup = MVitaLink.factoryDispatchGroup()
         
@@ -80,7 +80,10 @@ extension MVitaLink
             queue:DispatchQueue.global(
                 qos:DispatchQoS.QoSClass.background))
         {
-            database.save(completion:completion)
+            database.save
+            {
+                completion(directory)
+            }
         }
     }
     
@@ -128,7 +131,7 @@ extension MVitaLink
     class func storeItem(
         vitaItem:MVitaItemInDirectory,
         database:Database,
-        completion:@escaping(() -> ()))
+        completion:@escaping((DVitaItemDirectory) -> ()))
     {
         DispatchQueue.global(
             qos:DispatchQoS.QoSClass.background).async

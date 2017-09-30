@@ -11,7 +11,7 @@ extension MVitaLink
         MVitaLink.storeItem(
             vitaItem:vitaItem,
             database:database)
-        { [weak self] in
+        { [weak self] (directory:DVitaItemDirectory) in
             
             self?.logRequestItem(
                 vitaItem:vitaItem)
