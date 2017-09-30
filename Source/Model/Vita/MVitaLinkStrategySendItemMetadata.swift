@@ -89,13 +89,16 @@ final class MVitaLinkStrategySendItemMetadata:
         data:Data,
         event:MVitaPtpMessageInEvent)
     {
+        let wrappedData:Data = MVitaLink.wrapDataWithSizeHeader(
+            data:data)
+        
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
             dataPhase:MVitaPtpDataPhase.send,
             command:MVitaPtpCommand.sendItemMetadata)
         
         send(
-            data:data,
+            data:wrappedData,
             message:message)
     }
 }
