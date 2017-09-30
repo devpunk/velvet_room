@@ -12,6 +12,7 @@ extension MVitaLinkStrategyRequestItemTreat
             parent:parent,
             treatId:treatId)
         parent.elements.append(element)
+        currentItem = element
         
         requestItemFormat(treatId:treatId)
     }
