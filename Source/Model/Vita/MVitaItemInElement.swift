@@ -25,4 +25,29 @@ final class MVitaItemInElement:MVitaItemIn
         strategy.requestItemFileSize(
             treatId:treatId)
     }
+    
+    override var name:String?
+    {
+        didSet
+        {
+            updateExtension()
+        }
+    }
+    
+    //MARK: private
+    
+    private func updateExtension()
+    {
+        guard
+        
+            let name:String = self.name
+        
+        else
+        {
+            return
+        }
+        
+        fileExtension = MVitaItemInExtension.factoryExtension(
+            name:name)
+    }
 }
