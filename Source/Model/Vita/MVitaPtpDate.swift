@@ -3,7 +3,7 @@ import Foundation
 final class MVitaPtpDate
 {
     private static let kInDateFormat:String = "yyyyMMdd'T'HHmmss"
-    private static let kOutDateFormat:String = "yyyy-MM-dd'T'HH:mm:ssZ"
+    private static let kOutDateFormat:String = "yyyy-MM-dd'T'HH:mm:ss+00:00"
     private static let kComponentSeparator:String = "."
     
     //MARK: private
