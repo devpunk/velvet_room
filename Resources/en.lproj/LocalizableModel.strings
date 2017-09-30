@@ -35,3 +35,4 @@
 "MVitaLinkStrategyRequestItemStatus_messageFailed"="Failed requesting Item Status,\ntry again";
 "MVitaLink_terminateReceived"="Connection has been terminated";
 "MVitaLinkStrategyRequestItemTreat_messageFailed"="Failed requesting Item Treat,\ntry again";
+"MVitaLinkStrategySendItemMetadata_messageFailed"="Failed sending Item Metadata,\ntry again";
