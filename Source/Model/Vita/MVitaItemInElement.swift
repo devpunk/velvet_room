@@ -18,4 +18,11 @@ final class MVitaItemInElement:MVitaItemIn
             format:MVitaItemFormat.element,
             treatId:treatId)
     }
+    
+    override func requestContent(
+        strategy:MVitaLinkStrategyRequestItemTreat)
+    {
+        strategy.requestItemFileSize(
+            treatId:treatId)
+    }
 }

@@ -14,4 +14,9 @@ class MVitaItemIn
         self.format = format
         self.treatId = treatId
     }
+    
+    //MARK: internal
+    
+    func requestContent(
+        strategy:MVitaLinkStrategyRequestItemTreat) { }
 }

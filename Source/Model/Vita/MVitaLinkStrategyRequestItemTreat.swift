@@ -3,7 +3,7 @@ import Foundation
 final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
     weak var currentItem:MVitaItemIn?
-    var rootItemIn:MVitaItemInDirectory?
+    var rootItem:MVitaItemInDirectory?
     private var status:MVitaLinkStrategyRequestItemTreatProtocol?
     
     required init(model:MVitaLink)
@@ -27,46 +27,6 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         status?.success(strategy:self)
     }
     
-    //MARK: private
-    
-    private func requestItemElements()
-    {
-        guard
-            
-            let itemTreat:MVitaItemTreat = currentItem?.treat
-            
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        changeStatus(
-            statusType:MVitaLinkStrategyRequestItemTreatElements.self)
-        model?.linkCommand.requestItemElements(
-            itemTreat:itemTreat)
-    }
-    
-    private func requestItemFileSize()
-    {
-        guard
-            
-            let itemTreat:MVitaItemTreat = currentItem?.treat
-            
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        changeStatus(
-            statusType:MVitaLinkStrategyRequestItemTreatSize.self)
-        model?.linkCommand.requestItemFileSize(
-            itemTreat:itemTreat)
-    }
-    
     //MARK: internal
     
     func changeStatus(
@@ -78,32 +38,12 @@ final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
         self.status = status
     }
     
-    func requestItemContent(
-        itemFormat:MVitaItemFormat)
-    {
-        switch itemFormat
-        {
-        case MVitaItemFormat.directory:
-            
-            requestItemElements()
-            
-            break
-            
-        case MVitaItemFormat.element,
-             MVitaItemFormat.unknown:
-            
-            requestItemFileSize()
-            
-            break
-        }
-    }
-    
     func resportResult()
     {
         guard
         
             let event:MVitaPtpMessageInEvent = self.event,
-            let vitaItem:MVitaItemIn = rootItemIn
+            let vitaItem:MVitaItemIn = rootItem
         
         else
         {

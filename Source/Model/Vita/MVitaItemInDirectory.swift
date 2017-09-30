@@ -17,4 +17,11 @@ final class MVitaItemInDirectory:MVitaItemIn
             format:MVitaItemFormat.directory,
             treatId:itemTreat.treatId)
     }
+    
+    override func requestContent(
+        strategy:MVitaLinkStrategyRequestItemTreat)
+    {
+        strategy.requestItemElements(
+            treatId:treatId)
+    }
 }
