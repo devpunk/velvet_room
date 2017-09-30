@@ -11,10 +11,10 @@ extension DVitaItemDirectory
                     "type":"1",
                     "name":self.name!,
                     "title":self.name!,
-                    "index":"0",
-                    "ohfiParent":"14",
-                    "ohfi":"9283",
-                    "dateTimeCreated":"0"]]]
+                    "index":0,
+                    "ohfiParent":rawCategory,
+                    "ohfi":rawCategory,
+                    "dateTimeCreated":0]]]
         
         return root
     }
