@@ -19,7 +19,7 @@ final class MVitaLinkStrategyRequestItemTreatDateModified:MVitaLinkStrategyReque
             return
         }
         
-        strategy.requestItemContent(
+        strategy.requestItemSize(
             itemDateModified:itemDateModified)
     }
 }

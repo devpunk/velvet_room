@@ -72,7 +72,7 @@ extension MVitaLinkStrategyRequestItemTreat
     func requestItemContent(
         itemSize:UInt64)
     {
-        currentItem.size = itemSize
+        currentItem?.size = itemSize
         currentItem?.requestContent(strategy:self)
     }
     

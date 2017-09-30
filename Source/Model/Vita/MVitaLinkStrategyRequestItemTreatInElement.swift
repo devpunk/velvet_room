@@ -19,11 +19,11 @@ extension MVitaLinkStrategyRequestItemTreat
     
     func requestItemData(
         treatId:UInt32)
-    {   
+    {
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatData.self)
         model?.linkCommand.requestItemData(
-            treatId:currentItem.treatId)
+            treatId:treatId)
     }
     
     func itemDataReceived(

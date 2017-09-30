@@ -21,7 +21,7 @@ final class MVitaItemInElement:MVitaItemIn
     override func requestContent(
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
-        strategy.requestItemFileSize(
+        strategy.requestItemData(
             treatId:treatId)
     }
     

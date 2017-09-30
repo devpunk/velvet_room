@@ -51,6 +51,7 @@ extension MVitaLink
                 name:name,
                 localName:localName,
                 dateModified:dateModified,
+                size:vitaItem.size,
                 category:vitaItem.category,
                 directoryType:vitaItem.directoryType)
             
@@ -107,8 +108,7 @@ extension MVitaLink
                 data:data,
                 directoryPath:directoryPath),
             let elementName:String = vitaItem.name,
-            let dateModified:Date = vitaItem.dateModified,
-            let size:UInt64 = vitaItem.size
+            let dateModified:Date = vitaItem.dateModified
         
         else
         {
@@ -124,7 +124,7 @@ extension MVitaLink
                 name:elementName,
                 localName:localName,
                 dateModified:dateModified,
-                size:size,
+                size:vitaItem.size,
                 fileExtension:vitaItem.fileExtension,
                 directory:directory)
             
