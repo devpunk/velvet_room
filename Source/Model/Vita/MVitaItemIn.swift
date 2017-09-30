@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaItemIn
+class MVitaItemIn
 {
     let treat:MVitaItemTreat
     var rawElements:[UInt32]?
