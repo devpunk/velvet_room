@@ -2,5 +2,7 @@ import Foundation
 
 protocol DVitaItemExportProtocol
 {
-    func hasheableItem() -> Any?
+    var hasheableItem:Any? { get }
+    
+    func export(completion:@escaping((Data?) -> ()))
 }

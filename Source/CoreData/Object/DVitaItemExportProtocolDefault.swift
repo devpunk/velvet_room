@@ -1,22 +1,14 @@
 import Foundation
+import XmlHero
 
-extension DVitaItem
+extension DVitaItemExportProtocol
 {
-    //MARK: export protocol
-    
-    func hasheableItem() -> Any?
-    {
-        return nil
-    }
-    
-    //MARK: internal
-    
-    final func export(completion:@escaping((Data?) -> ()))
+    func export(completion:@escaping((Data?) -> ()))
     {
         guard
             
-            let object:Any = hasheableItem()
-        
+            let object:Any = hasheableItem
+            
         else
         {
             completion(nil)
