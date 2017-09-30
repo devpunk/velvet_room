@@ -25,37 +25,37 @@ extension MVitaLinkSocketCommand
     }
     
     func requestItemFormat(
-        itemTreat:MVitaItemTreat)
+        treatId:UInt32)
     {
         let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
-            itemTreat:itemTreat,
+            treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request,
             property:MVitaPtpItemProperty.format)
         writeMessageAndRead(message:message)
     }
     
     func requestItemFileName(
-        itemTreat:MVitaItemTreat)
+        treatId:UInt32)
     {
         let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
-            itemTreat:itemTreat,
+            treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request,
             property:MVitaPtpItemProperty.fileName)
         writeMessageAndRead(message:message)
     }
     
     func requestItemDateModified(
-        itemTreat:MVitaItemTreat)
+        treatId:UInt32)
     {
         let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
-            itemTreat:itemTreat,
+            treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request,
             property:MVitaPtpItemProperty.dateModified)
         writeMessageAndRead(message:message)
     }
     
     func requestItemElements(
-        itemTreat:MVitaItemTreat)
+        treatId:UInt32)
     {
         guard
             
@@ -67,26 +67,26 @@ extension MVitaLinkSocketCommand
         }
         
         let message:MVitaPtpMessageOutItemElements = MVitaPtpMessageOutItemElements(
-            itemTreat:itemTreat,
+            treatId:treatId,
             storageId:storageId)
         writeMessageAndRead(message:message)
     }
     
     func requestItemFileSize(
-        itemTreat:MVitaItemTreat)
+        treatId:UInt32)
     {
         let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
-            itemTreat:itemTreat,
+            treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request,
             property:MVitaPtpItemProperty.fileSize)
         writeMessageAndRead(message:message)
     }
     
     func requestItemData(
-        itemTreat:MVitaItemTreat)
+        treatId:UInt32)
     {
         let message:MVitaPtpMessageOutItemData = MVitaPtpMessageOutItemData(
-            itemTreat:itemTreat,
+            treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request)
         writeMessageAndRead(message:message)
     }

@@ -6,7 +6,7 @@ struct MVitaPtpMessageOutItemElements:MVitaPtpMessageOutProtocol
     private let kItemFormatCode:UInt32 = 0
     
     init(
-        itemTreat:MVitaItemTreat,
+        treatId:UInt32,
         storageId:UInt32)
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
@@ -16,7 +16,7 @@ struct MVitaPtpMessageOutItemElements:MVitaPtpMessageOutProtocol
         builder.appendTransactionId()
         builder.append(value:storageId)
         builder.append(value:kItemFormatCode)
-        builder.append(value:itemTreat.treatId)
+        builder.append(value:treatId)
         
         data = builder.export()
     }

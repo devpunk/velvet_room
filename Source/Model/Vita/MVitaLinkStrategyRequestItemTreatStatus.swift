@@ -81,12 +81,15 @@ extension MVitaLinkStrategyRequestItemTreat
     func requestItemFormat(
         itemTreat:MVitaItemTreat)
     {
-        createNewItem(itemTreat:itemTreat)
+        let directory:MVitaItemInDirectory = MVitaItemInDirectory(
+            itemTreat:itemTreat)
+        rootItemIn = directory
+        currentItem = directory
         
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatFormat.self)
         model?.linkCommand.requestItemFormat(
-            itemTreat:itemTreat)
+            treatId:directory.treatId)
     }
     
     func requestFileName(
@@ -94,7 +97,7 @@ extension MVitaLinkStrategyRequestItemTreat
     {
         guard
             
-            let itemTreat:MVitaItemTreat = currentItem?.treat
+            currentItem?.format == itemFormat
             
         else
         {
@@ -102,8 +105,6 @@ extension MVitaLinkStrategyRequestItemTreat
             
             return
         }
-        
-        currentItem?.format = itemFormat
         
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatName.self)

@@ -3,7 +3,7 @@ import Foundation
 final class MVitaLinkStrategyRequestItemTreat:MVitaLinkStrategyRequestDataEvent
 {
     weak var currentItem:MVitaItemIn?
-    var rootItemIn:MVitaItemIn?
+    var rootItemIn:MVitaItemInDirectory?
     private var status:MVitaLinkStrategyRequestItemTreatProtocol?
     
     required init(model:MVitaLink)
