@@ -6,6 +6,11 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
     {
         get
         {
+            let dateModified:Date = Date(
+                timeIntervalSince1970:self.dateModified)
+            let dateString:String = MVitaPtpDate.factoryString(
+                date:dateModified)
+            
             let root:[String:Any] = [
                 "objectMetadata":[
                     "folder":[
@@ -16,7 +21,7 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
                         "ohfiParent":rawCategory,
                         "ohfi":rawCategory,
                         "size":size,
-                        "dateTimeCreated":0]]]
+                        "dateTimeCreated":dateString]]]
             
             return root
         }
