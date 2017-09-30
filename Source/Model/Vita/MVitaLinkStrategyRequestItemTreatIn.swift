@@ -47,10 +47,32 @@ extension MVitaLinkStrategyRequestItemTreat
             treatId:treatId)
     }
     
-    func requestItemContent(
+    func requestItemSize(
         itemDateModified:Date)
     {
+        guard
+            
+            let treatId:UInt32 = currentItem?.treatId
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
         currentItem?.dateModified = itemDateModified
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatSize.self)
+        model?.linkCommand.requestItemFileSize(
+            treatId:treatId)
+    }
+    
+    func requestItemContent(
+        itemSize:UInt64)
+    {
+        currentItem.size = itemSize
         currentItem?.requestContent(strategy:self)
     }
     

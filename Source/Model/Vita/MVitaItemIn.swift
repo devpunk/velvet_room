@@ -4,6 +4,7 @@ class MVitaItemIn
 {
     var dateModified:Date?
     var name:String?
+    var size:UInt64
     let format:MVitaItemFormat
     let treatId:UInt32
     
@@ -13,6 +14,7 @@ class MVitaItemIn
     {
         self.format = format
         self.treatId = treatId
+        size = 0
     }
     
     //MARK: internal
