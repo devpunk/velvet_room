@@ -2,19 +2,7 @@ import Foundation
 
 extension MVitaLink
 {
-    private static let kRootDirectory:String = "storage"
-    
     //MARK: private
-    
-    private class func factoryDispatchGroup() -> DispatchGroup
-    {
-        let dispatchGroup:DispatchGroup = DispatchGroup()
-        dispatchGroup.setTarget(
-            queue:DispatchQueue.global(
-                qos:DispatchQoS.QoSClass.background))
-        
-        return dispatchGroup
-    }
     
     private func asyncStoreItem(
         vitaItem:MVitaItemIn,

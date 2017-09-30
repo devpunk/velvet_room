@@ -92,4 +92,14 @@ extension MVitaLink
             return MVitaLinkStrategySendLocalStatus.self
         }
     }
+    
+    class func factoryDispatchGroup() -> DispatchGroup
+    {
+        let dispatchGroup:DispatchGroup = DispatchGroup()
+        dispatchGroup.setTarget(
+            queue:DispatchQueue.global(
+                qos:DispatchQoS.QoSClass.background))
+        
+        return dispatchGroup
+    }
 }
