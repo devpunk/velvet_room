@@ -95,6 +95,8 @@ extension MVitaLink
             return nil
         }
         
+        print("path: \(elementPath)")
+        
         return randomName
     }
 }

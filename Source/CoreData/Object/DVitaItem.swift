@@ -32,11 +32,15 @@ extension DVitaItem
     //MARK: internal
     
     func create(
-        format:MVitaItemFormat,
-        dateModified:Date)
+        name:String,
+        localName:String,
+        dateModified:Date,
+        format:MVitaItemFormat)
     {
         let timestamp:TimeInterval = Date().timeIntervalSince1970
         
+        self.name = name
+        self.localName = localName
         self.format = format
         self.dateModified = dateModified.timeIntervalSince1970
         dateReceived = timestamp

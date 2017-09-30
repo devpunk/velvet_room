@@ -37,14 +37,14 @@ extension DVitaItemElement
         fileExtension:MVitaItemInExtension,
         directory:DVitaItemDirectory)
     {
-        self.name = name
-        self.localName = localName
         self.size = Int64(size)
         self.fileExtension = fileExtension
         self.directory = directory
         
         create(
-            format:MVitaItemFormat.element,
-            dateModified:dateModified)
+            name:name,
+            localName:localName,
+            dateModified:dateModified,
+            format:MVitaItemFormat.element)
     }
 }

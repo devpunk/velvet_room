@@ -9,6 +9,8 @@ extension MVitaLink
         database:Database,
         completion:@escaping((DVitaItemDirectory) -> ()))
     {
+        let directoryLocalName:String = UUID().uuidString
+        
         guard
             
             let name:String = vitaItem.name,
@@ -21,6 +23,7 @@ extension MVitaLink
         
         createDirectory(
             name:name,
+            localName:directoryLocalName,
             dateModified:dateModified,
             vitaItem:vitaItem,
             database:database,
@@ -29,13 +32,14 @@ extension MVitaLink
     
     private class func createDirectory(
         name:String,
+        localName:String,
         dateModified:Date,
         vitaItem:MVitaItemInDirectory,
         database:Database,
         completion:@escaping((DVitaItemDirectory) -> ()))
     {
         let directoryPath:URL = createDirectory(
-            directoryName:name)
+            directoryName:localName)
         storeThumbnail(
             directoryPath:directoryPath,
             directory:vitaItem)
@@ -44,9 +48,10 @@ extension MVitaLink
         { (directory:DVitaItemDirectory) in
             
             directory.create(
-                category:vitaItem.category,
                 name:name,
-                dateModified:dateModified)
+                localName:localName,
+                dateModified:dateModified,
+                category:vitaItem.category)
             
             createElements(
                 directory:directory,

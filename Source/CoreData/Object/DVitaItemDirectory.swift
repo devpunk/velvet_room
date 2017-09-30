@@ -32,15 +32,17 @@ extension DVitaItemDirectory
     //MARK: internal
     
     func create(
-        category:MVitaItemCategory,
         name:String,
-        dateModified:Date)
+        localName:String,
+        dateModified:Date,
+        category:MVitaItemCategory)
     {
         self.category = category
-        self.name = name
         
         create(
-            format:MVitaItemFormat.directory,
-            dateModified:dateModified)
+            name:name,
+            localName:localName,
+            dateModified:dateModified,
+            format:MVitaItemFormat.directory)
     }
 }
