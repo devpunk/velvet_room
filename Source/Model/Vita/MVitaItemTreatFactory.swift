@@ -14,7 +14,7 @@ extension MVitaItemTreat
             var rawElements:[UInt32] = data.arrayFromBytes(
                 elements:kElements),
             let treatId:UInt32 = rawElements.popLast(),
-            let status:UInt32 = rawElements.popLast(),
+            let directoryType:UInt32 = rawElements.popLast(),
             let rawCategory:UInt32 = rawElements.popLast(),
             let category:MVitaItemCategory = MVitaItemCategory(
                 rawValue:rawCategory)
@@ -27,7 +27,7 @@ extension MVitaItemTreat
         let itemTreat:MVitaItemTreat = MVitaItemTreat(
             category:category,
             treatId:treatId,
-            status:status)
+            directoryType:directoryType)
         
         return itemTreat
     }
