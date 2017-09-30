@@ -4,6 +4,7 @@ final class MVitaPtpDate
 {
     private static let kDateFormat:String = "yyyyMMdd'T'HHmmss"
     private static let kComponentSeparator:String = "."
+    private static let kMilliSeconds:String = "0"
     
     //MARK: private
     
@@ -40,7 +41,8 @@ final class MVitaPtpDate
     
     //MARK: internal
     
-    class func factoryDate(data:Data) -> Date?
+    class func factoryDate(
+        data:Data) -> Date?
     {
         guard
         
@@ -55,5 +57,17 @@ final class MVitaPtpDate
         let date:Date? = factoryDate(string:string)
         
         return date
+    }
+    
+    class func factoryString(
+        date:Date) -> String
+    {
+        let dateFormatter:DateFormatter = factoryDateFormatter()
+        var string:String = dateFormatter.string(
+            from:date)
+        string.append(kComponentSeparator)
+        string.append(kMilliSeconds)
+        
+        return string
     }
 }
