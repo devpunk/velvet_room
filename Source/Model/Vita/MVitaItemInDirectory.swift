@@ -5,7 +5,6 @@ final class MVitaItemInDirectory:MVitaItemIn
     let category:MVitaItemCategory
     var rawElements:[UInt32]
     var elements:[MVitaItemInElement]
-    var thumbnail:Data?
     
     init(itemTreat:MVitaItemTreat)
     {

@@ -3,6 +3,7 @@ import Foundation
 extension MVitaLink
 {
     static let kStorageDirectory:String = "storage"
+    static let kThumbnailName:String = "thumbnail.png"
     
     private class func createDirectoryAtPath(
         path:URL)
@@ -44,5 +45,58 @@ extension MVitaLink
             directoryName)
         
         return directoryPath
+    }
+    
+    class func storeThumbnail(
+        directoryPath:URL,
+        directory:MVitaItemInDirectory)
+    {
+        guard
+        
+            let data:Data = directory.thumbnail()
+        
+        else
+        {
+            return
+        }
+        
+        let thumbnailPath:URL = directoryPath.appendingPathComponent(
+            kThumbnailName)
+        
+        do
+        {
+            try data.write(
+                to:thumbnailPath,
+                options:
+                Data.WritingOptions.atomicWrite)
+        }
+        catch
+        {
+        }
+    }
+    
+    class func storeRandomAtPath(
+        data:Data,
+        directoryPath:URL) -> String?
+    {
+        let randomName:String = UUID().uuidString
+        let elementPath:URL = directoryPath.appendingPathComponent(
+            randomName)
+        
+        do
+        {
+            try data.write(
+                to:elementPath,
+                options:
+                Data.WritingOptions.atomicWrite)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        print("path: \(elementPath)")
+        
+        return randomName
     }
 }

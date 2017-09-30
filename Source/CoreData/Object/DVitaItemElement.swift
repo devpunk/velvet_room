@@ -34,11 +34,13 @@ extension DVitaItemElement
         localName:String,
         dateModified:Date,
         size:UInt64,
+        fileExtension:MVitaItemInExtension,
         directory:DVitaItemDirectory)
     {
         self.name = name
         self.localName = localName
         self.size = Int64(size)
+        self.fileExtension = fileExtension
         self.directory = directory
         
         create(

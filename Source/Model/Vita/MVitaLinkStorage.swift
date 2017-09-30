@@ -9,11 +9,10 @@ extension MVitaLink
         database:Database,
         completion:@escaping(() -> ()))
     {
-        vitaItem.findThumbnail()
-        
         guard
             
-            let name:String = vitaItem.name
+            let name:String = vitaItem.name,
+            let dateModified:Date = vitaItem.dateModified
         
         else
         {
@@ -22,6 +21,7 @@ extension MVitaLink
         
         createDirectory(
             name:name,
+            dateModified:dateModified,
             vitaItem:vitaItem,
             database:database,
             completion:completion)
@@ -29,19 +29,24 @@ extension MVitaLink
     
     private class func createDirectory(
         name:String,
+        dateModified:Date,
         vitaItem:MVitaItemInDirectory,
         database:Database,
         completion:@escaping(() -> ()))
     {
         let directoryPath:URL = createDirectory(
             directoryName:name)
+        storeThumbnail(
+            directoryPath:directoryPath,
+            directory:vitaItem)
         
         database.create
         { (directory:DVitaItemDirectory) in
             
             directory.create(
                 category:vitaItem.category,
-                name:name)
+                name:name,
+                dateModified:dateModified)
             
             createElements(
                 directory:directory,
@@ -61,10 +66,10 @@ extension MVitaLink
     {
         let dispatchGroup:DispatchGroup = MVitaLink.factoryDispatchGroup()
         
-        for element:MVitaItemIn in elements
+        for element:MVitaItemInElement in elements
         {
             createElement(
-                element:element,
+                vitaItem:element,
                 directory:directory,
                 directoryPath:directoryPath,
                 database:database,
@@ -80,7 +85,7 @@ extension MVitaLink
     }
     
     private class func createElement(
-        element:MVitaItemInElement,
+        vitaItem:MVitaItemInElement,
         directory:DVitaItemDirectory,
         directoryPath:URL,
         database:Database,
@@ -88,13 +93,13 @@ extension MVitaLink
     {
         guard
             
-            let data:Data = element.data,
-            let localName:String = storeLocal(
+            let data:Data = vitaItem.data,
+            let localName:String = storeRandomAtPath(
                 data:data,
                 directoryPath:directoryPath),
-            let elementName:String = element.name,
-            let dateModified:Date = element.dateModified,
-            let size:UInt64 = element.size
+            let elementName:String = vitaItem.name,
+            let dateModified:Date = vitaItem.dateModified,
+            let size:UInt64 = vitaItem.size
         
         else
         {
@@ -104,44 +109,20 @@ extension MVitaLink
         dispatchGroup.enter()
         
         database.create
-        { (storedElement:DVitaItemElement) in
+        { (element:DVitaItemElement) in
             
-            storedElement.create(
-                name:name,
+            element.create(
+                name:elementName,
                 localName:localName,
                 dateModified:dateModified,
                 size:size,
+                fileExtension:vitaItem.fileExtension,
                 directory:directory)
             
-            print("stored: \(name) at: \(localName)")
+            print("stored: \(elementName) at: \(localName)")
             
             dispatchGroup.leave()
         }
-    }
-    
-    private class func storeLocal(
-        data:Data,
-        directoryPath:URL) -> String?
-    {
-        let randomName:String = UUID().uuidString
-        let elementPath:URL = directoryPath.appendingPathComponent(
-            randomName)
-        
-        do
-        {
-            try data.write(
-                to:elementPath,
-                options:
-                Data.WritingOptions.atomicWrite)
-        }
-        catch
-        {
-            return nil
-        }
-        
-        print("path: \(elementPath)")
-        
-        return randomName
     }
     
     //MARK: internal

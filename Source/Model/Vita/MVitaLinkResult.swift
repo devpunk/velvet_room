@@ -8,7 +8,7 @@ extension MVitaLink
         vitaItem:MVitaItemInDirectory,
         database:Database)
     {
-        storeItem(
+        MVitaLink.storeItem(
             vitaItem:vitaItem,
             database:database)
         { [weak self] in
