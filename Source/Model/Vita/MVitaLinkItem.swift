@@ -26,18 +26,9 @@ extension MVitaLink
         itemStatus:MVitaItemStatus,
         event:MVitaPtpMessageInEvent)
     {
-        let identifier:String = String(
-            describing:itemStatus.identifier)
-        let predicateString:String = String(
-            format:MVitaLink.kLookItemPredicate,
-            identifier)
-        let predicate:NSPredicate = NSPredicate(
-            format:predicateString)
-        let sorter:NSSortDescriptor = NSSortDescriptor(
-            key:MVitaLink.kLookItemSorter,
-            ascending:false)
-        let sorters:[NSSortDescriptor] = [
-            sorter]
+        let predicate:NSPredicate = factoryPredicateFor(
+            itemStatus:itemStatus)
+        let sorters:[NSSortDescriptor] = factorySortersForRecent()
         
         database?.fetch(
             predicate:predicate,
