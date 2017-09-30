@@ -13,6 +13,6 @@ extension MVitaItemInDirectory
             totalSize += element.size
         }
         
-        self.size = size
+        self.size = totalSize
     }
 }
