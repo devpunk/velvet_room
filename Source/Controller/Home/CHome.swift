@@ -46,6 +46,8 @@ final class CHome:Controller<ArchHome>
                     }
                     
                     self.parseSfo(location:storagePath)
+                    
+                    break
                 }
             }
         }
@@ -73,25 +75,113 @@ final class CHome:Controller<ArchHome>
         
         guard
         
-            let arrayHeader:[UInt32] = data.arrayFromBytes(elements:20)
+            let arrayHeader:[UInt32] = data.arrayFromBytes(elements:5)
         
         else
         {
             return
         }
         
-        let keyTable:UInt32 = arrayHeader[3]
-        let dataTable:UInt32 = arrayHeader[4]
-        let entryCount:UInt32 = arrayHeader[5]
+        let keyTable:UInt32 = arrayHeader[2]
+        let dataTable:UInt32 = arrayHeader[3]
+        let entryCount:Int = Int(arrayHeader[4])
+        var entries:[entry] = []
+        var newData:Data = data.subdata(start:20)
         
+        for _:Int in 0 ..< entryCount
+        {
+            let e:entry = entry.factoryEntry(data:newData)
+            newData = newData.subdata(start:sizeOfEntry)
+            
+            entries.append(e)
+        }
         
-        
-        
+        for e:entry in entries
+        {
+            let offset:Int = Int(keyTable) + Int(e.keyOffset)
+            let subdata:Data = data.subdata(start:offset)
+            let arraySubdata:[UInt8] = subdata.arrayFromBytes(elements:subdata.count)!
+            var stringData:Data = Data()
+            
+            for arrayItem:UInt8 in arraySubdata
+            {
+                if arrayItem == 0
+                {
+                    break
+                }
+                else
+                {
+                    stringData.append(arrayItem)
+                }
+            }
+            
+            guard
+            
+                let string:String = String.init(data:stringData, encoding:String.Encoding.ascii)
+            
+            else
+            {
+                print("failed")
+                continue
+            }
+            
+            debugPrint(string)
+            
+            switch e.paramFormat
+            {
+            case formatUint32:
+                
+                
+                
+                break
+            }
+        }
         
     }
     
     func sessionLoaded()
     {
         parentController?.view.isUserInteractionEnabled = true
+    }
+    
+    let sizeOfEntry:Int = 16
+    let formatSystemGenerated:UInt16 = 1024
+    let formatString:UInt16 = 1026
+    let formatUint32:UInt16 = 1028
+}
+
+struct entry
+{
+    let keyOffset:UInt16
+    let paramFormat:UInt16
+    let paramLength:UInt32
+    let paramMaxLength:UInt32
+    let dataOffset:UInt32
+    
+    static func factoryEntry(data:Data) -> entry
+    {
+        let keyOffset:UInt16 = data.valueFromBytes()!
+        var subData:Data = data.subdata(start:2)
+        
+        let paramFormat:UInt16 = subData.valueFromBytes()!
+        subData = subData.subdata(start:2)
+        
+        let paramLength:UInt32 = subData.valueFromBytes()!
+        subData = subData.subdata(start:4)
+        
+        let paramMaxLength:UInt32 = subData.valueFromBytes()!
+        subData = subData.subdata(start:4)
+        
+        let dataOffset:UInt32 = subData.valueFromBytes()!
+        subData = subData.subdata(start:4)
+        
+        let e:entry = entry(
+            keyOffset:keyOffset,
+            paramFormat:paramFormat,
+            paramLength:paramLength,
+            paramMaxLength:paramMaxLength,
+            dataOffset:dataOffset)
+        
+        return e
     }
 }
