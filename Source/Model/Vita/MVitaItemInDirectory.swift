@@ -27,4 +27,12 @@ final class MVitaItemInDirectory:MVitaItemIn
         strategy.requestItemElements(
             treatId:treatId)
     }
+    
+    override var name:String?
+    {
+        didSet
+        {
+            generateLocalName()
+        }
+    }
 }

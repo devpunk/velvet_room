@@ -30,6 +30,7 @@ final class MVitaItemInElement:MVitaItemIn
         didSet
         {
             updateExtension()
+            generateLocalName()
         }
     }
     
