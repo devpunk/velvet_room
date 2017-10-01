@@ -20,6 +20,14 @@ extension MVitaLink
         delegate?.vitaLinkClean()
     }
     
+    private func sendItemsCount(
+        event:MVitaPtpMessageInEvent)
+    {
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendStorageSize.self)
+        strategyEvent(event:event)
+    }
+    
     private func requestItemStatus(
         event:MVitaPtpMessageInEvent)
     {
@@ -69,6 +77,12 @@ extension MVitaLink
     {
         switch event.code
         {
+        case MVitaPtpEvent.sendItemsCount:
+            
+            sendItemsCount(event:event)
+            
+            break
+            
         case MVitaPtpEvent.requestItemStatus:
             
             requestItemStatus(event:event)
