@@ -18,6 +18,6 @@ final class MVitaLinkStrategyRequestItemTreatSize:MVitaLinkStrategyRequestItemTr
             return
         }
         
-        strategy.requestItemContent(itemSize:itemSize)
+        strategy.requestItemTest(itemSize:itemSize)
     }
 }

@@ -69,12 +69,29 @@ extension MVitaLinkStrategyRequestItemTreat
             treatId:treatId)
     }
     
-    func requestItemContent(
+    func requestItemTest(
         itemSize:UInt64)
     {
-        print("size received: \(itemSize)")
-        
         currentItem?.size = itemSize
+        
+        guard
+            
+            let treatId:UInt32 = currentItem?.treatId
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatTest.self)
+        model?.linkCommand.requestTest(treatId:treatId)
+    }
+    
+    func requestItemContent()
+    {
         currentItem?.requestContent(strategy:self)
     }
     

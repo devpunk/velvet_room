@@ -90,4 +90,14 @@ extension MVitaLinkSocketCommand
             dataPhase:MVitaPtpDataPhase.request)
         writeMessageAndRead(message:message)
     }
+    
+    func requestTest(
+        treatId:UInt32)
+    {
+        let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
+            treatId:treatId,
+            dataPhase:MVitaPtpDataPhase.request,
+            property:MVitaPtpItemProperty.test1)
+        writeMessageAndRead(message:message)
+    }
 }

@@ -7,6 +7,21 @@ final class MVitaLinkStrategyRequestItemTreatTest:MVitaLinkStrategyRequestItemTr
     func success(
         strategy:MVitaLinkStrategyRequestItemTreat)
     {
+        print("data size: \(strategy.data.count)")
         
+        strategy.requestItemContent()
+        
+        guard
+        
+            let array:[UInt8] = strategy.data.arrayFromBytes(
+                elements:strategy.data.count)
+        
+        else
+        {
+            return
+        }
+        
+        print("array")
+        print(array)
     }
 }
