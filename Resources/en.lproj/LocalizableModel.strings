@@ -37,3 +37,4 @@
 "MVitaLinkStrategyRequestItemTreat_messageFailed"="Failed requesting Item Treat,\ntry again";
 "MVitaLinkStrategySendItemMetadata_messageFailed"="Failed sending Item Metadata,\ntry again";
 "MVitaLinkStrategySendItemsCount_messageFailed"="Failed sending Items Count,\ntry again";
+"MVitaLinkStrategyRequestItemsFilters_messageFailed"="Failed requesting Items Filters,\ntry again";
