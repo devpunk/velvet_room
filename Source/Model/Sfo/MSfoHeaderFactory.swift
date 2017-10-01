@@ -2,6 +2,7 @@ import Foundation
 
 extension MSfoHeader
 {
+    static let kBytes:Int = 20
     private static let kElements:Int = 5
     
     //MARK: internal

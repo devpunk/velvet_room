@@ -107,6 +107,10 @@
 		DA5FD8351F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */; };
 		DA69E3811F810B620095FB05 /* MSfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3801F810B620095FB05 /* MSfoHeader.swift */; };
 		DA69E3831F810B790095FB05 /* MSfoHeaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */; };
+		DA69E3851F810D5B0095FB05 /* MSfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3841F810D5B0095FB05 /* MSfoItem.swift */; };
+		DA69E3871F810D660095FB05 /* MSfoItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3861F810D660095FB05 /* MSfoItemFactory.swift */; };
+		DA69E3891F810DE10095FB05 /* MSfoItemFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3881F810DE10095FB05 /* MSfoItemFormat.swift */; };
+		DA69E38B1F8114520095FB05 /* MSfoKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E38A1F8114520095FB05 /* MSfoKey.swift */; };
 		DA6BFD781F7F6B6C0048F626 /* MVitaItemInDirectoryThumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BFD771F7F6B6C0048F626 /* MVitaItemInDirectoryThumbnail.swift */; };
 		DA6BFD7A1F7F78780048F626 /* DVitaItemElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6BFD791F7F78780048F626 /* DVitaItemElement.swift */; };
 		DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */; };
@@ -431,6 +435,10 @@
 		DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyCloseSessionError.swift; sourceTree = "<group>"; };
 		DA69E3801F810B620095FB05 /* MSfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeader.swift; sourceTree = "<group>"; };
 		DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeaderFactory.swift; sourceTree = "<group>"; };
+		DA69E3841F810D5B0095FB05 /* MSfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoItem.swift; sourceTree = "<group>"; };
+		DA69E3861F810D660095FB05 /* MSfoItemFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoItemFactory.swift; sourceTree = "<group>"; };
+		DA69E3881F810DE10095FB05 /* MSfoItemFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoItemFormat.swift; sourceTree = "<group>"; };
+		DA69E38A1F8114520095FB05 /* MSfoKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoKey.swift; sourceTree = "<group>"; };
 		DA6BFD771F7F6B6C0048F626 /* MVitaItemInDirectoryThumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaItemInDirectoryThumbnail.swift; sourceTree = "<group>"; };
 		DA6BFD791F7F78780048F626 /* DVitaItemElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVitaItemElement.swift; sourceTree = "<group>"; };
 		DA6E93A91F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkPtpDelegate.swift; sourceTree = "<group>"; };
@@ -1246,6 +1254,10 @@
 				DA8F53B01F810A8E00BC8875 /* MSfoFactory.swift */,
 				DA69E3801F810B620095FB05 /* MSfoHeader.swift */,
 				DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */,
+				DA69E3841F810D5B0095FB05 /* MSfoItem.swift */,
+				DA69E3861F810D660095FB05 /* MSfoItemFactory.swift */,
+				DA69E3881F810DE10095FB05 /* MSfoItemFormat.swift */,
+				DA69E38A1F8114520095FB05 /* MSfoKey.swift */,
 			);
 			path = Sfo;
 			sourceTree = "<group>";
@@ -1596,6 +1608,7 @@
 				DA1C18931F72F7060045A644 /* MVitaLinkStrategyRequestVitaInfo.swift in Sources */,
 				DA4AFE6C1F795AEE008D3E35 /* MConnectedFactory.swift in Sources */,
 				DA9FC4E21F5E79F4009B2D98 /* MConnect2.swift in Sources */,
+				DA69E3851F810D5B0095FB05 /* MSfoItem.swift in Sources */,
 				DAA197F41F79529700A849E4 /* MVitaLinkLogGameSave.swift in Sources */,
 				DAF32A0B1F7F58EC0028EE7A /* MVitaItemInExtensionFactory.swift in Sources */,
 				DAD3A0BF1F6CF0D000026CA9 /* MVitaConfigurationFactoryTools.swift in Sources */,
@@ -1604,6 +1617,7 @@
 				DAD5897B1F6C16C40048D830 /* MHomeSession.swift in Sources */,
 				DA44E5261F7615E400AD287E /* MVitaInfoKeys.swift in Sources */,
 				DAFD69901F692FD100D3B07B /* VConnectingStatus.swift in Sources */,
+				DA69E3871F810D660095FB05 /* MSfoItemFactory.swift in Sources */,
 				DAFFC4C01F68C4AF00F27ADD /* VConnectingPin.swift in Sources */,
 				DA03CFB81F6F1413001AE828 /* MConnectingSocketTcpMethodRegisterResult.swift in Sources */,
 				DA03CF901F6F0CCA001AE828 /* MVitaLinkFactory.swift in Sources */,
@@ -1637,6 +1651,7 @@
 				DA69E3811F810B620095FB05 /* MSfoHeader.swift in Sources */,
 				DAC03D901F77A9E300C11F69 /* MVitaSettingsAccount.swift in Sources */,
 				DAFFC4C61F68CC5100F27ADD /* VConnectingPinListCell.swift in Sources */,
+				DA69E3891F810DE10095FB05 /* MSfoItemFormat.swift in Sources */,
 				DA17D11B1F7630B700A28B35 /* MVitaLinkStrategySendData.swift in Sources */,
 				DA03CFBA1F6F1413001AE828 /* MConnectingSocketTcpMethodStandby.swift in Sources */,
 				DA7622751F6BF2500049195B /* Database.swift in Sources */,
@@ -1812,6 +1827,7 @@
 				DAD3A0C91F6D0B8F00026CA9 /* MVitaConfigurationDevice.swift in Sources */,
 				DAFFC4B61F68B3F700F27ADD /* VConnectWalkCell.swift in Sources */,
 				DAF32A0D1F7F5BD50028EE7A /* MVitaItemInDirectory.swift in Sources */,
+				DA69E38B1F8114520095FB05 /* MSfoKey.swift in Sources */,
 				DA8B7E161F579309004EEE23 /* Model.swift in Sources */,
 				DA8B7DFE1F579037004EEE23 /* ExtensionURL.swift in Sources */,
 				DADB40071F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift in Sources */,
