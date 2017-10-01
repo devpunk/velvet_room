@@ -1,8 +1,9 @@
 import Foundation
 
-enum MSfoItemFormat:Int
+enum MSfoItemFormat:UInt16
 {
-    case text = 1024
-    case characters = 1026
+    case unknown
+    case systemGenerated = 1024
+    case cString = 1026
     case numeric = 1028
 }

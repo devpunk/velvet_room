@@ -28,22 +28,21 @@ extension MSfoItem
     }
     
     private static func factoryFormat(
-        data:Data) -> MSfoItemFormat?
+        data:Data) -> MSfoItemFormat
     {
         let subdata:Data = data.subdata(
             start:kFormatOffset)
         
         guard
             
-            let rawFormat:UInt16 = subdata.valueFromBytes()
+            let rawFormat:UInt16 = subdata.valueFromBytes(),
+            let format:MSfoItemFormat = MSfoItemFormat(
+                rawValue:rawFormat)
             
         else
         {
-            return nil
+            return MSfoItemFormat.unknown
         }
-        
-        let intFormat:Int = Int(rawFormat)
-        let format:MSfoItemFormat = MSfoItemFormat.text
         
         return format
     }
@@ -113,10 +112,11 @@ extension MSfoItem
     static func factoryItem(
         data:Data) -> MSfoItem?
     {
+        let format:MSfoItemFormat = factoryFormat(
+            data:data)
+        
         guard
             
-            let format:MSfoItemFormat = factoryFormat(
-                data:data),
             let keyOffset:Int = factoryKeyOffset(
                 data:data),
             let valueLength:Int = factoryValueLength(
