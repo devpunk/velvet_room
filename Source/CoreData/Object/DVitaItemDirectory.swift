@@ -28,27 +28,4 @@ extension DVitaItemDirectory
             self.rawCategory = rawCategory
         }
     }
-    
-    //MARK: internal
-    
-    func create(
-        name:String,
-        localName:String,
-        dateCreated:Date,
-        dateModified:Date,
-        size:UInt64,
-        category:MVitaItemCategory,
-        directoryType:UInt32)
-    {
-        self.category = category
-        self.directoryType = Int32(directoryType)
-        
-        create(
-            name:name,
-            localName:localName,
-            dateCreated:dateCreated,
-            dateModified:dateModified,
-            size:size,
-            format:MVitaItemFormat.directory)
-    }
 }

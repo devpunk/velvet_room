@@ -5,6 +5,7 @@ class MVitaItemIn
     var dateCreated:Date?
     var dateModified:Date?
     var name:String?
+    var localName:String?
     var size:UInt64
     let format:MVitaItemFormat
     let treatId:UInt32

@@ -6,6 +6,8 @@ final class MVitaItemInDirectory:MVitaItemIn
     let directoryType:UInt32
     var rawElements:[UInt32]
     var elements:[MVitaItemInElement]
+    var sfoTitle:String?
+    var sfoDetail:String?
     
     init(itemTreat:MVitaItemTreat)
     {
