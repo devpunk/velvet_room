@@ -6,6 +6,6 @@ extension MVitaItemInDirectory
     
     func parse()
     {
-        
+        mergeChildrenSize()
     }
 }
