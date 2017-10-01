@@ -10,11 +10,11 @@ extension MSfo
         data:Data) -> MSfoKey?
     {
         let byteStart:Int = item.keyOffset + header.keysOffset
-        let subdata:Data = data.subdata(start:byteStart)
         
         guard
         
             let string:String = MSfoString.stringToFirstNull(
+                start:byteStart,
                 data:subdata)
         
         else

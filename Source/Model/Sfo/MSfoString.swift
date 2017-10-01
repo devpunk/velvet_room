@@ -8,9 +8,29 @@ final class MSfoString
     
     //MARK: internal
     
-    class func stringToFirstNull(data:Data) -> String?
+    class func stringFromBytes(
+        start:Int,
+        endNotIncluding:Int,
+        data:Data) -> String?
     {
-        let array:[UInt8] = Array(data)
+        let subdata:Data = data.subdata(
+            start:start,
+            endNotIncluding:endNotIncluding)
+        
+        let string:String? = stringToFirstNull(
+            start:0,
+            data:subdata)
+        
+        return string
+    }
+    
+    class func stringToFirstNull(
+        start:Int,
+        data:Data) -> String?
+    {
+        let subdata:Data = data.subdata(
+            start:start)
+        let array:[UInt8] = Array(subdata)
         var validData:Data = Data()
         
         for item:UInt8 in array

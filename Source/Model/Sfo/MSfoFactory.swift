@@ -43,8 +43,13 @@ extension MSfo
         {
             guard
             
+                let key:MSfoKey = MSfo.factoryKey(
+                    item:item,
+                    header:header,
+                    data:data),
                 let value:MSfoValueProtocol = MSfo.factoryValue(
                     item:item,
+                    key:key,
                     header:header,
                     data:data)
             
