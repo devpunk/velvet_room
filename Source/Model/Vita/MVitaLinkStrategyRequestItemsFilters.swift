@@ -18,6 +18,7 @@ final class MVitaLinkStrategyRequestItemsFilters:MVitaLinkStrategyRequestDataEve
     {
         guard
             
+            let event:MVitaPtpMessageInEvent = self.event,
             let filters:[UInt32] = data.arrayFromBytes(
                 elements:kTotalFilters)
         
@@ -30,6 +31,15 @@ final class MVitaLinkStrategyRequestItemsFilters:MVitaLinkStrategyRequestDataEve
         
         let rawCategory:UInt32 = filters[kIndexCategory]
         let rawCount:UInt32 = filters[kIndexCount]
+        let category:MVitaItemCategory = MVitaItemCategory.factoryCategory(
+            rawCategory:rawCategory)
+        let count:Int = Int(rawCount)
         
+        print("filter category:\(category) count:\(count)")
+        
+        model?.sendItemsMetaData(
+            category:category,
+            count:count,
+            event:event)
     }
 }

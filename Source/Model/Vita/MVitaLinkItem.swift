@@ -50,4 +50,12 @@ extension MVitaLink
                 event:event)
         }
     }
+    
+    func sendItemsMetaData(
+        category:MVitaItemCategory,
+        count:Int,
+        event:MVitaPtpMessageInEvent)
+    {
+        
+    }
 }
