@@ -9,63 +9,26 @@ extension MVitaLink
         database:Database,
         completion:@escaping((DVitaItemDirectory) -> ()))
     {
-        vitaItem.mergeChildrenSize()
-        let directoryLocalName:String = UUID().uuidString
+        vitaItem.parse()
         
-        guard
-            
-            let name:String = vitaItem.name,
-            let dateCreated:Date = vitaItem.dateCreated,
-            let dateModified:Date = vitaItem.dateModified
-        
-        else
-        {
-            return
-        }
-        
-        createDirectory(
-            name:name,
-            localName:directoryLocalName,
-            dateCreated:dateCreated,
-            dateModified:dateModified,
-            vitaItem:vitaItem,
-            database:database,
-            completion:completion)
-    }
-    
-    private class func createDirectory(
-        name:String,
-        localName:String,
-        dateCreated:Date,
-        dateModified:Date,
-        vitaItem:MVitaItemInDirectory,
-        database:Database,
-        completion:@escaping((DVitaItemDirectory) -> ()))
-    {
         let directoryPath:URL = createDirectory(
-            directoryName:localName)
+            directoryName:vitaItem.localName)
         storeThumbnail(
             directoryPath:directoryPath,
             directory:vitaItem)
         
         database.create
         { (directory:DVitaItemDirectory) in
-            
-            directory.create(
-                name:name,
-                localName:localName,
-                dateCreated:dateCreated,
-                dateModified:dateModified,
-                size:vitaItem.size,
-                category:vitaItem.category,
-                directoryType:vitaItem.directoryType)
-            
-            createElements(
-                directory:directory,
-                directoryPath:directoryPath,
-                elements:vitaItem.elements,
-                database:database,
-                completion:completion)
+                
+                directory.config(
+                    itemDirectory:vitaItem)
+                
+                createElements(
+                    directory:directory,
+                    directoryPath:directoryPath,
+                    elements:vitaItem.elements,
+                    database:database,
+                    completion:completion)
         }
     }
     

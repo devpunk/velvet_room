@@ -30,6 +30,7 @@ extension MVitaItemInDirectory
     func parse()
     {
         mergeChildrenSize()
+        thumbnail = findThumbnail()
         
         guard
         

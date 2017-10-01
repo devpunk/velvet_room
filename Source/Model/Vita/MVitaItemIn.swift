@@ -7,8 +7,8 @@ class MVitaItemIn
     var name:String?
     var size:UInt64
     let format:MVitaItemFormat
+    let localName:String
     let treatId:UInt32
-    private(set) var localName:String?
     
     init(
         format:MVitaItemFormat,
@@ -16,15 +16,11 @@ class MVitaItemIn
     {
         self.format = format
         self.treatId = treatId
+        localName = UUID().uuidString
         size = 0
     }
     
     //MARK: internal
-    
-    final func generateLocalName()
-    {
-        localName = UUID().uuidString
-    }
     
     func requestContent(
         strategy:MVitaLinkStrategyRequestItemTreat) { }

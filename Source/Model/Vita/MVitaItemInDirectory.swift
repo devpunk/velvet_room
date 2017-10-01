@@ -8,6 +8,7 @@ final class MVitaItemInDirectory:MVitaItemIn
     var elements:[MVitaItemInElement]
     var sfoTitle:String?
     var sfoDetail:String?
+    var thumbnail:Data?
     
     init(itemTreat:MVitaItemTreat)
     {
@@ -26,13 +27,5 @@ final class MVitaItemInDirectory:MVitaItemIn
     {
         strategy.requestItemElements(
             treatId:treatId)
-    }
-    
-    override var name:String?
-    {
-        didSet
-        {
-            generateLocalName()
-        }
     }
 }

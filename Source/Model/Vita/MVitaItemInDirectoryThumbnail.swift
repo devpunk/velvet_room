@@ -82,7 +82,7 @@ extension MVitaItemInDirectory
     
     //MARK: internal
     
-    func thumbnail() -> Data?
+    func findThumbnail() -> Data?
     {
         let images:[Data] = allImages()
         

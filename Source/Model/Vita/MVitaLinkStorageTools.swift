@@ -76,7 +76,7 @@ extension MVitaLink
     {
         guard
         
-            let data:Data = directory.thumbnail()
+            let data:Data = directory.thumbnail
         
         else
         {
