@@ -1,12 +1,45 @@
 import Foundation
 
 final class MVitaLinkStrategySendItemsCount:
-    MVitaLinkStrategySendData,
+    MVitaLinkStrategyProtocol,
     MVitaLinkStrategyEventProtocol
+    MVitaLinkStrategyDatabaseProtocol,
 {
+    private(set) var model:MVitaLink?
     private var event:MVitaPtpMessageInEvent?
     
-    override func failed()
+    init(model:MVitaLink)
+    {
+        self.model = model
+    }
+    
+    //MARK: protocol
+    
+    func commandReceived(
+        header:MVitaPtpMessageInHeader,
+        data:Data)
+    {
+        guard
+            
+            let confirm:MVitaPtpMessageInConfirm = MVitaPtpMessageInConfirm(
+                header:header,
+                data:data),
+            header.type == MVitaPtpType.commandAccepted,
+            confirm.code == MVitaPtpCommand.success
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        success()
+    }
+    
+    //MARK: private
+    
+    private func failed()
     {
         let message:String = String.localizedModel(
             key:"MVitaLinkStrategySendItemsCount_messageFailed")
@@ -14,13 +47,13 @@ final class MVitaLinkStrategySendItemsCount:
             message:message)
     }
     
-    override func success()
+    private func success()
     {
         guard
             
             let event:MVitaPtpMessageInEvent = self.event
             
-            else
+        else
         {
             failed()
             
@@ -34,19 +67,19 @@ final class MVitaLinkStrategySendItemsCount:
     
     func config(event:MVitaPtpMessageInEvent)
     {
-//        self.event = event
-//
-//        let data:Data = factoryData()
-//        let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
-//            event:event,
-//            dataPhase:MVitaPtpDataPhase.send,
-//            command:MVitaPtpCommand.sendStorageSize)
-//
-//        send(
-//            data:data,
-//            message:message)
+        
     }
     
     //MARK: private
     
+    private func send(
+        event:MVitaPtpMessageInEvent,
+        count:Int)
+    {
+        let message:MVitaPtpMessageOutItemsCount = MVitaPtpMessageOutItemsCount(
+            event:event,
+            count:count)
+        model?.linkCommand.writeMessage(
+            message:message)
+    }
 }
