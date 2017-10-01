@@ -325,6 +325,7 @@
 		DAF79EFD1F708E5200117BA4 /* MVitaLinkStrategyRequestCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF79EFC1F708E5200117BA4 /* MVitaLinkStrategyRequestCommand.swift */; };
 		DAF8A53C1F57A0860078A383 /* MConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53B1F57A0860078A383 /* MConnect.swift */; };
 		DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAF8A53E1F57A0BE0078A383 /* VConnect.swift */; };
+		DAFD43E61F81A00900B861EB /* MVitaLinkStrategySendItemsCount.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD43E51F81A00900B861EB /* MVitaLinkStrategySendItemsCount.swift */; };
 		DAFD69901F692FD100D3B07B /* VConnectingStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFD698F1F692FD100D3B07B /* VConnectingStatus.swift */; };
 		DAFDA3C91F699C11005AC320 /* VConnectingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDA3C81F699C11005AC320 /* VConnectingError.swift */; };
 		DAFDA3CB1F699C7F005AC320 /* MConnectingStatusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFDA3CA1F699C7F005AC320 /* MConnectingStatusError.swift */; };
@@ -665,6 +666,7 @@
 		DAF79EFC1F708E5200117BA4 /* MVitaLinkStrategyRequestCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestCommand.swift; sourceTree = "<group>"; };
 		DAF8A53B1F57A0860078A383 /* MConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnect.swift; sourceTree = "<group>"; };
 		DAF8A53E1F57A0BE0078A383 /* VConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnect.swift; sourceTree = "<group>"; };
+		DAFD43E51F81A00900B861EB /* MVitaLinkStrategySendItemsCount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategySendItemsCount.swift; sourceTree = "<group>"; };
 		DAFD698F1F692FD100D3B07B /* VConnectingStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingStatus.swift; sourceTree = "<group>"; };
 		DAFDA3C81F699C11005AC320 /* VConnectingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingError.swift; sourceTree = "<group>"; };
 		DAFDA3CA1F699C7F005AC320 /* MConnectingStatusError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MConnectingStatusError.swift; sourceTree = "<group>"; };
@@ -932,6 +934,7 @@
 				DA7E88871F7EB9BD00A35051 /* MVitaLinkStrategyRequestItemTreatSize.swift */,
 				DA7E88891F7EBC3900A35051 /* MVitaLinkStrategyRequestItemTreatData.swift */,
 				DAB76EB01F80494000205A34 /* MVitaLinkStrategySendItemMetadata.swift */,
+				DAFD43E51F81A00900B861EB /* MVitaLinkStrategySendItemsCount.swift */,
 				DA7476501F78642A00A9A84A /* MVitaLinkLogProtocol.swift */,
 				DA7476521F78653F00A9A84A /* MVitaLinkLogType.swift */,
 				DAA197EB1F7950CF00A849E4 /* MVitaLinkLogTransferType.swift */,
@@ -1765,6 +1768,7 @@
 				DAD214051F7EED6E00763410 /* MVitaLinkStorage.swift in Sources */,
 				DA00768B1F77C141005619B3 /* VConnectedOn.swift in Sources */,
 				DA7DFC251F72505200C8D1E8 /* MVitaPtpMessageOutRequestEvent.swift in Sources */,
+				DAFD43E61F81A00900B861EB /* MVitaLinkStrategySendItemsCount.swift in Sources */,
 				DAC03D941F77AB7600C11F69 /* MVitaSettingsKeys.swift in Sources */,
 				DA4E3BAA1F7BC28500645FD1 /* MVitaPtpMessageOutGenericCommand.swift in Sources */,
 				DA8B7E421F579369004EEE23 /* VToast.swift in Sources */,
