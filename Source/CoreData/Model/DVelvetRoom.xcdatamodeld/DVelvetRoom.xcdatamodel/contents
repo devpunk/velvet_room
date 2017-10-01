@@ -4,13 +4,16 @@
         <attribute name="deviceId" attributeType="String" syncable="YES"/>
         <attribute name="firebaseId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
+    <entity name="DVitaIdentifier" representedClassName="DVitaIdentifier" syncable="YES" codeGenerationType="class">
+        <attribute name="identifier" attributeType="String" syncable="YES"/>
+        <relationship name="items" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="DVitaItemDirectory" inverseName="identifier" inverseEntity="DVitaItemDirectory" syncable="YES"/>
+    </entity>
     <entity name="DVitaItem" representedClassName="DVitaItem" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <attribute name="dateCreated" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateModified" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="dateReceived" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firebaseId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="localName" attributeType="String" syncable="YES"/>
-        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="rawFormat" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="size" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
     </entity>
@@ -18,15 +21,18 @@
         <attribute name="directoryType" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="rawCategory" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <relationship name="elements" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DVitaItemElement" inverseName="directory" inverseEntity="DVitaItemElement" syncable="YES"/>
+        <relationship name="identifier" maxCount="1" deletionRule="Nullify" destinationEntity="DVitaIdentifier" inverseName="items" inverseEntity="DVitaIdentifier" syncable="YES"/>
     </entity>
     <entity name="DVitaItemElement" representedClassName="DVitaItemElement" parentEntity="DVitaItem" syncable="YES" codeGenerationType="class">
+        <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="rawFileExtension" attributeType="String" syncable="YES"/>
         <relationship name="directory" maxCount="1" deletionRule="Nullify" destinationEntity="DVitaItemDirectory" inverseName="elements" inverseEntity="DVitaItemDirectory" syncable="YES"/>
     </entity>
     <elements>
         <element name="DAccount" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="DVitaItem" positionX="-63" positionY="0" width="128" height="165"/>
-        <element name="DVitaItemDirectory" positionX="-54" positionY="9" width="128" height="90"/>
-        <element name="DVitaItemElement" positionX="-36" positionY="18" width="128" height="75"/>
+        <element name="DVitaItem" positionX="-63" positionY="0" width="128" height="150"/>
+        <element name="DVitaItemDirectory" positionX="-54" positionY="9" width="128" height="105"/>
+        <element name="DVitaItemElement" positionX="-36" positionY="18" width="128" height="90"/>
+        <element name="DVitaIdentifier" positionX="-45" positionY="54" width="128" height="75"/>
     </elements>
 </model>
