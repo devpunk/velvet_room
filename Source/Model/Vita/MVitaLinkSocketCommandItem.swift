@@ -14,6 +14,16 @@ extension MVitaLinkSocketCommand
         writeMessageAndRead(message:message)
     }
     
+    func requestItemsFilters(
+        event:MVitaPtpMessageInEvent)
+    {
+        let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
+            event:event,
+            dataPhase:MVitaPtpDataPhase.request,
+            command:MVitaPtpCommand.requestItemsFilters)
+        writeMessageAndRead(message:message)
+    }
+    
     func requestItemTreat(
         event:MVitaPtpMessageInEvent)
     {

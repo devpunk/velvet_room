@@ -11,6 +11,7 @@ enum MVitaPtpCommand:UInt16
     case invalidParameter               = 8221
     case requestVitaInfo                = 38161
     case sendItemsCount                 = 38163
+    case requestItemsFilters            = 38164
     case sendItemMetadata               = 38165
     case sendResult                     = 38168
     case sendLocalInfo                  = 38172

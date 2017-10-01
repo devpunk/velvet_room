@@ -30,14 +30,14 @@ extension MVitaLink
         strategyEvent(event:event)
     }
     
-    private func sendItemsMetadata(
+    private func sendItemsMetaData(
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
-            MVitaLinkStrategySendItemsCount.self)
-        
-        strategyDatabase()
+            MVitaLinkStrategyRequestItemsFilters.self)
         strategyEvent(event:event)
+        
+        linkCommand.requestItemsFilters(event:event)
     }
     
     private func requestItemStatus(
@@ -97,7 +97,7 @@ extension MVitaLink
             
         case MVitaPtpEvent.sendItemsMetaData:
             
-            sendItemsMetadata(event:event)
+            sendItemsMetaData(event:event)
             
             break
             
