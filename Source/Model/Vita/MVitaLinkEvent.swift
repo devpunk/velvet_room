@@ -25,6 +25,8 @@ extension MVitaLink
     {
         changeStrategy(strategyType:
             MVitaLinkStrategySendItemsCount.self)
+        
+        strategyDatabase()
         strategyEvent(event:event)
     }
     

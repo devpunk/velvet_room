@@ -50,6 +50,21 @@ extension MVitaLink
         strategyItem.config(item:item)
     }
     
+    func strategyDatabase()
+    {
+        guard
+            
+            let database:Database = self.database,
+            let strategyDatabase:MVitaLinkStrategyDatabaseProtocol = strategy as? MVitaLinkStrategyDatabaseProtocol
+            
+        else
+        {
+            return
+        }
+        
+        strategyDatabase.config(database:database)
+    }
+    
     func errorCloseConnection(message:String)
     {
         let status:MVitaPtpLocalStatus = MVitaPtpLocalStatus.connectionEnd

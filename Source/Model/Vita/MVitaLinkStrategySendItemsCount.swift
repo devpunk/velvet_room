@@ -2,10 +2,11 @@ import Foundation
 
 final class MVitaLinkStrategySendItemsCount:
     MVitaLinkStrategyProtocol,
-    MVitaLinkStrategyEventProtocol
     MVitaLinkStrategyDatabaseProtocol,
+    MVitaLinkStrategyEventProtocol
 {
     private(set) var model:MVitaLink?
+    private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
     
     init(model:MVitaLink)
@@ -63,11 +64,20 @@ final class MVitaLinkStrategySendItemsCount:
         model?.sendResultSuccess(event:event)
     }
     
+    //MARK: database protocol
+    
+    func config(database:Database)
+    {
+        self.database = database
+    }
+    
     //MARK: event protocol
     
     func config(event:MVitaPtpMessageInEvent)
     {
+        guard
         
+            let database:dat
     }
     
     //MARK: private

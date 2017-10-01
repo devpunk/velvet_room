@@ -5,24 +5,6 @@ extension MVitaItemStatus
     private static let kNullTerminator:String = "\0"
     private static let kParameters:Int = 2
     
-    //MARK: private
-    
-    private static func factoryCategory(
-        rawCategory:UInt32) -> MVitaItemCategory
-    {
-        guard
-        
-            let category:MVitaItemCategory = MVitaItemCategory(
-                rawValue:rawCategory)
-        
-        else
-        {
-            return MVitaItemCategory.unknown
-        }
-        
-        return category
-    }
-    
     //MARK: internal
     
     static func factoryStatus(data:Data) -> MVitaItemStatus?
@@ -82,7 +64,7 @@ extension MVitaItemStatus
             of:kNullTerminator,
             with:String())
 
-        let category:MVitaItemCategory = factoryCategory(
+        let category:MVitaItemCategory = MVitaItemCategory.factoryCategory(
             rawCategory:rawCategory)
         let itemStatus:MVitaItemStatus = MVitaItemStatus(
             category:category,
