@@ -71,19 +71,19 @@ extension MSfo
         
         guard
             
-            let string:String = MSfoString.stringFromBytes(
+            let int:Int = MSfoInt.intFromBytes(
                 start:byteStart,
                 endNotIncluding:byteEnd,
                 data:data)
             
-            else
+        else
         {
             return nil
         }
         
-        let value:MSfoValueText = MSfoValueText(
+        let value:MSfoValueNumeric = MSfoValueNumeric(
             key:key,
-            value:string)
+            value:int)
         
         return value
     }
@@ -113,6 +113,16 @@ extension MSfo
         case MSfoItemFormat.characters:
             
             value = factoryCharacters(
+                item:item,
+                key:key,
+                header:header,
+                data:data)
+            
+            break
+            
+        case MSfoItemFormat.numeric:
+            
+            value = factoryNumeric(
                 item:item,
                 key:key,
                 header:header,

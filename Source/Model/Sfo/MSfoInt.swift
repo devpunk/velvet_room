@@ -16,5 +16,18 @@ final class MSfoInt
         let subdata:Data = data.subdata(
             start:start,
             endNotIncluding:endNotIncluding)
+        
+        guard
+        
+            let uInt32:UInt32 = subdata.valueFromBytes()
+        
+        else
+        {
+            return nil
+        }
+        
+        let int:Int = Int(uInt32)
+        
+        return int
     }
 }
