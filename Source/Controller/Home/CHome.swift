@@ -29,26 +29,35 @@ final class CHome:Controller<ArchHome>
         }
         
         database?.fetch
-        { (elements:[DVitaItemElement]) in
+            { (items:[DVitaItem]) in
             
-            for element in elements
-            {
-                if element.fileExtension == MVitaItemInExtension.sfo
+                for item in items
                 {
-                    guard
-                    
-                        let storagePath:URL = MVitaLink.storagePath(
-                            element:element)
-                    
-                    else
-                    {
-                        continue
-                    }
-                    
-                    self.parseSfo(location:storagePath)
+                    print(item)
                 }
-            }
         }
+        
+//        database?.fetch
+//        { (elements:[DVitaItemElement]) in
+//
+//            for element in elements
+//            {
+//                if element.fileExtension == MVitaItemInExtension.sfo
+//                {
+//                    guard
+//
+//                        let storagePath:URL = MVitaLink.storagePath(
+//                            element:element)
+//
+//                    else
+//                    {
+//                        continue
+//                    }
+//
+//                    self.parseSfo(location:storagePath)
+//                }
+//            }
+//        }
     }
     
     //MARK: internal
