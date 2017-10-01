@@ -43,8 +43,7 @@ extension MSfoItem
         }
         
         let intFormat:Int = Int(rawFormat)
-        let format:MSfoItemFormat? = MSfoItemFormat(
-            rawValue:intFormat)
+        let format:MSfoItemFormat = MSfoItemFormat.text
         
         return format
     }

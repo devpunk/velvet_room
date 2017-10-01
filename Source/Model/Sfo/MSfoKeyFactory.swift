@@ -22,7 +22,9 @@ extension MSfo
             return nil
         }
         
-        let key:MSfoKey? = MSfoKey(rawValue:string)
+        let lowerCase:String = string.lowercased()
+        let key:MSfoKey? = MSfoKey(
+            rawValue:lowerCase)
         
         return key
     }

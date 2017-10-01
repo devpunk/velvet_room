@@ -37,30 +37,52 @@ final class CHome:Controller<ArchHome>
                 }
         }
         
-//        database?.fetch
-//        { (elements:[DVitaItemElement]) in
-//
-//            for element in elements
-//            {
-//                if element.fileExtension == MVitaItemInExtension.sfo
-//                {
-//                    guard
-//
-//                        let storagePath:URL = MVitaLink.storagePath(
-//                            element:element)
-//
-//                    else
-//                    {
-//                        continue
-//                    }
-//
-//                    self.parseSfo(location:storagePath)
-//                }
-//            }
-//        }
+        database?.fetch
+        { (elements:[DVitaItemElement]) in
+
+            for element in elements
+            {
+                if element.fileExtension == MVitaItemInExtension.sfo
+                {
+                    guard
+
+                        let storagePath:URL = MVitaLink.storagePath(
+                            element:element)
+
+                    else
+                    {
+                        continue
+                    }
+
+                    self.parseSfo2(location:storagePath)
+                }
+            }
+        }
     }
     
     //MARK: internal
+    
+    func parseSfo2(location:URL)
+    {
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:location,
+                options:Data.ReadingOptions.mappedIfSafe)
+        }
+        catch
+        {
+            return
+        }
+        
+        
+        print("data size\(data.count)")
+        
+        let msfo = MSfo.factorySfo(data:data)
+        print(msfo)
+    }
     
     func parseSfo(location:URL)
     {

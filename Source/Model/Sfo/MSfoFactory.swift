@@ -8,12 +8,16 @@ extension MSfo
         count:Int,
         data:Data) -> [MSfoItem]
     {
+        let startIndex:Int = MSfoHeader.kBytes - MSfoItem.kBytes
         var items:[MSfoItem] = []
         var subdata:Data = data.subdata(
-            start:MSfoHeader.kBytes)
+            start:startIndex)
         
         for _:Int in 0 ..< count
         {
+            subdata = subdata.subdata(
+                start:MSfoItem.kBytes)
+            
             guard
                 
                 let item:MSfoItem = MSfoItem.factoryItem(
@@ -25,8 +29,6 @@ extension MSfo
             }
             
             items.append(item)
-            subdata = subdata.subdata(
-                start:MSfoItem.kBytes)
         }
         
         return items
