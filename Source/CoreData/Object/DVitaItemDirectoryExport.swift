@@ -19,15 +19,16 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
             let root:[String:Any] = [
                 "objectMetadata":[
                     "folder":[
-                        "type":directoryType,
+//                        "type":directoryType,
                         "name":name,
-                        "title":name,
-                        "index":0,
-                        "ohfiParent":rawCategory,
-                        "ohfi":rawCategory,
+//                        "title":name,
+//                        "index":0,
+//                        "ohfiParent":rawCategory,
+//                        "ohfi":rawCategory,
                         "size":size,
-                        "dateTimeUpdated":dateModifiedString,
-                        "dateTimeCreated":dateCreatedString]]]
+//                        "dateTimeCreated":dateCreatedString,
+                        "dateTimeUpdated":dateModifiedString
+                    ]]]
             
             return root
         }
