@@ -111,6 +111,7 @@
 		DA69E2CD1F816F4B00EB100F /* MSfoValueNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2CC1F816F4B00EB100F /* MSfoValueNumeric.swift */; };
 		DA69E2D11F81715F00EB100F /* MSfoValueFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2D01F81715F00EB100F /* MSfoValueFactory.swift */; };
 		DA69E2D31F8172CB00EB100F /* MSfoString.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2D21F8172CB00EB100F /* MSfoString.swift */; };
+		DA69E2D51F81734E00EB100F /* MSfoKeyFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2D41F81734E00EB100F /* MSfoKeyFactory.swift */; };
 		DA69E3811F810B620095FB05 /* MSfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3801F810B620095FB05 /* MSfoHeader.swift */; };
 		DA69E3831F810B790095FB05 /* MSfoHeaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */; };
 		DA69E3851F810D5B0095FB05 /* MSfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3841F810D5B0095FB05 /* MSfoItem.swift */; };
@@ -445,6 +446,7 @@
 		DA69E2CC1F816F4B00EB100F /* MSfoValueNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueNumeric.swift; sourceTree = "<group>"; };
 		DA69E2D01F81715F00EB100F /* MSfoValueFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueFactory.swift; sourceTree = "<group>"; };
 		DA69E2D21F8172CB00EB100F /* MSfoString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoString.swift; sourceTree = "<group>"; };
+		DA69E2D41F81734E00EB100F /* MSfoKeyFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoKeyFactory.swift; sourceTree = "<group>"; };
 		DA69E3801F810B620095FB05 /* MSfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeader.swift; sourceTree = "<group>"; };
 		DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeaderFactory.swift; sourceTree = "<group>"; };
 		DA69E3841F810D5B0095FB05 /* MSfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoItem.swift; sourceTree = "<group>"; };
@@ -1265,6 +1267,7 @@
 				DA8F53AE1F81090600BC8875 /* MSfo.swift */,
 				DA8F53B01F810A8E00BC8875 /* MSfoFactory.swift */,
 				DA69E2D01F81715F00EB100F /* MSfoValueFactory.swift */,
+				DA69E2D41F81734E00EB100F /* MSfoKeyFactory.swift */,
 				DA69E3801F810B620095FB05 /* MSfoHeader.swift */,
 				DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */,
 				DA69E3841F810D5B0095FB05 /* MSfoItem.swift */,
@@ -1836,6 +1839,7 @@
 				DAD214071F7EF37E00763410 /* DVitaItemDirectory.swift in Sources */,
 				DAD214011F7EE71E00763410 /* MVitaLinkStrategyRequestItemTreatName.swift in Sources */,
 				DA4E3BB21F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift in Sources */,
+				DA69E2D51F81734E00EB100F /* MSfoKeyFactory.swift in Sources */,
 				DA03CFB31F6F1413001AE828 /* MConnectingSocketTcpMethodTypeFactory.swift in Sources */,
 				DADF50A61F7C547B008E4C2B /* MVitaLinkItem.swift in Sources */,
 				DADF50B01F7C757D008E4C2B /* MVitaItemTreatFactory.swift in Sources */,
