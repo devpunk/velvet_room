@@ -15,7 +15,7 @@ extension MSfo
         
             let string:String = MSfoString.stringToFirstNull(
                 start:byteStart,
-                data:subdata)
+                data:data)
         
         else
         {

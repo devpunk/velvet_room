@@ -27,20 +27,20 @@ extension MVitaLink
             item.identifier = identifier
             
             identifierCreated(
-                identifier:identifier,
+                identifier:item,
                 database:database,
                 completion:completion)
         }
     }
     
     private class func identifierCreated(
-        identifier:String,
+        identifier:DVitaIdentifier,
         database:Database,
         completion:@escaping((DVitaIdentifier) -> ()))
     {
         database.save
         {
-            completion(item)
+            completion(identifier)
         }
     }
     

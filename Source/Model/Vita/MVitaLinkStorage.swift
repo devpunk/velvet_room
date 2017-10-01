@@ -11,6 +11,34 @@ extension MVitaLink
     {
         vitaItem.parse()
         
+        guard
+            
+            let directoryName:String = vitaItem.name
+        
+        else
+        {
+            return
+        }
+        
+        factoryIdentifier(
+            identifier:directoryName,
+            database:database)
+        { (identifier:DVitaIdentifier) in
+         
+            storeItem(
+                vitaItem:vitaItem,
+                identifier:identifier,
+                database:database,
+                completion:completion)
+        }
+    }
+    
+    private class func storeItem(
+        vitaItem:MVitaItemInDirectory,
+        identifier:DVitaIdentifier,
+        database:Database,
+        completion:@escaping((DVitaItemDirectory) -> ()))
+    {
         let directoryPath:URL = createDirectory(
             directoryName:vitaItem.localName)
         storeThumbnail(
@@ -19,16 +47,17 @@ extension MVitaLink
         
         database.create
         { (directory:DVitaItemDirectory) in
-                
-                directory.config(
-                    itemDirectory:vitaItem)
-                
-                createElements(
-                    directory:directory,
-                    directoryPath:directoryPath,
-                    elements:vitaItem.elements,
-                    database:database,
-                    completion:completion)
+            
+            directory.identifier = identifier
+            directory.config(
+                itemDirectory:vitaItem)
+            
+            createElements(
+                directory:directory,
+                directoryPath:directoryPath,
+                elements:vitaItem.elements,
+                database:database,
+                completion:completion)
         }
     }
     
@@ -70,16 +99,22 @@ extension MVitaLink
         dispatchGroup:DispatchGroup)
     {
         guard
-            
-            let data:Data = vitaItem.data,
-            let localName:String = storeRandomAtPath(
-                data:data,
-                directoryPath:directoryPath),
-            let elementName:String = vitaItem.name,
-            let dateCreated:Date = vitaItem.dateCreated,
-            let dateModified:Date = vitaItem.dateModified
+        
+            let data:Data = vitaItem.data
         
         else
+        {
+            return
+        }
+        
+        do
+        {
+            try storeElement(
+                localName:vitaItem.localName,
+                directoryPath:directoryPath,
+                data:data)
+        }
+        catch
         {
             return
         }
@@ -89,14 +124,9 @@ extension MVitaLink
         database.create
         { (element:DVitaItemElement) in
             
-            element.create(
-                name:elementName,
-                localName:localName,
-                dateCreated:dateCreated,
-                dateModified:dateModified,
-                size:vitaItem.size,
-                fileExtension:vitaItem.fileExtension,
-                directory:directory)
+            element.directory = directory
+            element.config(
+                itemElement:vitaItem)
             
             dispatchGroup.leave()
         }

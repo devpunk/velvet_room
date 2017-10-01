@@ -98,28 +98,17 @@ extension MVitaLink
         }
     }
     
-    class func storeRandomAtPath(
-        data:Data,
-        directoryPath:URL) -> String?
+    class func storeElement(
+        localName:String,
+        directoryPath:URL,
+        data:Data) throws
     {
-        let randomName:String = UUID().uuidString
         let elementPath:URL = directoryPath.appendingPathComponent(
-            randomName)
+            localName)
         
-        do
-        {
-            try data.write(
-                to:elementPath,
-                options:
-                Data.WritingOptions.atomicWrite)
-        }
-        catch
-        {
-            return nil
-        }
-        
-        print("path: \(elementPath)")
-        
-        return randomName
+        try data.write(
+            to:elementPath,
+            options:
+            Data.WritingOptions.atomicWrite)
     }
 }

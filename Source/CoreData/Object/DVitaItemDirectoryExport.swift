@@ -14,13 +14,14 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
                 date:dateCreated)
             let dateModifiedString:String = MVitaPtpDate.factoryString(
                 date:dateModified)
+            let name:String = self.identifier!.identifier!
             
             let root:[String:Any] = [
                 "objectMetadata":[
                     "folder":[
                         "type":directoryType,
-                        "name":self.name!,
-                        "title":self.name!,
+                        "name":name,
+                        "title":name,
                         "index":0,
                         "ohfiParent":rawCategory,
                         "ohfi":rawCategory,

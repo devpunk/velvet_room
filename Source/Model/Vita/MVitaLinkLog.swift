@@ -22,7 +22,7 @@ extension MVitaLink
     {
         guard
             
-            let name:String = directory.name,
+            let name:String = directory.sfoTitle,
             let localName:String = directory.localName,
             let thumbnail:Data = MVitaLink.thumbnail(
                 directoryName:localName),
