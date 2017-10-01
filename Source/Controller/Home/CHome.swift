@@ -46,8 +46,6 @@ final class CHome:Controller<ArchHome>
                     }
                     
                     self.parseSfo(location:storagePath)
-                    
-                    break
                 }
             }
         }
@@ -127,14 +125,33 @@ final class CHome:Controller<ArchHome>
             
             debugPrint(string)
             
+            let newOffset:Int = Int(dataTable) + Int(e.dataOffset)
+            let endIndex:Int = Int(e.paramLength) + newOffset
+            let newSubdata:Data = data.subdata(start:newOffset, endNotIncluding:endIndex)
+            
+            print("offset:\(newOffset) end:\(endIndex)")
+            
             switch e.paramFormat
             {
             case formatUint32:
                 
                 
+                let value:UInt32 = newSubdata.valueFromBytes()!
+                
+                print("format int: \(value)")
+                
+                break
+                
+            default:
+                
+                let string:String = String.init(data:newSubdata, encoding:String.Encoding.ascii)!
+                print("format string")
+                debugPrint(string)
                 
                 break
             }
+            
+            print("\n")
         }
         
     }
