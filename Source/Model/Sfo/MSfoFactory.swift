@@ -37,6 +37,33 @@ extension MSfo
         items:[MSfoItem],
         data:Data) -> MSfo
     {
+        var values:[MSfoValueProtocol] = []
+        
+        for item:MSfoItem in items
+        {
+            guard
+            
+                let value:MSfoValueProtocol = MSfo.factoryValue(
+                    item:item,
+                    header:header,
+                    data:data)
+            
+            else
+            {
+                continue
+            }
+            
+            values.append(value)
+        }
+        
+        let sfo:MSfo = factorySfo(values:values)
+        
+        return sfo
+    }
+    
+    private static func factorySfo(
+        values:[MSfoValueProtocol]) -> MSfo
+    {
         
     }
     

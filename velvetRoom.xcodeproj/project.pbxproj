@@ -109,7 +109,7 @@
 		DA69E2C91F816EE000EB100F /* MSfoValueText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2C81F816EE000EB100F /* MSfoValueText.swift */; };
 		DA69E2CB1F816F2A00EB100F /* MSfoValueCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2CA1F816F2A00EB100F /* MSfoValueCharacters.swift */; };
 		DA69E2CD1F816F4B00EB100F /* MSfoValueNumeric.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2CC1F816F4B00EB100F /* MSfoValueNumeric.swift */; };
-		DA69E2CF1F816F9A00EB100F /* MSfoValueProtocolFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2CE1F816F9A00EB100F /* MSfoValueProtocolFactory.swift */; };
+		DA69E2D11F81715F00EB100F /* MSfoValueFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2D01F81715F00EB100F /* MSfoValueFactory.swift */; };
 		DA69E3811F810B620095FB05 /* MSfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3801F810B620095FB05 /* MSfoHeader.swift */; };
 		DA69E3831F810B790095FB05 /* MSfoHeaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */; };
 		DA69E3851F810D5B0095FB05 /* MSfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3841F810D5B0095FB05 /* MSfoItem.swift */; };
@@ -442,7 +442,7 @@
 		DA69E2C81F816EE000EB100F /* MSfoValueText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueText.swift; sourceTree = "<group>"; };
 		DA69E2CA1F816F2A00EB100F /* MSfoValueCharacters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueCharacters.swift; sourceTree = "<group>"; };
 		DA69E2CC1F816F4B00EB100F /* MSfoValueNumeric.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueNumeric.swift; sourceTree = "<group>"; };
-		DA69E2CE1F816F9A00EB100F /* MSfoValueProtocolFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueProtocolFactory.swift; sourceTree = "<group>"; };
+		DA69E2D01F81715F00EB100F /* MSfoValueFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueFactory.swift; sourceTree = "<group>"; };
 		DA69E3801F810B620095FB05 /* MSfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeader.swift; sourceTree = "<group>"; };
 		DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeaderFactory.swift; sourceTree = "<group>"; };
 		DA69E3841F810D5B0095FB05 /* MSfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoItem.swift; sourceTree = "<group>"; };
@@ -1262,6 +1262,7 @@
 			children = (
 				DA8F53AE1F81090600BC8875 /* MSfo.swift */,
 				DA8F53B01F810A8E00BC8875 /* MSfoFactory.swift */,
+				DA69E2D01F81715F00EB100F /* MSfoValueFactory.swift */,
 				DA69E3801F810B620095FB05 /* MSfoHeader.swift */,
 				DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */,
 				DA69E3841F810D5B0095FB05 /* MSfoItem.swift */,
@@ -1269,7 +1270,6 @@
 				DA69E3881F810DE10095FB05 /* MSfoItemFormat.swift */,
 				DA69E38A1F8114520095FB05 /* MSfoKey.swift */,
 				DA69E2C61F816E5800EB100F /* MSfoValueProtocol.swift */,
-				DA69E2CE1F816F9A00EB100F /* MSfoValueProtocolFactory.swift */,
 				DA69E2C81F816EE000EB100F /* MSfoValueText.swift */,
 				DA69E2CA1F816F2A00EB100F /* MSfoValueCharacters.swift */,
 				DA69E2CC1F816F4B00EB100F /* MSfoValueNumeric.swift */,
@@ -1681,6 +1681,7 @@
 				DA4AFE6A1F7959CF008D3E35 /* MConnectedEventPicture.swift in Sources */,
 				DA55F5141F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift in Sources */,
 				DA8B7E261F579344004EEE23 /* ViewParentGesture.swift in Sources */,
+				DA69E2D11F81715F00EB100F /* MSfoValueFactory.swift in Sources */,
 				DA97E4391F7C93A500622421 /* MVitaLinkStrategyRequestItemTreatFormat.swift in Sources */,
 				DAEE16121F579FB000D9F6DD /* CConnect.swift in Sources */,
 				DA6E93AA1F70A1B900FA4375 /* MVitaLinkPtpDelegate.swift in Sources */,
@@ -1815,7 +1816,6 @@
 				DA44E5241F76127600AD287E /* MVitaInfoThumb.swift in Sources */,
 				DAEE1CC81F77CAD8003DA23F /* VConnectedError.swift in Sources */,
 				DAEE25AC1F778A4900AAAE18 /* MVitaPtpMessageOutSendLocalStatus.swift in Sources */,
-				DA69E2CF1F816F9A00EB100F /* MSfoValueProtocolFactory.swift in Sources */,
 				DA17D1251F763DCF00A28B35 /* MVitaLinkStrategySendDataStatusHeader.swift in Sources */,
 				DA55F5181F7F667C0050A0A6 /* MVitaLinkStrategyRequestItemTreatInElement.swift in Sources */,
 				DA00A5701F77AF6A004E6FFE /* MVitaLinkStrategySendResult.swift in Sources */,
