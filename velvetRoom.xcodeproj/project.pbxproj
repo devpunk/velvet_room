@@ -106,6 +106,7 @@
 		DA5FD8331F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD8321F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift */; };
 		DA5FD8351F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */; };
 		DA69E2C71F816E5800EB100F /* MSfoValueProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2C61F816E5800EB100F /* MSfoValueProtocol.swift */; };
+		DA69E2C91F816EE000EB100F /* MSfoValueText.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E2C81F816EE000EB100F /* MSfoValueText.swift */; };
 		DA69E3811F810B620095FB05 /* MSfoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3801F810B620095FB05 /* MSfoHeader.swift */; };
 		DA69E3831F810B790095FB05 /* MSfoHeaderFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */; };
 		DA69E3851F810D5B0095FB05 /* MSfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA69E3841F810D5B0095FB05 /* MSfoItem.swift */; };
@@ -435,6 +436,7 @@
 		DA5FD8321F7DB220006E11D7 /* MVitaLinkStrategyCloseSessionUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyCloseSessionUser.swift; sourceTree = "<group>"; };
 		DA5FD8341F7DB228006E11D7 /* MVitaLinkStrategyCloseSessionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyCloseSessionError.swift; sourceTree = "<group>"; };
 		DA69E2C61F816E5800EB100F /* MSfoValueProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueProtocol.swift; sourceTree = "<group>"; };
+		DA69E2C81F816EE000EB100F /* MSfoValueText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoValueText.swift; sourceTree = "<group>"; };
 		DA69E3801F810B620095FB05 /* MSfoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeader.swift; sourceTree = "<group>"; };
 		DA69E3821F810B790095FB05 /* MSfoHeaderFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoHeaderFactory.swift; sourceTree = "<group>"; };
 		DA69E3841F810D5B0095FB05 /* MSfoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoItem.swift; sourceTree = "<group>"; };
@@ -1261,6 +1263,7 @@
 				DA69E3881F810DE10095FB05 /* MSfoItemFormat.swift */,
 				DA69E38A1F8114520095FB05 /* MSfoKey.swift */,
 				DA69E2C61F816E5800EB100F /* MSfoValueProtocol.swift */,
+				DA69E2C81F816EE000EB100F /* MSfoValueText.swift */,
 			);
 			path = Sfo;
 			sourceTree = "<group>";
@@ -1709,6 +1712,7 @@
 				DA9751501F69940C00DBC757 /* MConnectingPin.swift in Sources */,
 				DAEE1CC21F77C993003DA23F /* MConnectedVitaLinkDelegate.swift in Sources */,
 				DA69E3831F810B790095FB05 /* MSfoHeaderFactory.swift in Sources */,
+				DA69E2C91F816EE000EB100F /* MSfoValueText.swift in Sources */,
 				DA8B7E241F579344004EEE23 /* ViewMain.swift in Sources */,
 				DAFFC4BA1F68B74300F27ADD /* VConnectingLoading.swift in Sources */,
 				DA7E88821F7E77FC00A35051 /* MVitaPtpMessageOutItemElements.swift in Sources */,
