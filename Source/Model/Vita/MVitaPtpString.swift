@@ -74,6 +74,7 @@ final class MVitaPtpString
         guard
             
             let length:Int = factoryLength(data:data),
+            length > 0,
             data.count > length,
             let string:String = factoryString(
                 data:data,

@@ -9,8 +9,6 @@ final class MVitaLinkStrategyRequestItemTreatTest:MVitaLinkStrategyRequestItemTr
     {
         print("data size: \(strategy.data.count)")
         
-        strategy.requestItemContent()
-        
         guard
         
             let array:[UInt8] = strategy.data.arrayFromBytes(
@@ -19,9 +17,29 @@ final class MVitaLinkStrategyRequestItemTreatTest:MVitaLinkStrategyRequestItemTr
         else
         {
             return
+            strategy.requestItemContent()
         }
         
         print("array")
         print(array)
+        
+        
+        guard
+            
+            let itemFileName:String = MVitaPtpString.factoryString(
+                data:strategy.data)
+        
+        else
+        {
+            print("no string")
+            strategy.requestItemContent()
+            
+            return
+        }
+        
+        print("string")
+        print(itemFileName)
+        
+        strategy.requestItemContent()
     }
 }

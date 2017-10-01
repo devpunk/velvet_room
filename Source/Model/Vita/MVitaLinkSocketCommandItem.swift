@@ -97,7 +97,7 @@ extension MVitaLinkSocketCommand
         let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
             treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request,
-            property:MVitaPtpItemProperty.test1)
+            property:MVitaPtpItemProperty.test2)
         writeMessageAndRead(message:message)
     }
 }
