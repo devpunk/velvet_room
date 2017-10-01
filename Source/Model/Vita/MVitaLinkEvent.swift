@@ -24,7 +24,7 @@ extension MVitaLink
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
-            MVitaLinkStrategySendStorageSize.self)
+            MVitaLinkStrategySendItemsCount.self)
         strategyEvent(event:event)
     }
     
