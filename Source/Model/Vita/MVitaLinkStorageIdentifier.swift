@@ -2,7 +2,7 @@ import Foundation
 
 extension MVitaLink
 {
-    private static let kPredicate:String = "name == \"%@\""
+    private static let kPredicate:String = "identifier == \"%@\""
     
     private class func factoryPredicate(
         identifier:String) -> NSPredicate
