@@ -34,6 +34,7 @@ extension DVitaItem
     func create(
         name:String,
         localName:String,
+        dateCreated:Date,
         dateModified:Date,
         size:UInt64,
         format:MVitaItemFormat)
@@ -42,6 +43,7 @@ extension DVitaItem
         
         self.name = name
         self.localName = localName
+        self.dateCreated = dateCreated.timeIntervalSince1970
         self.dateModified = dateModified.timeIntervalSince1970
         self.size = Int64(size)
         self.format = format

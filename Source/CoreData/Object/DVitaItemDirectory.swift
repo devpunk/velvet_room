@@ -34,6 +34,7 @@ extension DVitaItemDirectory
     func create(
         name:String,
         localName:String,
+        dateCreated:Date,
         dateModified:Date,
         size:UInt64,
         category:MVitaItemCategory,
@@ -45,6 +46,7 @@ extension DVitaItemDirectory
         create(
             name:name,
             localName:localName,
+            dateCreated:dateCreated,
             dateModified:dateModified,
             size:size,
             format:MVitaItemFormat.directory)

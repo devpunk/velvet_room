@@ -25,7 +25,7 @@ extension MVitaLinkStrategyRequestItemTreat
             treatId:treatId)
     }
     
-    func requestDateModified(
+    func requestDateCreated(
         itemFileName:String)
     {
         guard
@@ -40,6 +40,28 @@ extension MVitaLinkStrategyRequestItemTreat
         }
         
         currentItem?.name = itemFileName
+        
+        changeStatus(
+            statusType:MVitaLinkStrategyRequestItemTreatDateCreated.self)
+        model?.linkCommand.requestItemDateCreated(
+            treatId:treatId)
+    }
+    
+    func requestDateModified(
+        itemDateCreated:Date)
+    {
+        guard
+            
+            let treatId:UInt32 = currentItem?.treatId
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        currentItem?.dateCreated = itemDateCreated
         
         changeStatus(
             statusType:MVitaLinkStrategyRequestItemTreatDateModified.self)
@@ -69,29 +91,10 @@ extension MVitaLinkStrategyRequestItemTreat
             treatId:treatId)
     }
     
-    func requestItemTest(
+    func requestItemContent(
         itemSize:UInt64)
     {
         currentItem?.size = itemSize
-        
-        guard
-            
-            let treatId:UInt32 = currentItem?.treatId
-            
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        changeStatus(
-            statusType:MVitaLinkStrategyRequestItemTreatTest.self)
-        model?.linkCommand.requestTest(treatId:treatId)
-    }
-    
-    func requestItemContent()
-    {
         currentItem?.requestContent(strategy:self)
     }
     

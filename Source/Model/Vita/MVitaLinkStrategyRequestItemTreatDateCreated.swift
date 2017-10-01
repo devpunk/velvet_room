@@ -1,6 +1,6 @@
 import Foundation
 
-final class MVitaLinkStrategyRequestItemTreatName:MVitaLinkStrategyRequestItemTreatProtocol
+final class MVitaLinkStrategyRequestItemTreatDateCreated:MVitaLinkStrategyRequestItemTreatProtocol
 {
     //MARK: internal
     
@@ -9,7 +9,7 @@ final class MVitaLinkStrategyRequestItemTreatName:MVitaLinkStrategyRequestItemTr
     {
         guard
             
-            let itemFileName:String = MVitaPtpString.factoryString(
+            let itemDateCreated:Date = MVitaPtpDate.factoryDate(
                 data:strategy.data)
             
         else
@@ -19,7 +19,7 @@ final class MVitaLinkStrategyRequestItemTreatName:MVitaLinkStrategyRequestItemTr
             return
         }
         
-        strategy.requestDateCreated(
-            itemFileName:itemFileName)
+        strategy.requestDateModified(
+            itemDateCreated:itemDateCreated)
     }
 }

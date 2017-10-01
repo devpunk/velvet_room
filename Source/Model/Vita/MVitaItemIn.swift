@@ -2,6 +2,7 @@ import Foundation
 
 class MVitaItemIn
 {
+    var dateCreated:Date?
     var dateModified:Date?
     var name:String?
     var size:UInt64

@@ -15,6 +15,7 @@ extension MVitaLink
         guard
             
             let name:String = vitaItem.name,
+            let dateCreated:Date = vitaItem.dateCreated,
             let dateModified:Date = vitaItem.dateModified
         
         else
@@ -25,6 +26,7 @@ extension MVitaLink
         createDirectory(
             name:name,
             localName:directoryLocalName,
+            dateCreated:dateCreated,
             dateModified:dateModified,
             vitaItem:vitaItem,
             database:database,
@@ -34,6 +36,7 @@ extension MVitaLink
     private class func createDirectory(
         name:String,
         localName:String,
+        dateCreated:Date,
         dateModified:Date,
         vitaItem:MVitaItemInDirectory,
         database:Database,
@@ -51,6 +54,7 @@ extension MVitaLink
             directory.create(
                 name:name,
                 localName:localName,
+                dateCreated:dateCreated,
                 dateModified:dateModified,
                 size:vitaItem.size,
                 category:vitaItem.category,
@@ -109,6 +113,7 @@ extension MVitaLink
                 data:data,
                 directoryPath:directoryPath),
             let elementName:String = vitaItem.name,
+            let dateCreated:Date = vitaItem.dateCreated,
             let dateModified:Date = vitaItem.dateModified
         
         else
@@ -124,6 +129,7 @@ extension MVitaLink
             element.create(
                 name:elementName,
                 localName:localName,
+                dateCreated:dateCreated,
                 dateModified:dateModified,
                 size:vitaItem.size,
                 fileExtension:vitaItem.fileExtension,

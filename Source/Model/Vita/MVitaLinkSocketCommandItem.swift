@@ -44,6 +44,16 @@ extension MVitaLinkSocketCommand
         writeMessageAndRead(message:message)
     }
     
+    func requestItemDateCreated(
+        treatId:UInt32)
+    {
+        let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
+            treatId:treatId,
+            dataPhase:MVitaPtpDataPhase.request,
+            property:MVitaPtpItemProperty.dateCreated)
+        writeMessageAndRead(message:message)
+    }
+    
     func requestItemDateModified(
         treatId:UInt32)
     {
@@ -88,16 +98,6 @@ extension MVitaLinkSocketCommand
         let message:MVitaPtpMessageOutItemData = MVitaPtpMessageOutItemData(
             treatId:treatId,
             dataPhase:MVitaPtpDataPhase.request)
-        writeMessageAndRead(message:message)
-    }
-    
-    func requestTest(
-        treatId:UInt32)
-    {
-        let message:MVitaPtpMessageOutItemProperty = MVitaPtpMessageOutItemProperty(
-            treatId:treatId,
-            dataPhase:MVitaPtpDataPhase.request,
-            property:MVitaPtpItemProperty.test2)
         writeMessageAndRead(message:message)
     }
 }

@@ -32,6 +32,7 @@ extension DVitaItemElement
     func create(
         name:String,
         localName:String,
+        dateCreated:Date,
         dateModified:Date,
         size:UInt64,
         fileExtension:MVitaItemInExtension,
@@ -43,6 +44,7 @@ extension DVitaItemElement
         create(
             name:name,
             localName:localName,
+            dateCreated:dateCreated,
             dateModified:dateModified,
             size:size,
             format:MVitaItemFormat.element)
