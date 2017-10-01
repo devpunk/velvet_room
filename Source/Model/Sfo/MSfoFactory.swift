@@ -17,7 +17,7 @@ extension MSfo
             guard
                 
                 let item:MSfoItem = MSfoItem.factoryItem(
-                    data:data)
+                    data:subdata)
             
             else
             {
