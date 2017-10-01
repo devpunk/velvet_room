@@ -8,6 +8,7 @@ final class MVitaLinkStrategySendItemsCount:
     private(set) var model:MVitaLink?
     private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
+    private let kCountNotSupported:Int = 0
     
     init(model:MVitaLink)
     {
@@ -75,17 +76,85 @@ final class MVitaLinkStrategySendItemsCount:
     
     func config(event:MVitaPtpMessageInEvent)
     {
+        self.event = event
+        
         guard
         
-            let database:dat
+            let catetegory:MVitaItemCategory = factoryCategory(
+                event:event)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        guard
+        
+            catetegory == MVitaItemCategory.savedData
+        
+        else
+        {
+            send(
+                event:event,
+                count:kCountNotSupported)
+            
+            return
+        }
+        
+        sendSavedDataCount(event:event)
     }
     
     //MARK: private
     
+    private func sendSavedDataCount(
+        event:MVitaPtpMessageInEvent)
+    {
+        guard
+        
+            let database:Database = self.database
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        database.fetch
+        { [weak self] (identifiers:[DVitaIdentifier]) in
+            
+            let count:Int = identifiers.count
+            
+            self?.send(
+                event:event,
+                count:count)
+        }
+    }
+    
+    private func factoryCategory(
+        event:MVitaPtpMessageInEvent) -> MVitaItemCategory?
+    {
+        guard
+        
+            let rawCategory:UInt32 = event.parameters.first
+        
+        else
+        {
+            return nil
+        }
+        
+        let category:MVitaItemCategory = MVitaItemCategory.factoryCategory(
+            rawCategory:rawCategory)
+        
+        return category
+    }
+    
     private func send(
         event:MVitaPtpMessageInEvent,
         count:Int)
-    {
+    {        
         let message:MVitaPtpMessageOutItemsCount = MVitaPtpMessageOutItemsCount(
             event:event,
             count:count)
