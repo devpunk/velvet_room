@@ -187,6 +187,7 @@
 		DA8F53AA1F8107D100BC8875 /* DVitaItemElementFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F53A91F8107D100BC8875 /* DVitaItemElementFactory.swift */; };
 		DA8F53AC1F81086800BC8875 /* MVitaItemInDirectoryParse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F53AB1F81086800BC8875 /* MVitaItemInDirectoryParse.swift */; };
 		DA8F53AF1F81090600BC8875 /* MSfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F53AE1F81090600BC8875 /* MSfo.swift */; };
+		DA8F53B11F810A8E00BC8875 /* MSfoFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8F53B01F810A8E00BC8875 /* MSfoFactory.swift */; };
 		DA97512B1F69730700DBC757 /* VConnectingTimeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */; };
 		DA9751421F69938A00DBC757 /* MConnectingStatusLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751371F69938A00DBC757 /* MConnectingStatusLoading.swift */; };
 		DA9751431F69938A00DBC757 /* MConnectingStatusPin.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9751381F69938A00DBC757 /* MConnectingStatusPin.swift */; };
@@ -511,6 +512,7 @@
 		DA8F53A91F8107D100BC8875 /* DVitaItemElementFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DVitaItemElementFactory.swift; sourceTree = "<group>"; };
 		DA8F53AB1F81086800BC8875 /* MVitaItemInDirectoryParse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaItemInDirectoryParse.swift; sourceTree = "<group>"; };
 		DA8F53AE1F81090600BC8875 /* MSfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfo.swift; sourceTree = "<group>"; };
+		DA8F53B01F810A8E00BC8875 /* MSfoFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSfoFactory.swift; sourceTree = "<group>"; };
 		DA97512A1F69730700DBC757 /* VConnectingTimeout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectingTimeout.swift; sourceTree = "<group>"; };
 		DA9751371F69938A00DBC757 /* MConnectingStatusLoading.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatusLoading.swift; sourceTree = "<group>"; };
 		DA9751381F69938A00DBC757 /* MConnectingStatusPin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MConnectingStatusPin.swift; sourceTree = "<group>"; };
@@ -1237,6 +1239,7 @@
 			isa = PBXGroup;
 			children = (
 				DA8F53AE1F81090600BC8875 /* MSfo.swift */,
+				DA8F53B01F810A8E00BC8875 /* MSfoFactory.swift */,
 			);
 			path = Sfo;
 			sourceTree = "<group>";
@@ -1535,6 +1538,7 @@
 				DA59B5351F765C9D00A50968 /* MVitaLinkStrategySendDataStatusConfirm.swift in Sources */,
 				DACE3CFA1F7AE2370090D725 /* MVitaConfigurationFactoryLocal.swift in Sources */,
 				DAC03D861F779A7B00C11F69 /* MVitaPtpEvent.swift in Sources */,
+				DA8F53B11F810A8E00BC8875 /* MSfoFactory.swift in Sources */,
 				DAF79EFD1F708E5200117BA4 /* MVitaLinkStrategyRequestCommand.swift in Sources */,
 				DADF50AA1F7C5D6C008E4C2B /* MVitaLinkStrategyRequestItemTreat.swift in Sources */,
 				DA03CFBE1F6F1413001AE828 /* MConnectingSocket.swift in Sources */,
