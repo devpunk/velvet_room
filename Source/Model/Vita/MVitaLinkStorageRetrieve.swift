@@ -5,12 +5,12 @@ extension MVitaLink
     //MARK: internal
     
     class func storagePath(
-        item:DVitaItemElement) -> URL?
+        element:DVitaItemElement) -> URL?
     {
         guard
         
-            let directoryName:String = item.directory?.localName,
-            let localName:String = item.localName
+            let directoryName:String = element.directory?.localName,
+            let localName:String = element.localName
         
         else
         {
