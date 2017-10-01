@@ -28,16 +28,15 @@ extension MVitaLink
     {
         let predicate:NSPredicate = factoryPredicateFor(
             itemStatus:itemStatus)
-        let sorters:[NSSortDescriptor] = factorySortersForRecent()
         
         database?.fetch(
-            predicate:predicate,
-            sorters:sorters)
-        { [weak self] (directories:[DVitaItemDirectory]) in
+            predicate:predicate)
+        { [weak self] (identifiers:[DVitaIdentifier]) in
             
             guard
             
-                let directory:DVitaItemDirectory = directories.first
+                let identifier:DVitaIdentifier = identifiers.first,
+                let lastDirectory:DVitaItemDirectory = identifier.items?.array.last as? DVitaItemDirectory
             
             else
             {
@@ -47,7 +46,7 @@ extension MVitaLink
             }
             
             self?.itemFound(
-                item:directory,
+                item:lastDirectory,
                 event:event)
         }
     }

@@ -2,8 +2,7 @@ import Foundation
 
 extension MVitaLink
 {
-    private static let kLookItemPredicate:String = "name == \"%@\""
-    private static let kLookItemSorter:String = "dateReceived"
+    private static let kLookItemPredicate:String = "identifier == \"%@\""
     
     //MARK: internal
     
@@ -19,16 +18,5 @@ extension MVitaLink
             format:predicateString)
         
         return predicate
-    }
-    
-    func factorySortersForRecent() -> [NSSortDescriptor]
-    {
-        let sorter:NSSortDescriptor = NSSortDescriptor(
-            key:MVitaLink.kLookItemSorter,
-            ascending:false)
-        let sorters:[NSSortDescriptor] = [
-            sorter]
-        
-        return sorters
     }
 }
