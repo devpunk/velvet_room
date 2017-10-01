@@ -6,9 +6,13 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
     {
         get
         {
+            let dateCreated:Date = Date(
+                timeIntervalSince1970:self.dateCreated)
             let dateModified:Date = Date(
                 timeIntervalSince1970:self.dateModified)
-            let dateString:String = MVitaPtpDate.factoryString(
+            let dateCreatedString:String = MVitaPtpDate.factoryString(
+                date:dateCreated)
+            let dateModifiedString:String = MVitaPtpDate.factoryString(
                 date:dateModified)
             
             let root:[String:Any] = [
@@ -21,8 +25,8 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
                         "ohfiParent":rawCategory,
                         "ohfi":rawCategory,
                         "size":size,
-                        "dateTimeUpdated":dateString,
-                        "dateTimeCreated":dateString]]]
+                        "dateTimeUpdated":dateModifiedString,
+                        "dateTimeCreated":dateCreatedString]]]
             
             return root
         }
