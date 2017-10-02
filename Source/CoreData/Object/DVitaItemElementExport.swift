@@ -17,7 +17,7 @@ extension DVitaItemElement:DVitaItemExportProtocol
             let name:String = self.name!
             
             let root:[String:Any] = [
-                "statusType":0,
+                "statusType":1,
                 "name":name,
                 "title":name,
                 //                                        "index":0,

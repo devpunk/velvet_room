@@ -13,7 +13,7 @@ final class CHome:Controller<ArchHome>
         database?.fetch
             { (directory:[DVitaItemDirectory]) in
             
-                MVitaXmlItemMetaData.factoryMetaData(items:directory, completion: { (data:Data?) in
+                MVitaXmlItemMetaData.factoryMetaData(items:[directory.first!], completion: { (data:Data?) in
                     
                     guard
                         

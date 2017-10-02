@@ -23,8 +23,11 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
 //                                        "index":0,
                                         "ohfiParent":rawCategory,
                                         "ohfi":rawCategory,
+                                        "dirName":name,
                 "size":size,
                                         "dateTimeCreated":dateCreatedString,
+                                        "savedataTitle":name, //""
+                "detail":"",
                 "dateTimeUpdated":dateModifiedString]
             
             return root
