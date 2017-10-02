@@ -13,30 +13,33 @@ final class CHome:Controller<ArchHome>
         database?.fetch
             { (directory:[DVitaItemDirectory]) in
             
-                directory.first?.export(completion: { (data:Data?) in
+                MVitaXmlItemMetaData.factoryMetaData(items:directory, completion: { (data:Data?) in
                     
                     guard
-                    
-                    let string:String = String(data:data!, encoding:String.Encoding.utf8)
-                    
-                    else
+                        
+                        let string:String = String(data:data!, encoding:String.Encoding.utf8)
+                        
+                        else
                     {
                         return
                     }
                     
                     print(string)
+                    
+                    
                 })
+                
         }
         
-        database?.fetch
-            { (items:[DVitaIdentifier]) in
-            
-                for item in items
-                {
-                    print(item)
-                    print(item.items?.count)
-                }
-        }
+//        database?.fetch
+//            { (items:[DVitaIdentifier]) in
+//            
+//                for item in items
+//                {
+//                    print(item)
+//                    print(item.items?.count)
+//                }
+//        }
         
 //        database?.fetch
 //        { (elements:[DVitaItemElement]) in

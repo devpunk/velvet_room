@@ -54,12 +54,25 @@ final class MVitaLinkStrategySendItemMetadata:
             return
         }
         
-        let data:Data = MVitaXmlItemMetaData.factoryMetaData(
+        MVitaXmlItemMetaData.factoryMetaData(
             items:items)
-        
-        sendData(
-            data:data,
-            event:event)
+        { [weak self] (data:Data?) in
+            
+            guard
+                
+                let data:Data = data
+            
+            else
+            {
+                self?.failed()
+                
+                return
+            }
+            
+            self?.sendData(
+                data:data,
+                event:event)
+        }
     }
     
     //MARK: private

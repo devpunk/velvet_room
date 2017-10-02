@@ -17,18 +17,15 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
             let name:String = self.identifier!.identifier!
             
             let root:[String:Any] = [
-                "objectMetadata":[
-                    "folder":[
-//                        "type":directoryType,
-                        "name":name,
-//                        "title":name,
-//                        "index":0,
-//                        "ohfiParent":rawCategory,
-//                        "ohfi":rawCategory,
-                        "size":size,
-//                        "dateTimeCreated":dateCreatedString,
-                        "dateTimeUpdated":dateModifiedString
-                    ]]]
+                //                        "type":directoryType,
+                "name":name,
+                //                        "title":name,
+                //                        "index":0,
+                //                        "ohfiParent":rawCategory,
+                //                        "ohfi":rawCategory,
+                "size":size,
+                //                        "dateTimeCreated":dateCreatedString,
+                "dateTimeUpdated":dateModifiedString]
             
             return root
         }

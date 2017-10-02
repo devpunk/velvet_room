@@ -4,11 +4,35 @@ import XmlHero
 final class MVitaXmlItemMetaData
 {
     private static let kKeyRoot:String = "objectMetadata"
+    private static let kKeyFolder:String = "folder"
     private static let kKeyIndex:String = "index"
     
     //MARK: private
     
     private init() { }
+    
+    private class func factoryFolderItem(
+        item:DVitaItem,
+        index:Int) -> [String:Any]?
+    {
+        guard
+            
+            let itemExport:DVitaItemExportProtocol = item as? DVitaItemExportProtocol,
+            let hasheableItem:[String:Any] = itemExport.hasheableItem
+            
+        else
+        {
+            return nil
+        }
+        
+        var editItem:[String:Any] = hasheableItem
+        editItem[kKeyIndex] = index
+        
+        let folderItem:[String:Any] = [
+            kKeyFolder:editItem]
+        
+        return folderItem
+    }
     
     private class func factoryMetaData(
         items:[[String:Any]],
@@ -36,17 +60,17 @@ final class MVitaXmlItemMetaData
         for item:DVitaItem in items
         {
             guard
-            
-                let itemExport:DVitaItemExportProtocol = item as? DVitaItemExportProtocol,
-                var hasheableItem:[String:Any] = itemExport.hasheableItem
+                
+                let folderItem:[String:Any] = factoryFolderItem(
+                    item:item,
+                    index:index)
             
             else
             {
                 continue
             }
             
-            hasheableItem[kKeyIndex] = index
-            hasheables.append(hasheableItem)
+            hasheables.append(folderItem)
             index += 1
         }
         
