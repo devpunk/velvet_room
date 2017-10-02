@@ -2,7 +2,7 @@ import Foundation
 
 extension DVitaItemDirectory:DVitaItemExportProtocol
 {
-    var hasheableItem:[String:Any]?
+    var hasheableItem:[String:Any]
     {
         get
         {
