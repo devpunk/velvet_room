@@ -272,6 +272,7 @@
 		DAD5897B1F6C16C40048D830 /* MHomeSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD5897A1F6C16C40048D830 /* MHomeSession.swift */; };
 		DAD799261F57C04E001D6A4C /* Arch.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799251F57C04E001D6A4C /* Arch.swift */; };
 		DAD799281F57C085001D6A4C /* ArchConnect.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD799271F57C085001D6A4C /* ArchConnect.swift */; };
+		DAD7BA0E1F82EBBC0081F3D9 /* test.xml in Resources */ = {isa = PBXBuildFile; fileRef = DAD7BA0D1F82EBBC0081F3D9 /* test.xml */; };
 		DADB40051F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB40041F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift */; };
 		DADB40071F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB40061F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift */; };
 		DADB40091F703AD1006D13CA /* MVitaLinkConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = DADB40081F703AD1006D13CA /* MVitaLinkConnection.swift */; };
@@ -618,6 +619,7 @@
 		DAD5897A1F6C16C40048D830 /* MHomeSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeSession.swift; sourceTree = "<group>"; };
 		DAD799251F57C04E001D6A4C /* Arch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arch.swift; sourceTree = "<group>"; };
 		DAD799271F57C085001D6A4C /* ArchConnect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchConnect.swift; sourceTree = "<group>"; };
+		DAD7BA0D1F82EBBC0081F3D9 /* test.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = test.xml; sourceTree = "<group>"; };
 		DADB40041F702A0F006D13CA /* MVitaLinkStrategyConnectCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyConnectCommand.swift; sourceTree = "<group>"; };
 		DADB40061F7030E3006D13CA /* MVitaLinkStrategyConnectEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyConnectEvent.swift; sourceTree = "<group>"; };
 		DADB40081F703AD1006D13CA /* MVitaLinkConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkConnection.swift; sourceTree = "<group>"; };
@@ -1089,6 +1091,7 @@
 				DAD3A0CC1F6D0D9000026CA9 /* vitaConfiguration.plist */,
 				DA17D1161F762AF900A28B35 /* vitaLocalInfo.xml */,
 				DAC696241F772CE000269F3F /* vitaLocalCapabilities.xml */,
+				DAD7BA0D1F82EBBC0081F3D9 /* test.xml */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1526,6 +1529,7 @@
 				DA8B7DEC1F578F56004EEE23 /* LaunchScreen.storyboard in Resources */,
 				DA1A1BD31F67379900E8B084 /* connect.xcassets in Resources */,
 				DA8B7DE41F578E7D004EEE23 /* LocalizableModel.strings in Resources */,
+				DAD7BA0E1F82EBBC0081F3D9 /* test.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
