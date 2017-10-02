@@ -35,6 +35,8 @@ final class MVitaLinkStrategyRequestItemsFilters:MVitaLinkStrategyRequestDataEve
             rawCategory:rawCategory)
         let count:Int = Int(rawCount)
         
+        print("rawCategory \(rawCategory)")
+        
         print("filter category:\(category) count:\(count)")
         
         model?.sendItemsMetaData(

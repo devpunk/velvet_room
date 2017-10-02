@@ -4,13 +4,10 @@ extension MVitaLink
 {
     //MARK: private
     
-    private func itemFound(
-        item:DVitaItemDirectory,
+    private func sendItemsMetaData(
+        items:[DVitaItemDirectory],
         event:MVitaPtpMessageInEvent)
     {
-        let items:[DVitaItemDirectory] = [
-            item]
-        
         changeStrategy(strategyType:
             MVitaLinkStrategySendItemMetadata.self)
         strategyItems(items:items)
@@ -48,8 +45,11 @@ extension MVitaLink
                 return
             }
             
-            self?.itemFound(
-                item:lastDirectory,
+            let items:[DVitaItemDirectory] = [
+                lastDirectory]
+            
+            self?.sendItemsMetaData(
+                items:items,
                 event:event)
         }
     }
@@ -59,6 +59,8 @@ extension MVitaLink
         count:Int,
         event:MVitaPtpMessageInEvent)
     {
-        
+        sendItemsMetaData(
+            items:[],
+            event:event)
     }
 }
