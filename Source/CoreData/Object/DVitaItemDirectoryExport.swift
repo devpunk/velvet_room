@@ -28,7 +28,8 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
                                         "dateTimeCreated":dateCreatedString,
                                         "savedataTitle":name, //""
                 "detail":"",
-                "dateTimeUpdated":dateModifiedString]
+                "dateTimeUpdated":dateModifiedString
+            ]
             
             return root
         }
