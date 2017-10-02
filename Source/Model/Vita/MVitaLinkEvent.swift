@@ -50,6 +50,12 @@ extension MVitaLink
         linkCommand.requestItemStatus(event:event)
     }
     
+    private func sendItemThumb(
+        event:MVitaPtpMessageInEvent)
+    {
+        
+    }
+    
     private func requestSettings(
         event:MVitaPtpMessageInEvent)
     {
@@ -104,6 +110,12 @@ extension MVitaLink
         case MVitaPtpEvent.requestItemStatus:
             
             requestItemStatus(event:event)
+            
+            break
+            
+        case MVitaPtpEvent.sendItemThumb:
+            
+            sendItemThumb(event:event)
             
             break
             
