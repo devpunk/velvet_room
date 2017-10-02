@@ -35,19 +35,19 @@ extension MVitaLink
         strategyEvent.config(event:event)
     }
     
-    func strategyItem(
-        item:DVitaItem)
+    func strategyItems(
+        items:[DVitaItem])
     {
         guard
             
-            let strategyItem:MVitaLinkStrategyItemProtocol = strategy as? MVitaLinkStrategyItemProtocol
+            let strategyItems:MVitaLinkStrategyItemsProtocol = strategy as? MVitaLinkStrategyItemsProtocol
             
         else
         {
             return
         }
         
-        strategyItem.config(item:item)
+        strategyItems.config(items:items)
     }
     
     func strategyDatabase()

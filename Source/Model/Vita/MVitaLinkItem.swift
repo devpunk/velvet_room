@@ -8,9 +8,12 @@ extension MVitaLink
         item:DVitaItemDirectory,
         event:MVitaPtpMessageInEvent)
     {
+        let items:[DVitaItemDirectory] = [
+            item]
+        
         changeStrategy(strategyType:
             MVitaLinkStrategySendItemMetadata.self)
-        strategyItem(item:item)
+        strategyItems(items:items)
         strategyEvent(event:event)
     }
     
