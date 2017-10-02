@@ -20,24 +20,20 @@ extension MVitaLink
         sendResultSuccess(event:event)
     }
     
-    //MARK: internal
-    
-    func requestItemStatus(
-        itemStatus:MVitaItemStatus,
+    private func fetchWithPredicate(
+        predicate:NSPredicate,
+        database:Database,
         event:MVitaPtpMessageInEvent)
     {
-        let predicate:NSPredicate = factoryPredicateFor(
-            itemStatus:itemStatus)
-        
-        database?.fetch(
+        database.fetch(
             predicate:predicate)
         { [weak self] (identifiers:[DVitaIdentifier]) in
             
             guard
-            
+                
                 let identifier:DVitaIdentifier = identifiers.first,
                 let lastDirectory:DVitaItemDirectory = identifier.items?.array.last as? DVitaItemDirectory
-            
+                
             else
             {
                 self?.itemNotFound(event:event)
@@ -54,13 +50,88 @@ extension MVitaLink
         }
     }
     
+    private func fetchWithLimit(
+        limit:Int,
+        database:Database,
+        event:MVitaPtpMessageInEvent)
+    {
+        database.fetch(
+            limit:limit)
+        { [weak self] (identifiers:[DVitaIdentifier]) in
+            
+            var items:[DVitaItemDirectory] = []
+            
+            for identifier:DVitaIdentifier in identifiers
+            {
+                guard
+                    
+                    let lastDirectory:DVitaItemDirectory = identifier.items?.array.last as? DVitaItemDirectory
+                    
+                else
+                {
+                    continue
+                }
+                
+                items.append(lastDirectory)
+            }
+            
+            print("sending \(items.count)")
+            
+            self?.sendItemsMetaData(
+                items:items,
+                event:event)
+        }
+    }
+    
+    //MARK: internal
+    
+    func requestItemStatus(
+        itemStatus:MVitaItemStatus,
+        event:MVitaPtpMessageInEvent)
+    {
+        guard
+            
+            let database:Database = self.database
+        
+        else
+        {
+            itemNotFound(event:event)
+            
+            return
+        }
+        
+        let predicate:NSPredicate = factoryPredicateFor(
+            itemStatus:itemStatus)
+        
+        fetchWithPredicate(
+            predicate:predicate,
+            database:database,
+            event:event)
+    }
+    
     func sendItemsMetaData(
         category:MVitaItemCategory,
         count:Int,
         event:MVitaPtpMessageInEvent)
     {
-        sendItemsMetaData(
-            items:[],
+        guard
+        
+            category == MVitaItemCategory.savedData,
+            count > 0,
+            let database:Database = self.database
+        
+        else
+        {
+            sendItemsMetaData(
+                items:[],
+                event:event)
+            
+            return
+        }
+        
+        fetchWithLimit(
+            limit:count,
+            database:database,
             event:event)
     }
 }
