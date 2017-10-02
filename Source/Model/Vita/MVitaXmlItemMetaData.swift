@@ -72,7 +72,7 @@ final class MVitaXmlItemMetaData
             elements:elements,
             index:newIndex)
         
-        items.append(contentsOf:hashElements)
+//        items.append(contentsOf:hashElements)
         
         return items
     }
