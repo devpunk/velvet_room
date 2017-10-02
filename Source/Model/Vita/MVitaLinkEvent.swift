@@ -113,7 +113,7 @@ extension MVitaLink
             
             break
             
-        case MVitaPtpEvent.sendItemThumb:
+        case MVitaPtpEvent.sendItemThumbnail:
             
             sendItemThumb(event:event)
             
