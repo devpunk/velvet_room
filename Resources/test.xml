@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <objectMetadata>
-    <folder ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" statusType="1" index="0" />
-    <folder ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" statusType="1" index="1">
-    </folder>
-    <folder ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" statusType="1" index="2">
-        <saveData ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" statusType="1" index="3" />
-    </folder>
-    <folder ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" statusType="1" index="4">
-        <file ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" statusType="1" statusType="1" ohfi="14" detail="" index="5" />
-    </folder>
-    <saveData ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" index="6" />
-    <folder ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" ohfi="14" detail="" statusType="1" index="7" />
-    <file ohfiParent="14" name="ULUS105840000" dateTimeUpdated="2017-08-31T06:35:31+00:00" dateTimeCreated="2017-08-30T06:27:04+00:00" savedataTitle="ULUS105840000" size="152220" title="ULUS105840000" dirName="ULUS105840000" type="1" statusType="1" statusType="1" ohfi="14" detail="" index="8" />
+    <saveData savedataTitle="display name" dateTimeUpdated="2017-08-31T06:35:31+00:00" size="152220" title="sometitle" dirName="somedirname" ohfi="14" detail="asd" />
 </objectMetadata>
