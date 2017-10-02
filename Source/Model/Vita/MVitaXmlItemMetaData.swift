@@ -143,8 +143,18 @@ final class MVitaXmlItemMetaData
         items:[DVitaItem],
         completion:@escaping((Data?) -> ()))
     {
-        let xml:String = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><objectMetadata><folder ohfiParent=\"14\" name=\"ULUS105840000\" dateTimeUpdated=\"2017-08-31T06:35:31+00:00\" dateTimeCreated=\"2017-08-30T06:27:04+00:00\" savedataTitle=\"ULUS105840000\" size=\"152220\" title=\"ULUS105840000\" dirName=\"ULUS105840000\" type=\"1\" ohfi=\"14\" detail=\"\" index=\"0\" /><folder ohfiParent=\"14\" name=\"ULUS105840000\" dateTimeUpdated=\"2017-08-31T06:35:31+00:00\" dateTimeCreated=\"2017-08-30T06:27:04+00:00\" savedataTitle=\"ULUS105840000\" size=\"152220\" title=\"ULUS105840000\" dirName=\"ULUS105840000\" type=\"1\" ohfi=\"14\" detail=\"\" index=\"1\" /><saveData ohfiParent=\"14\" name=\"ULUS105840000\" dateTimeUpdated=\"2017-08-31T06:35:31+00:00\" dateTimeCreated=\"2017-08-30T06:27:04+00:00\" savedataTitle=\"ULUS105840000\" size=\"152220\" title=\"ULUS105840000\" dirName=\"ULUS105840000\" type=\"1\" ohfi=\"14\" detail=\"\" index=\"1\" /></objectMetadata>"
-        let data:Data = xml.data(using:String.Encoding.utf8, allowLossyConversion:false)!
+        let url:URL = Bundle.main.url(forResource:"test", withExtension:"xml")!
+        let data:Data
+        
+        do
+        {
+            try data = Data(contentsOf:url)
+        }
+        catch
+        {
+            return
+        }
+        
         completion(data)
         
         return
