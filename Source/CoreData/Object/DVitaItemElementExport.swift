@@ -1,6 +1,6 @@
 import Foundation
 
-extension DVitaItemDirectory:DVitaItemExportProtocol
+extension DVitaItemElement:DVitaItemExportProtocol
 {
     var hasheableItem:[String:Any]?
     {
@@ -14,17 +14,17 @@ extension DVitaItemDirectory:DVitaItemExportProtocol
                 date:dateCreated)
             let dateModifiedString:String = MVitaPtpDate.factoryString(
                 date:dateModified)
-            let name:String = self.identifier!.identifier!
+            let name:String = self.name!
             
             let root:[String:Any] = [
-                                        "type":directoryType,
+                "statusType":0,
                 "name":name,
-                                        "title":name,
-//                                        "index":0,
-                                        "ohfiParent":rawCategory,
-                                        "ohfi":rawCategory,
+                "title":name,
+                //                                        "index":0,
+                "ohfiParent":directory!.category.rawValue,
+                "ohfi":directory!.category.rawValue,
                 "size":size,
-                                        "dateTimeCreated":dateCreatedString,
+                "dateTimeCreated":dateCreatedString,
                 "dateTimeUpdated":dateModifiedString]
             
             return root
