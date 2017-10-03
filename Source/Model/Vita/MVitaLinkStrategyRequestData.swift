@@ -2,9 +2,9 @@ import Foundation
 
 class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
 {
-    private(set) var data:Data
-    private(set) var payload:Int
-    private(set) var transactionId:UInt32
+    var data:Data
+    var payload:Int
+    var transactionId:UInt32
     private(set) var model:MVitaLink?
     private let kElementsStart:Int = 2
     
@@ -65,34 +65,6 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
     }
     
     //MARK: private
-    
-    private func readAgain()
-    {
-        DispatchQueue.global(
-            qos:DispatchQoS.QoSClass.background).async
-        { [weak self] in
-            
-            self?.model?.linkCommand.readData()
-        }
-    }
-    
-    private func removeTransaction(data:Data) -> Data?
-    {
-        guard
-            
-            let transactionId:UInt32 = data.valueFromBytes(),
-            self.transactionId == transactionId
-            
-        else
-        {
-            return nil
-        }
-        
-        let transactionSize:Int = MemoryLayout<UInt32>.size
-        let subdata:Data = data.subdata(start:transactionSize)
-        
-        return subdata
-    }
     
     private func receivedPacketStart(
         header:MVitaPtpMessageInHeader,
@@ -191,13 +163,6 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
     }
     
     //MARK: internal
-    
-    final func restart()
-    {
-        data = Data()
-        payload = 0
-        transactionId = 0
-    }
     
     func failed() { }
     func success() { }
