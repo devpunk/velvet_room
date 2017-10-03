@@ -32,12 +32,14 @@ final class MVitaLinkStrategySendItemMetadata:
         model?.sendResultSuccess(event:event)
     }
     
-    //MARK: event protocol
+    //MARK: items protocol
     
     func config(items:[DVitaItem])
     {
         self.items = items
     }
+    
+    //MARK: event protocol
     
     func config(event:MVitaPtpMessageInEvent)
     {

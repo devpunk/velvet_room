@@ -2,10 +2,12 @@ import Foundation
 
 final class MVitaLinkStrategySendItemThumbnail:
     MVitaLinkStrategySendData,
+    MVitaLinkStrategyDatabaseProtocol,
     MVitaLinkStrategyEventProtocol
 {
-    private var items:[DVitaItem]?
+    private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
+    private let kItemParameterIndex:Int = 1
     
     override func failed()
     {
@@ -31,21 +33,25 @@ final class MVitaLinkStrategySendItemThumbnail:
         model?.sendResultSuccess(event:event)
     }
     
-    //MARK: event protocol
+    //MARK: database protocol
     
-    func config(items:[DVitaItem])
+    func config(database:Database)
     {
-        self.items = items
+        self.database = database
     }
+    
+    //MARK: event protocol
     
     func config(event:MVitaPtpMessageInEvent)
     {
         self.event = event
+        let totalParameters:Int = event.parameters.count
         
         guard
             
-            let items:[DVitaItem] = self.items
-            
+            totalParameters > kItemParameterIndex,
+            let database:Database = self.database
+        
         else
         {
             failed()
@@ -53,51 +59,97 @@ final class MVitaLinkStrategySendItemThumbnail:
             return
         }
         
-        MVitaXmlItem.factoryMetadata(
-            items:items)
-        { [weak self] (data:Data?) in
+        let unsignedItemIndex:UInt32 = event.parameters[kItemParameterIndex]
+        let itemIndex:Int = Int(unsignedItemIndex)
+        let sorters:[NSSortDescriptor] = MVitaLink.factorySortersForIdentifier()
+        
+        sendThumbnail(
+            itemIndex:itemIndex,
+            sorters:sorters,
+            database:database,
+            event:event)
+    }
+    
+    //MARK: private
+    
+    private func sendThumbnail(
+        itemIndex:Int,
+        sorters:[NSSortDescriptor],
+        database:Database,
+        event:MVitaPtpMessageInEvent)
+    {
+        database.fetch(
+            limit:itemIndex,
+            sorters:sorters)
+        { [weak self] (identifiers:[DVitaIdentifier]) in
+            
+            let totalIdentifiers:Int = identifiers.count
             
             guard
                 
-                let data:Data = data
-                
-                else
+                totalIdentifiers > itemIndex
+            
+            else
             {
                 self?.failed()
                 
                 return
             }
             
-            self?.sendData(
+            let identifier:DVitaIdentifier = identifiers[itemIndex]
+            
+            guard
+            
+                let directory:DVitaItemDirectory = identifier.items?.lastObject as? DVitaItemDirectory
+            
+            else
+            {
+                self?.failed()
+                
+                return
+            }
+            
+            self?.sendThumbnail(
+                directory:directory,
+                event:event)
+        }
+    }
+    
+    private func sendThumbnail(
+        directory:DVitaItemDirectory,
+        event:MVitaPtpMessageInEvent)
+    {
+        MVitaXmlThumbnail.factoryMetadata(directory:directory)
+        { (data:Data?) in
+            
+            guard
+            
+                let data:Data = data
+            
+            else
+            {
+                self.failed()
+                
+                return
+            }
+            
+            self.sendData(
                 data:data,
                 event:event)
         }
-        
-        /*
- 
-         uint16_t ret = VitaMTP_SendData(device, event_id, PTP_OC_VITA_SendObjectThumb, (unsigned char *)new_data,
-         
-         PTP_OC_VITA_SendObjectThumb = 
-         
- */
     }
-    
-    //MARK: private
     
     private func sendData(
         data:Data,
         event:MVitaPtpMessageInEvent)
     {
-        let wrappedData:Data = MVitaLink.wrapDataWithSizeHeader(
-            data:data)
-        
         let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
             event:event,
             dataPhase:MVitaPtpDataPhase.send,
-            command:MVitaPtpCommand.sendItemMetadata)
+            command:MVitaPtpCommand.sendItemThumbnail)
         
         send(
-            data:wrappedData,
+            data:data,
             message:message)
     }
 }

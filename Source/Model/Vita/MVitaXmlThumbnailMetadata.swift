@@ -46,7 +46,7 @@ extension MVitaXmlThumbnail
     
     //MARK: internal
     
-    class func factoryXmlMetadata(
+    class func factoryXml(
         thumbnailData:Data,
         completion:@escaping((Data?) -> ()))
     {

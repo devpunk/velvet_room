@@ -10,10 +10,10 @@ final class MVitaXmlThumbnail
     
     private class func factoryMetadata(
         thumbnailData:Data,
-        item:DVitaItemDirectory,
+        directory:DVitaItemDirectory,
         completion:@escaping((Data?) -> ()))
     {
-        factoryXmlMetadata(thumbnailData:thumbnailData)
+        factoryXml(thumbnailData:thumbnailData)
         { (xmlData:Data?) in
             
             guard
@@ -30,7 +30,7 @@ final class MVitaXmlThumbnail
             factoryMetadata(
                 thumbnailData:thumbnailData,
                 xmlData:xmlData,
-                item:item,
+                directory:directory,
                 completion:completion)
         }
     }
@@ -38,10 +38,10 @@ final class MVitaXmlThumbnail
     private class func factoryMetadata(
         thumbnailData:Data,
         xmlData:Data,
-        item:DVitaItemDirectory,
+        directory:DVitaItemDirectory,
         completion:((Data?) -> ()))
     {
-        let thumbnailSize:UInt64 = UInt64(item.size)
+        let thumbnailSize:UInt64 = UInt64(directory.size)
         
         var data:Data = Data()
         data.append(xmlData)
@@ -54,13 +54,13 @@ final class MVitaXmlThumbnail
     //MARK: internal
     
     class func factoryMetadata(
-        item:DVitaItemDirectory,
+        directory:DVitaItemDirectory,
         completion:@escaping((Data?) -> ()))
     {
         guard
         
-            let thumbnailData:Data = factoyThumbnailData(
-                item:item)
+            let thumbnailData:Data = factoyThumbnail(
+                directory:directory)
         
         else
         {
@@ -71,7 +71,7 @@ final class MVitaXmlThumbnail
         
         factoryMetadata(
             thumbnailData:thumbnailData,
-            item:item,
+            directory:directory,
             completion:completion)
     }
 }

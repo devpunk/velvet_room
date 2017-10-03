@@ -29,12 +29,12 @@ extension MVitaXmlThumbnail
     
     //MARK: internal
     
-    class func factoyThumbnailData(
-        item:DVitaItemDirectory) -> Data?
+    class func factoyThumbnail(
+        directory:DVitaItemDirectory) -> Data?
     {
         guard
             
-            let pngs:[DVitaItemElementPng] = item.png?.array as? [
+            let pngs:[DVitaItemElementPng] = directory.png?.array as? [
                 DVitaItemElementPng],
             let thumbnail:DVitaItemElement = findSmallerImage(
                 pngs:pngs),
