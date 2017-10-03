@@ -7,7 +7,6 @@ final class MVitaLinkStrategySendItemThumbnail:
 {
     private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
-    private let kItemParameterIndex:Int = 1
     
     override func failed()
     {
@@ -45,11 +44,10 @@ final class MVitaLinkStrategySendItemThumbnail:
     func config(event:MVitaPtpMessageInEvent)
     {
         self.event = event
-        let totalParameters:Int = event.parameters.count
         
         guard
             
-            totalParameters > kItemParameterIndex,
+            let unsignedItemIndex:UInt32 = event.parameters.first,
             let database:Database = self.database
         
         else
@@ -59,9 +57,10 @@ final class MVitaLinkStrategySendItemThumbnail:
             return
         }
         
-        let unsignedItemIndex:UInt32 = event.parameters[kItemParameterIndex] - 1
         let itemIndex:Int = Int(unsignedItemIndex)
         let sorters:[NSSortDescriptor] = MVitaLink.factorySortersForIdentifier()
+        
+        print("requesting thumbnail \(event.parameters)")
         
         sendThumbnail(
             itemIndex:itemIndex,
@@ -78,9 +77,7 @@ final class MVitaLinkStrategySendItemThumbnail:
         database:Database,
         event:MVitaPtpMessageInEvent)
     {
-        database.fetch(
-            limit:itemIndex,
-            sorters:sorters)
+        database.fetch(sorters:sorters)
         { [weak self] (identifiers:[DVitaIdentifier]) in
             
             let totalIdentifiers:Int = identifiers.count

@@ -7,6 +7,7 @@ final class MVitaLinkStrategySendItem:
 {
     private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
+    private let kItemParameterIndex:Int = 1
     
     override func failed()
     {
@@ -22,12 +23,14 @@ final class MVitaLinkStrategySendItem:
             
             let event:MVitaPtpMessageInEvent = self.event
             
-            else
+        else
         {
             failed()
             
             return
         }
+        
+        print("event success params :\(event.parameters)")
         
         model?.sendResultSuccess(event:event)
     }
