@@ -88,47 +88,6 @@ extension MVitaLink
         }
     }
     
-    private class func createElement(
-        vitaItem:MVitaItemInElement,
-        directory:DVitaItemDirectory,
-        directoryPath:URL,
-        database:Database,
-        dispatchGroup:DispatchGroup)
-    {
-        guard
-        
-            let data:Data = vitaItem.data
-        
-        else
-        {
-            return
-        }
-        
-        do
-        {
-            try storeElement(
-                localName:vitaItem.localName,
-                directoryPath:directoryPath,
-                data:data)
-        }
-        catch
-        {
-            return
-        }
-        
-        dispatchGroup.enter()
-        
-        database.create
-        { (element:DVitaItemElement) in
-            
-            element.directory = directory
-            element.config(
-                itemElement:vitaItem)
-            
-            dispatchGroup.leave()
-        }
-    }
-    
     //MARK: internal
     
     class func storeItem(
