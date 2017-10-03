@@ -82,6 +82,27 @@ extension ViewParent:UIGestureRecognizerDelegate
     
     //MARK: private
     
+    private func gestureStateBegan(
+        location:CGPoint,
+        xPos:CGFloat)
+    {
+        
+    }
+    
+    private func gestureStateChanged(
+        location:CGPoint,
+        xPos:CGFloat)
+    {
+        
+    }
+    
+    private func gestureStateEnded(
+        location:CGPoint,
+        xPos:CGFloat)
+    {
+        
+    }
+    
     private func gesturePop()
     {
         panRecognizer.isEnabled = true
