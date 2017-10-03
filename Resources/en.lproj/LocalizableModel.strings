@@ -39,4 +39,5 @@
 "MVitaLinkStrategySendItemsCount_messageFailed"="Failed sending Items Count,\ntry again";
 "MVitaLinkStrategyRequestItemsFilters_messageFailed"="Failed requesting Items Filters,\ntry again";
 "MVitaLinkStrategySendItemThumbnail_messageFailed"="Failed sending Items Thumbnail,\ntry again";
+"MVitaLinkStrategySendItem_messageFailed"="Failed sending Item,\ntry again";
 "MError_dataNotFound"="Data not found";
