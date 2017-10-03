@@ -2,7 +2,9 @@ import Foundation
 
 extension MConnected
 {
-    
+    private typealias Router = (
+        (log:MVitaLinkLogProtocol,
+        timestamp:String) -> (MConnectedEventProtocol?))
     
     //MARK: private
     
