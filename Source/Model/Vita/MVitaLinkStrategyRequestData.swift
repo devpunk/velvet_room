@@ -2,6 +2,12 @@ import Foundation
 
 class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
 {
+    private typealias Router = (
+        (MVitaLinkStrategyRequestData) ->
+        (MVitaPtpMessageInHeader, Data) -> ())
+    
+    private
+    
     var data:Data
     var payload:Int
     var transactionId:UInt32
