@@ -12,10 +12,10 @@ final class MVitaXmlThumbnail
     {
         guard
             
-            let elements:[DVitaItemElement] = item.elements?.array as? [
-                DVitaItemElement],
+            let pngs:[DVitaItemElementPng] = item.png?.array as? [
+                DVitaItemElementPng],
             let thumbnail:DVitaItemElement = findSmallerImage(
-                elements:elements),
+                pngs:pngs),
             let data:Data = MVitaLink.elementData(
                 element:thumbnail)
             
@@ -28,29 +28,20 @@ final class MVitaXmlThumbnail
     }
     
     private class func findSmallerImage(
-        elements:[DVitaItemElement]) -> DVitaItemElement?
+        pngs:[DVitaItemElementPng]) -> DVitaItemElement?
     {
         var smaller:DVitaItemElement?
         
-        for element:DVitaItemElement in elements
+        for png:DVitaItemElement in pngs
         {
             guard
                 
-                element.fileExtension == MVitaItemInExtension.png
-                
-            else
-            {
-                continue
-            }
-            
-            guard
-                
                 let currentSmaller:DVitaItemElement = smaller,
-                element.size > currentSmaller.size
+                png.size > currentSmaller.size
                 
             else
             {
-                smaller = element
+                smaller = png
                 
                 continue
             }
