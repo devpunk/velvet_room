@@ -1,5 +1,4 @@
 import Foundation
-import XmlHero
 
 final class MVitaXmlThumbnail
 {
