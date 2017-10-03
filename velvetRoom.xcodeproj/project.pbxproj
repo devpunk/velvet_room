@@ -96,6 +96,7 @@
 		DA4E3BB01F7BDCBA00645FD1 /* MVitaItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E3BAF1F7BDCBA00645FD1 /* MVitaItemStatus.swift */; };
 		DA4E3BB21F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E3BB11F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift */; };
 		DA4E3BB41F7BDE3100645FD1 /* MVitaItemStatusFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E3BB31F7BDE3100645FD1 /* MVitaItemStatusFactory.swift */; };
+		DA511A3D1F839E38006C2BFA /* VSliderGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA511A3C1F839E38006C2BFA /* VSliderGesture.swift */; };
 		DA55F5141F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55F5131F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift */; };
 		DA55F5161F7F66710050A0A6 /* MVitaLinkStrategyRequestItemTreatInDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55F5151F7F66710050A0A6 /* MVitaLinkStrategyRequestItemTreatInDirectory.swift */; };
 		DA55F5181F7F667C0050A0A6 /* MVitaLinkStrategyRequestItemTreatInElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55F5171F7F667C0050A0A6 /* MVitaLinkStrategyRequestItemTreatInElement.swift */; };
@@ -447,6 +448,7 @@
 		DA4E3BAF1F7BDCBA00645FD1 /* MVitaItemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaItemStatus.swift; sourceTree = "<group>"; };
 		DA4E3BB11F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemStatus.swift; sourceTree = "<group>"; };
 		DA4E3BB31F7BDE3100645FD1 /* MVitaItemStatusFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaItemStatusFactory.swift; sourceTree = "<group>"; };
+		DA511A3C1F839E38006C2BFA /* VSliderGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSliderGesture.swift; sourceTree = "<group>"; };
 		DA55F5131F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemTreatIn.swift; sourceTree = "<group>"; };
 		DA55F5151F7F66710050A0A6 /* MVitaLinkStrategyRequestItemTreatInDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemTreatInDirectory.swift; sourceTree = "<group>"; };
 		DA55F5171F7F667C0050A0A6 /* MVitaLinkStrategyRequestItemTreatInElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemTreatInElement.swift; sourceTree = "<group>"; };
@@ -1303,6 +1305,7 @@
 				DA8B7E321F579369004EEE23 /* VGradient.swift */,
 				DA8B7E331F579369004EEE23 /* VPushBackground.swift */,
 				DA8B7E341F579369004EEE23 /* VSlider.swift */,
+				DA511A3C1F839E38006C2BFA /* VSliderGesture.swift */,
 				DA8B7E351F579369004EEE23 /* VSliderBar.swift */,
 				DA8B7E361F579369004EEE23 /* VSpinner.swift */,
 				DA8B7E371F579369004EEE23 /* VToast.swift */,
@@ -1815,6 +1818,7 @@
 				DA9751511F69940C00DBC757 /* MConnectingTimer.swift in Sources */,
 				DAD3A0CB1F6D0C0A00026CA9 /* MVitaConfigurationFactoryDevice.swift in Sources */,
 				DAF8A53F1F57A0BE0078A383 /* VConnect.swift in Sources */,
+				DA511A3D1F839E38006C2BFA /* VSliderGesture.swift in Sources */,
 				DA14BE231F83947400A3B101 /* MConnectedFactoryMaps.swift in Sources */,
 				DAEE1CC61F77CA8F003DA23F /* MConnectedStatusError.swift in Sources */,
 				DAFF8C8F1F76FAA200EF7BDF /* MVitaLinkStrategyRequestVitaCapabilities.swift in Sources */,
