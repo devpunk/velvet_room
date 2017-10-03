@@ -56,6 +56,16 @@ final class MVitaXmlThumbnail
         item:DVitaItemDirectory,
         completion:@escaping((Data?) -> ()))
     {
+        guard
         
+            let data:Data = findThumbnail(
+                item:item)
+        
+        else
+        {
+            completion(nil)
+            
+            return
+        }
     }
 }
