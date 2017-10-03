@@ -24,7 +24,7 @@ extension MVitaLink
         database.create
         { (item:DVitaIdentifier) in
             
-            item.identifier = identifier
+            item.config(identifier:identifier)
             
             identifierCreated(
                 identifier:item,
