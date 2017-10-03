@@ -33,46 +33,19 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
         header:MVitaPtpMessageInHeader,
         data:Data)
     {
-        switch header.type
+        guard
+        
+            let router:Router = MVitaLinkStrategyRequestData.kRouterMap[
+                header.type]
+        
+        else
         {
-        case MVitaPtpType.dataPacketStart:
-            
-            receivedPacketStart(
-                header:header,
-                data:data)
-            
-            break
-            
-        case MVitaPtpType.dataPacket:
-            
-            receivedPacket(
-                header:header,
-                data:data)
-            
-            break
-            
-        case MVitaPtpType.dataPacketEnd:
-            
-            receivedPacketEnd(
-                header:header,
-                data:data)
-            
-            break
-            
-        case MVitaPtpType.commandAccepted:
-            
-            receivedConfirm(
-                header:header,
-                data:data)
-            
-            break
-            
-        default:
-            
             failed()
             
-            break
+            return
         }
+        
+        router(self)(header, data)
     }
     
     //MARK: private
