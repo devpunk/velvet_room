@@ -3,6 +3,14 @@ import CocoaAsyncSocket
 
 extension MVitaLink
 {
+    private static let kStatusStrategyMap:[
+        MVitaPtpLocalStatus:
+        MVitaLinkStrategySendLocalStatus.Type] = [
+            MVitaPtpLocalStatus.connection:
+                MVitaLinkStrategySendLocalStatusConnection.self,
+            MVitaPtpLocalStatus.connectionEnd:
+                MVitaLinkStrategySendLocalStatusConnectionEnd.self]
+    
     private static let kCommandQueueLabel:String = "velvetRoom.vitaLink.socketCommand"
     private static let kEventQueueLabel:String = "velvetRoom.vitaLink.socketEvent"
     
@@ -77,20 +85,17 @@ extension MVitaLink
     class func factoryStrategyStatus(
         status:MVitaPtpLocalStatus) -> MVitaLinkStrategySendLocalStatus.Type
     {
-        switch status
+        guard
+        
+            let strategy:MVitaLinkStrategySendLocalStatus.Type = kStatusStrategyMap[
+                status]
+        
+        else
         {
-        case MVitaPtpLocalStatus.connection:
-            
-            return MVitaLinkStrategySendLocalStatusConnection.self
-            
-        case MVitaPtpLocalStatus.connectionEnd:
-            
-            return MVitaLinkStrategySendLocalStatusConnectionEnd.self
-            
-        default:
-            
             return MVitaLinkStrategySendLocalStatus.self
         }
+        
+        return strategy
     }
     
     class func factoryDispatchGroup() -> DispatchGroup
