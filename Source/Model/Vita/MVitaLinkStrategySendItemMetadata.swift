@@ -54,7 +54,7 @@ final class MVitaLinkStrategySendItemMetadata:
             return
         }
         
-        MVitaXmlItemMetaData.factoryMetaData(
+        MVitaXmlItem.factoryMetadata(
             items:items)
         { [weak self] (data:Data?) in
             

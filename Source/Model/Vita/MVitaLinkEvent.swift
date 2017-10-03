@@ -30,7 +30,7 @@ extension MVitaLink
         strategyEvent(event:event)
     }
     
-    private func sendItemsMetaData(
+    private func sendItemsMetadata(
         event:MVitaPtpMessageInEvent)
     {
         changeStrategy(strategyType:
@@ -101,9 +101,9 @@ extension MVitaLink
             
             break
             
-        case MVitaPtpEvent.sendItemsMetaData:
+        case MVitaPtpEvent.sendItemsMetadata:
             
-            sendItemsMetaData(event:event)
+            sendItemsMetadata(event:event)
             
             break
             

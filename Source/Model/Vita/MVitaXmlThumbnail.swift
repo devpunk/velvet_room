@@ -1,7 +1,7 @@
 import Foundation
 import XmlHero
 
-final class MVitaXmlThumbnailMetaData
+final class MVitaXmlThumbnailMetadata
 {
     private static let kKeyRoot:String = "objectMetadata"
     private static let kKeyFolder:String = "folder"

@@ -2,5 +2,5 @@ import Foundation
 
 struct MVitaXml
 {
-    static let kKeyObjectMetaData:String = "objectMetadata"
+    static let kKeyObjectMetadata:String = "objectMetadata"
 }

@@ -4,7 +4,7 @@ extension MVitaLink
 {
     //MARK: private
     
-    private func sendItemsMetaData(
+    private func sendItemsMetadata(
         items:[DVitaItemDirectory],
         event:MVitaPtpMessageInEvent)
     {
@@ -44,7 +44,7 @@ extension MVitaLink
             let items:[DVitaItemDirectory] = [
                 lastDirectory]
             
-            self?.sendItemsMetaData(
+            self?.sendItemsMetadata(
                 items:items,
                 event:event)
         }
@@ -77,7 +77,7 @@ extension MVitaLink
             
             print("sending \(items.count)")
             
-            self?.sendItemsMetaData(
+            self?.sendItemsMetadata(
                 items:items,
                 event:event)
         }
@@ -109,7 +109,7 @@ extension MVitaLink
             event:event)
     }
     
-    func sendItemsMetaData(
+    func sendItemsMetadata(
         category:MVitaItemCategory,
         count:Int,
         event:MVitaPtpMessageInEvent)
@@ -122,7 +122,7 @@ extension MVitaLink
         
         else
         {
-            sendItemsMetaData(
+            sendItemsMetadata(
                 items:[],
                 event:event)
             

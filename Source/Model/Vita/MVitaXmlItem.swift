@@ -123,14 +123,14 @@ final class MVitaXmlItem
         return fileItem
     }
     
-    private class func factoryMetaData(
+    private class func factoryMetadata(
         items:[[String:Any]],
         completion:@escaping((Data?) -> ()))
     {
-        let metaData:[String:[[String:Any]]] = [
+        let metadata:[String:[[String:Any]]] = [
             kKeyRoot:items]
         
-        Xml.data(object:metaData)
+        Xml.data(object:metadata)
         { (data:Data?, error:XmlError?) in
             
             completion(data)
@@ -139,7 +139,7 @@ final class MVitaXmlItem
     
     //MARK: internal
     
-    class func factoryMetaData(
+    class func factoryMetadata(
         items:[DVitaItem],
         completion:@escaping((Data?) -> ()))
     {
@@ -179,7 +179,7 @@ final class MVitaXmlItem
             hasheables.append(contentsOf:hashItems)
         }
         
-        factoryMetaData(
+        factoryMetadata(
             items:hasheables,
             completion:completion)
     }
