@@ -30,7 +30,6 @@ extension MVitaItemInDirectory
     func parse()
     {
         mergeChildrenSize()
-        thumbnail = findThumbnail()
         
         guard
         
@@ -44,6 +43,7 @@ extension MVitaItemInDirectory
         }
         
         sfoTitle = sfo.title
-        sfoDetail = sfo.saveDataDetail
+        sfoSavedDataTitle = sfo.saveDataTitle
+        sfoSavedDataDetail = sfo.saveDataDetail
     }
 }

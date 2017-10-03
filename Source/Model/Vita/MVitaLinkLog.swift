@@ -19,7 +19,7 @@ extension MVitaLink
     
     private func asyncLogRequestItem(
         directory:DVitaItemDirectory)
-    {
+    {/*
         guard
             
             let name:String = directory.sfoTitle,
@@ -38,7 +38,7 @@ extension MVitaLink
             transferType:MVitaLinkLogTransferType.request,
             image:image,
             gameName:name)
-        addToLog(logItem:logItem)
+        addToLog(logItem:logItem)*/
     }
     
     //MARK: internal

@@ -41,9 +41,6 @@ extension MVitaLink
     {
         let directoryPath:URL = createDirectory(
             directoryName:vitaItem.localName)
-        storeThumbnail(
-            directoryPath:directoryPath,
-            directory:vitaItem)
         
         database.create
         { (directory:DVitaItemDirectory) in

@@ -9,7 +9,8 @@ extension DVitaItemDirectory
         super.config(item:itemDirectory)
         
         sfoTitle = itemDirectory.sfoTitle
-        sfoDetail = itemDirectory.sfoDetail
+        sfoSavedDataTitle = itemDirectory.sfoSavedDataTitle
+        sfoSavedDataDetail = itemDirectory.sfoSavedDataDetail
         category = itemDirectory.category
         directoryType = Int32(itemDirectory.directoryType)
     }
