@@ -23,4 +23,35 @@ extension MVitaLink
         
         return unwrappedData
     }
+    
+    class func loadData(
+        resourceName:String,
+        resourceExtension:String) -> Data?
+    {
+        guard
+            
+            let url:URL = Bundle.main.url(
+                forResource:resourceName,
+                withExtension:resourceExtension)
+            
+        else
+        {
+            return nil
+        }
+        
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:url,
+                options:Data.ReadingOptions())
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return data
+    }
 }

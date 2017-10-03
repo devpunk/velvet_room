@@ -30,7 +30,7 @@ final class MVitaLinkStrategySendLocalCapabilities:MVitaLinkStrategySendData
     {
         guard
             
-            let data:Data = loadData(
+            let data:Data = MVitaLink.loadData(
                 resourceName:kResourceName,
                 resourceExtension:kResourceExtension)
             
