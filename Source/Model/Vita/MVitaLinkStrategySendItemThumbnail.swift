@@ -59,7 +59,7 @@ final class MVitaLinkStrategySendItemThumbnail:
             return
         }
         
-        let unsignedItemIndex:UInt32 = event.parameters[kItemParameterIndex]
+        let unsignedItemIndex:UInt32 = event.parameters[kItemParameterIndex] - 1
         let itemIndex:Int = Int(unsignedItemIndex)
         let sorters:[NSSortDescriptor] = MVitaLink.factorySortersForIdentifier()
         

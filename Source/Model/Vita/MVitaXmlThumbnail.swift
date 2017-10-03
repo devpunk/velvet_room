@@ -27,6 +27,8 @@ final class MVitaXmlThumbnail
                 return
             }
             
+            print(String.init(data:xmlData, encoding:String.Encoding.utf8)!)
+            
             factoryMetadata(
                 thumbnailData:thumbnailData,
                 xmlData:xmlData,
@@ -41,10 +43,12 @@ final class MVitaXmlThumbnail
         directory:DVitaItemDirectory,
         completion:((Data?) -> ()))
     {
+        let wrappedXml:Data = MVitaLink.wrapDataWithSizeHeader(
+            data:xmlData)
         let thumbnailSize:UInt64 = UInt64(directory.size)
         
         var data:Data = Data()
-        data.append(xmlData)
+        data.append(wrappedXml)
         data.append(value:thumbnailSize)
         data.append(thumbnailData)
         
