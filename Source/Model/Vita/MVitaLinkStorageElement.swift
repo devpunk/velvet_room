@@ -2,10 +2,12 @@ import Foundation
 
 extension MVitaLink
 {
-    private typealias Router = ((MVitaItemInElement,
+    private typealias Router = (
+        (MVitaItemInElement,
         DVitaItemDirectory,
         Database,
         DispatchGroup) -> ())
+    
     private static let kRouterMap:[
         MVitaItemInExtension:Router] = [
             MVitaItemInExtension.png:createElementPng,

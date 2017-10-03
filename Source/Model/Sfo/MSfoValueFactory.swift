@@ -2,10 +2,12 @@ import Foundation
 
 extension MSfo
 {
-    private typealias Router = ((MSfoItem,
+    private typealias Router = (
+        (MSfoItem,
         MSfoKey,
         MSfoHeader,
         Data) -> (MSfoValueProtocol?))
+    
     private static let kRouterMap:[MSfoItemFormat:Router] = [
         MSfoItemFormat.numeric:factoryNumeric]
     

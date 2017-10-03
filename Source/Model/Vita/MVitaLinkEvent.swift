@@ -2,9 +2,26 @@ import Foundation
 
 extension MVitaLink
 {
+    private typealias Router = (
+        (MVitaLink) -> (MVitaPtpMessageInEvent) -> ())
+    
+    private static let kRouterMap:[
+        MVitaPtpEvent:Router] = [
+            MVitaPtpEvent.unknown:unknownEventReceived,
+            MVitaPtpEvent.terminate:terminateReceived,
+            MVitaPtpEvent.sendItemsCount:sendItemsCount,
+            MVitaPtpEvent.sendItemsMetadata:sendItemsMetadata,
+            MVitaPtpEvent.requestItemStatus:requestItemStatus,
+            MVitaPtpEvent.sendItemThumbnail:sendItemThumbnail,
+            MVitaPtpEvent.requestSettings:requestSettings,
+            MVitaPtpEvent.sendStorageSize:sendStorageSize,
+            MVitaPtpEvent.requestItemTreat:requestItemTreat,
+            MVitaPtpEvent.itemPropertyChanged:itemPropertyChanged]
+    
     //MARK: private
     
-    private func unknownEventReceived()
+    private func unknownEventReceived(
+        event:MVitaPtpMessageInEvent)
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_unknownEventReceived")
@@ -12,7 +29,8 @@ extension MVitaLink
             message:message)
     }
     
-    private func terminateReceived()
+    private func terminateReceived(
+        event:MVitaPtpMessageInEvent)
     {
         let message:String = String.localizedModel(
             key:"MVitaLink_terminateReceived")
@@ -50,7 +68,7 @@ extension MVitaLink
         linkCommand.requestItemStatus(event:event)
     }
     
-    private func sendItemThumb(
+    private func sendItemThumbnail(
         event:MVitaPtpMessageInEvent)
     {
         
@@ -84,7 +102,8 @@ extension MVitaLink
         linkCommand.requestItemTreat(event:event)
     }
     
-    private func itemPropertyChanged()
+    private func itemPropertyChanged(
+        event:MVitaPtpMessageInEvent)
     {
         listenEvents()
     }
@@ -93,67 +112,16 @@ extension MVitaLink
     
     func receivedEvent(event:MVitaPtpMessageInEvent)
     {
-        switch event.code
+        guard
+        
+            let router:Router = MVitaLink.kRouterMap[
+                event.code]
+        
+        else
         {
-        case MVitaPtpEvent.sendItemsCount:
-            
-            sendItemsCount(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.sendItemsMetadata:
-            
-            sendItemsMetadata(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.requestItemStatus:
-            
-            requestItemStatus(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.sendItemThumbnail:
-            
-            sendItemThumb(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.requestSettings:
-            
-            requestSettings(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.sendStorageSize:
-            
-            sendStorageSize(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.requestItemTreat:
-            
-            requestItemTreat(event:event)
-            
-            break
-            
-        case MVitaPtpEvent.terminate:
-            
-            terminateReceived()
-            
-            break
-            
-        case MVitaPtpEvent.itemPropertyChanged:
-            
-            itemPropertyChanged()
-            
-            break
-            
-        default:
-            
-            unknownEventReceived()
-            
-            break
+            return
         }
+        
+        router(self)(event)
     }
 }
