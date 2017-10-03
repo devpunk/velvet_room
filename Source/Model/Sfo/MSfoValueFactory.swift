@@ -2,44 +2,30 @@ import Foundation
 
 extension MSfo
 {
+    private typealias Router = ((MSfoItem,
+        MSfoKey,
+        MSfoHeader,
+        Data) -> (MSfoValueProtocol?))
+    
     //MARK: private
     
     private static func factoryRouterMap() -> [
-        MSfoItemFormat:
-        ((MSfoItem,
-        MSfoKey,
-        MSfoHeader,
-        Data) -> (MSfoValueProtocol?))]
+        MSfoItemFormat:Router]
     {
-        let map:[
-        MSfoItemFormat:
-        ((MSfoItem,
-        MSfoKey,
-        MSfoHeader,
-        Data) -> (MSfoValueProtocol?))] = [
+        let map:[MSfoItemFormat:Router] = [
             MSfoItemFormat.numeric:factoryNumeric]
         
         return map
     }
     
     private static func routerForFormat(
-        format:MSfoItemFormat) -> ((MSfoItem,
-        MSfoKey,
-        MSfoHeader,
-        Data) -> (MSfoValueProtocol?))
+        format:MSfoItemFormat) -> Router
     {
-        let map:[MSfoItemFormat:
-        ((MSfoItem,
-        MSfoKey,
-        MSfoHeader,
-        Data) -> (MSfoValueProtocol?))] = factoryRouterMap()
+        let map:[MSfoItemFormat:Router] = factoryRouterMap()
         
         guard
         
-            let router:((MSfoItem,
-            MSfoKey,
-            MSfoHeader,
-            Data) -> (MSfoValueProtocol?)) = map[format]
+            let router:Router = map[format]
         
         else
         {
@@ -114,10 +100,7 @@ extension MSfo
         header:MSfoHeader,
         data:Data) -> MSfoValueProtocol?
     {
-        let router:((MSfoItem,
-        MSfoKey,
-        MSfoHeader,
-        Data) -> (MSfoValueProtocol?)) = routerForFormat(
+        let router:Router = routerForFormat(
             format:item.format)
         
         let value:MSfoValueProtocol? = router(
