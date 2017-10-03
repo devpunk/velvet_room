@@ -29,17 +29,7 @@ extension MVitaXmlThumbnail
     private class func factoryContentModel(
         thumbnailData:Data) -> [String:Any]
     {
-        let model:[String:Any] = [
-            MVitaXml.kKeyCodecType:kCodecType,
-            MVitaXml.kKeyWidth:kWidth,
-            MVitaXml.kKeyHeight:kHeight,
-            MVitaXml.kKeyType:kType,
-            MVitaXml.kKeyOrientationType:kOrientationType,
-            MVitaXml.kAspectRatio:kAspectRatio,
-            MVitaXml.kFromType:kFromType,
-            MVitaXml.kKeyOhfi:14,
-            MVitaXml.kKeySize:thumbnailData.count,
-            MVitaXml.kKeyDateTimeUpdated:"2017-08-31T06:35:31+00:00"]
+        let model:[String:Any] = [:]
         
         return model
     }
