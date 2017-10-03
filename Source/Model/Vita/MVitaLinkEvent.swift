@@ -64,11 +64,11 @@ extension MVitaLink
     {
         print("send item params: \(event.parameters)")
         
-//        changeStrategy(strategyType:
-//            MVitaLinkStrategySendItem.self)
-//        
-//        strategyDatabase()
-//        strategyEvent(event:event)
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendItem.self)
+        
+        strategyDatabase()
+        strategyEvent(event:event)
     }
     
     private func requestItemStatus(

@@ -7,7 +7,6 @@ final class MVitaLinkStrategySendItem:
 {
     private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
-    private let kItemParameterIndex:Int = 1
     
     override func failed()
     {
@@ -32,7 +31,7 @@ final class MVitaLinkStrategySendItem:
         
         print("event success params :\(event.parameters)")
         
-        model?.sendResultSuccess(event:event)
+//        model?.sendResultSuccess(event:event)
     }
     
     //MARK: database protocol
@@ -54,7 +53,7 @@ final class MVitaLinkStrategySendItem:
             totalParameters > kItemParameterIndex,
             let database:Database = self.database
             
-            else
+        else
         {
             failed()
             
