@@ -7,8 +7,8 @@ final class MVitaItemInDirectory:MVitaItemIn
     var rawElements:[UInt32]
     var elements:[MVitaItemInElement]
     var sfoTitle:String?
-    var sfoDetail:String?
-    var thumbnail:Data?
+    var sfoSavedDataTitle:String?
+    var sfoSavedDataDetail:String?
     
     init(itemTreat:MVitaItemTreat)
     {
