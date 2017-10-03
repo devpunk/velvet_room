@@ -62,7 +62,13 @@ extension MVitaLink
     private func sendItem(
         event:MVitaPtpMessageInEvent)
     {
-        print(event.parameters)
+        print("send item params: \(event.parameters)")
+        
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendItem.self)
+        
+        strategyDatabase()
+        strategyEvent(event:event)
     }
     
     private func requestItemStatus(
