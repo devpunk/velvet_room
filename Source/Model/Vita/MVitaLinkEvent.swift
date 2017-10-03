@@ -11,6 +11,7 @@ extension MVitaLink
             MVitaPtpEvent.terminate:terminateReceived,
             MVitaPtpEvent.sendItemsCount:sendItemsCount,
             MVitaPtpEvent.sendItemsMetadata:sendItemsMetadata,
+            MVitaPtpEvent.sendItem:sendItem,
             MVitaPtpEvent.requestItemStatus:requestItemStatus,
             MVitaPtpEvent.sendItemThumbnail:sendItemThumbnail,
             MVitaPtpEvent.requestSettings:requestSettings,
@@ -56,6 +57,12 @@ extension MVitaLink
         strategyEvent(event:event)
         
         linkCommand.requestItemsFilters(event:event)
+    }
+    
+    private func sendItem(
+        event:MVitaPtpMessageInEvent)
+    {
+        
     }
     
     private func requestItemStatus(
@@ -116,6 +123,8 @@ extension MVitaLink
     
     func receivedEvent(event:MVitaPtpMessageInEvent)
     {
+        print(event.code)
+        
         guard
         
             let router:Router = MVitaLink.kRouterMap[
