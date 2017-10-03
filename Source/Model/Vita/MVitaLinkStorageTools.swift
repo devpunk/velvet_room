@@ -70,6 +70,39 @@ extension MVitaLink
         return data
     }
     
+    class func elementData(
+        element:DVitaItemElement) -> Data?
+    {
+        guard
+            
+            let localName:String = element.localName,
+            let directoryName:String = element.directory?.localName
+        
+        else
+        {
+            return nil
+        }
+        
+        let path:URL = directoryPath(
+            directoryName:directoryName)
+        let dataPath:URL = path.appendingPathComponent(
+            localName)
+        
+        let data:Data
+        
+        do
+        {
+            try data = Data(
+                contentsOf:dataPath)
+        }
+        catch
+        {
+            return nil
+        }
+        
+        return data
+    }
+    
     class func storeThumbnail(
         directoryPath:URL,
         directory:MVitaItemInDirectory)
