@@ -2,19 +2,17 @@ import Foundation
 
 extension MVitaLink
 {
-    //MARK: private
-    
-    private class func factoryStoringRouter() -> [
-        MVitaItemInExtension:
-        ((MVitaItemInElement,
+    private typealias Router = ((MVitaItemInElement,
         DVitaItemDirectory,
         Database,
-        DispatchGroup) -> ())]
+        DispatchGroup) -> ())
+    
+    //MARK: private
+    
+    private class func factoryRouterMap() -> [
+        MVitaItemInExtension:Router]
     {
-        let map:[MVitaItemInExtension:((MVitaItemInElement,
-            DVitaItemDirectory,
-            Database,
-            DispatchGroup)->())] = [
+        let map:[MVitaItemInExtension:Router] = [
                 MVitaItemInExtension.png:createElementPng,
                 MVitaItemInExtension.sfo:createElementSfo,
                 MVitaItemInExtension.sav:createElementGeneric,
@@ -24,23 +22,13 @@ extension MVitaLink
     }
     
     private class func routerForExtension(
-        fileExtension:MVitaItemInExtension) -> ((MVitaItemInElement,
-        DVitaItemDirectory,
-        Database,
-        DispatchGroup) -> ())
+        fileExtension:MVitaItemInExtension) -> Router
     {
-        let map:[MVitaItemInExtension:
-        ((MVitaItemInElement,
-        DVitaItemDirectory,
-        Database,
-        DispatchGroup) -> ())] = factoryStoringRouter()
+        let map:[MVitaItemInExtension:Router] = factoryRouterMap()
         
         guard
         
-            let router:((MVitaItemInElement,
-            DVitaItemDirectory,
-            Database,
-            DispatchGroup) -> ()) = map[fileExtension]
+            let router:Router = map[fileExtension]
         
         else
         {
@@ -151,10 +139,7 @@ extension MVitaLink
             return
         }
         
-        let router:((MVitaItemInElement,
-        DVitaItemDirectory,
-        Database,
-        DispatchGroup) -> ()) = routerForExtension(
+        let router:Router = routerForExtension(
             fileExtension:vitaItem.fileExtension)
         
         dispatchGroup.enter()
