@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension MConnected
 {
@@ -19,7 +19,9 @@ extension MConnected
     {
         guard
             
-            let logSystem:MVitaLinkLogSystem = logSystem as? MVitaLinkLogSystem
+            let log:MVitaLinkLogSystem = log as? MVitaLinkLogSystem,
+            let title:String = kEventSystemTitleMap[
+                log.systemType]
             
         else
         {
@@ -27,8 +29,6 @@ extension MConnected
         }
         
         let icon:UIImage = #imageLiteral(resourceName: "assetConnectSystemIcon")
-        let title:String = factoryTitle(
-            logSystemType:logSystem.systemType)
         let event:MConnectedEventIcon = MConnectedEventIcon(
             icon:icon,
             title:title,
@@ -43,29 +43,28 @@ extension MConnected
     {
         guard
             
-            let logGameSave:MVitaLinkLogGameSave = logGameSave as? MVitaLinkLogGameSave
+            let log:MVitaLinkLogGameSave = log as? MVitaLinkLogGameSave,
+            let titleTransfer:String = kEventTransferTitleMap[
+                log.transferType],
+            let badge:UIImage = kEventBadgeMap[
+                log.transferType]
             
-            else
+        else
         {
             return nil
         }
         
         let titleGameSave:String = String.localizedModel(key:
             "MConnected_eventLogGameSave")
-        let titleTransfer:String = factoryTransferTitle(
-            transferType:logGameSave.transferType)
         
         var descr:String = String()
         descr.append(titleGameSave)
         descr.append(titleTransfer)
         
-        let badge:UIImage = factoryBadge(
-            transferType:logGameSave.transferType)
-        
         let event:MConnectedEventPicture = MConnectedEventPicture(
-            picture:logGameSave.image,
+            picture:log.image,
             badge:badge,
-            title:logGameSave.gameName,
+            title:log.gameName,
             descr:descr,
             timestamp:timestamp)
         
