@@ -2,7 +2,18 @@ import UIKit
 
 extension ViewParent:UIGestureRecognizerDelegate
 {
-    private typealias Router = ((CGPoint, CGFloat) -> ())
+    private typealias Router = (
+        (ViewParent) ->
+        (CGPoint, CGFloat) -> ())
+    
+    private static let kRouterMap:[
+        UIGestureRecognizerState:Router] = [
+            UIGestureRecognizerState.began:gestureStateBegan,
+            UIGestureRecognizerState.possible:gestureStateBegan,
+            UIGestureRecognizerState.changed:gestureStateChanged,
+            UIGestureRecognizerState.cancelled:gestureStateEnded,
+            UIGestureRecognizerState.ended:gestureStateEnded,
+            UIGestureRecognizerState.failed:gestureStateEnded]
     
     //MARK: selectors
     
