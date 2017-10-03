@@ -5,6 +5,7 @@
         <attribute name="firebaseId" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="DVitaIdentifier" representedClassName="DVitaIdentifier" syncable="YES" codeGenerationType="class">
+        <attribute name="created" attributeType="Date" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="firebaseId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="identifier" attributeType="String" syncable="YES"/>
         <relationship name="items" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="DVitaItemDirectory" inverseName="identifier" inverseEntity="DVitaItemDirectory" syncable="YES"/>
@@ -42,11 +43,11 @@
     </entity>
     <elements>
         <element name="DAccount" positionX="-63" positionY="-18" width="128" height="75"/>
-        <element name="DVitaIdentifier" positionX="-45" positionY="54" width="128" height="90"/>
+        <element name="DVitaIdentifier" positionX="-45" positionY="54" width="128" height="105"/>
         <element name="DVitaItem" positionX="-63" positionY="0" width="128" height="150"/>
         <element name="DVitaItemDirectory" positionX="-54" positionY="9" width="128" height="180"/>
         <element name="DVitaItemElement" positionX="-36" positionY="18" width="128" height="90"/>
-        <element name="DVitaItemElementSfo" positionX="-45" positionY="45" width="128" height="60"/>
         <element name="DVitaItemElementPng" positionX="-36" positionY="54" width="128" height="60"/>
+        <element name="DVitaItemElementSfo" positionX="-45" positionY="45" width="128" height="60"/>
     </elements>
 </model>
