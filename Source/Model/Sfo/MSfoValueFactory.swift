@@ -6,26 +6,17 @@ extension MSfo
         MSfoKey,
         MSfoHeader,
         Data) -> (MSfoValueProtocol?))
+    private static let kRouterMap:[MSfoItemFormat:Router] = [
+        MSfoItemFormat.numeric:factoryNumeric]
     
     //MARK: private
-    
-    private static func factoryRouterMap() -> [
-        MSfoItemFormat:Router]
-    {
-        let map:[MSfoItemFormat:Router] = [
-            MSfoItemFormat.numeric:factoryNumeric]
-        
-        return map
-    }
-    
+
     private static func routerForFormat(
         format:MSfoItemFormat) -> Router
     {
-        let map:[MSfoItemFormat:Router] = factoryRouterMap()
-        
         guard
         
-            let router:Router = map[format]
+            let router:Router = kRouterMap[format]
         
         else
         {

@@ -6,29 +6,21 @@ extension MVitaLink
         DVitaItemDirectory,
         Database,
         DispatchGroup) -> ())
+    private static let kRouterMap:[
+        MVitaItemInExtension:Router] = [
+            MVitaItemInExtension.png:createElementPng,
+            MVitaItemInExtension.sfo:createElementSfo,
+            MVitaItemInExtension.sav:createElementGeneric,
+            MVitaItemInExtension.unknown:createElementGeneric]
     
     //MARK: private
-    
-    private class func factoryRouterMap() -> [
-        MVitaItemInExtension:Router]
-    {
-        let map:[MVitaItemInExtension:Router] = [
-                MVitaItemInExtension.png:createElementPng,
-                MVitaItemInExtension.sfo:createElementSfo,
-                MVitaItemInExtension.sav:createElementGeneric,
-                MVitaItemInExtension.unknown:createElementGeneric]
-        
-        return map
-    }
     
     private class func routerForExtension(
         fileExtension:MVitaItemInExtension) -> Router
     {
-        let map:[MVitaItemInExtension:Router] = factoryRouterMap()
-        
         guard
         
-            let router:Router = map[fileExtension]
+            let router:Router = kRouterMap[fileExtension]
         
         else
         {
