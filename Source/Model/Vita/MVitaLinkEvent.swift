@@ -62,7 +62,7 @@ extension MVitaLink
     private func sendItem(
         event:MVitaPtpMessageInEvent)
     {
-        
+        print(event.parameters)
     }
     
     private func requestItemStatus(
