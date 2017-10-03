@@ -4,8 +4,52 @@ extension MSfo
 {
     //MARK: private
     
+    private static func factoryRouterMap() -> [
+        MSfoItemFormat:
+        ((MSfoItem,
+        MSfoKey,
+        MSfoHeader,
+        Data) -> (MSfoValueProtocol?))]
+    {
+        let map:[
+        MSfoItemFormat:
+        ((MSfoItem,
+        MSfoKey,
+        MSfoHeader,
+        Data) -> (MSfoValueProtocol?))] = [
+            MSfoItemFormat.numeric:factoryNumeric]
+        
+        return map
+    }
+    
+    private static func routerForFormat(
+        format:MSfoItemFormat) -> ((MSfoItem,
+        MSfoKey,
+        MSfoHeader,
+        Data) -> (MSfoValueProtocol?))
+    {
+        let map:[MSfoItemFormat:
+        ((MSfoItem,
+        MSfoKey,
+        MSfoHeader,
+        Data) -> (MSfoValueProtocol?))] = factoryRouterMap()
+        
+        guard
+        
+            let router:((MSfoItem,
+            MSfoKey,
+            MSfoHeader,
+            Data) -> (MSfoValueProtocol?)) = map[format]
+        
+        else
+        {
+            return factoryText
+        }
+        
+        return router
+    }
+    
     private static func factoryText(
-        format:MSfoItemFormat,
         item:MSfoItem,
         key:MSfoKey,
         header:MSfoHeader,
@@ -27,7 +71,7 @@ extension MSfo
         }
         
         let value:MSfoValueText = MSfoValueText(
-            format:format,
+            format:item.format,
             key:key,
             value:string)
         
@@ -70,31 +114,17 @@ extension MSfo
         header:MSfoHeader,
         data:Data) -> MSfoValueProtocol?
     {
-        let value:MSfoValueProtocol?
+        let router:((MSfoItem,
+        MSfoKey,
+        MSfoHeader,
+        Data) -> (MSfoValueProtocol?)) = routerForFormat(
+            format:item.format)
         
-        switch item.format
-        {
-        case MSfoItemFormat.numeric:
-            
-            value = factoryNumeric(
-                item:item,
-                key:key,
-                header:header,
-                data:data)
-            
-            break
-            
-        default:
-            
-            value = factoryText(
-                format:item.format,
-                item:item,
-                key:key,
-                header:header,
-                data:data)
-            
-            break
-        }
+        let value:MSfoValueProtocol? = router(
+            item,
+            key,
+            header,
+            data)
         
         return value
     }

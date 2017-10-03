@@ -29,8 +29,7 @@ extension MVitaLink
         Database,
         DispatchGroup) -> ())
     {
-        let map:[
-        MVitaItemInExtension:
+        let map:[MVitaItemInExtension:
         ((MVitaItemInElement,
         DVitaItemDirectory,
         Database,
