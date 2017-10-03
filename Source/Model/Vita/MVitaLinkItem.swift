@@ -55,8 +55,11 @@ extension MVitaLink
         database:Database,
         event:MVitaPtpMessageInEvent)
     {
+        let sorters:[NSSortDescriptor] = MVitaLink.factorySortersForIdentifier()
+        
         database.fetch(
-            limit:limit)
+            limit:limit,
+            sorters:sorters)
         { [weak self] (identifiers:[DVitaIdentifier]) in
             
             var items:[DVitaItemDirectory] = []
@@ -100,7 +103,7 @@ extension MVitaLink
             return
         }
         
-        let predicate:NSPredicate = factoryPredicateFor(
+        let predicate:NSPredicate = MVitaLink.factoryPredicateFor(
             itemStatus:itemStatus)
         
         fetchWithPredicate(

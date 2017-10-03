@@ -7,7 +7,7 @@ extension MVitaLink
     
     //MARK: internal
     
-    func factoryPredicateFor(
+    class func factoryPredicateFor(
         itemStatus:MVitaItemStatus) -> NSPredicate
     {
         let identifier:String = String(
@@ -21,7 +21,7 @@ extension MVitaLink
         return predicate
     }
     
-    func factorySortersForIdentifier() -> [NSSortDescriptor]
+    class func factorySortersForIdentifier() -> [NSSortDescriptor]
     {
         let sorter:NSSortDescriptor = NSSortDescriptor(
             key:MVitaLink.kLookIdentifierSorter,
