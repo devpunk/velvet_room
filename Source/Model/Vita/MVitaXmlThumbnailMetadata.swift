@@ -13,9 +13,11 @@ extension MVitaXmlThumbnail
     
     //MARK: private
     
-    private class func factoryMetadataModel() -> [String:Any]
+    private class func factoryMetadataModel(
+        thumbnailData:Data) -> [String:Any]
     {
-        let modelContent:[String:Any] = factoryContentModel()
+        let modelContent:[String:Any] = factoryContentModel(
+            thumbnailData:thumbnailData)
         let modelThumbnail:[String:Any] = [
             MVitaXml.kKeyThumbnail:modelContent]
         let model:[String:Any] = [
@@ -24,7 +26,8 @@ extension MVitaXmlThumbnail
         return model
     }
     
-    private class func factoryContentModel() -> [String:Any]
+    private class func factoryContentModel(
+        thumbnailData:Data) -> [String:Any]
     {
         let model:[String:Any] = [
             MVitaXml.kKeyCodecType:kCodecType,
@@ -35,7 +38,7 @@ extension MVitaXmlThumbnail
             MVitaXml.kAspectRatio:kAspectRatio,
             MVitaXml.kFromType:kFromType,
             MVitaXml.kKeyOhfi:14,
-            MVitaXml.kKeySize:2,
+            MVitaXml.kKeySize:thumbnailData.count,
             MVitaXml.kKeyDateTimeUpdated:"2017-08-31T06:35:31+00:00"]
         
         return model
@@ -43,10 +46,12 @@ extension MVitaXmlThumbnail
     
     //MARK: internal
     
-    class func factoryMetadata(
+    class func factoryXmlMetadata(
+        thumbnailData:Data,
         completion:@escaping((Data?) -> ()))
     {
-        let model:[String:Any] = factoryMetadataModel()
+        let model:[String:Any] = factoryMetadataModel(
+            thumbnailData:thumbnailData)
         
         Xml.data(object:model)
         { (data:Data?, error:XmlError?) in
