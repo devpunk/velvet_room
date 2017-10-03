@@ -73,6 +73,14 @@ final class MVitaLinkStrategySendItemThumbnail:
                 data:data,
                 event:event)
         }
+        
+        /*
+ 
+         uint16_t ret = VitaMTP_SendData(device, event_id, PTP_OC_VITA_SendObjectThumb, (unsigned char *)new_data,
+         
+         PTP_OC_VITA_SendObjectThumb = 
+         
+ */
     }
     
     //MARK: private

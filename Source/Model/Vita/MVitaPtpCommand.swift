@@ -13,6 +13,7 @@ enum MVitaPtpCommand:UInt16
     case sendItemsCount                 = 38163
     case requestItemsFilters            = 38164
     case sendItemMetadata               = 38165
+    case sendItemThumbnail              = 38166
     case sendResult                     = 38168
     case sendLocalInfo                  = 38172
     case requestSettings                = 38180
