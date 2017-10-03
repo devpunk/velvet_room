@@ -13,21 +13,21 @@ final class CHome:Controller<ArchHome>
         database?.fetch
             { (directory:[DVitaItemDirectory]) in
             
-                MVitaXmlItem.factoryMetadata(items:[directory.first!], completion: { (data:Data?) in
-                    
-                    guard
-                        
-                        let string:String = String(data:data!, encoding:String.Encoding.utf8)
-                        
-                        else
-                    {
-                        return
-                    }
-                    
-                    print(string)
-                    
-                    
-                })
+//                MVitaXmlItem.factoryMetadata(items:[directory.first!], completion: { (data:Data?) in
+//
+//                    guard
+//
+//                        let string:String = String(data:data!, encoding:String.Encoding.utf8)
+//
+//                        else
+//                    {
+//                        return
+//                    }
+//
+//                    print(string)
+//
+//
+//                })
                 
         }
         

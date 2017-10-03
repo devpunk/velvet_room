@@ -2,8 +2,7 @@ import Foundation
 
 final class MVitaLinkStrategySendItemThumbnail:
     MVitaLinkStrategySendData,
-    MVitaLinkStrategyEventProtocol,
-    MVitaLinkStrategyItemsProtocol
+    MVitaLinkStrategyEventProtocol
 {
     private var items:[DVitaItem]?
     private var event:MVitaPtpMessageInEvent?

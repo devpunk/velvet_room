@@ -71,7 +71,9 @@ extension MVitaLink
     private func sendItemThumbnail(
         event:MVitaPtpMessageInEvent)
     {
-        
+        changeStrategy(strategyType:
+            MVitaLinkStrategySendItemThumbnail.self)
+        strategyEvent(event:event)
     }
     
     private func requestSettings(
