@@ -2,6 +2,8 @@ import UIKit
 
 extension ViewParent:UIGestureRecognizerDelegate
 {
+    private typealias Router = ((CGPoint, CGFloat) -> ())
+    
     //MARK: selectors
     
     @objc
