@@ -10,7 +10,6 @@ final class MVitaXmlThumbnail
     
     private class func factoryMetadata(
         thumbnailData:Data,
-        directory:DVitaItemDirectory,
         completion:@escaping((Data?) -> ()))
     {
         factoryXml(thumbnailData:thumbnailData)
@@ -32,7 +31,6 @@ final class MVitaXmlThumbnail
             factoryMetadata(
                 thumbnailData:thumbnailData,
                 xmlData:xmlData,
-                directory:directory,
                 completion:completion)
         }
     }
@@ -40,12 +38,11 @@ final class MVitaXmlThumbnail
     private class func factoryMetadata(
         thumbnailData:Data,
         xmlData:Data,
-        directory:DVitaItemDirectory,
         completion:((Data?) -> ()))
     {
         let wrappedXml:Data = MVitaLink.wrapDataWithSizeHeader(
             data:xmlData)
-        let thumbnailSize:UInt64 = UInt64(directory.size)
+        let thumbnailSize:UInt64 = UInt64(thumbnailData.count)
         
         var data:Data = Data()
         data.append(wrappedXml)
@@ -75,7 +72,6 @@ final class MVitaXmlThumbnail
         
         factoryMetadata(
             thumbnailData:thumbnailData,
-            directory:directory,
             completion:completion)
     }
 }

@@ -48,6 +48,8 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
     private func changeStatus(
         statusType:MVitaLinkStrategySendDataStatusProtocol.Type)
     {
+        print(statusType)
+        
         DispatchQueue.global(
             qos:DispatchQoS.QoSClass.background).async
         { [weak self] in
