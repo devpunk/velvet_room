@@ -6,7 +6,12 @@ class MVitaLinkStrategyRequestData:MVitaLinkStrategyProtocol
         (MVitaLinkStrategyRequestData) ->
         (MVitaPtpMessageInHeader, Data) -> ())
     
-    private
+    private static let kRouterMap:[
+        MVitaPtpType:Router] = [
+            MVitaPtpType.dataPacketStart:receivedPacketStart,
+            MVitaPtpType.dataPacket:receivedPacket,
+            MVitaPtpType.dataPacketEnd:receivedPacketEnd,
+            MVitaPtpType.commandAccepted:receivedConfirm]
     
     var data:Data
     var payload:Int
