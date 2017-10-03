@@ -3,44 +3,25 @@ import Foundation
 extension MConnected
 {
     private typealias Router = (
-        (log:MVitaLinkLogProtocol,
-        timestamp:String) -> (MConnectedEventProtocol?))
+        (MVitaLinkLogProtocol,
+        String) -> (MConnectedEventProtocol?))
+    
+    private static let kRouterMap:[
+        MVitaLinkLogType:Router] = [
+            MVitaLinkLogType.system:factorySystem,
+            MVitaLinkLogType.gameSave:factoryGameSave]
     
     //MARK: private
     
-    private class func factoryEvent(
+    private class func factorySystem(
         log:MVitaLinkLogProtocol,
-        timestamp:String) -> MConnectedEventProtocol?
-    {
-        switch log.logType
-        {
-        case MVitaLinkLogType.system:
-            
-            let event:MConnectedEventProtocol? = factoryEvent(
-                logSystem:log,
-                timestamp:timestamp)
-            
-            return event
-            
-        case MVitaLinkLogType.gameSave:
-            
-            let event:MConnectedEventProtocol? = factoryEvent(
-                logGameSave:log,
-                timestamp:timestamp)
-            
-            return event
-        }
-    }
-    
-    private class func factoryEvent(
-        logSystem:MVitaLinkLogProtocol,
         timestamp:String) -> MConnectedEventProtocol?
     {
         guard
             
             let logSystem:MVitaLinkLogSystem = logSystem as? MVitaLinkLogSystem
             
-            else
+        else
         {
             return nil
         }
@@ -56,8 +37,8 @@ extension MConnected
         return event
     }
     
-    private class func factoryEvent(
-        logGameSave:MVitaLinkLogProtocol,
+    private class func factoryGameSave(
+        log:MVitaLinkLogProtocol,
         timestamp:String) -> MConnectedEventProtocol?
     {
         guard
@@ -106,11 +87,13 @@ extension MConnected
             
             guard
                 
-                let event:MConnectedEventProtocol = factoryEvent(
-                    log:log,
-                    timestamp:timestamp)
+                let router:Router = kRouterMap[
+                    log.logType],
+                let event:MConnectedEventProtocol = router(
+                    log,
+                    timestamp)
                 
-                else
+            else
             {
                 continue
             }
