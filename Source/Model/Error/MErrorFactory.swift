@@ -8,7 +8,7 @@ extension MError
     {
         let message:String = String.localizedModel(
             key:key)
-        let error:Error = Error(
+        let error:MError = MError(
             localizedDescription:message)
         
         return error
@@ -18,7 +18,7 @@ extension MError
     
     static func factoryDataNotFound() -> MError
     {
-        let error:Error = factory(key:"MError_dataNotFound")
+        let error:MError = factory(key:"MError_dataNotFound")
         
         return error
     }

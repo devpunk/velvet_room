@@ -4,7 +4,7 @@ extension MVitaLink
 {
     //MARK: private
     
-    private class func factoryElementStoringRouter() -> [
+    private class func factoryStoringRouter() -> [
         MVitaItemInExtension:
         ((MVitaItemInElement,
         DVitaItemDirectory,
@@ -23,7 +23,33 @@ extension MVitaLink
         return map
     }
     
-    private class func routerForExtension() -> 
+    private class func routerForExtension(
+        fileExtension:MVitaItemInExtension) -> ((MVitaItemInElement,
+        DVitaItemDirectory,
+        Database,
+        DispatchGroup) -> ())
+    {
+        let map:[
+        MVitaItemInExtension:
+        ((MVitaItemInElement,
+        DVitaItemDirectory,
+        Database,
+        DispatchGroup) -> ())] = factoryStoringRouter()
+        
+        guard
+        
+            let router:((MVitaItemInElement,
+            DVitaItemDirectory,
+            Database,
+            DispatchGroup) -> ()) = map[fileExtension]
+        
+        else
+        {
+            return createElementGeneric
+        }
+        
+        return router
+    }
     
     private class func storeElement(
         vitaItem:MVitaItemInElement,
@@ -60,13 +86,13 @@ extension MVitaLink
         dispatchGroup:DispatchGroup)
     {
         database.create
-            { (element:DVitaItemElement) in
-                
-                element.directory = directory
-                element.config(
-                    itemElement:vitaItem)
-                
-                dispatchGroup.leave()
+        { (element:DVitaItemElement) in
+            
+            element.directory = directory
+            element.config(
+                itemElement:vitaItem)
+            
+            dispatchGroup.leave()
         }
     }
     
@@ -77,13 +103,14 @@ extension MVitaLink
         dispatchGroup:DispatchGroup)
     {
         database.create
-            { (element:DVitaItemElement) in
-                
-                element.directory = directory
-                element.config(
-                    itemElement:vitaItem)
-                
-                dispatchGroup.leave()
+        { (element:DVitaItemElementSfo) in
+            
+            element.directorySfo = directory
+            element.directory = directory
+            element.config(
+                itemElement:vitaItem)
+            
+            dispatchGroup.leave()
         }
     }
     
@@ -94,13 +121,14 @@ extension MVitaLink
         dispatchGroup:DispatchGroup)
     {
         database.create
-            { (element:DVitaItemElement) in
-                
-                element.directory = directory
-                element.config(
-                    itemElement:vitaItem)
-                
-                dispatchGroup.leave()
+        { (element:DVitaItemElementPng) in
+            
+            element.directoryPng = directory
+            element.directory = directory
+            element.config(
+                itemElement:vitaItem)
+            
+            dispatchGroup.leave()
         }
     }
     
@@ -124,15 +152,18 @@ extension MVitaLink
             return
         }
         
-        
-        
-        
+        let router:((MVitaItemInElement,
+        DVitaItemDirectory,
+        Database,
+        DispatchGroup) -> ()) = routerForExtension(
+            fileExtension:vitaItem.fileExtension)
         
         dispatchGroup.enter()
-        createElement(
-            vitaItem:vitaItem,
-            directory:directoryPath,
-            database:database,
-            dispatchGroup:dispatchGroup)
+        
+        router(
+            vitaItem,
+            directory,
+            database,
+            dispatchGroup)
     }
 }
