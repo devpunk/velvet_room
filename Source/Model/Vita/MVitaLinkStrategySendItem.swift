@@ -4,6 +4,7 @@ final class MVitaLinkStrategySendItem:
     MVitaLinkStrategySendData,
     MVitaLinkStrategyEventProtocol
 {
+    var elements:[DVitaItemElement]?
     private var event:MVitaPtpMessageInEvent?
     
     override func failed()
@@ -52,49 +53,9 @@ final class MVitaLinkStrategySendItem:
                 return
             }
             
-            self?.sendThumbnail(
+            self?.directoryReceived(
                 directory:directory,
                 event:event)
         }
-    }
-    
-    //MARK: private
-    
-    private func sendThumbnail(
-        directory:DVitaItemDirectory,
-        event:MVitaPtpMessageInEvent)
-    {
-        MVitaXmlThumbnail.factoryMetadata(directory:directory)
-        { (data:Data?) in
-            
-            guard
-                
-                let data:Data = data
-                
-            else
-            {
-                self.failed()
-                
-                return
-            }
-            
-            self.sendData(
-                data:data,
-                event:event)
-        }
-    }
-    
-    private func sendData(
-        data:Data,
-        event:MVitaPtpMessageInEvent)
-    {
-        let message:MVitaPtpMessageOutEventCommand = MVitaPtpMessageOutEventCommand(
-            event:event,
-            dataPhase:MVitaPtpDataPhase.send,
-            command:MVitaPtpCommand.sendItemThumbnail)
-        
-        send(
-            data:data,
-            message:message)
     }
 }
