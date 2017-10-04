@@ -2,10 +2,8 @@ import Foundation
 
 final class MVitaLinkStrategySendItemThumbnail:
     MVitaLinkStrategySendData,
-    MVitaLinkStrategyDatabaseProtocol,
     MVitaLinkStrategyEventProtocol
 {
-    private weak var database:Database?
     private var event:MVitaPtpMessageInEvent?
     
     override func failed()
@@ -32,72 +30,20 @@ final class MVitaLinkStrategySendItemThumbnail:
         model?.sendResultSuccess(event:event)
     }
     
-    //MARK: database protocol
-    
-    func config(database:Database)
-    {
-        self.database = database
-    }
-    
     //MARK: event protocol
     
     func config(event:MVitaPtpMessageInEvent)
     {
-        self.event = event
-        
-        guard
-            
-            let unsignedItemIndex:UInt32 = event.parameters.first,
-            let database:Database = self.database
-        
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        let itemIndex:Int = Int(unsignedItemIndex)
-        let sorters:[NSSortDescriptor] = MVitaLink.factorySortersForIdentifier()
-        
         print("requesting thumbnail \(event.parameters)")
         
-        sendThumbnail(
-            itemIndex:itemIndex,
-            sorters:sorters,
-            database:database,
-            event:event)
-    }
-    
-    //MARK: private
-    
-    private func sendThumbnail(
-        itemIndex:Int,
-        sorters:[NSSortDescriptor],
-        database:Database,
-        event:MVitaPtpMessageInEvent)
-    {
-        database.fetch(sorters:sorters)
-        { [weak self] (identifiers:[DVitaIdentifier]) in
-            
-            let totalIdentifiers:Int = identifiers.count
-            
-            guard
-                
-                totalIdentifiers > itemIndex
-            
-            else
-            {
-                self?.failed()
-                
-                return
-            }
-            
-            let identifier:DVitaIdentifier = identifiers[itemIndex]
+        self.event = event
+        
+        model?.directoryAtEventPosition(event:event)
+        { [weak self] (directory:DVitaItemDirectory?) in
             
             guard
             
-                let directory:DVitaItemDirectory = identifier.items?.lastObject as? DVitaItemDirectory
+                let directory:DVitaItemDirectory = directory
             
             else
             {
@@ -111,6 +57,8 @@ final class MVitaLinkStrategySendItemThumbnail:
                 event:event)
         }
     }
+    
+    //MARK: private
     
     private func sendThumbnail(
         directory:DVitaItemDirectory,
