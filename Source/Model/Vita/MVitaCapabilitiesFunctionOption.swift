@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaCapabilitiesFunctionOption:String
 {
     case physicalView = "physicalView"

@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaItemInExtension:String
 {
     case unknown

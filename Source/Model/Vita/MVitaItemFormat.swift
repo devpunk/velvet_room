@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaItemFormat:UInt16
 {
     case unknown

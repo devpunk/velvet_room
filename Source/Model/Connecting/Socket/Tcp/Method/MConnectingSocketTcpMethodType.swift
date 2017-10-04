@@ -1,5 +1,3 @@
-import Foundation
-
 enum MConnectingSocketTcpMethodType:String
 {
     case showpin = "SHOWPIN"

@@ -1,5 +1,3 @@
-import Foundation
-
 enum MVitaLinkLogTransferType
 {
     case request

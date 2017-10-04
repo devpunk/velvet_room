@@ -1,5 +1,3 @@
-import Foundation
-
 enum MSfoItemFormat:UInt16
 {
     case unknown
