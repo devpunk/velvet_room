@@ -21,4 +21,5 @@ extension MVitaConfiguration
     static let kKeyLineSeparator:String = "lineSeparator"
     static let kKeyPort:String = "port"
     static let kKeyStorageId:String = "storageId"
+    static let kKeyStorageProtectionStatus:String = "storageProtectionStatus"
 }

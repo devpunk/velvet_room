@@ -7,5 +7,6 @@ struct MVitaConfiguration
     let local:MVitaConfigurationLocal
     let lineSeparator:String
     let storageId:UInt32
+    let storageProtectionStatus:UInt16
     let port:UInt16
 }
