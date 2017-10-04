@@ -8,6 +8,8 @@
 	<string>\r\n</string>
 	<key>storageId</key>
 	<integer>65537</integer>
+	<key>storageProtectionStatus</key>
+	<integer>56323</integer>
 	<key>broadcast</key>
 	<dict>
 		<key>searchCommand</key>
