@@ -87,4 +87,28 @@ final class MVitaPtpString
         
         return string
     }
+    
+    class func factoryData(
+        string:String) -> Data?
+    {
+        guard
+            
+            let stringData:Data = string.data(
+                using:String.Encoding.utf8,
+                allowLossyConversion:false)
+        
+        else
+        {
+            return nil
+        }
+        
+        let stringDataSize:Int = stringData.count
+        let stringUnsignedSize:UInt8 = UInt8(stringDataSize)
+        
+        var data:Data = Data()
+        data.append(stringUnsignedSize)
+        data.append(stringData)
+        
+        return data
+    }
 }
