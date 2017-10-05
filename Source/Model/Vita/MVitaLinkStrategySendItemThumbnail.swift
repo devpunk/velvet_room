@@ -38,13 +38,37 @@ final class MVitaLinkStrategySendItemThumbnail:
         
         self.event = event
         
-        model?.directoryAtEventPosition(event:event)
+        guard
+        
+            let handles:MVitaPtpMessageInEventHandles = MVitaPtpMessageInEventHandles.factoryHandles(
+                event:event)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        let itemIndex:Int = Int(handles.item)
+        findDirectory(
+            event:event,
+            itemIndex:itemIndex)
+    }
+    
+    //MARK: private
+    
+    private func findDirectory(
+        event:MVitaPtpMessageInEvent,
+        itemIndex:Int)
+    {
+        model?.directoryAtPosition(itemIndex:itemIndex)
         { [weak self] (directory:DVitaItemDirectory?) in
             
             guard
-            
+                
                 let directory:DVitaItemDirectory = directory
-            
+                
             else
             {
                 self?.failed()
@@ -57,8 +81,6 @@ final class MVitaLinkStrategySendItemThumbnail:
                 event:event)
         }
     }
-    
-    //MARK: private
     
     private func sendThumbnail(
         directory:DVitaItemDirectory,

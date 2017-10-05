@@ -39,23 +39,18 @@ final class MVitaLinkStrategySendItem:
     {
         self.event = event
         
-        model?.directoryAtEventPosition(event:event)
-        { [weak self] (directory:DVitaItemDirectory?) in
+        guard
             
-            guard
-                
-                let directory:DVitaItemDirectory = directory
-                
-            else
-            {
-                self?.failed()
-                
-                return
-            }
-            
-            self?.directoryFound(
-                directory:directory,
+            let handles:MVitaPtpMessageInEventHandles = MVitaPtpMessageInEventHandles.factoryHandles(
                 event:event)
+        
+        else
+        {
+            failed()
+            
+            return
         }
+        
+        findDirectory(handles:handles)
     }
 }

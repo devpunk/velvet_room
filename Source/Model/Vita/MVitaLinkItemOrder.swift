@@ -4,7 +4,7 @@ extension MVitaLink
 {
     //MARK: private
     
-    private func directoryAtEventPosition(
+    private func directoryAtPosition(
         database:Database,
         itemIndex:Int,
         sorters:[NSSortDescriptor],
@@ -35,14 +35,13 @@ extension MVitaLink
     
     //MARK: internal
     
-    func directoryAtEventPosition(
-        event:MVitaPtpMessageInEvent,
+    func directoryAtPosition(
+        itemIndex:Int,
         completion:@escaping((DVitaItemDirectory?) -> ()))
     {
         guard
         
-            let database:Database = self.database,
-            let unsignedItemIndex:UInt32 = event.parameters.first
+            let database:Database = self.database
         
         else
         {
@@ -51,10 +50,9 @@ extension MVitaLink
             return
         }
         
-        let itemIndex:Int = Int(unsignedItemIndex)
         let sorters:[NSSortDescriptor] = MVitaLink.factorySortersForIdentifier()
         
-        directoryAtEventPosition(
+        directoryAtPosition(
             database:database,
             itemIndex:itemIndex,
             sorters:sorters,
