@@ -34,7 +34,7 @@ final class MVitaPtpMessageInConfirm:MVitaPtpMessageIn
         {
             return nil
         }
-        
+        print("confirm code \(rawCode)")
         self.transactionId = transactionId
         self.code = MVitaPtpMessageIn.factoryCommandCode(
             rawCode:rawCode)

@@ -9,6 +9,7 @@ enum MVitaPtpCommand:UInt16
     case success                        = 8193
     case error                          = 8194
     case invalidTreatId                 = 8201
+    case invalitParent                  = 8218
     case invalidParameter               = 8221
     case requestVitaInfo                = 38161
     case sendItemsCount                 = 38163
