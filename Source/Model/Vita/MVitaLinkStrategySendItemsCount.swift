@@ -155,7 +155,7 @@ final class MVitaLinkStrategySendItemsCount:
         event:MVitaPtpMessageInEvent,
         count:Int)
     {        
-        let message:MVitaPtpMessageOutItemsCount = MVitaPtpMessageOutItemsCount(
+        let message:MVitaPtpMessageOutSendItemsCount = MVitaPtpMessageOutSendItemsCount(
             event:event,
             count:count)
         model?.linkCommand.writeMessage(

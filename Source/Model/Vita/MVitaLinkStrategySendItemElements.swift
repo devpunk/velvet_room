@@ -22,7 +22,7 @@ extension MVitaLinkStrategySendItem
             return
         }
         
-        send(data: <#T##Data#>, message: <#T##MVitaPtpMessageOutProtocol#>)
+//        send(data: <#T##Data#>, message: <#T##MVitaPtpMessageOutProtocol#>)
     }
     
     //MARK: internal
