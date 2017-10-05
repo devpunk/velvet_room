@@ -105,9 +105,8 @@ extension MVitaLinkSocketCommand
     func requestItemData(
         treatId:UInt32)
     {
-        let message:MVitaPtpMessageOutItemData = MVitaPtpMessageOutItemData(
-            treatId:treatId,
-            dataPhase:MVitaPtpDataPhase.request)
+        let message:MVitaPtpMessageOutRequestItem = MVitaPtpMessageOutRequestItem(
+            treatId:treatId)
         writeMessageAndRead(message:message)
     }
 }
