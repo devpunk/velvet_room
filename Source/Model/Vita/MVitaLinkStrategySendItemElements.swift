@@ -6,7 +6,23 @@ extension MVitaLinkStrategySendItem
         directory:DVitaItemDirectory,
         event:MVitaPtpMessageInEvent)
     {
+        guard
         
+            let handle:UInt32 = event.parameters.first,
+            let configuration:MVitaConfiguration = model?.configuration,
+            let directoryPacked:MVitaPtpPackDirectory = MVitaPtpPackDirectory(
+                directory:directory,
+                configuration:configuration,
+                handle:handle)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        send(data: <#T##Data#>, message: <#T##MVitaPtpMessageOutProtocol#>)
     }
     
     //MARK: internal
@@ -15,8 +31,23 @@ extension MVitaLinkStrategySendItem
         directory:DVitaItemDirectory,
         event:MVitaPtpMessageInEvent)
     {
-        self.elements = directory.elements?.array as? [DVitaItemElement]
+        guard
+            
+            let elements:[
+            DVitaItemElement] = directory.elements?.array as? [
+                DVitaItemElement]
         
+        else
+        {
+            failed()
+            
+            return
+        }
         
+        self.elements = elements
+        
+        sendDirectory(
+            directory:directory,
+            event:event)
     }
 }
