@@ -6,7 +6,7 @@ struct MVitaPtpMessageOutSendItem:MVitaPtpMessageOutProtocol
     
     init(
         storageId:UInt32,
-        handle:UInt32)
+        parentHandle:UInt32)
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command.rawValue)
@@ -14,7 +14,7 @@ struct MVitaPtpMessageOutSendItem:MVitaPtpMessageOutProtocol
         builder.append(value:MVitaPtpCommand.sendItem.rawValue)
         builder.appendTransactionId()
         builder.append(value:storageId)
-        builder.append(value:handle)
+        builder.append(value:parentHandle)
         
         data = builder.export()
     }
