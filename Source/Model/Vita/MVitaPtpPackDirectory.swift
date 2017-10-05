@@ -19,7 +19,7 @@ struct MVitaPtpPackDirectory:MVitaPtpPackProtocol
     init?(
         directory:DVitaItemDirectory,
         configuration:MVitaConfiguration,
-        handle:UInt32)
+        parentHandle:UInt32)
     {
         guard
             
@@ -45,7 +45,7 @@ struct MVitaPtpPackDirectory:MVitaPtpPackProtocol
         data.append(value:kImageWith)
         data.append(value:kImageHeight)
         data.append(value:kImageBitDepth)
-        data.append(value:handle)
+        data.append(value:parentHandle)
         data.append(value:kAssociationType)
         data.append(value:kAssociationDescr)
         data.append(value:kSequenceNumber)
