@@ -67,7 +67,6 @@ extension MVitaLink
         changeStrategy(strategyType:
             MVitaLinkStrategySendItem.self)
         
-        strategyDatabase()
         strategyEvent(event:event)
     }
     
