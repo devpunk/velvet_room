@@ -53,7 +53,7 @@ final class MVitaLinkStrategySendItem:
                 return
             }
             
-            self?.directoryReceived(
+            self?.directoryFound(
                 directory:directory,
                 event:event)
         }

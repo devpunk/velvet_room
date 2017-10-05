@@ -5,7 +5,6 @@ struct MVitaPtpMessageOutSendItem:MVitaPtpMessageOutProtocol
     let data:Data
     
     init(
-        event:MVitaPtpMessageInEvent,
         storageId:UInt32,
         handle:UInt32)
     {
