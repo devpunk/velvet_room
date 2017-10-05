@@ -86,7 +86,7 @@ extension MVitaLinkSocketCommand
             return
         }
         
-        let message:MVitaPtpMessageOutItemElements = MVitaPtpMessageOutItemElements(
+        let message:MVitaPtpMessageOutRequestItemElements = MVitaPtpMessageOutRequestItemElements(
             treatId:treatId,
             storageId:storageId)
         writeMessageAndRead(message:message)

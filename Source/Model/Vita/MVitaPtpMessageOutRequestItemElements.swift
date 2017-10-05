@@ -1,6 +1,6 @@
 import Foundation
 
-struct MVitaPtpMessageOutItemElements:MVitaPtpMessageOutProtocol
+struct MVitaPtpMessageOutRequestItemElements:MVitaPtpMessageOutProtocol
 {
     let data:Data
     private let kItemFormatCode:UInt32 = 0
