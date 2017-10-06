@@ -2,7 +2,6 @@ import Foundation
 
 struct MVitaPtpPackProtocolDefaultValues
 {
-    static let kCompressedSize:UInt32 = 0
     static let kThumbFormat:UInt32 = 0
     static let kThumbCompressedSize:UInt32 = 0
     static let kThumbWith:UInt32 = 0
