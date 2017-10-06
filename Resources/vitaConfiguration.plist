@@ -10,6 +10,10 @@
 	<integer>65537</integer>
 	<key>storageProtectionStatus</key>
 	<integer>56323</integer>
+	<key>storageAssociationType</key>
+	<integer>1</integer>
+	<key>storageAssociationDescr</key>
+	<integer>56326</integer>
 	<key>broadcast</key>
 	<dict>
 		<key>searchCommand</key>
