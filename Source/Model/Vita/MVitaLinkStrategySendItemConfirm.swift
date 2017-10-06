@@ -4,6 +4,6 @@ final class MVitaLinkStrategySendItemConfirm:MVitaLinkStrategySendItemProtocol
 {
     func nextStep(strategy:MVitaLinkStrategySendItem)
     {
-        strategy.sendInvalid()
+        strategy.model?.listenEvents()
     }
 }

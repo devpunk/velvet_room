@@ -16,7 +16,7 @@ struct MVitaPtpPackElement:MVitaPtpPackProtocol
                 configuration:configuration,
                 parentHandle:parentHandle,
                 name:name,
-                format:element.format,
+                format:MVitaItemFormat.undefined,
                 size:element.size)
             
         else
