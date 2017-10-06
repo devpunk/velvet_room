@@ -76,7 +76,7 @@ extension MVitaLinkStrategySendItem
         
         else
         {
-            sendCompleted()
+            sentAllItems()
             
             return
         }

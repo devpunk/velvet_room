@@ -6,7 +6,7 @@ final class MVitaLinkStrategySendItem:
 {
     var elements:[DVitaItemElement]?
     private(set) var handles:MVitaPtpMessageInEventHandles?
-    private var event:MVitaPtpMessageInEvent?
+    private(set) var event:MVitaPtpMessageInEvent?
     private var status:MVitaLinkStrategySendItemProtocol?
     
     override func failed()
@@ -30,28 +30,6 @@ final class MVitaLinkStrategySendItem:
     {
         let status:MVitaLinkStrategySendItemProtocol = statusType.init()
         self.status = status
-    }
-    
-    func sendCompleted()
-    {
-        print("send completed")
-        
-        guard
-        
-            let event:MVitaPtpMessageInEvent = self.event,
-            let handles:MVitaPtpMessageInEventHandles = self.handles
-        
-        else
-        {
-            return
-        }
-        
-        let parameters:[UInt32] = [
-            handles.parent]
-        
-        model?.sendResultSuccess(
-            event:event,
-            parameters:parameters)
     }
     
     //MARK: event protocol
