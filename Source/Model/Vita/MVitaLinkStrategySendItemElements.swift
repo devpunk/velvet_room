@@ -34,7 +34,7 @@ extension MVitaLinkStrategySendItem
     
     //MARK: internal
     
-    func nextStep()
+    func nextElement()
     {
         guard
         

@@ -57,7 +57,7 @@ final class MVitaLinkStrategySendItem:
         
         self.handles = handles
         changeStatus(
-            statusType:MVitaLinkStrategySendItemInfo.self)
+            statusType:MVitaLinkStrategySendItemDirectoryInfo.self)
         findDirectory(handles:handles)
     }
 }

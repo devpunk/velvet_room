@@ -1,9 +1,8 @@
 import Foundation
 
-final class MVitaLinkStrategySendItemInfo:MVitaLinkStrategySendItemProtocol
+final class MVitaLinkStrategySendItemElementData:MVitaLinkStrategySendItemProtocol
 {
     func nextStep(strategy:MVitaLinkStrategySendItem)
     {
-        
     }
 }
