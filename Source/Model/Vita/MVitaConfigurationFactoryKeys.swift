@@ -22,4 +22,6 @@ extension MVitaConfiguration
     static let kKeyPort:String = "port"
     static let kKeyStorageId:String = "storageId"
     static let kKeyStorageProtectionStatus:String = "storageProtectionStatus"
+    static let kKeyStorageAssociationType:String = "storageAssociationType"
+    static let kKeyStorageAssociationDescr:String = "storageAssociationDescr"
 }
