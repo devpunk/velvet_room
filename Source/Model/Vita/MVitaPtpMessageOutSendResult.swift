@@ -6,7 +6,8 @@ struct MVitaPtpMessageOutSendResult:MVitaPtpMessageOutProtocol
     
     init(
         event:MVitaPtpMessageInEvent,
-        result:MVitaPtpResult)
+        result:MVitaPtpResult,
+        parameters:[UInt32])
     {
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command.rawValue)
@@ -15,6 +16,11 @@ struct MVitaPtpMessageOutSendResult:MVitaPtpMessageOutProtocol
         builder.appendTransactionId()
         builder.append(value:event.eventId)
         builder.append(value:result.rawValue)
+        
+        for parameter:UInt32 in parameters
+        {
+            builder.append(value:parameter)
+        }
         
         data = builder.export()
     }
