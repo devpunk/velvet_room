@@ -7,6 +7,7 @@ final class MVitaLinkStrategySendItem:
     var elements:[DVitaItemElement]?
     private(set) var handles:MVitaPtpMessageInEventHandles?
     private var event:MVitaPtpMessageInEvent?
+    private var status:MVitaLinkStrategySendItemProtocol?
     
     override func failed()
     {
@@ -18,10 +19,17 @@ final class MVitaLinkStrategySendItem:
     
     override func success()
     {
-        sendNextElement()
+        status?.nextStep(strategy:self)
     }
     
     //MARK: internal
+    
+    func changeStatus(
+        statusType:MVitaLinkStrategySendItemProtocol.Type)
+    {
+        let status:MVitaLinkStrategySendItemProtocol = statusType.init()
+        self.status = status
+    }
     
     func sendCompleted()
     {
@@ -48,6 +56,8 @@ final class MVitaLinkStrategySendItem:
         }
         
         self.handles = handles
+        changeStatus(
+            statusType:MVitaLinkStrategySendItemInfo.self)
         findDirectory(handles:handles)
     }
 }
