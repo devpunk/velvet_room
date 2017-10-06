@@ -35,7 +35,23 @@ final class MVitaLinkStrategySendItem:
     func sendCompleted()
     {
         print("send completed")
-        //model?.sendResultSuccess(event:)
+        
+        guard
+        
+            let event:MVitaPtpMessageInEvent = self.event,
+            let handles:MVitaPtpMessageInEventHandles = self.handles
+        
+        else
+        {
+            return
+        }
+        
+        let parameters:[UInt32] = [
+            handles.item]
+        
+        model?.sendResultSuccess(
+            event:event,
+            parameters:parameters)
     }
     
     //MARK: event protocol
