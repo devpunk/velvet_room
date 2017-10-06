@@ -40,7 +40,10 @@ extension MVitaLinkStrategyRequestItemTreat
             return
         }
         
+        let updatedSize:UInt64 = UInt64(data.count)
+        
         currentItem.data = data
+        currentItem.size = updatedSize
         requestFinished()
     }
 }
