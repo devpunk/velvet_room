@@ -4,5 +4,6 @@ final class MVitaLinkStrategySendItemDirectoryInfo:MVitaLinkStrategySendItemProt
 {
     func nextStep(strategy:MVitaLinkStrategySendItem)
     {
+        strategy.lastElementInfo()
     }
 }

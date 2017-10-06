@@ -11,7 +11,7 @@ struct MVitaPtpMessageOutSendItemInfo:MVitaPtpMessageOutProtocol
         let builder:MVitaPtpMessageOutBuilder = MVitaPtpMessageOutBuilder()
         builder.append(value:MVitaPtpType.command.rawValue)
         builder.append(value:MVitaPtpDataPhase.send.rawValue)
-        builder.append(value:MVitaPtpCommand.sendItem.rawValue)
+        builder.append(value:MVitaPtpCommand.sendItemInfo.rawValue)
         builder.appendTransactionId()
         builder.append(value:storageId)
         builder.append(value:parentHandle)

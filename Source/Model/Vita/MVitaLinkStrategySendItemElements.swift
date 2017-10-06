@@ -4,37 +4,59 @@ extension MVitaLinkStrategySendItem
 {
     //MARK: private
     
-    private func sendElement(
+    private func sendElementInfo(
         element:DVitaItemElement,
         handles:MVitaPtpMessageInEventHandles)
     {
-//        guard
-//
-//            let configuration:MVitaConfiguration = model?.configuration,
-//            let directoryPacked:MVitaPtpPackDirectory = MVitaPtpPackDirectory(
-//                directory:directory,
-//                configuration:configuration,
-//                parentHandle:handles.parent)
-//
-//            else
-//        {
-//            failed()
-//
-//            return
-//        }
-//
-//        let message:MVitaPtpMessageOutSendItem = MVitaPtpMessageOutSendItem(
-//            storageId:configuration.storageId,
-//            parentHandle:handles.parent)
-//
-//        send(
-//            data:directoryPacked.data,
-//            message:message)
+        guard
+
+            let configuration:MVitaConfiguration = model?.configuration,
+            let elementPacked:MVitaPtpPackElement = MVitaPtpPackElement(
+                element:element,
+                configuration:configuration,
+                parentHandle:handles.parent)
+
+        else
+        {
+            failed()
+
+            return
+        }
+
+        let message:MVitaPtpMessageOutSendItemInfo = MVitaPtpMessageOutSendItemInfo(
+            storageId:configuration.storage.storageId,
+            parentHandle:handles.parent)
+
+        send(
+            data:elementPacked.data,
+            message:message)
+    }
+    
+    private func sendElementData(
+        element:DVitaItemElement)
+    {
+        guard
+            
+            let data:Data = MVitaLink.elementData(
+                element:element)
+        
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        let message:MVitaPtpMessageOutSendItem = MVitaPtpMessageOutSendItem()
+        
+        send(
+            data:data,
+            message:message)
     }
     
     //MARK: internal
     
-    func nextElement()
+    func lastElementInfo()
     {
         guard
         
@@ -50,7 +72,7 @@ extension MVitaLinkStrategySendItem
         
         guard
         
-            let element:DVitaItemElement = self.elements?.popLast()
+            let element:DVitaItemElement = self.elements?.last
         
         else
         {
@@ -59,8 +81,28 @@ extension MVitaLinkStrategySendItem
             return
         }
         
-        sendElement(
+        changeStatus(
+            statusType:MVitaLinkStrategySendItemElementInfo.self)
+        sendElementInfo(
             element:element,
             handles:handles)
+    }
+    
+    func lastElementDataAndPop()
+    {
+        guard
+            
+            let element:DVitaItemElement = self.elements?.popLast()
+            
+        else
+        {
+            failed()
+            
+            return
+        }
+        
+        changeStatus(
+            statusType:MVitaLinkStrategySendItemElementData.self)
+        sendElementData(element:element)
     }
 }

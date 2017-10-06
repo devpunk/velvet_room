@@ -5,7 +5,8 @@ enum MVitaPtpCommand:UInt16
     case closeSession                   = 4099
     case requestItemElements            = 4103
     case requestItem                    = 4105
-    case sendItem                       = 4108
+    case sendItemInfo                   = 4108
+    case sendItem                       = 4109
     case success                        = 8193
     case error                          = 8194
     case invalidTreatId                 = 8201

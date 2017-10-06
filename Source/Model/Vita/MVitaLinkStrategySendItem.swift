@@ -19,6 +19,7 @@ final class MVitaLinkStrategySendItem:
     
     override func success()
     {
+        print("success \(status)")
         status?.nextStep(strategy:self)
     }
     
