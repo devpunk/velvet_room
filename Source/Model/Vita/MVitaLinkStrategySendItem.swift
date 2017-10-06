@@ -47,7 +47,7 @@ final class MVitaLinkStrategySendItem:
         }
         
         let parameters:[UInt32] = [
-            handles.item]
+            handles.parent]
         
         model?.sendResultSuccess(
             event:event,
