@@ -5,6 +5,7 @@ final class MVitaLinkStrategySendItem:
     MVitaLinkStrategyEventProtocol
 {
     var elements:[DVitaItemElement]?
+    private(set) var handles:MVitaPtpMessageInEventHandles?
     private var event:MVitaPtpMessageInEvent?
     
     override func failed()
@@ -17,20 +18,15 @@ final class MVitaLinkStrategySendItem:
     
     override func success()
     {
-        guard
-            
-            let event:MVitaPtpMessageInEvent = self.event
-            
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        print("event success params :\(event.parameters)")
-        
-//        model?.sendResultSuccess(event:event)
+        sendNextElement()
+    }
+    
+    //MARK: internal
+    
+    func sendCompleted()
+    {
+        print("send completed")
+        //model?.sendResultSuccess(event:)
     }
     
     //MARK: event protocol
@@ -51,6 +47,7 @@ final class MVitaLinkStrategySendItem:
             return
         }
         
+        self.handles = handles
         findDirectory(handles:handles)
     }
 }
