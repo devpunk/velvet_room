@@ -107,6 +107,7 @@ class MVitaLinkStrategySendData:MVitaLinkStrategyProtocol
         message:MVitaPtpMessageOutProtocol)
     {
         self.data = data
+        bytesSent = 0
         
         changeStatus(
             statusType:MVitaLinkStrategySendDataStatusHeader.self)
