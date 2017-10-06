@@ -2,6 +2,12 @@ import Foundation
 
 extension MVitaConfiguration
 {
+    static let kKeyStorage:String = "storage"
+    static let kKeyStorageId:String = "storageId"
+    static let kKeyStorageProtectionStatus:String = "protectionStatus"
+    static let kKeyDirectory:String = "directory"
+    static let kKeyDirectoryAssociationType:String = "associationType"
+    static let kKeyDirectoryAssociationDescr:String = "associationDescr"
     static let kKeyBroadcast:String = "broadcast"
     static let kKeyBroadcastSearchCommand:String = "searchCommand"
     static let kKeyBroadcastSearchProtocol:String = "searchProtocol"
@@ -20,8 +26,4 @@ extension MVitaConfiguration
     static let kKeyLocalStorageSize:String = "storageSize"
     static let kKeyLineSeparator:String = "lineSeparator"
     static let kKeyPort:String = "port"
-    static let kKeyStorageId:String = "storageId"
-    static let kKeyStorageProtectionStatus:String = "storageProtectionStatus"
-    static let kKeyStorageAssociationType:String = "storageAssociationType"
-    static let kKeyStorageAssociationDescr:String = "storageAssociationDescr"
 }
