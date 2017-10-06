@@ -45,7 +45,7 @@ extension MVitaLinkStrategySendItem
             return
         }
         
-        let message:MVitaPtpMessageOutSendItem = MVitaPtpMessageOutSendItem(
+        let message:MVitaPtpMessageOutSendItemInfo = MVitaPtpMessageOutSendItemInfo(
             storageId:configuration.storage.storageId,
             parentHandle:handles.parent)
         
