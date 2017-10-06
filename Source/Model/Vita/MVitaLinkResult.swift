@@ -20,13 +20,15 @@ extension MVitaLink
     //MARK: internal
     
     func sendResultSuccess(
-        event:MVitaPtpMessageInEvent)
+        event:MVitaPtpMessageInEvent,
+        parameters:[UInt32])
     {
         changeStrategy(strategyType:
             MVitaLinkStrategySendResult.self)
         linkCommand.sendResult(
             event:event,
-            result:MVitaPtpResult.success)
+            result:MVitaPtpResult.success,
+            parameters:parameters)
     }
     
     func sendResult(
@@ -34,14 +36,18 @@ extension MVitaLink
         event:MVitaPtpMessageInEvent)
     {
         self.vitaSettings = vitaSettings
-        sendResultSuccess(event:event)
+        sendResultSuccess(
+            event:event,
+            parameters:[])
     }
     
     func sendResult(
         vitaItem:MVitaItemInDirectory,
         event:MVitaPtpMessageInEvent)
     {
-        sendResultSuccess(event:event)
+        sendResultSuccess(
+            event:event,
+            parameters:[])
         
         guard
             

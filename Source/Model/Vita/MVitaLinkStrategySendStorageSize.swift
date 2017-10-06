@@ -27,7 +27,9 @@ final class MVitaLinkStrategySendStorageSize:
             return
         }
         
-        model?.sendResultSuccess(event:event)
+        model?.sendResultSuccess(
+            event:event,
+            parameters:[])
     }
     
     //MARK: event protocol

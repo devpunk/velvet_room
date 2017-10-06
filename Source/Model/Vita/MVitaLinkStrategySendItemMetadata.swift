@@ -29,7 +29,9 @@ final class MVitaLinkStrategySendItemMetadata:
             return
         }
         
-        model?.sendResultSuccess(event:event)
+        model?.sendResultSuccess(
+            event:event,
+            parameters:[])
     }
     
     //MARK: items protocol

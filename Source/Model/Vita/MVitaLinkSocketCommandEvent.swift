@@ -16,11 +16,13 @@ extension MVitaLinkSocketCommand
     
     func sendResult(
         event:MVitaPtpMessageInEvent,
-        result:MVitaPtpResult)
+        result:MVitaPtpResult,
+        parameters:[UInt32])
     {
         let message:MVitaPtpMessageOutSendResult = MVitaPtpMessageOutSendResult(
             event:event,
-            result:result)
+            result:result,
+            parameters:parameters)
         writeMessageAndRead(message:message)
     }
 }

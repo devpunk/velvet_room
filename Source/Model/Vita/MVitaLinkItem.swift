@@ -17,7 +17,9 @@ extension MVitaLink
     private func itemNotFound(
         event:MVitaPtpMessageInEvent)
     {
-        sendResultSuccess(event:event)
+        sendResultSuccess(
+            event:event,
+            parameters:[])
     }
     
     private func fetchWithPredicate(
