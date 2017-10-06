@@ -3,16 +3,6 @@ import Foundation
 struct MVitaPtpPackDirectory:MVitaPtpPackProtocol
 {
     let data:Data
-    private let kCompressedSize:UInt32 = 0
-    private let kThumbFormat:UInt32 = 0
-    private let kThumbCompressedSize:UInt32 = 0
-    private let kThumbWith:UInt32 = 0
-    private let kThumbHeight:UInt32 = 0
-    private let kImageWith:UInt32 = 0
-    private let kImageHeight:UInt32 = 0
-    private let kImageBitDepth:UInt32 = 0
-    private let kSequenceNumber:UInt32 = 0
-    private let kTerminate:UInt16 = 0
     
     init?(
         directory:DVitaItemDirectory,
@@ -38,22 +28,32 @@ struct MVitaPtpPackDirectory:MVitaPtpPackProtocol
             directory.format.rawValue)
         data.append(value:
             configuration.storage.protectionStatus)
-        data.append(value:kCompressedSize)
-        data.append(value:kThumbFormat)
-        data.append(value:kThumbCompressedSize)
-        data.append(value:kThumbWith)
-        data.append(value:kThumbHeight)
-        data.append(value:kImageWith)
-        data.append(value:kImageHeight)
-        data.append(value:kImageBitDepth)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kCompressedSize)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kThumbFormat)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kThumbCompressedSize)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kThumbWith)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kThumbHeight)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kImageWith)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kImageHeight)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kImageBitDepth)
         data.append(value:parentHandle)
         data.append(value:
             configuration.directory.associationType)
         data.append(value:
             configuration.directory.associationDescr)
-        data.append(value:kSequenceNumber)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kSequenceNumber)
         data.append(value:dataName)
-        data.append(value:kTerminate)
+        data.append(value:
+            MVitaPtpPackProtocolDefaultValues.kTerminate)
         
         self.data = data
     }
