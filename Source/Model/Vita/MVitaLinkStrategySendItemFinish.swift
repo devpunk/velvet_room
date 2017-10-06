@@ -21,7 +21,7 @@ extension MVitaLinkStrategySendItem
         }
         
         let parameters:[UInt32] = [
-            handles.parent]
+            handles.item]
         
         changeStatus(
             statusType:MVitaLinkStrategySendItemConfirm.self)
