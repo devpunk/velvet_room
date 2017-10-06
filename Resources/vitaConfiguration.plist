@@ -6,14 +6,20 @@
 	<integer>9309</integer>
 	<key>lineSeparator</key>
 	<string>\r\n</string>
-	<key>storageId</key>
-	<integer>65537</integer>
-	<key>storageProtectionStatus</key>
-	<integer>56323</integer>
-	<key>storageAssociationType</key>
-	<integer>1</integer>
-	<key>storageAssociationDescr</key>
-	<integer>56326</integer>
+	<key>storage</key>
+	<dict>
+		<key>storageId</key>
+		<real>65537</real>
+		<key>protectionStatus</key>
+		<real>56323</real>
+	</dict>
+	<key>directory</key>
+	<dict>
+		<key>associationType</key>
+		<integer>1</integer>
+		<key>associationDescr</key>
+		<real>56326</real>
+	</dict>
 	<key>broadcast</key>
 	<dict>
 		<key>searchCommand</key>
