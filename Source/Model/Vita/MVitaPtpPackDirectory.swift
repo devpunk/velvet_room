@@ -34,9 +34,9 @@ struct MVitaPtpPackDirectory:MVitaPtpPackProtocol
         
         var data:Data = Data()
         
-        data.append(value:configuration.storageId)
+        data.append(value:configuration.storage.storageId)
         data.append(value:directory.format.rawValue)
-        data.append(value:configuration.storageProtectionStatus)
+        data.append(value:configuration.storage.protectionStatus)
         data.append(value:kCompressedSize)
         data.append(value:kThumbFormat)
         data.append(value:kThumbCompressedSize)

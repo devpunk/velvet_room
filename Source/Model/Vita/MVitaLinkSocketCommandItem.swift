@@ -75,7 +75,7 @@ extension MVitaLinkSocketCommand
     {
         guard
             
-            let storageId:UInt32 = model?.configuration.storageId
+            let storageId:UInt32 = model?.configuration.storage.storageId
         
         else
         {

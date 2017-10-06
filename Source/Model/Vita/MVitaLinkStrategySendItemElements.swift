@@ -8,28 +8,28 @@ extension MVitaLinkStrategySendItem
         element:DVitaItemElement,
         handles:MVitaPtpMessageInEventHandles)
     {
-        guard
-
-            let configuration:MVitaConfiguration = model?.configuration,
-            let directoryPacked:MVitaPtpPackDirectory = MVitaPtpPackDirectory(
-                directory:directory,
-                configuration:configuration,
-                parentHandle:handles.parent)
-
-            else
-        {
-            failed()
-
-            return
-        }
-
-        let message:MVitaPtpMessageOutSendItem = MVitaPtpMessageOutSendItem(
-            storageId:configuration.storageId,
-            parentHandle:handles.parent)
-
-        send(
-            data:directoryPacked.data,
-            message:message)
+//        guard
+//
+//            let configuration:MVitaConfiguration = model?.configuration,
+//            let directoryPacked:MVitaPtpPackDirectory = MVitaPtpPackDirectory(
+//                directory:directory,
+//                configuration:configuration,
+//                parentHandle:handles.parent)
+//
+//            else
+//        {
+//            failed()
+//
+//            return
+//        }
+//
+//        let message:MVitaPtpMessageOutSendItem = MVitaPtpMessageOutSendItem(
+//            storageId:configuration.storageId,
+//            parentHandle:handles.parent)
+//
+//        send(
+//            data:directoryPacked.data,
+//            message:message)
     }
     
     //MARK: internal

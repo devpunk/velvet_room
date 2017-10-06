@@ -13,7 +13,7 @@ extension MVitaConfiguration
                 kKeyStorage] as? [String:Any],
             let storageId:UInt32 = mapStorage[
                 kKeyStorageId] as? UInt32,
-            let protectionStatus:UInt16 = mapDirectory[
+            let protectionStatus:UInt16 = mapStorage[
                 kKeyStorageProtectionStatus] as? UInt16
             
         else
