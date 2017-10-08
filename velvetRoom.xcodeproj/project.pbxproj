@@ -115,6 +115,7 @@
 		DA4E3BB21F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E3BB11F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift */; };
 		DA4E3BB41F7BDE3100645FD1 /* MVitaItemStatusFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4E3BB31F7BDE3100645FD1 /* MVitaItemStatusFactory.swift */; };
 		DA4F94871F8A3DF30019B3C0 /* MHomeSaveData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F94861F8A3DF30019B3C0 /* MHomeSaveData.swift */; };
+		DA4F94891F8A3F880019B3C0 /* MHomeSaveDataItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4F94881F8A3F880019B3C0 /* MHomeSaveDataItem.swift */; };
 		DA511A3D1F839E38006C2BFA /* VSliderGesture.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA511A3C1F839E38006C2BFA /* VSliderGesture.swift */; };
 		DA55F5141F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55F5131F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift */; };
 		DA55F5161F7F66710050A0A6 /* MVitaLinkStrategyRequestItemTreatInDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA55F5151F7F66710050A0A6 /* MVitaLinkStrategyRequestItemTreatInDirectory.swift */; };
@@ -497,6 +498,7 @@
 		DA4E3BB11F7BDD0A00645FD1 /* MVitaLinkStrategyRequestItemStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemStatus.swift; sourceTree = "<group>"; };
 		DA4E3BB31F7BDE3100645FD1 /* MVitaItemStatusFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaItemStatusFactory.swift; sourceTree = "<group>"; };
 		DA4F94861F8A3DF30019B3C0 /* MHomeSaveData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeSaveData.swift; sourceTree = "<group>"; };
+		DA4F94881F8A3F880019B3C0 /* MHomeSaveDataItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MHomeSaveDataItem.swift; sourceTree = "<group>"; };
 		DA511A3C1F839E38006C2BFA /* VSliderGesture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSliderGesture.swift; sourceTree = "<group>"; };
 		DA55F5131F7F66660050A0A6 /* MVitaLinkStrategyRequestItemTreatIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemTreatIn.swift; sourceTree = "<group>"; };
 		DA55F5151F7F66710050A0A6 /* MVitaLinkStrategyRequestItemTreatInDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestItemTreatInDirectory.swift; sourceTree = "<group>"; };
@@ -1183,6 +1185,7 @@
 				DA7ABF711F6C01670092B797 /* MHome.swift */,
 				DAD5897A1F6C16C40048D830 /* MHomeSession.swift */,
 				DA4F94861F8A3DF30019B3C0 /* MHomeSaveData.swift */,
+				DA4F94881F8A3F880019B3C0 /* MHomeSaveDataItem.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1843,6 +1846,7 @@
 				DAC03D901F77A9E300C11F69 /* MVitaSettingsAccount.swift in Sources */,
 				DAFFC4C61F68CC5100F27ADD /* VConnectingPinListCell.swift in Sources */,
 				DA69E3891F810DE10095FB05 /* MSfoItemFormat.swift in Sources */,
+				DA4F94891F8A3F880019B3C0 /* MHomeSaveDataItem.swift in Sources */,
 				DA17D11B1F7630B700A28B35 /* MVitaLinkStrategySendData.swift in Sources */,
 				DA03CFBA1F6F1413001AE828 /* MConnectingSocketTcpMethodStandby.swift in Sources */,
 				DA7622751F6BF2500049195B /* Database.swift in Sources */,
