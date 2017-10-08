@@ -45,7 +45,7 @@ final class VHomeListCell:UICollectionViewCell
     
     //MARK: internal
     
-    func config()
+    func config(model:MHomeSaveDataItem)
     {
         hover()
     }
