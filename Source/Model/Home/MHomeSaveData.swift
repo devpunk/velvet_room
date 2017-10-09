@@ -17,14 +17,27 @@ extension MHome
     private func identifiersFetched(
         identifiers:[DVitaIdentifier])
     {
+        let dateFormatter:DateFormatter = MHomeSaveDataItem.factoryDateFormatter()
         var items:[MHomeSaveDataItem] = []
         
         for identifier:DVitaIdentifier in identifiers
         {
+            guard
             
+                let item:MHomeSaveDataItem = MHomeSaveDataItem.factoryItem(
+                    identifier:identifier,
+                    dateFormatter:dateFormatter)
+            
+            else
+            {
+                continue
+            }
+            
+            items.append(item)
         }
         
         self.saveDataItems = items
+        view?.refresh()
     }
     
     //MARK: internal

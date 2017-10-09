@@ -54,4 +54,20 @@ final class VHome:ViewMain
             view:viewList,
             toView:self)
     }
+    
+    private func asyncRefresh()
+    {
+        viewList.collectionView.reloadData()
+    }
+    
+    //MARK: internal
+    
+    func refresh()
+    {
+        DispatchQueue.main.async
+        { [weak self] in
+            
+            self?.asyncRefresh()
+        }
+    }
 }
