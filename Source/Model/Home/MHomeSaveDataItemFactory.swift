@@ -1,4 +1,4 @@
-import Foundation
+import UIKit
 
 extension MHomeSaveDataItem
 {
@@ -42,6 +42,94 @@ extension MHomeSaveDataItem
         return dateString
     }
     
+    private class func factoryThumbnail(
+        identifier:DVitaIdentifier) -> UIImage?
+    {
+        guard
+        
+            let directories:[DVitaItemDirectory] = identifier.items?.array as? [
+                DVitaItemDirectory],
+            let lastDirectory:DVitaItemDirectory = directories.last
+        
+        else
+        {
+            return nil
+        }
+        
+        let biggerPng:UIImage? = findBiggerPng(
+            directory:lastDirectory)
+        
+        return biggerPng
+    }
+    
+    private class func findBiggerPng(
+        directory:DVitaItemDirectory) -> UIImage?
+    {
+        guard
+        
+            let allPng:[DVitaItemElement] = directory.png?.array as? [
+                DVitaItemElement]
+        
+        else
+        {
+            return nil
+        }
+        
+        var biggerImage:UIImage?
+        
+        for png:DVitaItemElement in allPng
+        {
+            guard
+            
+                let image:UIImage = factoryImage(
+                    element:png)
+            
+            else
+            {
+                continue
+            }
+            
+            guard
+            
+                let currentImage:UIImage = biggerImage
+            
+            else
+            {
+                biggerImage = image
+                
+                continue
+            }
+            
+            let currentHeight:CGFloat = currentImage.size.height
+            let newHeight:CGFloat = image.size.height
+            
+            if newHeight > currentHeight
+            {
+                biggerImage = image
+            }
+        }
+        
+        return biggerImage
+    }
+    
+    private class func factoryImage(
+        element:DVitaItemElement) -> UIImage?
+    {
+        guard
+        
+            let data:Data = MVitaLink.elementData(
+                element:element),
+            let image:UIImage = UIImage(
+                data:data)
+        
+        else
+        {
+            return nil
+        }
+        
+        return image
+    }
+    
     //MARK: internal
     
     class func factoryDateFormatter() -> DateFormatter
@@ -70,10 +158,15 @@ extension MHomeSaveDataItem
             return nil
         }
         
+        let thumbnail:UIImage? = factoryThumbnail(
+            identifier:identifier)
+        
         let item:MHomeSaveDataItem = MHomeSaveDataItem(
             coredataModel:identifier,
             gameName:gameName,
             lastUpdated:lastUpdate,
-            thumbnail:)
+            thumbnail:thumbnail)
+        
+        return item
     }
 }
