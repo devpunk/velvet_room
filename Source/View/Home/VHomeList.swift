@@ -8,7 +8,7 @@ final class VHomeList:VCollection<
     private let kInsetsTop:CGFloat = 64
     private let kInsetsBottom:CGFloat = 60
     private let kInterItemSpace:CGFloat = 1
-    private let kCellHeight:CGFloat = 90
+    private let kCellHeight:CGFloat = 75
     
     required init(controller:CHome)
     {

@@ -3,7 +3,10 @@ import UIKit
 final class VHomeListCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
+    private weak var label:UILabel!
     private weak var layoutImageWidth:NSLayoutConstraint!
+    private let kLabelMarginLeft:CGFloat = 5
+    private let kLabelMarginRight:CGFloat = -10
     
     override init(frame:CGRect)
     {
@@ -14,10 +17,19 @@ final class VHomeListCell:UICollectionViewCell
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = UIViewContentMode.center
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.clipsToBounds = true
         self.imageView = imageView
         
+        let label:UILabel = UILabel()
+        label.isUserInteractionEnabled = false
+        label.backgroundColor = UIColor.clear
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.numberOfLines = 0
+        self.label = label
+        
         addSubview(imageView)
+        addSubview(label)
         
         NSLayoutConstraint.equalsVertical(
             view:imageView,
@@ -27,6 +39,18 @@ final class VHomeListCell:UICollectionViewCell
             toView:self)
         layoutImageWidth = NSLayoutConstraint.width(
             view:imageView)
+        
+        NSLayoutConstraint.equalsVertical(
+            view:label,
+            toView:self)
+        NSLayoutConstraint.leftToRight(
+            view:label,
+            toView:imageView,
+            constant:kLabelMarginLeft)
+        NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
+            constant:kLabelMarginRight)
     }
     
     required init?(coder:NSCoder)
@@ -76,5 +100,6 @@ final class VHomeListCell:UICollectionViewCell
     func config(model:MHomeSaveDataItem)
     {
         hover()
+        imageView.image = model.thumbnail
     }
 }
