@@ -2,7 +2,47 @@ import UIKit
 
 extension MHomeSaveDataItem
 {
+    private static let kNewLine:String = "\n"
+    private static let kFontGameName:CGFloat = 15
+    private static let kFontLastUpdated:CGFloat = 12
+    
     //MARK: private
+    
+    private class func factoryShortDescr(
+        identifier:DVitaIdentifier,
+        dateFormatter:DateFormatter,
+        attributesGameName:[NSAttributedStringKey:Any],
+        attributesLastUpdated:[NSAttributedStringKey:Any]) -> NSAttributedString?
+    {
+        guard
+        
+            let gameName:String = factoryGameName(
+                identifier:identifier),
+            let lastUpdate:String = factoryLastUpdate(
+                identifier:identifier,
+                dateFormatter:dateFormatter)
+        
+        else
+        {
+            return nil
+        }
+        
+        let stringGameName:NSAttributedString = NSAttributedString(
+            string:gameName,
+            attributes:attributesGameName)
+        let stringLastUpdated:NSAttributedString = NSAttributedString(
+            string:lastUpdate,
+            attributes:attributesLastUpdated)
+        let newLine:NSAttributedString = NSAttributedString(
+            string:kNewLine)
+        
+        let mutableString:NSMutableAttributedString = NSMutableAttributedString()
+        mutableString.append(stringGameName)
+        mutableString.append(newLine)
+        mutableString.append(stringLastUpdated)
+        
+        return mutableString
+    }
     
     private class func factoryGameName(
         identifier:DVitaIdentifier) -> String?
@@ -141,17 +181,43 @@ extension MHomeSaveDataItem
         return dateFormatter
     }
     
+    class func factoryAttributesGameName() -> [
+        NSAttributedStringKey:Any]
+    {
+        let attributes:[NSAttributedStringKey:Any] = [
+            NSAttributedStringKey.font:
+                UIFont.medium(size:kFontGameName),
+            NSAttributedStringKey.foregroundColor:
+                UIColor.colourBackgroundDark]
+        
+        return attributes
+    }
+    
+    class func factoryAttributesLastUpdated() -> [
+        NSAttributedStringKey:Any]
+    {
+        let attributes:[NSAttributedStringKey:Any] = [
+            NSAttributedStringKey.font:
+                UIFont.light(size:kFontLastUpdated),
+            NSAttributedStringKey.foregroundColor:
+                UIColor.colourBackgroundDark]
+        
+        return attributes
+    }
+    
     class func factoryItem(
         identifier:DVitaIdentifier,
-        dateFormatter:DateFormatter) -> MHomeSaveDataItem?
+        dateFormatter:DateFormatter,
+        attributesGameName:[NSAttributedStringKey:Any],
+        attributesLastUpdated:[NSAttributedStringKey:Any]) -> MHomeSaveDataItem?
     {
         guard
         
-            let gameName:String = factoryGameName(
-                identifier:identifier),
-            let lastUpdate:String = factoryLastUpdate(
+            let shortDescr:NSAttributedString = factoryShortDescr(
                 identifier:identifier,
-                dateFormatter:dateFormatter)
+                dateFormatter:dateFormatter,
+                attributesGameName:attributesGameName,
+                attributesLastUpdated:attributesLastUpdated)
         
         else
         {
@@ -163,8 +229,7 @@ extension MHomeSaveDataItem
         
         let item:MHomeSaveDataItem = MHomeSaveDataItem(
             coredataModel:identifier,
-            gameName:gameName,
-            lastUpdated:lastUpdate,
+            shortDescr:shortDescr,
             thumbnail:thumbnail)
         
         return item

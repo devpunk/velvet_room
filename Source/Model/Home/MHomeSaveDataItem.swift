@@ -3,19 +3,16 @@ import UIKit
 final class MHomeSaveDataItem
 {
     weak var coredataModel:DVitaIdentifier?
-    let gameName:String
-    let lastUpdated:String
+    let shortDescr:NSAttributedString
     let thumbnail:UIImage?
     
     init(
         coredataModel:DVitaIdentifier,
-        gameName:String,
-        lastUpdated:String,
+        shortDescr:NSAttributedString,
         thumbnail:UIImage?)
     {
         self.coredataModel = coredataModel
-        self.gameName = gameName
-        self.lastUpdated = lastUpdated
+        self.shortDescr = shortDescr
         self.thumbnail = thumbnail
     }
 }

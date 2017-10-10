@@ -18,6 +18,10 @@ extension MHome
         identifiers:[DVitaIdentifier])
     {
         let dateFormatter:DateFormatter = MHomeSaveDataItem.factoryDateFormatter()
+        let attributesGameName:[
+            NSAttributedStringKey:Any] = MHomeSaveDataItem.factoryAttributesGameName()
+        let attributesLastUpdated:[
+            NSAttributedStringKey:Any] = MHomeSaveDataItem.factoryAttributesLastUpdated()
         var items:[MHomeSaveDataItem] = []
         
         for identifier:DVitaIdentifier in identifiers
@@ -26,7 +30,9 @@ extension MHome
             
                 let item:MHomeSaveDataItem = MHomeSaveDataItem.factoryItem(
                     identifier:identifier,
-                    dateFormatter:dateFormatter)
+                    dateFormatter:dateFormatter,
+                    attributesGameName:attributesGameName,
+                    attributesLastUpdated:attributesLastUpdated)
             
             else
             {

@@ -5,8 +5,8 @@ final class VHomeListCell:UICollectionViewCell
     private weak var imageView:UIImageView!
     private weak var label:UILabel!
     private weak var layoutImageWidth:NSLayoutConstraint!
-    private let kLabelMarginLeft:CGFloat = 5
-    private let kLabelMarginRight:CGFloat = -10
+    private let kLabelMarginLeft:CGFloat = 10
+    private let kLabelMarginRight:CGFloat = -15
     
     override init(frame:CGRect)
     {
@@ -101,5 +101,6 @@ final class VHomeListCell:UICollectionViewCell
     {
         hover()
         imageView.image = model.thumbnail
+        label.attributedText = model.shortDescr
     }
 }
