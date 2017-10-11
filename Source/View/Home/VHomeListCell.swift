@@ -7,6 +7,8 @@ final class VHomeListCell:UICollectionViewCell
     private weak var layoutImageWidth:NSLayoutConstraint!
     private let kLabelMarginLeft:CGFloat = 10
     private let kLabelMarginRight:CGFloat = -15
+    private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
@@ -88,10 +90,11 @@ final class VHomeListCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            
+            alpha = kAlphaSelected
         }
         else
         {
+            alpha = kAlphaNotSelected
         }
     }
     
