@@ -65,7 +65,7 @@ extension ViewParent:UIGestureRecognizerDelegate
         
         guard
         
-            deltaX > kMaxXDelta
+            deltaX < kMaxXDelta
         
         else
         {
