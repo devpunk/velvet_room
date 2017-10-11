@@ -3,7 +3,7 @@ import UIKit
 extension MHomeSaveDataItem
 {
     private static let kNewLine:String = "\n"
-    private static let kFontGameName:CGFloat = 15
+    private static let kFontGameName:CGFloat = 14
     private static let kFontLastUpdated:CGFloat = 12
     
     //MARK: private
@@ -175,7 +175,7 @@ extension MHomeSaveDataItem
     class func factoryDateFormatter() -> DateFormatter
     {
         let dateFormatter:DateFormatter = DateFormatter()
-        dateFormatter.timeStyle = DateFormatter.Style.medium
+        dateFormatter.timeStyle = DateFormatter.Style.short
         dateFormatter.dateStyle = DateFormatter.Style.short
         
         return dateFormatter
@@ -186,7 +186,7 @@ extension MHomeSaveDataItem
     {
         let attributes:[NSAttributedStringKey:Any] = [
             NSAttributedStringKey.font:
-                UIFont.medium(size:kFontGameName),
+                UIFont.regular(size:kFontGameName),
             NSAttributedStringKey.foregroundColor:
                 UIColor.colourBackgroundDark]
         
@@ -198,9 +198,9 @@ extension MHomeSaveDataItem
     {
         let attributes:[NSAttributedStringKey:Any] = [
             NSAttributedStringKey.font:
-                UIFont.light(size:kFontLastUpdated),
+                UIFont.regular(size:kFontLastUpdated),
             NSAttributedStringKey.foregroundColor:
-                UIColor.colourBackgroundDark]
+                UIColor(white:0.5, alpha:1)]
         
         return attributes
     }
