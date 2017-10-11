@@ -1,6 +1,6 @@
 import Foundation
 
-final class MSaveData:Model
+final class MSaveData:Model<ArchSaveData>
 {
     
 }
