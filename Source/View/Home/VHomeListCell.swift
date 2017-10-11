@@ -8,14 +8,14 @@ final class VHomeListCell:UICollectionViewCell
     private let kLabelMarginLeft:CGFloat = 10
     private let kLabelMarginRight:CGFloat = -15
     private let kLabelHeight:CGFloat = 40
-    private let kAlphaSelected:CGFloat = 0.3
+    private let kAlphaSelected:CGFloat = 0.2
     private let kAlphaNotSelected:CGFloat = 1
     
     override init(frame:CGRect)
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.clear
+        backgroundColor = UIColor.white
         
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
@@ -94,11 +94,13 @@ final class VHomeListCell:UICollectionViewCell
     {
         if isSelected || isHighlighted
         {
-            alpha = kAlphaSelected
+            imageView.alpha = kAlphaSelected
+            label.alpha = kAlphaSelected
         }
         else
         {
-            alpha = kAlphaNotSelected
+            imageView.alpha = kAlphaNotSelected
+            label.alpha = kAlphaNotSelected
         }
     }
     

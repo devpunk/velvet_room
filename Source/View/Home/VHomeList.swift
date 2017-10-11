@@ -13,7 +13,7 @@ final class VHomeList:VCollection<
     required init(controller:CHome)
     {
         super.init(controller:controller)
-        
+        backgroundColor = UIColor.colourBackgroundGray
         collectionView.alwaysBounceVertical = true
         
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
@@ -78,6 +78,18 @@ final class VHomeList:VCollection<
         cell.config(model:item)
         
         return cell
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        didSelectItemAt indexPath:IndexPath)
+    {
+        super.collectionView(
+            collectionView,
+            didSelectItemAt:indexPath)
+        
+        let item:MHomeSaveDataItem = modelAtIndex(index:indexPath)
+        controller.selected(item:item)
     }
     
     //MARK: private
