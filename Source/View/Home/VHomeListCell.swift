@@ -7,6 +7,7 @@ final class VHomeListCell:UICollectionViewCell
     private weak var layoutImageWidth:NSLayoutConstraint!
     private let kLabelMarginLeft:CGFloat = 10
     private let kLabelMarginRight:CGFloat = -15
+    private let kLabelHeight:CGFloat = 40
     private let kAlphaSelected:CGFloat = 0.3
     private let kAlphaNotSelected:CGFloat = 1
     
@@ -42,9 +43,12 @@ final class VHomeListCell:UICollectionViewCell
         layoutImageWidth = NSLayoutConstraint.width(
             view:imageView)
         
-        NSLayoutConstraint.equalsVertical(
+        NSLayoutConstraint.topToTop(
             view:label,
             toView:self)
+        NSLayoutConstraint.height(
+            view:label,
+            constant:kLabelHeight)
         NSLayoutConstraint.leftToRight(
             view:label,
             toView:imageView,
