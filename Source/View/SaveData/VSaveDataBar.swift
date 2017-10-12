@@ -4,7 +4,7 @@ final class VSaveDataBar:View<ArchSaveData>
 {
     private weak var layoutThumbnailTop:NSLayoutConstraint!
     private weak var layoutThumbnailLeft:NSLayoutConstraint!
-    private let kThumbnailSize:CGFloat = 154
+    private let kThumbnailSize:CGFloat = 134
     
     required init(controller:CSaveData)
     {
@@ -36,11 +36,14 @@ final class VSaveDataBar:View<ArchSaveData>
     
     private func factoryViews()
     {
+        let cornerRadius:CGFloat = kThumbnailSize / 2.0
+        
         let viewBackground:VSaveDataBarBackground = VSaveDataBarBackground(
             controller:controller)
         
         let viewThumbnail:VSaveDataBarThumbnail = VSaveDataBarThumbnail(
             controller:controller)
+        viewThumbnail.layer.cornerRadius = cornerRadius
         
         addSubview(viewBackground)
         addSubview(viewThumbnail)

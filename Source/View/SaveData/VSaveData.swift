@@ -3,7 +3,7 @@ import UIKit
 final class VSaveData:ViewMain
 {
     private weak var layoutBarHeight:NSLayoutConstraint!
-    private let kWidthRatio:CGFloat = 0.6
+    private let kWidthRatio:CGFloat = 0.62
     
     override var panBack:Bool
     {

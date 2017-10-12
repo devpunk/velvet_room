@@ -2,7 +2,7 @@ import UIKit
 
 final class VSaveDataBarBackground:View<ArchSaveData>
 {
-    private let kBlurAlpha:CGFloat = 0.95
+    private let kBlurAlpha:CGFloat = 0.96
     
     required init(controller:CSaveData)
     {

@@ -21,11 +21,11 @@ final class VSaveDataBarThumbnail:View<ArchSaveData>
     
     override func layoutSubviews()
     {
+        super.layoutSubviews()
+        
         let imageWidth:CGFloat = imageView.bounds.width
         let imageWidth_2:CGFloat = imageWidth / 2.0
         imageView.layer.cornerRadius = imageWidth_2
-        
-        super.layoutSubviews()
     }
     
     //MARK: private
@@ -35,7 +35,7 @@ final class VSaveDataBarThumbnail:View<ArchSaveData>
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFit
+        imageView.contentMode = UIViewContentMode.scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = controller.model.item?.thumbnail
         self.imageView = imageView
