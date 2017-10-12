@@ -2,8 +2,8 @@ import UIKit
 
 final class VSaveData:ViewMain
 {
+    private(set) weak var viewBar:VSaveDataBar!
     private weak var viewList:VSaveDataList!
-    private weak var layoutBarHeight:NSLayoutConstraint!
     
     override var panBack:Bool
     {
@@ -34,15 +34,6 @@ final class VSaveData:ViewMain
         return nil
     }
     
-    override func layoutSubviews()
-    {
-        let width:CGFloat = bounds.width
-        let height:CGFloat = width * viewList.kHeightRatio
-        layoutBarHeight.constant = height
-        
-        super.layoutSubviews()
-    }
-    
     //MARK: private
     
     private func factoryViews(controller:CSaveData)
@@ -53,16 +44,23 @@ final class VSaveData:ViewMain
         
         let viewBar:VSaveDataBar = VSaveDataBar(
             controller:controller)
+        self.viewBar = viewBar
         
         addSubview(viewBar)
+        addSubview(viewList)
         
         NSLayoutConstraint.topToTop(
             view:viewBar,
             toView:self)
-        layoutBarHeight = NSLayoutConstraint.height(
-            view:viewBar)
+        viewBar.layoutHeight = NSLayoutConstraint.height(
+            view:viewBar,
+            constant:viewList.kMinBarHeight)
         NSLayoutConstraint.equalsHorizontal(
             view:viewBar,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:viewList,
             toView:self)
     }
 }

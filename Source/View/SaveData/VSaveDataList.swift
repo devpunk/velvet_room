@@ -4,11 +4,16 @@ final class VSaveDataList:VCollection<
     ArchSaveData,
     VSaveDataListCell>
 {
-    let kHeightRatio:CGFloat = 0.62
+    let kHeightRatio:CGFloat = 0.6
+    let kMinBarHeight:CGFloat = 20
+    private var insetsTop:CGFloat
     private let kInsetsBottom:CGFloat = 80
+    private let kScrollMultiplier:CGFloat = -0.5
     
     required init(controller:CSaveData)
     {
+        insetsTop = 0
+        
         super.init(controller:controller)
         collectionView.alwaysBounceVertical = true
     }
@@ -21,15 +26,22 @@ final class VSaveDataList:VCollection<
     override func layoutSubviews()
     {
         let width:CGFloat = bounds.width
-        let insetsTop:CGFloat = width * kHeightRatio
-        updateFlow(insetsTop:insetsTop)
+        insetsTop = width * kHeightRatio
+        
+        updateFlow()
         
         super.layoutIfNeeded()
     }
     
+    override func scrollViewDidScroll(
+        _ scrollView:UIScrollView)
+    {
+        updateScroll()
+    }
+    
     //MARK: private
     
-    private func updateFlow(insetsTop:CGFloat)
+    private func updateFlow()
     {
         if let flow:VCollectionFlow = collectionView.collectionViewLayout as? VCollectionFlow
         {
@@ -39,5 +51,19 @@ final class VSaveDataList:VCollection<
                 bottom:kInsetsBottom,
                 right:0)
         }
+    }
+    
+    private func updateScroll()
+    {
+        let offsetY:CGFloat = collectionView.contentOffset.y
+        let offsetMultiplied:CGFloat = offsetY * kScrollMultiplier
+        var barHeight:CGFloat = insetsTop + offsetMultiplied
+        
+        if barHeight < kMinBarHeight
+        {
+            barHeight = kMinBarHeight
+        }
+        
+        controller.model.view?.viewBar.layoutHeight.constant = barHeight
     }
 }

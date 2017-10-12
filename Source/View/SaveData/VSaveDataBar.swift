@@ -2,6 +2,7 @@ import UIKit
 
 final class VSaveDataBar:View<ArchSaveData>
 {
+    weak var layoutHeight:NSLayoutConstraint!
     private weak var layoutThumbnailTop:NSLayoutConstraint!
     private weak var layoutThumbnailLeft:NSLayoutConstraint!
     private let kThumbnailSize:CGFloat = 134
