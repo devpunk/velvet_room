@@ -5,6 +5,7 @@ final class VSaveDataBarBackground:View<ArchSaveData>
     required init(controller:CSaveData)
     {
         super.init(controller:controller)
+        backgroundColor = UIColor.black
         isUserInteractionEnabled = false
         
         factoryViews()
@@ -22,7 +23,7 @@ final class VSaveDataBarBackground:View<ArchSaveData>
         let imageView:UIImageView = UIImageView()
         imageView.isUserInteractionEnabled = false
         imageView.clipsToBounds = true
-        imageView.contentMode = UIViewContentMode.scaleAspectFill
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = controller.model.item?.thumbnail
         
