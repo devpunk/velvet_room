@@ -2,6 +2,8 @@ import UIKit
 
 final class VSaveDataBarBackground:View<ArchSaveData>
 {
+    private let kBlurAlpha:CGFloat = 0.95
+    
     required init(controller:CSaveData)
     {
         super.init(controller:controller)
@@ -27,10 +29,28 @@ final class VSaveDataBarBackground:View<ArchSaveData>
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = controller.model.item?.thumbnail
         
+        let blurBase:UIView = UIView()
+        blurBase.isUserInteractionEnabled = false
+        blurBase.clipsToBounds = true
+        blurBase.translatesAutoresizingMaskIntoConstraints = false
+        blurBase.alpha = kBlurAlpha
+        
+        let blur:VBlur = VBlur.dark()
+        
+        blurBase.addSubview(blur)
         addSubview(imageView)
+        addSubview(blurBase)
         
         NSLayoutConstraint.equals(
             view:imageView,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:blurBase,
+            toView:self)
+        
+        NSLayoutConstraint.equals(
+            view:blur,
             toView:self)
     }
 }
