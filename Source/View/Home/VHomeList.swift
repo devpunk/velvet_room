@@ -5,7 +5,7 @@ final class VHomeList:VCollection<
     VHomeListCell>
 {
     private var cellSize:CGSize?
-    private let kInsetsTop:CGFloat = 44
+    private let kInsetsTop:CGFloat = 64
     private let kInsetsBottom:CGFloat = 60
     private let kInterItemSpace:CGFloat = 1
     private let kCellHeight:CGFloat = 75

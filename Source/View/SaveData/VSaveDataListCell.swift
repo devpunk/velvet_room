@@ -8,7 +8,7 @@ class VSaveDataListCell:UICollectionViewCell
     {
         super.init(frame:frame)
         clipsToBounds = true
-        backgroundColor = UIColor.gray
+        backgroundColor = UIColor.white
     }
     
     required init?(coder:NSCoder)

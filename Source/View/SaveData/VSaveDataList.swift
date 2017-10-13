@@ -28,8 +28,8 @@ final class VSaveDataList:VCollection<
     {
         let width:CGFloat = bounds.width
         insetsTop = width * kHeightRatio
-        
         updateFlow()
+        updateScroll()
         
         super.layoutIfNeeded()
     }
