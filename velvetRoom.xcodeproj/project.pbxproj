@@ -80,6 +80,7 @@
 		DA1C188F1F72DEAE0045A644 /* MVitaPtpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C188E1F72DEAE0045A644 /* MVitaPtpCommand.swift */; };
 		DA1C18931F72F7060045A644 /* MVitaLinkStrategyRequestVitaInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C18921F72F7060045A644 /* MVitaLinkStrategyRequestVitaInfo.swift */; };
 		DA1C189F1F7311A70045A644 /* MVitaPtpMessageInConfirm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1C189E1F7311A70045A644 /* MVitaPtpMessageInConfirm.swift */; };
+		DA23B8AE1F90FC1E008B56B1 /* VSaveDataBarBack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23B8AD1F90FC1E008B56B1 /* VSaveDataBarBack.swift */; };
 		DA23EC401F7D3E8C00B935BD /* VConnectedErrorBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23EC3F1F7D3E8C00B935BD /* VConnectedErrorBar.swift */; };
 		DA23EC421F7D460D00B935BD /* VConnectedErrorInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA23EC411F7D460D00B935BD /* VConnectedErrorInfo.swift */; };
 		DA30F7C71F77BE2B000A42AC /* VConnected.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA30F7C61F77BE2B000A42AC /* VConnected.swift */; };
@@ -470,6 +471,7 @@
 		DA1C188E1F72DEAE0045A644 /* MVitaPtpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaPtpCommand.swift; sourceTree = "<group>"; };
 		DA1C18921F72F7060045A644 /* MVitaLinkStrategyRequestVitaInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaLinkStrategyRequestVitaInfo.swift; sourceTree = "<group>"; };
 		DA1C189E1F7311A70045A644 /* MVitaPtpMessageInConfirm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MVitaPtpMessageInConfirm.swift; sourceTree = "<group>"; };
+		DA23B8AD1F90FC1E008B56B1 /* VSaveDataBarBack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VSaveDataBarBack.swift; sourceTree = "<group>"; };
 		DA23EC3F1F7D3E8C00B935BD /* VConnectedErrorBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedErrorBar.swift; sourceTree = "<group>"; };
 		DA23EC411F7D460D00B935BD /* VConnectedErrorInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VConnectedErrorInfo.swift; sourceTree = "<group>"; };
 		DA27D0EA1F5ABC000037AD7B /* velvetRoom.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = velvetRoom.entitlements; sourceTree = "<group>"; };
@@ -1443,6 +1445,7 @@
 			children = (
 				DA8BB2C21F8E675D0046A600 /* VSaveData.swift */,
 				DAC056331F8EDE310037CB1D /* VSaveDataBar.swift */,
+				DA23B8AD1F90FC1E008B56B1 /* VSaveDataBarBack.swift */,
 				DAE0CB401F8FD9220039C422 /* VSaveDataBarThumbnail.swift */,
 				DAE0CB3E1F8FD4090039C422 /* VSaveDataBarBackground.swift */,
 				DAE0CB421F8FE18A0039C422 /* VSaveDataList.swift */,
@@ -1931,6 +1934,7 @@
 				DAEE160F1F5795CA00D9F6DD /* MMenuOrder.swift in Sources */,
 				DA9751441F69938A00DBC757 /* MConnectingStatusProtocol.swift in Sources */,
 				DAF32A0F1F7F5BEF0028EE7A /* MVitaItemInElement.swift in Sources */,
+				DA23B8AE1F90FC1E008B56B1 /* VSaveDataBarBack.swift in Sources */,
 				DA03CFB71F6F1413001AE828 /* MConnectingSocketTcpMethodRegisterCancel.swift in Sources */,
 				DABF34B61F68A8C5001CF436 /* CConnecting.swift in Sources */,
 				DA4E3BB01F7BDCBA00645FD1 /* MVitaItemStatus.swift in Sources */,
