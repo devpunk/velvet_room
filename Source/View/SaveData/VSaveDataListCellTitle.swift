@@ -4,7 +4,7 @@ final class VSaveDataListCellTitle:VSaveDataListCell
 {
     private weak var label:UILabel!
     private let kMarginHorizontal:CGFloat = 10
-    private let kFontSize:CGFloat = 16
+    private let kFontSize:CGFloat = 17
     
     override init(frame:CGRect)
     {
@@ -16,7 +16,7 @@ final class VSaveDataListCellTitle:VSaveDataListCell
         label.backgroundColor = UIColor.clear
         label.isUserInteractionEnabled = false
         label.numberOfLines = 0
-        label.font = UIFont.regular(
+        label.font = UIFont.medium(
             size:kFontSize)
         label.textColor = UIColor.colourBackgroundDark
         self.label = label
