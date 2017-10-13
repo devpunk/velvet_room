@@ -20,4 +20,12 @@ final class CSaveData:Controller<ArchSaveData>
     {
         return nil
     }
+    
+    //MARK: internal
+    
+    func back()
+    {
+        parentController?.pop(
+            horizontal:ControllerParent.Horizontal.right)
+    }
 }
