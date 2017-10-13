@@ -4,7 +4,7 @@ extension MSaveData
 {
     //MARK: internal
     
-    class func factoryItems() -> [MSaveDataProtocol]
+    class func factoryContent() -> [MSaveDataProtocol]
     {
         let itemTitle:MSaveDataTitle = MSaveDataTitle()
         
