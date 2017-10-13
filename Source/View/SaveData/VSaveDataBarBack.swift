@@ -2,8 +2,8 @@ import UIKit
 
 final class VSaveDataBarBack:View<ArchSaveData>
 {
-    weak var layoutTop:NSLayoutConstraint!
-    let kWidth:CGFloat = 80
+    weak var layoutBottom:NSLayoutConstraint!
+    let kWidth:CGFloat = 60
     let kHeight:CGFloat = 50
     
     required init(controller:CSaveData)

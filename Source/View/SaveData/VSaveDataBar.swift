@@ -3,8 +3,7 @@ import UIKit
 final class VSaveDataBar:View<ArchSaveData>
 {
     weak var layoutHeight:NSLayoutConstraint!
-    private weak var layoutThumbnailTop:NSLayoutConstraint!
-    private weak var layoutThumbnailLeft:NSLayoutConstraint!
+    private weak var viewThumbnail:VSaveDataBarThumbnail!
     private let kThumbnailSize:CGFloat = 134
     
     required init(controller:CSaveData)
@@ -23,12 +22,13 @@ final class VSaveDataBar:View<ArchSaveData>
     {
         let width:CGFloat = bounds.width
         let height:CGFloat = bounds.height
-        let remainWidth:CGFloat = width - kThumbnailSize
-        let remainHeight:CGFloat = height - kThumbnailSize
-        let marginLeft:CGFloat = remainWidth / 2.0
-        let marginTop:CGFloat = remainHeight / 2.0
-        layoutThumbnailLeft.constant = marginLeft
-        layoutThumbnailTop.constant = marginTop
+        let thumbnailRemainWidth:CGFloat = width - kThumbnailSize
+        let thumbnailRemainHeight:CGFloat = height - kThumbnailSize
+        let thumbnailMarginLeft:CGFloat = thumbnailRemainWidth / 2.0
+        let thumbnailMarginTop:CGFloat = thumbnailRemainHeight / 2.0
+        
+        viewThumbnail.layoutLeft.constant = thumbnailMarginLeft
+        viewThumbnail.layoutTop.constant = thumbnailMarginTop
         
         super.layoutSubviews()
     }
@@ -45,6 +45,7 @@ final class VSaveDataBar:View<ArchSaveData>
         let viewThumbnail:VSaveDataBarThumbnail = VSaveDataBarThumbnail(
             controller:controller)
         viewThumbnail.layer.cornerRadius = cornerRadius
+        self.viewThumbnail = viewThumbnail
         
         addSubview(viewBackground)
         addSubview(viewThumbnail)
@@ -53,10 +54,10 @@ final class VSaveDataBar:View<ArchSaveData>
             view:viewBackground,
             toView:self)
         
-        layoutThumbnailTop = NSLayoutConstraint.topToTop(
+        viewThumbnail.layoutTop = NSLayoutConstraint.topToTop(
             view:viewThumbnail,
             toView:self)
-        layoutThumbnailLeft = NSLayoutConstraint.leftToLeft(
+        viewThumbnail.layoutLeft = NSLayoutConstraint.leftToLeft(
             view:viewThumbnail,
             toView:self)
         NSLayoutConstraint.size(

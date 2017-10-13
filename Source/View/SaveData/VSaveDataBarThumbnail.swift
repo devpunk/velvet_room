@@ -2,6 +2,8 @@ import UIKit
 
 final class VSaveDataBarThumbnail:View<ArchSaveData>
 {
+    weak var layoutTop:NSLayoutConstraint!
+    weak var layoutLeft:NSLayoutConstraint!
     private weak var imageView:UIImageView!
     private let kBorder:CGFloat = 2
     
