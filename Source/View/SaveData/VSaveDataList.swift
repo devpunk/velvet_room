@@ -16,6 +16,7 @@ final class VSaveDataList:VCollection<
         
         super.init(controller:controller)
         collectionView.alwaysBounceVertical = true
+        registerCell(cell:VSaveDataListCellTitle.self)
     }
     
     required init?(coder:NSCoder)
@@ -39,7 +40,50 @@ final class VSaveDataList:VCollection<
         updateScroll()
     }
     
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        layout collectionViewLayout:UICollectionViewLayout,
+        sizeForItemAt indexPath:IndexPath) -> CGSize
+    {
+        let item:MSaveDataProtocol = modelAtIndex(index:indexPath)
+        let width:CGFloat = collectionView.bounds.width
+        let size:CGSize = CGSize(
+            width:width,
+            height:item.height)
+        
+        return size
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        numberOfItemsInSection section:Int) -> Int
+    {
+        let count:Int = controller.model.content.count
+        
+        return count
+    }
+    
+    override func collectionView(
+        _ collectionView:UICollectionView,
+        cellForItemAt indexPath:IndexPath) -> UICollectionViewCell
+    {
+        let item:MSaveDataProtocol = modelAtIndex(index:indexPath)
+        let cell:VSaveDataListCell = cellAtIndex(
+            reusableIdentifier:item.reusableIdentifier,
+            indexPath:indexPath)
+        
+        return cell
+    }
+    
     //MARK: private
+    
+    private func modelAtIndex(index:IndexPath) -> MSaveDataProtocol
+    {
+        let item:MSaveDataProtocol = controller.model.content[
+            index.item]
+        
+        return item
+    }
     
     private func updateFlow()
     {

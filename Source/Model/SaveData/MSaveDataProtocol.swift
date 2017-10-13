@@ -2,6 +2,6 @@ import UIKit
 
 protocol MSaveDataProtocol
 {
-    var cellHeight:CGFloat { get }
+    var height:CGFloat { get }
     var reusableIdentifier:String { get }
 }
