@@ -37,20 +37,23 @@ final class VSaveDataListCellTitle:VSaveDataListCell
         return nil
     }
     
-    override func config(controller:CSaveData)
+    override func config(
+        controller:CSaveData,
+        model:MSaveDataProtocol)
     {
-        super.config(controller:controller)
+        super.config(
+            controller:controller,
+            model:model)
         
         guard
-            
-            let directories:[DVitaItemDirectory] = controller.model.item?.coredataModel?.items?.array as? [DVitaItemDirectory],
-            let name:String = directories.last?.sfoTitle
+        
+            let itemTitle:MSaveDataTitle = model as? MSaveDataTitle
         
         else
         {
             return
         }
         
-        label.text = name
+        label.text = itemTitle.title
     }
 }

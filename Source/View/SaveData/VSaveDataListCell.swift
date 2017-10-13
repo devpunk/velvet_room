@@ -36,7 +36,9 @@ class VSaveDataListCell:UICollectionViewCell
     
     //MARK: internal
     
-    func config(controller:CSaveData)
+    func config(
+        controller:CSaveData,
+        model:MSaveDataProtocol)
     {
         self.controller = controller
     }

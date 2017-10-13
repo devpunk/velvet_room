@@ -4,12 +4,16 @@ extension MSaveData
 {
     //MARK: internal
     
-    class func factoryContent() -> [MSaveDataProtocol]
+    class func factoryContent(
+        coredataModel:DVitaIdentifier) -> [MSaveDataProtocol]
     {
-        let itemTitle:MSaveDataTitle = MSaveDataTitle()
+        var items:[MSaveDataProtocol] = []
         
-        let items:[MSaveDataProtocol] = [
-            itemTitle]
+        if let itemTitle:MSaveDataTitle = MSaveDataTitle(
+            coredataModel:coredataModel)
+        {
+            items.append(itemTitle)
+        }
         
         return items
     }
