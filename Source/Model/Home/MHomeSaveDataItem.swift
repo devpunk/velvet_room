@@ -2,7 +2,7 @@ import UIKit
 
 final class MHomeSaveDataItem
 {
-    weak var coredataModel:DVitaIdentifier?
+    var coredataModel:DVitaIdentifier?
     let shortDescr:NSAttributedString
     let thumbnail:UIImage?
     

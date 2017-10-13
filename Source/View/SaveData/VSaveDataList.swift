@@ -71,6 +71,7 @@ final class VSaveDataList:VCollection<
         let cell:VSaveDataListCell = cellAtIndex(
             reusableIdentifier:item.reusableIdentifier,
             indexPath:indexPath)
+        cell.config(controller:controller)
         
         return cell
     }

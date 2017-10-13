@@ -28,6 +28,11 @@ class VCollection<A, Cell:UICollectionViewCell>:
         collectionView.dataSource = self
         self.collectionView = collectionView
         
+        if #available(iOS 11.0, *)
+        {
+            collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
+        }
+        
         addSubview(collectionView)
         
         NSLayoutConstraint.equals(

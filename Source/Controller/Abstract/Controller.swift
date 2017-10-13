@@ -61,6 +61,11 @@ class Controller<A>:UIViewController where A.M:Model<A>
         edgesForExtendedLayout = UIRectEdge()
         extendedLayoutIncludesOpaqueBars = false
         automaticallyAdjustsScrollViewInsets = false
+        
+        if #available(iOS 11.0, *)
+        {
+            additionalSafeAreaInsets = UIEdgeInsets.zero
+        }
     }
     
     override var preferredStatusBarStyle:UIStatusBarStyle
