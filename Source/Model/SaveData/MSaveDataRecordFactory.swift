@@ -83,13 +83,38 @@ extension MSaveDataRecord
         return dateFormatter
     }
     
-    static func factoryAttributesTitle() -> [NSAttributedStringKey:Any]
+    static func factoryAttributesTitle() -> [
+        NSAttributedStringKey:Any]
     {
         let attributes:[NSAttributedStringKey:Any] = [
             NSAttributedStringKey.font:
                 UIFont.regular(size:kTitleFontSize),
             NSAttributedStringKey.foregroundColor:
                 UIColor.colourBackgroundDark]
+        
+        return attributes
+    }
+    
+    static func factoryAttributesDescr() -> [
+        NSAttributedStringKey:Any]
+    {
+        let attributes:[NSAttributedStringKey:Any] = [
+            NSAttributedStringKey.font:
+                UIFont.regular(size:kDescrFontSize),
+            NSAttributedStringKey.foregroundColor:
+                UIColor(white:0.3, alpha:1)]
+        
+        return attributes
+    }
+    
+    static func factoryAttributesDate() -> [
+        NSAttributedStringKey:Any]
+    {
+        let attributes:[NSAttributedStringKey:Any] = [
+            NSAttributedStringKey.font:
+                UIFont.regular(size:kDateFontSize),
+            NSAttributedStringKey.foregroundColor:
+                UIColor(white:0.6, alpha:1)]
         
         return attributes
     }
