@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <objectMetadata>
-    <saveData savedataTitle="display name" dateTimeUpdated="2017-08-31T06:35:31+00:00" size="152220" title="sometitle" dirName="somedirname" ohfi="1" ohfiParent="14" parent="14" detail="asd" />
-    <folder name="another name" savedataTitle="display name" dateTimeUpdated="2017-08-31T06:35:31+00:00" size="0" title="sometitle" dirName="somedirname" ohfi="2" ohfiParent="1" parent="1" type="1" statusType="1" detail="asd" index="2" format="1"  />
+    <saveData savedataTitle="display name" dateTimeUpdated="2017-08-31T06:35:31+00:00" size="152220" title="sometitle" dirName="somedirname" ohfi="1" detail="asd" />
 </objectMetadata>

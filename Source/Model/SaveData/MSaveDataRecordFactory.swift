@@ -102,7 +102,7 @@ extension MSaveDataRecord
             NSAttributedStringKey.font:
                 UIFont.regular(size:kDescrFontSize),
             NSAttributedStringKey.foregroundColor:
-                UIColor(white:0.4, alpha:1)]
+                UIColor(white:0.5, alpha:1)]
         
         return attributes
     }
@@ -114,7 +114,7 @@ extension MSaveDataRecord
             NSAttributedStringKey.font:
                 UIFont.regular(size:kDateFontSize),
             NSAttributedStringKey.foregroundColor:
-                UIColor(white:0.6, alpha:1)]
+                UIColor(white:0.65, alpha:1)]
         
         return attributes
     }
