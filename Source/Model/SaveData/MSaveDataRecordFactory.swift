@@ -83,6 +83,17 @@ extension MSaveDataRecord
         return dateFormatter
     }
     
+    static func factoryAttributesTitle() -> [NSAttributedStringKey:Any]
+    {
+        let attributes:[NSAttributedStringKey:Any] = [
+            NSAttributedStringKey.font:
+                UIFont.regular(size:kTitleFontSize),
+            NSAttributedStringKey.foregroundColor:
+                UIColor.colourBackgroundDark]
+        
+        return attributes
+    }
+    
     static func factoryRecord(
         coredataModel:DVitaItemDirectory,
         dateFormatter:DateFormatter,
