@@ -30,6 +30,10 @@ final class VSaveDataListCellTitle:VSaveDataListCell
             view:label,
             toView:self,
             margin:kMarginHorizontal)
+        
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:label)
     }
     
     required init?(coder:NSCoder)

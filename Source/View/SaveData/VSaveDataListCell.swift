@@ -3,7 +3,7 @@ import UIKit
 class VSaveDataListCell:UICollectionViewCell
 {
     private(set) weak var controller:CSaveData?
-    private let kBorderMargin:CGFloat = 10
+    private(set) weak var border:VBorder!
     private let kBorderHeight:CGFloat = 1
     
     override init(frame:CGRect)
@@ -14,6 +14,7 @@ class VSaveDataListCell:UICollectionViewCell
         
         let border:VBorder = VBorder(
             colour:UIColor.colourBackgroundGray)
+        self.border = border
         
         addSubview(border)
         
@@ -23,10 +24,6 @@ class VSaveDataListCell:UICollectionViewCell
         NSLayoutConstraint.height(
             view:border,
             constant:kBorderHeight)
-        NSLayoutConstraint.equalsHorizontal(
-            view:border,
-            toView:self,
-            margin:kBorderMargin)
     }
     
     required init?(coder:NSCoder)

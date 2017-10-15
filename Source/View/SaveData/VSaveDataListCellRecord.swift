@@ -3,7 +3,8 @@ import UIKit
 final class VSaveDataListCellRecord:VSaveDataListCell
 {
     private weak var label:UILabel!
-    private let kMarginHorizontal:CGFloat = 10
+    private let kMarginRight:CGFloat = -10
+    private let kMarginLeft:CGFloat = 30
     
     override init(frame:CGRect)
     {
@@ -22,10 +23,18 @@ final class VSaveDataListCellRecord:VSaveDataListCell
         NSLayoutConstraint.equalsVertical(
             view:label,
             toView:self)
-        NSLayoutConstraint.equalsHorizontal(
+        NSLayoutConstraint.leftToLeft(
             view:label,
             toView:self,
-            margin:kMarginHorizontal)
+            constant:kMarginLeft)
+        NSLayoutConstraint.rightToRight(
+            view:label,
+            toView:self,
+            constant:kMarginRight)
+        
+        NSLayoutConstraint.equalsHorizontal(
+            view:border,
+            toView:label)
     }
     
     required init?(coder:NSCoder)

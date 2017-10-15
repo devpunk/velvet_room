@@ -17,6 +17,7 @@ final class VSaveDataList:VCollection<
         super.init(controller:controller)
         collectionView.alwaysBounceVertical = true
         registerCell(cell:VSaveDataListCellTitle.self)
+        registerCell(cell:VSaveDataListCellRecord.self)
     }
     
     required init?(coder:NSCoder)

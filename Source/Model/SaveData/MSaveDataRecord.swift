@@ -2,7 +2,7 @@ import UIKit
 
 struct MSaveDataRecord:MSaveDataProtocol
 {
-    let height:CGFloat = 150
-    let reusableIdentifier:String = VSaveDataListCellTitle.reusableIdentifier
+    let height:CGFloat = 160
+    let reusableIdentifier:String = VSaveDataListCellRecord.reusableIdentifier
     let record:NSAttributedString
 }

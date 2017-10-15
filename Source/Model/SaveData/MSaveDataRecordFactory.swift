@@ -3,9 +3,9 @@ import UIKit
 extension MSaveDataRecord
 {
     private static let kNewLine:String = "\n"
-    private static let kTitleFontSize:CGFloat = 16
-    private static let kDescrFontSize:CGFloat = 14
-    private static let kDateFontSize:CGFloat = 12
+    private static let kTitleFontSize:CGFloat = 15
+    private static let kDescrFontSize:CGFloat = 15
+    private static let kDateFontSize:CGFloat = 13
     
     //MARK: private
     
@@ -102,7 +102,7 @@ extension MSaveDataRecord
             NSAttributedStringKey.font:
                 UIFont.regular(size:kDescrFontSize),
             NSAttributedStringKey.foregroundColor:
-                UIColor(white:0.3, alpha:1)]
+                UIColor(white:0.4, alpha:1)]
         
         return attributes
     }
