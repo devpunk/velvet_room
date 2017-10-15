@@ -1,8 +1,11 @@
-import Foundation
+import UIKit
 
 extension MSaveDataRecord
 {
     private static let kNewLine:String = "\n"
+    private static let kTitleFontSize:CGFloat = 16
+    private static let kDescrFontSize:CGFloat = 14
+    private static let kDateFontSize:CGFloat = 12
     
     //MARK: private
     
@@ -70,6 +73,15 @@ extension MSaveDataRecord
     }
     
     //MARK: internal
+    
+    static func factoryDateFormatter() -> DateFormatter
+    {
+        let dateFormatter:DateFormatter = DateFormatter()
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        
+        return dateFormatter
+    }
     
     static func factoryRecord(
         coredataModel:DVitaItemDirectory,
