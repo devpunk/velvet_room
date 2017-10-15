@@ -12,7 +12,7 @@ final class MVitaXmlThumbnail
         thumbnailData:Data,
         completion:@escaping((Data?) -> ()))
     {
-        factoryXml(thumbnailData:thumbnailData)
+        factoryXml
         { (xmlData:Data?) in
             
             guard
@@ -25,8 +25,6 @@ final class MVitaXmlThumbnail
                 
                 return
             }
-            
-            print(String.init(data:xmlData, encoding:String.Encoding.utf8)!)
             
             factoryMetadata(
                 thumbnailData:thumbnailData,
