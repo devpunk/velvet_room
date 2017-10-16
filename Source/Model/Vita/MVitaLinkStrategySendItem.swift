@@ -28,6 +28,7 @@ final class MVitaLinkStrategySendItem:
     func changeStatus(
         statusType:MVitaLinkStrategySendItemProtocol.Type)
     {
+        print("send item status: \(statusType)")
         let status:MVitaLinkStrategySendItemProtocol = statusType.init()
         self.status = status
     }

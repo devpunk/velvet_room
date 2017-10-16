@@ -2,7 +2,7 @@ import Foundation
 
 extension MVitaLinkStrategySendItem
 {
-    func directoryFound(
+    private func directoryFound(
         directory:DVitaItemDirectory,
         handles:MVitaPtpMessageInEventHandles)
     {
