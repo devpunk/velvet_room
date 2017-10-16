@@ -12,7 +12,7 @@ extension MVitaXmlItem
         
         for directory:DVitaItemDirectory in directories
         {
-            let index:Int = modelSaveData.count + 1
+            let index:Int = modelSaveData.count
             
             guard
             

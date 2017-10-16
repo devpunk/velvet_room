@@ -73,6 +73,8 @@ final class MVitaLinkStrategySendItemMetadata:
                 return
             }
             
+            debugPrint(String.init(data:data, encoding:String.Encoding.utf8)!)
+            
             self?.sendData(
                 data:data,
                 event:event)
