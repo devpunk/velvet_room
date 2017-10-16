@@ -7,17 +7,16 @@ final class MVitaXmlItem
     
     private init() { }
     
-    private class func latestDirectories(
-        items:[DVitaIdentifier]) -> [DVitaItemDirectory]
+    private class func factoryDirectories(
+        items:[DVitaItem]) -> [DVitaItemDirectory]
     {
         var directories:[DVitaItemDirectory] = []
         
-        for item:DVitaIdentifier in items
+        for item:DVitaItem in items
         {
             guard
             
-                let directory:DVitaItemDirectory = latestsDirectory(
-                    item:item)
+                let directory:DVitaItemDirectory = item as? DVitaItemDirectory
             
             else
             {
@@ -30,28 +29,13 @@ final class MVitaXmlItem
         return directories
     }
     
-    private class func latestsDirectory(
-        item:DVitaIdentifier) -> DVitaItemDirectory?
-    {
-        guard
-        
-            let directory:DVitaItemDirectory = item.items?.lastObject as? DVitaItemDirectory
-        
-        else
-        {
-            return nil
-        }
-        
-        return directory
-    }
-    
     //MARK: internal
     
     class func factoryMetadata(
-        items:[DVitaIdentifier],
+        items:[DVitaItem],
         completion:@escaping((Data?) -> ()))
     {
-        let directories:[DVitaItemDirectory] = latestDirectories(
+        let directories:[DVitaItemDirectory] = factoryDirectories(
             items:items)
         
         factoryXml(
