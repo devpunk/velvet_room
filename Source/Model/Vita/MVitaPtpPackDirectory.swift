@@ -9,6 +9,7 @@ struct MVitaPtpPackDirectory:MVitaPtpPackProtocol
         configuration:MVitaConfiguration,
         parentHandle:UInt32)
     {
+        print("dire \(directory.identifier!.identifier!) \(parentHandle) format \(directory.format)")
         guard
             
             let name:String = directory.identifier?.identifier,

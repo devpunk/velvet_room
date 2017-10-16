@@ -21,7 +21,7 @@ extension MVitaLinkStrategySendItem
         }
         
         let parameters:[UInt32] = [
-            handles.parent]
+            handles.item]
         
         changeStatus(
             statusType:MVitaLinkStrategySendItemConfirm.self)
@@ -29,26 +29,5 @@ extension MVitaLinkStrategySendItem
             event:event,
             result:MVitaPtpResult.success,
             parameters:parameters)
-    }
-    
-    func sendInvalid()
-    {
-        guard
-            
-            let event:MVitaPtpMessageInEvent = self.event
-            
-        else
-        {
-            failed()
-            
-            return
-        }
-        
-        changeStatus(
-            statusType:MVitaLinkStrategySendItemInvalid.self)
-        model?.linkCommand.sendResult(
-            event:event,
-            result:MVitaPtpResult.invalidData,
-            parameters:[])
     }
 }
