@@ -3,25 +3,47 @@ import XmlHero
 
 extension MVitaXmlItem
 {
-    /*
- 
-     <?xml version="1.0" encoding="UTF-8" ?>
-     <objectMetadata>
-     <saveData savedataTitle="display name" dateTimeUpdated="2017-08-31T06:35:31+00:00" size="152220" title="sometitle" dirName="somedirname" ohfi="1" detail="asd" />
-     </objectMetadata>
- 
- */
-    
     //MARK: private
     
     private class func factoryMetadataModel(
-        directory:DVitaItemDirectory) -> [String:Any]?
+        directories:[DVitaItemDirectory]) -> [String:Any]
+    {
+        var modelSaveData:[[String:Any]] = []
+        
+        for directory:DVitaItemDirectory in directories
+        {
+            let index:Int = modelSaveData.count + 1
+            
+            guard
+            
+                let saveDataItem:[String:Any] = factorySaveData(
+                    directory:directory,
+                    index:index)
+            
+            else
+            {
+                continue
+            }
+            
+            modelSaveData.append(saveDataItem)
+        }
+        
+        let model:[String:Any] = [
+            MVitaXml.kKeyObjectMetadata:modelSaveData]
+        
+        return model
+    }
+    
+    private class func factorySaveData(
+        directory:DVitaItemDirectory,
+        index:Int) -> [String:Any]?
     {
         guard
             
             let modelContent:[String:Any] = factoryContentModel(
-                directory:directory)
-        
+                directory:directory,
+                index:index)
+            
         else
         {
             return nil
@@ -29,25 +51,13 @@ extension MVitaXmlItem
         
         let modelSaveData:[String:Any] = [
             MVitaXml.kKeySaveData:modelContent]
-        let model:[String:Any] = [
-            MVitaXml.kKeyObjectMetadata:modelSaveData]
         
-        return model
-    }
-    
-    private class func factoryDateModified(
-        directory:DVitaItemDirectory) -> String
-    {
-        let dateModified:Date = Date(
-            timeIntervalSince1970:directory.dateModified)
-        let dateModifiedString:String = MVitaPtpDate.factoryString(
-            date:dateModified)
-        
-        return dateModifiedString
+        return modelSaveData
     }
     
     private class func factoryContentModel(
-        directory:DVitaItemDirectory) -> [String:Any]?
+        directory:DVitaItemDirectory,
+        index:Int) -> [String:Any]?
     {
         guard
             
@@ -70,28 +80,31 @@ extension MVitaXmlItem
             MVitaXml.kKeySize:directory.size,
             MVitaXml.kKeyTitle:title,
             MVitaXml.kKeyDirName:dirName,
-            MVitaXml.kKeyDetail:detail]
+            MVitaXml.kKeyDetail:detail,
+            MVitaXml.kKeyIndex:index]
         
         return model
+    }
+    
+    private class func factoryDateModified(
+        directory:DVitaItemDirectory) -> String
+    {
+        let dateModified:Date = Date(
+            timeIntervalSince1970:directory.dateModified)
+        let dateModifiedString:String = MVitaPtpDate.factoryString(
+            date:dateModified)
+        
+        return dateModifiedString
     }
     
     //MARK: internal
     
     class func factoryXml(
-        directory:DVitaItemDirectory,
+        directories:[DVitaItemDirectory],
         completion:@escaping((Data?) -> ()))
     {
-        guard
-            
-            let model:[String:Any] = factoryMetadataModel(
-                directory:directory)
-        
-        else
-        {
-            completion(nil)
-            
-            return
-        }
+        let model:[String:Any] = factoryMetadataModel(
+            directories:directories)
         
         Xml.data(object:model)
         { (data:Data?, error:XmlError?) in
