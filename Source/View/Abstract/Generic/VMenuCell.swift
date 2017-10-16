@@ -1,6 +1,6 @@
 import UIKit
 
-class VMenuCell:UICollectionViewCell
+final class VMenuCell:UICollectionViewCell
 {
     private weak var imageView:UIImageView!
     

@@ -1,0 +1,10 @@
+"VConnectStart_button"="Start";
+"VConnectingLoading_labelTitle"="Connecting to PS Vita";
+"VConnectingPin_labelTitle"="Enter this Pin\non the PS Vita";
+"VConnectingTimeout_labelTitle"="Couldn't find PS Vita";
+"VConnectingTimeout_labelSubtitle"="\nCheck your PS Vita is\non the same wifi network,\nopen Content Manager Assistant\nand try again";
+"VConnectingError_labelTitle"="Error\n";
+"VConnectedOnBar_labelTitle"="Ready";
+"VConnectedErrorInfo_labelTitle"="Error\n";
+"VConnectedErrorClose_buttonTitle"="Close";
+"VHomeBar_labelTitle"="Saved games";

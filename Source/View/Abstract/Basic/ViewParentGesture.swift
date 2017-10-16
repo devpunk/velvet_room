@@ -2,6 +2,19 @@ import UIKit
 
 extension ViewParent:UIGestureRecognizerDelegate
 {
+    private typealias Router = (
+        (ViewParent) ->
+        (CGPoint, CGFloat) -> ())
+    
+    private static let kRouterMap:[
+        UIGestureRecognizerState:Router] = [
+            UIGestureRecognizerState.began:gestureStateBegan,
+            UIGestureRecognizerState.possible:gestureStateBegan,
+            UIGestureRecognizerState.changed:gestureStateChanged,
+            UIGestureRecognizerState.cancelled:gestureStateEnded,
+            UIGestureRecognizerState.ended:gestureStateEnded,
+            UIGestureRecognizerState.failed:gestureStateEnded]
+    
     //MARK: selectors
     
     @objc
@@ -10,75 +23,110 @@ extension ViewParent:UIGestureRecognizerDelegate
         let location:CGPoint = panGesture.location(in:self)
         let xPos:CGFloat = location.x
         
-        switch panGesture.state
+        guard
+        
+            let router:Router = ViewParent.kRouterMap[
+                panGesture.state]
+        
+        else
         {
-        case UIGestureRecognizerState.began,
-             UIGestureRecognizerState.possible:
-            
-            if xPos < kMaxXPanning
-            {
-                self.panningX = xPos
-            }
-            
-            break
-            
-        case UIGestureRecognizerState.changed:
-            
-            if let panningX:CGFloat = self.panningX
-            {
-                var deltaX:CGFloat = xPos - panningX
-                
-                if deltaX > kMaxXDelta
-                {
-                    panRecognizer.isEnabled = false
-                }
-                else
-                {
-                    if deltaX < 0
-                    {
-                        deltaX = 0
-                    }
-                    
-                    guard
-                        
-                        let topView:ViewMain = subviews.last as? ViewMain
-                        
-                        else
-                    {
-                        return
-                    }
-                    
-                    topView.layoutLeft.constant = deltaX
-                }
-            }
-            
-            break
-            
-        case UIGestureRecognizerState.cancelled,
-             UIGestureRecognizerState.ended,
-             UIGestureRecognizerState.failed:
-            
-            if let panningX:CGFloat = self.panningX
-            {
-                let deltaX:CGFloat = xPos - panningX
-                
-                if deltaX > kMinXDelta
-                {
-                    gesturePop()
-                }
-                else
-                {
-                    gestureRestore()
-                }
-            }
-            
-            panningX = nil
-            
-            break
+            return
         }
+        
+        router(self)(location, xPos)
     }
     
     //MARK: private
+    
+    private func gestureStateBegan(
+        location:CGPoint,
+        xPos:CGFloat)
+    {
+        if xPos < kMaxXPanning
+        {
+            self.panningX = xPos
+        }
+    }
+    
+    private func gestureStateChanged(
+        location:CGPoint,
+        xPos:CGFloat)
+    {
+        guard
+        
+            let panningX:CGFloat = self.panningX
+        
+        else
+        {
+            return
+        }
+        
+        let deltaX:CGFloat = xPos - panningX
+        
+        guard
+        
+            deltaX < kMaxXDelta
+        
+        else
+        {
+            panRecognizer.isEnabled = false
+            
+            return
+        }
+        
+        gesturePanTo(deltaX:deltaX)
+    }
+    
+    private func gestureStateEnded(
+        location:CGPoint,
+        xPos:CGFloat)
+    {
+        guard
+        
+            let panningX:CGFloat = self.panningX
+        
+        else
+        {
+            self.panningX = nil
+            
+            return
+        }
+        
+        let deltaX:CGFloat = xPos - panningX
+        
+        if deltaX > kMinXDelta
+        {
+            gesturePop()
+        }
+        else
+        {
+            gestureRestore()
+        }
+        
+        self.panningX = nil
+    }
+    
+    private func gesturePanTo(
+        deltaX:CGFloat)
+    {
+        var useDeltaX:CGFloat = deltaX
+        
+        if useDeltaX < 0
+        {
+            useDeltaX = 0
+        }
+        
+        guard
+            
+            let topView:ViewMain = subviews.last as? ViewMain
+            
+        else
+        {
+            return
+        }
+        
+        topView.layoutLeft.constant = useDeltaX
+    }
     
     private func gesturePop()
     {

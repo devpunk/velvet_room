@@ -1,6 +1,6 @@
 import UIKit
 
-class ControllerParent:UIViewController
+final class ControllerParent:UIViewController
 {
     var orientation:UIInterfaceOrientationMask
     let menu:MMenu

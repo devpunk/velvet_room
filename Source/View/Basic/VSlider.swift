@@ -1,14 +1,14 @@
 import UIKit
 
-class VSlider:UIView, UIGestureRecognizerDelegate
+final class VSlider:UIView
 {
-    private weak var viewBase:UIView!
-    private weak var viewBar:VSliderBar!
-    private weak var layoutBarWidth:NSLayoutConstraint!
-    private var sliderChange:((CGFloat) -> ())?
-    private var slidingFinished:(() -> ())?
-    private var panInitialWidth:CGFloat?
-    private var percentUsed:CGFloat
+    var panInitialWidth:CGFloat?
+    var percentUsed:CGFloat
+    private(set) weak var viewBase:UIView!
+    private(set) weak var viewBar:VSliderBar!
+    private(set) weak var layoutBarWidth:NSLayoutConstraint!
+    private(set) var sliderChange:((CGFloat) -> ())?
+    private(set) var slidingFinished:(() -> ())?
     private let kHorizontalMargin:CGFloat = 20
     private let kCornerRadius:CGFloat = 10
     private let kBorderWidth:CGFloat = 1
@@ -27,6 +27,24 @@ class VSlider:UIView, UIGestureRecognizerDelegate
         self.sliderChange = sliderChange
         self.slidingFinished = slidingFinished
         
+        factoryViews()
+    }
+    
+    required init?(coder:NSCoder)
+    {
+        return nil
+    }
+    
+    override func layoutSubviews()
+    {
+        super.layoutSubviews()
+        layoutSlider()
+    }
+    
+    //MARK: private
+    
+    private func factoryViews()
+    {
         let viewBase:UIView = UIView()
         viewBase.clipsToBounds = true
         viewBase.backgroundColor = UIColor(white:0.95, alpha:1)
@@ -59,56 +77,10 @@ class VSlider:UIView, UIGestureRecognizerDelegate
         layoutBarWidth = NSLayoutConstraint.width(
             view:viewBar)
         
-        let gesture:UIPanGestureRecognizer = UIPanGestureRecognizer(
-            target:self,
-            action:#selector(selectorPanning(sender:)))
-        gesture.delegate = self
+        let gesture:UIPanGestureRecognizer = factoryGestureRecognizer()
         
         addGestureRecognizer(gesture)
     }
-    
-    required init?(coder:NSCoder)
-    {
-        return nil
-    }
-    
-    override func layoutSubviews()
-    {
-        super.layoutSubviews()
-        layoutSlider()
-    }
-    
-    //MARK: selectors
-    
-    @objc
-    private func selectorPanning(sender gesture:UIPanGestureRecognizer)
-    {
-        switch gesture.state
-        {
-        case UIGestureRecognizerState.began,
-             UIGestureRecognizerState.possible:
-            
-            gestureBegan(gesture:gesture)
-            
-            break
-            
-        case UIGestureRecognizerState.changed:
-            
-            gestureChanged(gesture:gesture)
-            
-            break
-            
-        case UIGestureRecognizerState.ended,
-             UIGestureRecognizerState.failed,
-             UIGestureRecognizerState.cancelled:
-            
-            gestureEnded(gesture:gesture)
-            
-            break
-        }
-    }
-    
-    //MARK: private
     
     private func layoutSlider()
     {
@@ -117,86 +89,11 @@ class VSlider:UIView, UIGestureRecognizerDelegate
         layoutBarWidth.constant = percentWidth
     }
     
-    private func gestureBegan(gesture:UIPanGestureRecognizer)
-    {
-        panInitialWidth = layoutBarWidth.constant
-    }
-    
-    private func gestureChanged(gesture:UIPanGestureRecognizer)
-    {
-        guard
-            
-            let panInitialWidth:CGFloat = self.panInitialWidth
-            
-        else
-        {
-            return
-        }
-        
-        let width:CGFloat = viewBase.bounds.maxX
-        
-        if width > 0
-        {
-            let translationX:CGFloat = gesture.translation(in:self).x
-            var newWidth:CGFloat = panInitialWidth + translationX
-            
-            if newWidth < 0
-            {
-                newWidth = 0
-            }
-            else if newWidth > width
-            {
-                newWidth = width
-            }
-            
-            layoutBarWidth.constant = newWidth
-            let percentUsed:CGFloat = newWidth / width
-            self.percentUsed = percentUsed
-            
-            DispatchQueue.global(qos:DispatchQoS.QoSClass.background).async
-            { [weak self] in
-                
-                self?.sliderChange?(percentUsed)
-            }
-        }
-    }
-    
-    private func gestureEnded(gesture:UIPanGestureRecognizer)
-    {
-        panInitialWidth = nil
-        slidingFinished?()
-    }
-    
     //MARK: internal
     
     func changeSlider(percentUsed:CGFloat)
     {
         self.percentUsed = percentUsed
         layoutSlider()
-    }
-    
-    //MARK: gesture delegate
-    
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer:UIGestureRecognizer) -> Bool
-    {
-        guard
-        
-            let panning:UIPanGestureRecognizer = gestureRecognizer as? UIPanGestureRecognizer
-        
-        else
-        {
-            return false
-        }
-        
-        let velocity:CGPoint = panning.velocity(in:self)
-        let velocityX:CGFloat = fabs(velocity.x)
-        let velocityY:CGFloat = fabs(velocity.y)
-        
-        if velocityY > velocityX
-        {
-            return false
-        }
-        
-        return true
     }
 }

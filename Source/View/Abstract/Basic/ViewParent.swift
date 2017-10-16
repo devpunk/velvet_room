@@ -1,6 +1,6 @@
 import UIKit
 
-class ViewParent:UIView
+final class ViewParent:UIView
 {
     weak var panRecognizer:UIPanGestureRecognizer!
     var panningX:CGFloat?

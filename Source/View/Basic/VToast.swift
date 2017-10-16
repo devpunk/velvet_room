@@ -1,6 +1,6 @@
 import UIKit
 
-class VToast:UIView
+final class VToast:UIView
 {
     private static let kHeight:CGFloat = 60
     private weak var timer:Timer?

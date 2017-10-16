@@ -28,6 +28,11 @@ class VCollection<A, Cell:UICollectionViewCell>:
         collectionView.dataSource = self
         self.collectionView = collectionView
         
+        if #available(iOS 11.0, *)
+        {
+            collectionView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentBehavior.never
+        }
+        
         addSubview(collectionView)
         
         NSLayoutConstraint.equals(
@@ -101,6 +106,17 @@ class VCollection<A, Cell:UICollectionViewCell>:
     //MARK: collectionView delegate
     
     func scrollViewWillBeginDragging(_ scrollView:UIScrollView)
+    {
+    }
+    
+    func scrollViewDidEndDecelerating(
+        _ scrollView:UIScrollView)
+    {
+    }
+    
+    func scrollViewDidEndDragging(
+        _ scrollView:UIScrollView,
+        willDecelerate decelerate:Bool)
     {
     }
     

@@ -8,17 +8,26 @@ extension String
     
     static func localizedController(key:String) -> String
     {
-        return NSLocalizedString(key, tableName:kTableController, comment:"")
+        return NSLocalizedString(
+            key,
+            tableName:kTableController,
+            comment:String())
     }
     
     static func localizedModel(key:String) -> String
     {
-        return NSLocalizedString(key, tableName:kTableModel, comment:"")
+        return NSLocalizedString(
+            key,
+            tableName:kTableModel,
+            comment:String())
     }
     
     static func localizedView(key:String) -> String
     {
-        return NSLocalizedString(key, tableName:kTableView, comment:"")
+        return NSLocalizedString(
+            key,
+            tableName:kTableView,
+            comment:String())
     }
     
     func capitalizedFirstLetter() -> String

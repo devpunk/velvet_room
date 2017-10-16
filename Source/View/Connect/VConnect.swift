@@ -1,27 +1,24 @@
 import UIKit
 
-class VConnect:ViewMain
+final class VConnect:ViewMain
 {
+    private let kStartHeight:CGFloat = 64
+    private let kStartBottom:CGFloat = -90
+    
     required init(controller:UIViewController)
     {
         super.init(controller:controller)
         
-        let button:UIButton = UIButton()
-        button.translatesAutoresizingMaskIntoConstraints = false
-        button.setTitle("Connect", for:UIControlState.normal)
-        button.setTitleColor(
-            UIColor.black,
-            for:UIControlState.normal)
-        button.addTarget(
-            self,
-            action:#selector(selectorActionButton(sender:)),
-            for:UIControlEvents.touchUpInside)
+        guard
         
-        addSubview(button)
+            let controller:CConnect = controller as? CConnect
         
-        NSLayoutConstraint.equals(
-            view:button,
-            toView:self)
+        else
+        {
+            return
+        }
+        
+        factoryViews(controller:controller)
     }
     
     required init?(coder:NSCoder)
@@ -29,20 +26,32 @@ class VConnect:ViewMain
         return nil
     }
     
-    //MARK: selectors
+    //MARK: internal
     
-    @objc
-    private func selectorActionButton(sender button:UIButton)
+    func factoryViews(controller:CConnect)
     {
-        guard
+        let viewWalk:VConnectWalk = VConnectWalk(
+            controller:controller)
         
-            let controller:CConnect = self.controller as? CConnect
+        let viewStart:VConnectStart = VConnectStart(
+            controller:controller)
         
-        else
-        {
-            return
-        }
+        addSubview(viewWalk)
+        addSubview(viewStart)
         
-        controller.model.startWireless()
+        NSLayoutConstraint.equals(
+            view:viewWalk,
+            toView:self)
+        
+        NSLayoutConstraint.height(
+            view:viewStart,
+            constant:kStartHeight)
+        NSLayoutConstraint.bottomToBottom(
+            view:viewStart,
+            toView:self,
+            constant:kStartBottom)
+        NSLayoutConstraint.equalsHorizontal(
+            view:viewStart,
+            toView:self)
     }
 }

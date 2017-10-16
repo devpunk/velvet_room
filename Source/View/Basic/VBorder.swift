@@ -1,6 +1,6 @@
 import UIKit
 
-class VBorder:UIView
+final class VBorder:UIView
 {
     init(colour:UIColor)
     {

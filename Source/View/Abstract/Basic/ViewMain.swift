@@ -2,8 +2,8 @@ import UIKit
 
 class ViewMain:UIView, ViewProtocol
 {
-    let panBack:Bool = false
     private(set) weak var controller:UIViewController!
+    private(set) var panBack:Bool = false
     weak var layoutLeft:NSLayoutConstraint!
     weak var layoutRight:NSLayoutConstraint!
     weak var layoutTop:NSLayoutConstraint!

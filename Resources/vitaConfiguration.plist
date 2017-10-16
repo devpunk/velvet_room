@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>port</key>
+	<integer>9309</integer>
+	<key>lineSeparator</key>
+	<string>\r\n</string>
+	<key>storage</key>
+	<dict>
+		<key>storageId</key>
+		<real>65537</real>
+		<key>protectionStatus</key>
+		<real>56323</real>
+	</dict>
+	<key>directory</key>
+	<dict>
+		<key>associationType</key>
+		<integer>1</integer>
+		<key>associationDescr</key>
+		<real>56326</real>
+	</dict>
+	<key>broadcast</key>
+	<dict>
+		<key>searchCommand</key>
+		<string>SRCH</string>
+		<key>searchProtocol</key>
+		<string>HTTP/1.1</string>
+		<key>replyAvailable</key>
+		<string>HTTP/1.1 200 OK\r\nhost-id:%@\r\nhost-type:win\r\nhost-name:%@\r\nhost-mtp-protocol-version:01800010\r\nhost-request-port:%@\r\nhost-wireless-protocol-version:01000000\r\nhost-supported-device:PS Vita, PS Vita TV\r\n\0</string>
+		<key>replyOk</key>
+		<string>HTTP/1.1 200 OK\r\n</string>
+		<key>replyPinError</key>
+		<string>HTTP/1.1 610 NG\r\n</string>
+		<key>replyConnected</key>
+		<string>HTTP/1.1 210 OK\r\n</string>
+		<key>replyConnectingError</key>
+		<string>HTTP/1.1 605 NG\r\n</string>
+		<key>pinTitle</key>
+		<string>pin-code:</string>
+		<key>methodSeparator</key>
+		<string> *</string>
+	</dict>
+	<key>device</key>
+	<dict>
+		<key>deviceIdTitle</key>
+		<string>device-id:</string>
+		<key>devicePortTitle</key>
+		<string>device-port:</string>
+	</dict>
+	<key>local</key>
+	<dict>
+		<key>availableStorage</key>
+		<real>100000000</real>
+		<key>storageSize</key>
+		<real>100000000</real>
+	</dict>
+</dict>
+</plist>
