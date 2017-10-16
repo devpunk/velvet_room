@@ -15,12 +15,18 @@ extension MVitaXmlItem
     //MARK: private
     
     private class func factoryMetadataModel(
-        item:DVitaIdentifier,
-        directory:DVitaItemDirectory) -> [String:Any]
+        directory:DVitaItemDirectory) -> [String:Any]?
     {
-        let modelContent:[String:Any] = factoryContentModel(
-            item:item,
-            directory:directory)
+        guard
+            
+            let modelContent:[String:Any] = factoryContentModel(
+                directory:directory)
+        
+        else
+        {
+            return nil
+        }
+        
         let modelSaveData:[String:Any] = [
             MVitaXml.kKeySaveData:modelContent]
         let model:[String:Any] = [
@@ -29,12 +35,42 @@ extension MVitaXmlItem
         return model
     }
     
-    private class func factoryContentModel(
-        item:DVitaIdentifier,
-        directory:DVitaItemDirectory) -> [String:Any]
+    private class func factoryDateModified(
+        directory:DVitaItemDirectory) -> String
     {
+        let dateModified:Date = Date(
+            timeIntervalSince1970:directory.dateModified)
+        let dateModifiedString:String = MVitaPtpDate.factoryString(
+            date:dateModified)
+        
+        return dateModifiedString
+    }
+    
+    private class func factoryContentModel(
+        directory:DVitaItemDirectory) -> [String:Any]?
+    {
+        guard
+            
+            let saveDataTitle:String = directory.sfoSavedDataTitle,
+            let title:String = directory.sfoTitle,
+            let dirName:String = directory.identifier?.identifier,
+            let detail:String = directory.sfoSavedDataDetail
+        
+        else
+        {
+            return nil
+        }
+        
+        let dateModified:String = factoryDateModified(
+            directory:directory)
+        
         let model:[String:Any] = [
-            MVitaXml.kKeySaveDataTitle:]
+            MVitaXml.kKeySaveDataTitle:saveDataTitle,
+            MVitaXml.kKeyDateModified:dateModified,
+            MVitaXml.kKeySize:directory.size,
+            MVitaXml.kKeyTitle:title,
+            MVitaXml.kKeyDirName:dirName,
+            MVitaXml.kKeyDetail:detail]
         
         return model
     }
@@ -42,13 +78,20 @@ extension MVitaXmlItem
     //MARK: internal
     
     class func factoryXml(
-        item:DVitaIdentifier,
         directory:DVitaItemDirectory,
         completion:@escaping((Data?) -> ()))
     {
-        let model:[String:Any] = factoryMetadataModel(
-            item:item,
-            directory:DVitaItemDirectory)
+        guard
+            
+            let model:[String:Any] = factoryMetadataModel(
+                directory:directory)
+        
+        else
+        {
+            completion(nil)
+            
+            return
+        }
         
         Xml.data(object:model)
         { (data:Data?, error:XmlError?) in

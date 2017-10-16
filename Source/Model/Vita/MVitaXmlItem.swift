@@ -35,11 +35,12 @@ final class MVitaXmlItem
         
         else
         {
+            completion(nil)
+            
             return
         }
         
         factoryXml(
-            item:item,
             directory:directory,
             completion:completion)
     }
